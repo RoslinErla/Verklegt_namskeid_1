@@ -1,4 +1,4 @@
-class AiplaneUI():
+class AirplaneUI():
     def __init__(self,LLAPI):
         pass
 
