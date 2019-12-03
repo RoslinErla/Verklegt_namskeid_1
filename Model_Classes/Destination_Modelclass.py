@@ -5,3 +5,9 @@ class Destination():
 
     def __str__(self):
         pass
+
+    def get_destinantion_id(self):
+        return self.__destination_id
+
+    def get_destinantion_name(self):
+        return self.__destination_name
