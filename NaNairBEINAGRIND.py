@@ -2,26 +2,26 @@
 #     def __init__(self,LLAPI):
 #         pass
 
-#     def addPlane(self):
+#     def add_plane(self):
 #         pass
 
-#     def changePlane(self):
+#     def change_plane(self):
 #         pass
 
-#     def displayPlane(self):
+#     def display_plane(self):
 #         pass
 
 # class VoyageUI():
 #     def __init__(self,LLAPI):
 #         pass
 
-#     def addVoyage(self):
+#     def add_voyage(self):
 #         pass
 
-#     def changeVoyage(self):
+#     def change_voyage(self):
 #         pass
 
-#     def displayVoyage(self):
+#     def display_voyage(self):
 #         pass
 
 # class employeeUI():
