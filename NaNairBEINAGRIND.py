@@ -1,70 +1,70 @@
-class AirplaneUI():
-    def __init__(self,LLAPI):
-        pass
+# class AirplaneUI():
+#     def __init__(self,LLAPI):
+#         pass
 
-    def addPlane(self):
-        pass
+#     def addPlane(self):
+#         pass
 
-    def changePlane(self):
-        pass
+#     def changePlane(self):
+#         pass
 
-    def displayPlane(self):
-        pass
+#     def displayPlane(self):
+#         pass
 
-class VoyageUI():
-    def __init__(self,LLAPI):
-        pass
+# class VoyageUI():
+#     def __init__(self,LLAPI):
+#         pass
 
-    def addVoyage(self):
-        pass
+#     def addVoyage(self):
+#         pass
 
-    def changeVoyage(self):
-        pass
+#     def changeVoyage(self):
+#         pass
 
-    def displayVoyage(self):
-        pass
+#     def displayVoyage(self):
+#         pass
 
-class employeeUI():
-    def __init__(self,LLAPI):
-        pass
+# class employeeUI():
+#     def __init__(self,LLAPI):
+#         pass
 
-    def addEmployee(self):
-        pass
+#     def addEmployee(self):
+#         pass
 
-    def changeEmployee(self):
-        pass
+#     def changeEmployee(self):
+#         pass
 
-    def displayEmployee(self):
-        pass
+#     def displayEmployee(self):
+#         pass
 
-class flightUI():
-    def __init__(self,LLAPI):
-        pass
+# class flightUI():
+#     def __init__(self,LLAPI):
+#         pass
 
-    def addFlight(self):
-        pass
+#     def addFlight(self):
+#         pass
 
-    def changeFligth(self):
-        pass
+#     def changeFligth(self):
+#         pass
 
-    def displayFlight(self):
-        pass
+#     def displayFlight(self):
+#         pass
 
-class destinationUI():
-    def __init__(self,LLAPI):
-        pass
+# class destinationUI():
+#     def __init__(self,LLAPI):
+#         pass
 
-    def addFlight(self):
-        pass
+#     def addFlight(self):
+#         pass
 
-    def addDestination(self,LLAPI):
-        pass
+#     def addDestination(self,LLAPI):
+#         pass
 
-    def changeDestination(self,LLAPI):
-        pass
+#     def changeDestination(self,LLAPI):
+#         pass
 
-    def displayDestination(self,LLAPI):
-        pass
+#     def displayDestination(self,LLAPI):
+#         pass
 
 
 class Airplane():
