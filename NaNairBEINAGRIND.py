@@ -160,9 +160,6 @@ class EmployeeLL(employee):
     def get_phoneNumber(self):
         pass
 
-    def get_gsm(self):
-        pass
-
     def get_email(self):
         pass
 
