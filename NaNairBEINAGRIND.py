@@ -130,7 +130,7 @@ class AirplaneLL(Airplane):
     def validateInfo(self):
         pass
 
-class voyageLL(voyage):
+class voyageLL(Voyage):
     def __init__(self):
         pass
 
