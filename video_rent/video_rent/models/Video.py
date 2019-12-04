@@ -14,6 +14,7 @@ class Video:
     def get_title(self):
         return self.__title
     
+    
     def get_genre(self):
         return self.__genre
     
