@@ -1,5 +1,5 @@
 class Flight():
-    def __init__(self, departing_from, departure_time, arriving_at, arrival_time, aircraft_ID, captain, co_pilot, fsm, fa1, fa2):
+    def __init__(self, departing_from, departure_time, arriving_at, arrival_time, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number):
         self.__departing_from = departing_from
         self.__departure_time = departure_time
         self.__arriving_at = arriving_at
@@ -10,6 +10,7 @@ class Flight():
         self.__fsm = fsm
         self.__fa1 = fa1
         self.__fa2 = fa2
+        self.__flight_number = flight_number
 
     def __str__(self):
         pass
