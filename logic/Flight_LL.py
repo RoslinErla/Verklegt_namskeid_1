@@ -21,7 +21,7 @@ class FlightLL(Flight):
                     if letter.isalpha and len(self.inp) == 3:
                         return True
 
-    #def validate_departure_time(self):
+    #def validate_departure_time(self):  # Þarf líklega ekki að validate-a, útfært sem datetime í UI
         #pass
 
     def validate_arriving_at(self, arriving_at):  # Check if string only has alphabetical letters and is 3 letters long
@@ -31,7 +31,7 @@ class FlightLL(Flight):
                     if letter.isalpha and len(self.inp) == 3:
                         return True
     
-    #def validate_arrival_time(self):
+    #def validate_arrival_time(self): # Þarf líklega ekki að validate-a, útfært sem datetime í UI
         #pass
 
     # def validate_aircraft_ID(self):  Þarf líklegast að import-a frá Airplane_LL
