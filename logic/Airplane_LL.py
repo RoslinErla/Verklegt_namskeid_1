@@ -1,4 +1,4 @@
-from model.AirplaneM import Airplane
+from AirplaneM import Airplane
 import string
 
 class AirplaneLL(Airplane):
