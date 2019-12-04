@@ -6,6 +6,18 @@ def validate_ssn(ssn):
     else:
         print("{} is invalid".format(ssn))
 
+def validate_phone_number(phone_number):
+    if type(phone_number) == int and len(str(phone_number)) == 7:
+        print("mamma")
+    else:
+        print("{} is invalid".format(phone_number))
 
-ssn = 2609003230
-validate_ssn(ssn)
+def validate_rank(rank):
+    if rank.lower() == "flight attendant" or rank.lower() == "flight service manager" \
+        or rank.lower() == "co-pilot" or rank.lower() == "captain":
+        print("mamma")
+    else:
+        print("GUÐJÓN")
+
+rank = "Co-mom"
+validate_rank(rank)
