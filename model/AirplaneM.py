@@ -1,6 +1,6 @@
 class Airplane():
-    def __init__(self, plane_type, type_ID, plane_insignia, model): #, capacity=0, empty_weight=0, max_takeoff_weight=0, length=0, height=0, wingspan=0):
-            self.__plane_type = plane_type
+    def __init__(self, manufacturer, type_ID, plane_insignia, model): #, capacity=0, empty_weight=0, max_takeoff_weight=0, length=0, height=0, wingspan=0):
+            self.__manufacturer = manufacturer
             self.__type_ID = type_ID
             self.__plane_insignia = plane_insignia
             self.__model = model
@@ -14,5 +14,14 @@ class Airplane():
     def __str__(self):
         return self.__plane_type
     
-    def get_something():
-        pass
+    def get_manufacturer(self):
+        return self.__manufacturer
+    
+    def get_typeID(self):
+        return self.__type_ID
+    
+    def get_plane_insignia(self):
+        return self.plane_insignia
+
+    def get_model(self):
+        return self.model

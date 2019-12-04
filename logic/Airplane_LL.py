@@ -4,18 +4,38 @@ import string
 class Airplane_LL(Airplane):
     def __init__(self, inp):
         self.inp = inp
-    
-plane_type, type_ID, plane_insignia, model
 
-    def validate_info(self):
-        if type(self.inp) == str:
-            for word in self.inp:
+    
+
+    def strip_split_inp(self):
+        split_stripped = self.inp.strip().split(", ")
+
+
+    def validate_manufacturer(self, manufacturer):
+        if type(manufacturer) == str:
+            for word in manufacturer:
                 for letter in word:
                     if letter.isalpha:
-                        next
-                    elif letter == "-":
-                        next
-                    else:
-                        print("Oopsie")
-                        break
+                        return True
+
+    def validate_typeID(self, typeID):
+        if type(typeID) == str:
+            for word in typeID:
+                for letter in word:
+                    if letter.isalpha or letter.isdigit:
+                        return True
+
+    def validate_plane_insignia(self, plane_insignia):
+        if type(plane_insignia) == str:
+            for word in plane_insignia:
+                for letter in word:
+                    if letter.isalpha or letter == "-":
+                        return True
+
+    def validate_model(self, model):
+        if type(typeID) == str:
+            for word in model:
+                for letter in word:
+                    if letter.isalpha or letter.isdigit:
+                        return True
 
