@@ -1,4 +1,4 @@
-from model.flight_model import Flight
+from model.flightM import Flight
 
 class Voyage(Flight):
     def __init__(self, employee, flight_out, flight_home):
