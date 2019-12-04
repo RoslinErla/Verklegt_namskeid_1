@@ -6,3 +6,4 @@ alpha.validate_info()
 
 
 from model.flightM import Flight
+from model.VoyageM import Voyage
