@@ -59,8 +59,8 @@ class FlightLL(Flight):
         if len(fa2) == 10:
             return True
 
-    def validate_flight_number(self): # Check if the id is 10 numbers
-        if len(captain) == 10:
+    def validate_flight_number(self, flight_number): # Check if the id is 10 numbers
+        if len(flight_number) == 10:
             return True
 
 
