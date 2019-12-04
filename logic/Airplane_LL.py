@@ -1,5 +1,6 @@
-from AirplaneM import Airplane
+from ..model.AirplaneM import Airplane
 import string
+
 
 class AirplaneLL(Airplane):
     def __init__(self, inp):
@@ -16,7 +17,6 @@ class AirplaneLL(Airplane):
                 else:
                     print("Oopsie")
                     break
-
 
 alpha = AirplaneLL("10")
 alpha.validate_info()
