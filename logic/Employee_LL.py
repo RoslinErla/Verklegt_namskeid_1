@@ -10,23 +10,6 @@ class EmployeeLL(Employee_Model):
     def change_employee(self):
         pass
 
-    def get_name(self):
-        pass
-
-    def get_ID(self):
-        pass
-
-    def get_address(self):
-        pass
-
-    def get_phoneNumber(self):
-        pass
-
-    def get_email(self):
-        pass
-
-    def get_flight(self):
-        pass
 
     def validateInfo(self):
         pass
