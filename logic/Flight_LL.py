@@ -4,9 +4,9 @@ import string
 
 class FlightLL(Flight):
 
-    def __init__(self):
+    def __init__(self, inp):
         # self.__IOAPI = IOAPI()
-        pass
+        self.inp = inp
 
     def add_flight(self):
         pass
