@@ -12,7 +12,7 @@ class Airplane():
             self.__wingspan = wingspan
     
     def __str__(self):
-        pass
+        return self.__plane_type
     
     def get_something():
         pass
