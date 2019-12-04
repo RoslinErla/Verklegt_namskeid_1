@@ -1,9 +1,16 @@
 <<<<<<< HEAD
 Flugvélar: planeInsignia(nafn), planeTypeId(gerð)
-Upplýsingar um flugvélar: planTypeId(nafn gerð), planeType(framleiðandi), model(módel gerðar), capacity(rúmgeta, hversu margir komast fyrir), empty weight(þyngd tómrar vélar), max takeoff weight(burðarþol vélar), unitThrust(eldsneytis nýting vélar), serviceCeiling(hve hátt getur vélin flogið), length(lengd vélar), height(hæð vélar), wingspan(vænghaf vélar)
+Upplýsingar um flugvélar: planTypeId(nafn gerð), planeType(framleiðandi), model(módel gerðar), capacity(rúmgeta,
+hversu margir komast fyrir), empty weight(þyngd tómrar vélar), max takeoff weight(burðarþol vélar),
+unitThrust(eldsneytis nýting vélar), serviceCeiling(hve hátt getur vélin flogið), length(lengd vélar),
+height(hæð vélar), wingspan(vænghaf vélar)
 Starfsmenn: ssn(kennitala vélar), name(nafn starfsmanns), role(starf), rank(staða), license(flugleyfi)
-Fyrrverandi flug: flightNumber(flugnúmer), departingFrom(brotfararstaður), arrivingAt(áfangastaður), departure(farartími), arrival(komutími), aircraftID(nafn vélar), captain(kafteinn), copilot(aðstoðarflugmaður), fsm(), fa1, fa2
-Uppkomandi glug: flightNumber(flugnúmer), departingFrom(brotfararstaður), arrivingAt(áfangastaður), departure(farartími), arrival(komutími)
+Fyrrverandi flug: flightNumber(flugnúmer), departingFrom(brotfararstaður), arrivingAt(áfangastaður),
+departure(farartími), arrival(komutími), aircraftID(nafn vélar), captain(kafteinn), copilot(aðstoðarflugmaður),
+fsm(), fa1, fa2
+
+Uppkomandi glug:
+flightNumber(flugnúmer), departingFrom(brotfararstaður), arrivingAt(áfangastaður), departure(farartími), arrival(komutími)
 Áfangastaðir: id(nafn í flugskrám), destination(nafn staðar)
 =======
 Flugvélar:
