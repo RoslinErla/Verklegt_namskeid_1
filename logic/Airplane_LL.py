@@ -1,4 +1,5 @@
-from Airplane_Modelclass import Airplane
+from AirplaneM import Airplane
+import string
 class AirplaneLL(Airplane):
     def __init__(self, inp):
         self.inp = inp
@@ -7,7 +8,10 @@ class AirplaneLL(Airplane):
     def validate_info(self):
         if type(self.inp) == str:
             for word in self.inp:
-                try:
+                if word.isalpha == True:
+                    next
+                
+                else: 
                     assert word != ""
                     assert word != "0"
                     assert word != "1"
