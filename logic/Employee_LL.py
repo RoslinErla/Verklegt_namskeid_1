@@ -1,4 +1,6 @@
-class EmployeeLL(Employee_Model):
+from model.employeeM import Employee
+
+class EmployeeLL(Employee):
 
     def __init__(self):
         # self.__IOAPI = IOAPI()
