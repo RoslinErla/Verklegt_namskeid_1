@@ -1,5 +1,6 @@
 from model.AirplaneM import Airplane
 import string
+
 class AirplaneLL(Airplane):
     def __init__(self, inp):
         self.inp = inp
