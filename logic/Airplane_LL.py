@@ -5,7 +5,7 @@ class AirplaneLL(Airplane):
     def __init__(self, inp):
         self.inp = inp
 
-    def make_inp_dict(self):
+    def strip_split(self):
         split_stripped = self.inp.strip().split(", ")
         validate_manufacturer(split_stripped[0])
         validate_typeID(split_stripped[1])
@@ -14,17 +14,17 @@ class AirplaneLL(Airplane):
 
     def validate_manufacturer(self):
         if type(self.inp) == str:
-            for word in self.inp:
-                for letter in word:
-                    if letter.isalpha:
-                        return True
+            for letter in self.inp:
+                if letter.isalpha == False:
+                        return False
+        return True
 
     def validate_typeID(self):
         if type(self.inp) == str:
-            for word in self.inp:
-                for letter in word:
-                    if letter.isalpha or letter.isdigit:
-                        return True
+            for letter in self.inp:
+                if letter.isalpha == False and letter.isdigit == False:
+                    return False
+        return True
 
     def validate_plane_insignia(self):
         if type(self.inp) == str:
@@ -34,16 +34,17 @@ class AirplaneLL(Airplane):
                 return False
             for num, letter in enumerate(self.inp):
                 if letter != "-" and num == 2:
-                    if letter.isalpha() == False:
-                        return False                
+                    return False
+                if letter.isalpha() == False:
+                    return False                
         return True
 
     def validate_model(self):
-        if type(typeID) == str:
-            for word in self.inp:
-                for letter in word:
-                    if letter.isalpha or letter.isdigit:
-                        return True
+        if type(self.inp) == str:
+            for letter in self.inp:
+                if letter.isalpha == False and letter.isdigit == False:
+                    return False
+        return True
 
     # def create_plane(self, ):
 
