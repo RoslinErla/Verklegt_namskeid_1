@@ -10,4 +10,4 @@ class Voyage(Flight):
     def __str__(self):
         pass
 
-        
+
