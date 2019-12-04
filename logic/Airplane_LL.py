@@ -28,12 +28,15 @@ class AirplaneLL(Airplane):
 
     def validate_plane_insignia(self):
         if type(self.inp) == str:
+            if self.inp[0:3] != "TF-":
+                return False
+            if len(self.inp) != 6:
+                return False
             for num, letter in enumerate(self.inp):
                 if letter != "-" and num == 2:
                     if letter.isalpha() == False:
                         return False                
         return True
-
 
     def validate_model(self):
         if type(typeID) == str:
