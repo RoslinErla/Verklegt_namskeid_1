@@ -34,3 +34,9 @@ class Employee_LL():
             self.__ssn = ssn
         else:
             print("{} is invalid".format(ssn))
+
+    def add_employee(self):
+        pass
+
+    def change_employee(self):
+        pass

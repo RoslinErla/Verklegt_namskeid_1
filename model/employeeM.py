@@ -4,7 +4,6 @@ class Employee():
     def __init__(self,name,ssn,address,phone_number,email,rank, permits = "", status = "At work"):
         self.__name = name
         self.__ssn= ssn
-        self.__address = address
         self.__phone_number = phone_number
         self.__email = email
         self.__rank = rank
@@ -18,11 +17,8 @@ class Employee():
     def get_name(self):
         return self.__name
 
-    def get_ID(self):
-        return self.__id
-
-    def get_address(self):
-        return self.__address
+    def get_ssn(self):
+        return self.__ssn
 
     def get_phoneNumber(self):
         return self.__phone_number
