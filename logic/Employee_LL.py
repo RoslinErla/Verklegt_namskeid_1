@@ -19,13 +19,6 @@ class Employee_LL():
     def change_employee(self):
         pass
 
-<<<<<<< HEAD
-
-    def validateInfo(self):
-        pass
-
-
-=======
     def validate_name(self,name):
         """Checks if name is valid and returns an error message if its not"""
         name = name.split()
@@ -41,4 +34,3 @@ class Employee_LL():
             self.__ssn = ssn
         else:
             print("{} is invalid".format(ssn))
->>>>>>> 7fdbd1326a0231f7b18c3ff4e509d1446d1b2d32
