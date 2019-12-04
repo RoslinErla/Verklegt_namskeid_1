@@ -12,7 +12,6 @@ class VoyageLL(Voyage):
     def change_voyage(self):
         pass
 
-
     def validate_employee(self):
         pass
 
