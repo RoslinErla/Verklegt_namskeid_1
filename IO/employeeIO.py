@@ -8,8 +8,17 @@ class employeeIO:
     def __init__(self):
         pass
 
-    def load_employee_from_file_alphabetically(self):
+    def load_employee_from_file_alphabetically(self,sort_type):
+        with open(SELF.__EMPLOYEE_FILE, "r") as the_file:
+            csv
         pass
+
+    def sort_to_display(self, a_list, sort_type):
+        if sort_type == "alpha":
+            pass
+
+        elif sort_type =="status":
+            pass
 
     def load_employee_from_file_by_status(self):
         pass
