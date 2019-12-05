@@ -1,11 +1,8 @@
-from model.AirplaneM import Airplane
 from logic.Airplane_LL import AirplaneLL
 
 class AirplaneUI:
     def __init__(self):
-        self.__airplane = Airplane
-        self.__airplanell = AirplaneLL
-
+        airplanell = AirplaneLL()
     def airplane_menu(self):
         action = ""
         while action != "b" or action != "q":
@@ -24,24 +21,24 @@ class AirplaneUI:
 
     def create_plane(self):
         new_plane = []
-        manufacturer = input("Enter the manufacturer: ").lower()
-        while manufacturer.validate_manufacturer == False:
+        manufacturer = self.airplanell(input("Enter the manufacturer: ").lower())
+        while manufacturer.validate_manufacturer() == False:
             print("{} is invalid").format(manufacturer)
             manufacturer = input("Enter the manufacturer: ").lower()
 
-        type_ID = input("Enter the type ID: ").lower()
+        type_ID = self.__airplanell(input("Enter the type ID: ").lower())
         while type_ID.validate_typeID == False:
             print("{} is invalid").format(type_ID)
             type_ID = input("Enter the type ID: ").lower()
 
-        plane_insignia = input("Enter the plane insignia: ").lower()
+        plane_insignia = self.__airplanell(input("Enter the plane insignia: ").lower())
         while plane_insignia.validate_plane_insignia == False:
             print("{} is invalid").format(plane_insignia)
             plane_insignia = input("Enter the plane insignia: ").lower()
 
-        model = input("Enter the model: ").lower()
+        model = self.__airplanell(input("Enter the model: ").lower())
         while model.validate_model == False:
             print("{} is invalid").format(model)
             model = input("Enter the model: ").lower()
-        new_plane.append(manufacturer, type_ID, plane_insignia, model)
+        create_plane(manufacturer, type_ID, plane_insignia, model)
         return new_plane
