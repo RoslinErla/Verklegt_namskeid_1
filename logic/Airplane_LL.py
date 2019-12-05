@@ -5,43 +5,49 @@ class AirplaneLL(Airplane):
     def __init__(self, inp):
         self.inp = inp
 
-    def make_inp_dict(self):
-        split_stripped = self.inp.strip().split(", ")
-        validate_manufacturer(split_stripped[0])
-        validate_typeID(split_stripped[1])
-        validate_plane_insignia(split_stripped[2])      
-        model(split_stripped[3])
+    # def strip_split(self):
+    #     """ Strips and splits "inp" and then runs each bit of that through the appropiet validate functions """
+    #     split_stripped = self.inp.strip().split(",")
+    #     if validate_manufacturer(split_stripped[0]) == True and validate_typeID(split_stripped[1]) == True and validate_plane_insignia(split_stripped[2]) == True and model(split_stripped[3]) == True:
+    #         return split_stripped
 
     def validate_manufacturer(self):
+        """ Validates whether "self" """
         if type(self.inp) == str:
-            for word in self.inp:
-                for letter in word:
-                    if letter.isalpha:
-                        return True
+            for letter in self.inp:
+                if not letter.isalpha:
+                        return False
+            return True
+        return False
 
     def validate_typeID(self):
         if type(self.inp) == str:
-            for word in self.inp:
-                for letter in word:
-                    if letter.isalpha or letter.isdigit:
-                        return True
+            for letter in self.inp:
+                if not letter.isalpha and not letter.isdigit:
+                    return False
+            return True
+        return False
 
     def validate_plane_insignia(self):
         if type(self.inp) == str:
+            if self.inp[0:3] != "TF-" or len(self.inp) != 6:
+                return False
             for num, letter in enumerate(self.inp):
-                if letter != "-" and num == 2:
-                    if letter.isalpha() == False:
-                        return False                
-        return True
-
+                if not letter.isalpha() and (letter != "-" and num == 2):
+                    return False
+            return True
+        return False
 
     def validate_model(self):
-        if type(typeID) == str:
-            for word in self.inp:
-                for letter in word:
-                    if letter.isalpha or letter.isdigit:
-                        return True
+        if type(self.inp) == str:
+            for letter in self.inp:
+                if not letter.isalpha and not letter.isdigit:
+                    return False
+            return True
+        return False
 
-    # def create_plane(self, ):
-
-    # def change_plane(self, ):
+    def create_plane(self):
+        plane_info = strip_split()
+        
+    def change_plane(self, ):
+        plane_info = strip_split()

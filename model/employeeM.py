@@ -1,30 +1,38 @@
 
-class Employee_Model():
+class Employee():
 
-    def __init__(self,name,ID,address,phone_number,email):
+    def __init__(self,name,ssn,address,phone_number,user_name,rank, permits = "", status = "At work"):
         self.__name = name
-        self.__id= ID
-        self.__address = address
+        self.__ssn= ssn
         self.__phone_number = phone_number
-        self.__email = email
+        self.__user_name = user_name
+        self.__rank = rank
+        self.__permit = permits
+        self.__status = status
+
 
     def __str__(self):
-        pass
+        return "{},{},{},{},{},{},{},{}".format(self.__name, self.__ssn, self.__phone_number,self.__user_name,self.__rank, self.__permit,self.__status)
 
     def get_name(self):
-        pass
+        return self.__name
 
-    def get_ID(self):
-        pass
-
-    def get_address(self):
-        pass
+    def get_ssn(self):
+        return self.__ssn
 
     def get_phoneNumber(self):
-        pass
+        return self.__phone_number
 
-    def get_email(self):
-        pass
+    def get_user_name(self):
+        return self.__user_name
+    
+    def get_rank(self):
+        return self.__rank
 
-    def get_flight(self):
-        pass
+    def get_permit(self):
+        return self.__permit
+
+    def get_status(self):
+        return self.__status
+
+
