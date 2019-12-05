@@ -6,46 +6,45 @@ class AirplaneLL(Airplane):
         self.inp = inp
 
     def strip_split(self):
-        split_stripped = self.inp.strip().split(", ")
-        validate_manufacturer(split_stripped[0])
-        validate_typeID(split_stripped[1])
-        validate_plane_insignia(split_stripped[2])      
-        model(split_stripped[3])
+        """ Strips and splits "inp" and then runs each bit of that through the appropiet validate functions """
+        split_stripped = self.inp.strip().split(",")
+        if validate_manufacturer(split_stripped[0]) == True and validate_typeID(split_stripped[1]) == True and validate_plane_insignia(split_stripped[2]) == True and model(split_stripped[3]) == True:
+            return split_stripped
 
-    def validate_manufacturer(self):
-        if type(self.inp) == str:
-            for letter in self.inp:
-                if letter.isalpha == False:
+    def validate_manufacturer(self, manufacturer):
+        """ Validates whether "self" """
+        if type(manufacturer) == str:
+            for letter in manufacturer:
+                if not letter.isalpha:
                         return False
-        return True
+            return True
 
-    def validate_typeID(self):
-        if type(self.inp) == str:
-            for letter in self.inp:
-                if letter.isalpha == False and letter.isdigit == False:
+    def validate_typeID(self, typeID):
+        if type(typeID) == str:
+            for letter in typeID:
+                if not letter.isalpha and not letter.isdigit:
                     return False
-        return True
+            return True
 
-    def validate_plane_insignia(self):
-        if type(self.inp) == str:
-            if self.inp[0:3] != "TF-":
+    def validate_plane_insignia(self, plane_insignia):
+        if type(plane_insignia) == str:
+            if plane_insignia[0:3] != "TF-" or len(plane_insignia) != 6:
                 return False
-            if len(self.inp) != 6:
-                return False
-            for num, letter in enumerate(self.inp):
-                if letter != "-" and num == 2:
+            for num, letter in enumerate(plane_insignia):
+                if (letter != "-" and num == 2) or not letter.isalpha():
                     return False
-                if letter.isalpha() == False:
-                    return False                
-        return True
+            return True
+        return False
 
-    def validate_model(self):
-        if type(self.inp) == str:
-            for letter in self.inp:
-                if letter.isalpha == False and letter.isdigit == False:
+    def validate_model(self, model):
+        if type(model) == str:
+            for letter in model:
+                if not letter.isalpha and not letter.isdigit:
                     return False
-        return True
+            return True
 
-    # def create_plane(self, ):
-
-    # def change_plane(self, ):
+    def create_plane(self):
+        plane_info = strip_split()
+        
+    def change_plane(self, ):
+        plane_info = strip_split()
