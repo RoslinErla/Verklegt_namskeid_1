@@ -6,8 +6,8 @@ from logic.Airplane_LL import AirplaneLL
 from logic.Voyage_LL import VoyageLL
 from logic.Employee_LL import EmployeeLL
 
-alpha = AirplaneLL("TF-CAR")
-alpha.validate_plane_insignia()
+alpha = AirplaneLL("F28")
+alpha.validate_model()
 
 test = EmployeeLL("HRABBA")
 test.validate_name()
