@@ -12,7 +12,7 @@ class Airplane():
             # self.__wingspan = wingspan
     
     def __str__(self):
-        return self.__plane_type
+        pass
     
     def get_manufacturer(self):
         return self.__manufacturer
@@ -21,7 +21,7 @@ class Airplane():
         return self.__type_ID
     
     def get_plane_insignia(self):
-        return self.plane_insignia
+        return self.__plane_insignia
 
     def get_model(self):
-        return self.model
+        return self.__model
