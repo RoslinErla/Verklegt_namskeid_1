@@ -14,29 +14,39 @@ class AirplaneUI:
             print('\t3. enter "3" to display planes within the system.')
             print('Enter "b" to go back and "q" to got to the main menu.')
 
-            action = input("Please enter your command: ").lower()
-
+            action = input("Please enter your command: ")
+            action = action.lower()
             if action == "1":
-                new_plane = self.create_plane()
+                new_plane = self.call_on_validate_and_create()
 
-    def create_plane(self):
+    def call_on_validate_and_create(self):
+        action = ""
         new_plane = []
-        while not self.airplanell.validate_manufacturer(input("Enter the manufacturer: ").lower()):
-            print("Input is invalid")
+        while action != "b" or action != "B":
+            action = input("Enter the manufacturer: ")
+            while not self.airplanell.validate_manufacturer(action):
+                print("Input is invalid")
+                action = input("Enter the manufacturer: ")
+            new_plane.append(action)
 
-        type_ID = self.__airplanell(input("Enter the type ID: ").lower())
-        while type_ID.validate_typeID == False:
-            print("{} is invalid").format(type_ID)
-            type_ID = input("Enter the type ID: ").lower()
+            action = input("Enter the type ID: ")
+            action = action
+            while not self.airplanell.validate_typeID(action):
+                print("Input is invalid")
+                action = input("Enter the type ID: ")
+            new_plane.append(action)
 
-        plane_insignia = self.__airplanell(input("Enter the plane insignia: ").lower())
-        while plane_insignia.validate_plane_insignia == False:
-            print("{} is invalid").format(plane_insignia)
-            plane_insignia = input("Enter the plane insignia: ").lower()
+            action = input("Enter the plane insignia: ")
+            while not self.airplanell.validate_plane_insignia(action):
+                print("Input is invalid")
+                action = input("Enter the plane insignia: ")
+            new_plane.append(action)
 
-        model = self.__airplanell(input("Enter the model: ").lower())
-        while model.validate_model == False:
-            print("{} is invalid").format(model)
-            model = input("Enter the model: ").lower()
-        create_plane(manufacturer, type_ID, plane_insignia, model)
-        return new_plane
+            action = input("Enter the model: ")
+            while not self.airplanell.validate_model(action):
+                print("Input is invalid")
+                action = input("Enter the model: ")
+            new_plane.append(action)
+            new_plane = self.airplanell.create_plane(new_plane)
+            return new_plane
+            action = "b"
