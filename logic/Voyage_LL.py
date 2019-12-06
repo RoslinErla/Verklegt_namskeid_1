@@ -4,7 +4,7 @@ from IO.employeeIO import employeeIO
 
 import string
 
-class VoyageLL(Voyage):
+class VoyageLL():
 
     def __init__(self):
         pass  
@@ -62,23 +62,22 @@ class VoyageLL(Voyage):
         if len(captain) == 10:
             return True
         
-        # Validate-a að nafn starfsmanns sé á skrá
+        # Kalla á fallið check_if_exist
        
-
 
     def validate_co_pilot(self, co_pilot): # Check if the id is 10 numbers
         """ Validates that the co-pilot's SSN is 10 letters long"""
         if len(co_pilot) == 10:
             return True
 
-        # Validate-a að nafn starfsmanns sé á skrá
+        # Kalla á fallið check_if_exist
 
     def validate_fsm(self, fsm): # Check if the id is 10 numbers
         """ Validates that the flight service manager's SSN is 10 letters long"""
         if len(fsm) == 10:
             return True
         
-        # Validate-a að nafn starfsmanns sé á skrá
+        # Kalla á fallið check_if_exist
         
         
     def validate_fa1(self, fa1): # Check if the id is 10 numbers
@@ -86,14 +85,14 @@ class VoyageLL(Voyage):
         if len(fa1) == 10:
             return True
         
-        # Validate-a að nafn starfsmanns sé á skrá
+        # Kalla á fallið check_if_exist
 
     def validate_fa2(self, fa2): # Check if the id is 10 numbers
         """ Validates that the flight servant's SSN is 10 letters long"""
         if len(fa2) == 10:
             return True
 
-        # Validate-a að nafn starfsmanns sé á skrá
+        # Kalla á fallið check_if_exist
 
     def validate_flight_number(self, flight_number): # Check if the id is 10 numbers
         """ Validates that the flight number is 10 letters long"""
@@ -102,6 +101,10 @@ class VoyageLL(Voyage):
     
 
     def check_if_exist(self):
+        # Validate-a að nafn starfsmanns sé á skrá
+        # mögulega aðra hluti .. 
+        # importa frá IO employee
+        pass
 
         
     

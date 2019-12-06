@@ -7,12 +7,12 @@ class VoyageIO:
     def __init__(self):
         self.__voyage_list = list()
 
-    def load_voyage_from_file(self,sort_type):
+    def load_voyage_from_file(self):
         with open(self.VOYAGE_FILE, "r") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
-                voyage = Voyage(line["departure time out"],line["arriving abroad"],
-                line["arrival time abroad"], line["departure time to RVK"],
+                voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
+                line["arrival time abroad"], line["departing to RVK"], line["departure time to RVK"],
                 line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
                 line["fsm"], line["fa1"],line["fa2"], line["flight_number"], line["status"])
                 self.__voyage_list.append(voyage)
