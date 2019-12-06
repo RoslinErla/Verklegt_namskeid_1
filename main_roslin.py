@@ -3,5 +3,5 @@ from IO.employeeIO import employeeIO
 
 
 a = employeeIO()
-
-print(a.load_employee_from_file("alpha"))
+a.load_employee_from_file("status")
+print(a)

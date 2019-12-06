@@ -1,7 +1,6 @@
 from model.employeeM import Employee
 import csv
 
-
 class employeeIO:
     EMPLOYEE_FILE = "./files/employee.csv"
 
@@ -12,29 +11,31 @@ class employeeIO:
         with open(self.EMPLOYEE_FILE, "r") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
-                employee = Employee(line["Name"],line["SSN"],line["Phone_number"],["User_name"],["Rank"],["Permits"],["Status"])
+                employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permits"],line["Status"])
                 self.__employee_list.append(employee)
+
         if sort_type == "alpha":
             sorted_list = self.sort_to_display(self.__employee_list, sort_type)
         
         elif sort_type == "status":
             sorted_list = self.sort_to_display(self.__employee_list, sort_type)
         
-        sorted_list = self.__str__(sorted_list)        
-        return sorted_list
+        self.__employee_list = sorted_list
 
-    def __str__(self,the_list):
-        return_str = ""
-        for lists in the_list:
-            return_str += lists
-        return return_str
+    def __str__(self):
+        strengur = ''
+        for employee in self.__employee_list:
+            strengur += employee.__str__() + '\n'
+        return strengur
 
     def sort_to_display(self, a_list, sort_type):
         if sort_type == "alpha":
-            return sorted(a_list)
+            a_list.sort(key = lambda x: x.get_name())
+            return a_list
 
         elif sort_type =="status":
-            return a_list.sort(key = lambda x: x[7])
+            a_list.sort(key = lambda x: x.get_status())
+            return a_list
 
     def Add_employee_to_file(self, name, ssn, phone, user_name, rank, permits, status):
         with open(self.EMPLOYEE_FILE, "a", newline = "") as csvfile:
