@@ -5,7 +5,7 @@ class AirplaneUI:
         self.airplanell = AirplaneLL()
     def airplane_menu(self):
         action = ""
-        while action != "b" or action != "q":
+        if action != "b" or action != "q":
             print("\tAirplane Menu")
             print()
             print('The following actions are possible:')
@@ -64,7 +64,7 @@ class AirplaneUI:
             print('Enter "b" to go back and "q" to got to the main menu.')
 
             action = input("Please enter your command: ")
-            while sub_action = 1 and (action != "b" or action != "B"):
+            while sub_action == 1 and (action != "b" or action != "B"):
                 action = input("Enter the manufacturer: ")
                 while not self.airplanell.validate_manufacturer(action):
                     print("Input is invalid")
