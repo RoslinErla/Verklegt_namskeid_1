@@ -1,4 +1,4 @@
-#from logic.Airplane_LL import AirplaneLL
+from logic.Airplane_LL import AirplaneLL
 
 class AirplaneUI:
     def __init__(self):
@@ -23,7 +23,7 @@ class AirplaneUI:
         new_plane = []
         while not self.airplanell.validate_manufacturer(input("Enter the manufacturer: ").lower()):
             print("Input is invalid")
-            
+
         type_ID = self.__airplanell(input("Enter the type ID: ").lower())
         while type_ID.validate_typeID == False:
             print("{} is invalid").format(type_ID)
