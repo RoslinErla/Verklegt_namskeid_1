@@ -5,7 +5,7 @@ class AirplaneUI:
         self.airplanell = AirplaneLL()
     def airplane_menu(self):
         action = ""
-        while action != "b" or action != "q":
+        if action != "b" or action != "q":
             print("\tAirplane Menu")
             print()
             print('The following actions are possible:')
