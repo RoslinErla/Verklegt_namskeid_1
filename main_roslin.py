@@ -1,9 +1,9 @@
-from model.employeeM import Employee
-from IO.employeeIO import employeeIO
+from model.VoyageM import Voyage
+from IO.voyageIO import VoyageIO
 
 
-a = employeeIO()
-a.load_employee_from_file("status")
+a = VoyageIO()
+a.load_voyage_from_file()
 print(a)
 
 inp = input()
