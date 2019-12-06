@@ -34,7 +34,6 @@ class VoyageUI:
             self.display_menu()
         
         
-
     
     def create_menu(self):
         action_create = ""
@@ -97,8 +96,12 @@ class VoyageUI:
             input("Enter destination: ")
     
     def new_voyage(self):
-        pass
-        # Veit ekki hvað á að vera hér .. 
+        input("Enter the name and SSN of the captain: ")
+        input("Enter the name and SSN of the co-pilot: ")
+        input("Enter the name and SSN of the flight service manager: ")
+        input("Enter the name and SSN of the flight servant: ")
+        
+        # Setja inn starfsmenn (flugmenn og flugþjóna)
     
     def new_destination(self):
         input("Enter flight number: ") # Ekki viss um að flight number eigi að vera hér... 
