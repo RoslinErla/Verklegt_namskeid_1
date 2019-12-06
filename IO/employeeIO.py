@@ -8,10 +8,10 @@ class employeeIO:
         self.__employee_list = list()
 
     def load_employee_from_file(self,sort_type):
-        with open(self.EMPLOYEE_FILE, "r") as the_file:
+        with open(self.EMPLOYEE_FILE, "r", encoding="Latin-") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
-                employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permits"],line["Status"])
+                employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Status"],line["Permit"])
                 self.__employee_list.append(employee)
 
         if sort_type == "alpha":
@@ -38,7 +38,7 @@ class employeeIO:
             return a_list
 
     def Add_employee_to_file(self, name, ssn, phone, user_name, rank, permits, status):
-        with open(self.EMPLOYEE_FILE, "a", newline = "") as csvfile:
+        with open(self.EMPLOYEE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([name,ssn,phone, user_name, rank, permits, status])
 
