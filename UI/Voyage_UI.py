@@ -6,7 +6,7 @@ from model.VoyageM import Voyage
 class VoyageUI:
 
     def __init__(self):
-        self.__ll_voyage = VoyageLL("inp")
+        self.__ll_voyage = VoyageLL()
 
     def create_flight(self):   # Bæta við ferð ... ?
         pass
@@ -98,10 +98,17 @@ class VoyageUI:
         input("Enter the name and SSN of the flight servant: ")
 
         # Setja inn starfsmenn (flugmenn og flugþjóna)
-        
+
     
     def new_destination(self):
-        input("Enter flight number: ") # Ekki viss um að flight number eigi að vera hér... 
+        destination_action = ""
+        destination = ""
+        if destination_action != "b" or destination_action != "B":
+            destination_action = input("Enter flight number: ") # Ekki viss um að flight number eigi að vera hér... 
+            while not self.__ll_voyage.validate_flight_number(destination_action):
+                print("Input is invalid")
+                destination_action = input("Enter flight number: ")
+            destination += destination_action + ","
         input("Enter airport: ")
         input("Enter flight-time: ")
         input("Enter distance from Iceland: ") 
