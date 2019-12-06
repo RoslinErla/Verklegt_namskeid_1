@@ -24,7 +24,7 @@ class AirplaneUI:
     def call_on_validate_and_create(self):
         action = ""
         new_plane = []
-        while action != "b" or action != "B":
+        if action != "b" or action != "B":
             action = input("Enter the manufacturer: ")
             while not self.airplanell.validate_manufacturer(action):
                 print("Input is invalid")
