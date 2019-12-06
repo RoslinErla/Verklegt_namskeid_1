@@ -1,5 +1,7 @@
 from model.VoyageM import Voyage
 
+from IO.employeeIO import employeeIO
+
 import string
 
 class VoyageLL(Voyage):
@@ -59,6 +61,8 @@ class VoyageLL(Voyage):
         """ Validates that the captain's SSN is 10 letters long"""
         if len(captain) == 10:
             return True
+        
+        # Validate-a að nafn starfsmanns sé á skrá
        
 
 
@@ -66,28 +70,41 @@ class VoyageLL(Voyage):
         """ Validates that the co-pilot's SSN is 10 letters long"""
         if len(co_pilot) == 10:
             return True
-        
+
+        # Validate-a að nafn starfsmanns sé á skrá
 
     def validate_fsm(self, fsm): # Check if the id is 10 numbers
         """ Validates that the flight service manager's SSN is 10 letters long"""
         if len(fsm) == 10:
             return True
         
+        # Validate-a að nafn starfsmanns sé á skrá
+        
         
     def validate_fa1(self, fa1): # Check if the id is 10 numbers
         """ Validates that the flight servant's SSN is 10 letters long"""
         if len(fa1) == 10:
             return True
+        
+        # Validate-a að nafn starfsmanns sé á skrá
 
     def validate_fa2(self, fa2): # Check if the id is 10 numbers
         """ Validates that the flight servant's SSN is 10 letters long"""
         if len(fa2) == 10:
             return True
 
+        # Validate-a að nafn starfsmanns sé á skrá
+
     def validate_flight_number(self, flight_number): # Check if the id is 10 numbers
         """ Validates that the flight number is 10 letters long"""
         if len(flight_number) == 10:
             return True
+    
+
+    def check_if_exist(self):
+
+        
+    
 
 
 
