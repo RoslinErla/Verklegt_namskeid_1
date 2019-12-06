@@ -40,7 +40,7 @@ class AirplaneLL(Airplane):
         return False
 
     def validate_model(self, model):
-        """  """
+        """ validates whether "model" is a string and whether or not it's letters are numerals or in the alphabet. """
         if type(model) == str:
             for letter in model:
                 if not letter.isalpha() and not letter.isdigit():
