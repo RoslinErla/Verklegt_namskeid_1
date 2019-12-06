@@ -2,11 +2,11 @@ from model.VoyageM import Voyage
 
 class VoyageLL(Voyage):
 
-    def __init__(self):
+    def __init__(self, inp):
         # self.__IOAPI = IOAPI()
         self.inp = inp
 
-    def add_voyage(self):
+    def create_voyage(self):
         pass
 
     def change_voyage(self):

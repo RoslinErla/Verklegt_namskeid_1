@@ -6,4 +6,10 @@
 # from logic.Voyage_LL import VoyageLL
 # from logic.Employee_LL import EmployeeLL
 
-input("Enter something: ").lower()
+
+from logic.Voyage_LL import VoyageLL
+from model.VoyageM import Voyage
+from UI.Voyage_UI import VoyageUI
+
+a = VoyageUI()
+a.voyage_menu()

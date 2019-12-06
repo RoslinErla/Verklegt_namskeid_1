@@ -1,4 +1,4 @@
-from logic.Airplane_LL import AirplaneLL
+#from logic.Airplane_LL import AirplaneLL
 
 class AirplaneUI:
     def __init__(self):

@@ -1,4 +1,4 @@
-from model.VoyageM import Voyage
+
 
 class Voyage():
     def __init__(self, departing_from, departure_time, arriving_at, arrival_time, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number):
