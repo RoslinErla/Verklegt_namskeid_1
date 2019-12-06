@@ -10,7 +10,8 @@ class Destination():
         self.__contact_phone_number = contact_phone_number
 
     def __str__(self):
-        pass
+        return "{},{},{},{},{},{},{},{}".format(self.__destination_id, self.__destination_name, self.__county, self.__airport,
+        self.__flight_time, self.__distance, self.__contact_name, self.__contact_phone_number)
 
     def get_destinantion_id(self):
         return self.__destination_id

@@ -10,6 +10,9 @@ class Employee():
         self.__permit = permits
         self.__status = status
 
+    def __str__(self):
+        return "{},{},{},{},{},{},{}".format(self.__name, self.__ssn, self.__phone_number,self.__user_name,self.__rank, self.__permit,self.__status)
+
 
     def get_name(self):
         return self.__name

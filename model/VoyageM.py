@@ -21,11 +21,10 @@ class Voyage():
         self.__flight_number = flight_number
         self.__status = status
     
-
+    def __str__(self):
+        return "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}".format(self.__departing_from_out, self.__departure_time_out, self.__arriving_at_out,self.__arrival_time_out,self.__departing_from_home, self.__departing_time_home,self.__arrival_time_home,self.__aircraft_ID,self.__captain,self.__co_pilot,self.__fsm,self.__fa1,self.__fa2,self.__flight_number,self.__status)
+  
     def get_departure_time_out(self):
         return self.__departure_time_out
-
-    def __str__(self):
-        pass
 
 

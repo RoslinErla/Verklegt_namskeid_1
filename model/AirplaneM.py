@@ -4,15 +4,9 @@ class Airplane():
             self.__type_ID = type_ID
             self.__plane_insignia = plane_insignia
             self.__model = model
-            # self.__capacity = capacity
-            # self.__empty_weight = empty_weight
-            # self.__max_takeoff_weight = max_takeoff_weight
-            # self.__length = length
-            # self.__height = height
-            # self.__wingspan = wingspan
     
     def __str__(self):
-        pass
+        return "{},{},{},{}".format(self.__manufacturer, self.__type_ID, self.__plane_insignia, self.__model)
     
     def get_manufacturer(self):
         return self.__manufacturer
