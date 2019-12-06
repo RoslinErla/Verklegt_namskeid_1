@@ -11,7 +11,6 @@ class VoyageUI:
     def create_flight(self):   # Bæta við ferð ... ?
         pass
 
-
     def voyage_menu(self): 
         action = ""
         if (action != "q" or "b"):
@@ -32,8 +31,7 @@ class VoyageUI:
             
         if action == "3":
             self.display_menu()
-        
-        
+               
     
     def create_menu(self):
         action_create = ""
@@ -69,9 +67,7 @@ class VoyageUI:
         if action_change == "2":
             self.change_emergency_contact()
         
-        
-    
-
+            
     def display_menu(self):
         action_display = ""
         if (action_display != "q" or "b"):
@@ -100,8 +96,9 @@ class VoyageUI:
         input("Enter the name and SSN of the co-pilot: ")
         input("Enter the name and SSN of the flight service manager: ")
         input("Enter the name and SSN of the flight servant: ")
-        
+
         # Setja inn starfsmenn (flugmenn og flugþjóna)
+        
     
     def new_destination(self):
         input("Enter flight number: ") # Ekki viss um að flight number eigi að vera hér... 
