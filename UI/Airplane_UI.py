@@ -20,6 +20,10 @@ class AirplaneUI:
                 self.call_on_validate_and_create()
             if action == "2":
                 self.call_on_validate_and_change()
+            if action == "3":
+                pass
+            if action == "b":
+                break
 
     def call_on_validate_and_create(self):
         action = ""
@@ -63,8 +67,9 @@ class AirplaneUI:
             print('\t3. enter "3" to display planes within the system.')
             print('Enter "b" to go back and "q" to got to the main menu.')
 
-            action = input("Please enter your command: ")
-            while sub_action == 1 and (action != "b" or action != "B"):
+            sub_action = input("Please enter your command: ")
+
+            if sub_action == 1 and (action != "b" or action != "B"):
                 action = input("Enter the manufacturer: ")
                 while not self.airplanell.validate_manufacturer(action):
                     print("Input is invalid")
