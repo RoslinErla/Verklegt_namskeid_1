@@ -11,7 +11,7 @@ class AirplaneLL(Airplane):
     #         return split_stripped
 
     def validate_manufacturer(self, manufacturer):
-        """ Validates whether "self" """
+        """ Validates whether "manufacturer" is a string and whether or not every letter is a part of the alphabet. """
         if type(manufacturer) == str:
             for letter in manufacturer:
                 if not letter.isalpha():
@@ -20,6 +20,7 @@ class AirplaneLL(Airplane):
         return False
 
     def validate_typeID(self, type_ID):
+        """ validates whether "type_ID" is a string and if every letter is either a numeral or a part of the alphabet """
         if type(type_ID) == str:
             for letter in type_ID:
                 if not letter.isalpha() and not letter.isdigit():
@@ -28,6 +29,7 @@ class AirplaneLL(Airplane):
         return False
 
     def validate_plane_insignia(self, plane_insignia):
+        """ Validates whether "plane_insignia" is a string, if it has the right format and whether or not every letter, outside of "-" is a part of the alphabet """
         if type(plane_insignia) == str:
             if plane_insignia[0:3] != "TF-" or len(plane_insignia) != 6:
                 return False
@@ -38,6 +40,7 @@ class AirplaneLL(Airplane):
         return False
 
     def validate_model(self, model):
+        """  """
         if type(model) == str:
             for letter in model:
                 if not letter.isalpha() and not letter.isdigit():
@@ -46,7 +49,7 @@ class AirplaneLL(Airplane):
         return False
 
     def create_plane(self, new_plane):
-        return "Pass"
+        pass
         
-    def change_plane(self, ):
-        plane_info = strip_split()
+    def change_plane(self, change_plane):
+        pass
