@@ -8,7 +8,7 @@ class employeeIO:
         self.__employee_list = list()
 
     def load_employee_from_file(self,sort_type):
-        with open(self.EMPLOYEE_FILE, "r", encoding="Latin-") as the_file:
+        with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
                 employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Status"],line["Permit"])

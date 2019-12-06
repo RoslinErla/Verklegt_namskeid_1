@@ -2,7 +2,7 @@ from model.AirplaneM import Airplane
 import csv
 
 class AirplaneIO:
-    AIRPLANE_FILE = "./files/employee.csv"
+    AIRPLANE_FILE = "./files/airplane.csv"
 
     def __init__(self):
         self.__airplane_list = list()
@@ -11,17 +11,17 @@ class AirplaneIO:
         with open(self.AIRPLANE_FILE, "r") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
-                employee = Airplane(line["Manufacturer"],line["Type-ID"],line["Plane_insignia"],line["Model"])
-                self.__airplane_list.append(employee)
+                airplane = Airplane(line["Manufacturer"],line["Type-ID"],line["Plane_insignia"],line["Model"])
+                self.__airplane_list.append(airplane)
         sorted_list = self.sort_to_display(self.__airplane_list)
         
-        self.__employee_list = sorted_list
+        self.__airplane_list = sorted_list
 
     def __str__(self):
-        strengur = ''
-        for airplane in self.__employee_list:
-            strengur += airplane.__str__() + '\n'
-        return strengur
+        return_str = ''
+        for airplane in self.__airplane_list:
+            return_str += airplane.__str__() + '\n'
+        return return_str
 
     def sort_to_display(self, a_list):
         a_list.sort(key = lambda x: x.get_manufacturer())
