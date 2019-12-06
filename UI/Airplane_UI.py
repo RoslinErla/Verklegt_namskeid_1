@@ -2,7 +2,7 @@
 
 class AirplaneUI:
     def __init__(self):
-        airplanell = AirplaneLL()
+        self.airplanell = AirplaneLL()
     def airplane_menu(self):
         action = ""
         while action != "b" or action != "q":
@@ -21,11 +21,9 @@ class AirplaneUI:
 
     def create_plane(self):
         new_plane = []
-        manufacturer = self.airplanell(input("Enter the manufacturer: ").lower())
-        while manufacturer.validate_manufacturer() == False:
-            print("{} is invalid").format(manufacturer)
-            manufacturer = input("Enter the manufacturer: ").lower()
-
+        while not self.airplanell.validate_manufacturer(input("Enter the manufacturer: ").lower()):
+            print("Input is invalid")
+            
         type_ID = self.__airplanell(input("Enter the type ID: ").lower())
         while type_ID.validate_typeID == False:
             print("{} is invalid").format(type_ID)

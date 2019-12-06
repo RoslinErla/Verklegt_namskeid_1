@@ -1,7 +1,7 @@
 
 
 class Voyage():
-    def __init__(self, departing_from, departure_time, arriving_at, arrival_time, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number):
+    def __init__(self, departing_from, departure_time, arriving_at, arrival_time, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number, status = "Available"):
     
         self.__departing_from_out = departing_from   #The flight from rvk to destination
         self.__departure_time_out = departure_time
@@ -20,7 +20,11 @@ class Voyage():
         self.__fa1 = fa1
         self.__fa2 = fa2
         self.__flight_number = flight_number
+        self.__status = status
     
+
+    def get_departure_time_out(self):
+        return self.__departure_time_out
 
     def __str__(self):
         pass
