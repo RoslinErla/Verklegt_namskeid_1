@@ -1,5 +1,6 @@
 from logic.Voyage_LL import VoyageLL
 from model.VoyageM import Voyage
+from logic.Destination_LL import DestinationLL
 
 
 
@@ -7,8 +8,9 @@ class VoyageUI:
 
     def __init__(self):
         self.__ll_voyage = VoyageLL()
+        self.__ll_destination = DestinationLL()
 
-    def create_flight(self):   # Bæta við ferð ... ?
+    def create_voyage(self):  
         pass
 
     def voyage_menu(self): 
@@ -100,20 +102,51 @@ class VoyageUI:
         # Setja inn starfsmenn (flugmenn og flugþjóna)
 
     
-    def new_destination(self):
+    def new_destination(self):   # Vantar mögulega Land (country)
         destination_action = ""
         destination = ""
-        if destination_action != "b" or destination_action != "B":
-            destination_action = input("Enter flight number: ") # Ekki viss um að flight number eigi að vera hér... 
+        if destination_action != "b" or destination_action != "B": 
+            destination_action = input("Enter flight number: ") 
             while not self.__ll_voyage.validate_flight_number(destination_action):
                 print("Input is invalid")
                 destination_action = input("Enter flight number: ")
-            destination += destination_action + ","
-        input("Enter airport: ")
-        input("Enter flight-time: ")
-        input("Enter distance from Iceland: ") 
-        input("Enter name of emergency contact: ")
-        input("Enter emergency contact's phone number: ")
+            destination += destination_action
+    
+        if destination_action  != "b" or destination_action != "B":
+            destination_action = input("Enter airport: ")
+            while not self.__ll_destination.validate_airport_name(destination_action):
+                print("Input is invalid") 
+                destination_action = input("Enter airport: ")
+            destination += destination_action    
+
+        #if destination_action  != "b" or destination_action != "B": 
+            destination_action = input("Enter flight-time: ")
+            #while not self.__ll_destination.validate_flight_time(destination_action):
+                #print("Input is invalid")
+                #destination_action = input("Enter flight-time: ")
+            #destination += destination_action    
+        
+        if destination_action  != "b" or destination_action != "B": 
+            destination_action = input("Enter distance from Iceland: ")
+            while not self.__ll_destination.validate_distance(destination_action):
+                print("Input is invalid")
+                destination_action = input("Enter distance from Iceland: ")
+            destination += destination_action   
+        
+        if destination_action  != "b" or destination_action != "B": 
+            destination_action = input("Enter name of emergency contact: ")
+            while not self.__ll_destination.validate_contact_name(destination_action):
+                print("Input is invalid")
+                destination_action = input("Enter name of emergency contact: ")
+            destination += destination_action 
+        
+        if destination_action  != "b" or destination_action != "B":
+            destination_action = input("Enter emergency contact's phone number: ")    
+            while not self.__ll_destination.validate_contact_number(destination_action):
+                print("Invalid input")
+                destination_action = input("Enter emergency contact's phone number: ")
+            destination += destination_action 
+                
 
     
     def change_voyage_state(self):
