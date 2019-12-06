@@ -1,1 +1,3 @@
-Name,SSN,Address,Phone_number,User_name,Rank,Permits,Status
+Name,SSN,Address,Phone_number,User_name,Rank,Status,Permit
+Róslín Erla Tómasdóttir,2609003230, Sunnuhlíð 7, 8411579,roslin,pilot,at work,
+Guðjón, 1234567891,Sunnuhlíð 7, 1234567, gudjon, flight attendant, not at work,
