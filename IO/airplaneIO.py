@@ -8,7 +8,7 @@ class AirplaneIO:
         self.__airplane_list = list()
 
     def load_airplane_from_file(self):
-        with open(self.AIRPLANE_FILE, "r") as the_file:
+        with open(self.AIRPLANE_FILE, "r", encoding = "Latin-1") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
                 airplane = Airplane(line["Manufacturer"],line["Type-ID"],line["Plane_insignia"],line["Model"])
@@ -28,6 +28,6 @@ class AirplaneIO:
         return a_list
 
     def Add_airplane_to_file(self,manufacturer, type_ID, plane_insignia, model):
-        with open(self.AIRPLANE_FILE, "a", newline = " ") as csvfile:
+        with open(self.AIRPLANE_FILE, "a",encoding = "Latin-1", newline = " ") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([manufacturer,type_ID,plane_insignia,model])
