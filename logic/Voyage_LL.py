@@ -30,7 +30,7 @@ class VoyageLL():
         """ Validates whether "departing_from" is 3 letters long (e.g KEF) and that every letter is a part of the alphabet"""
         if len(departing_from) == 3:
             for letter in departing_from:
-                if letter.isdigit or letter in string.punctuation:
+                if letter.isdigit() or letter in string.punctuation:
                     return False
         else:
             return False
@@ -44,7 +44,7 @@ class VoyageLL():
         """ Validates whether "arriving_at" is 3 letters long (e.g KEF) and that every letter is a part of the alphabet"""
         if len(arriving_at) == 3:
             for letter in arriving_at:
-                if letter.isdigit or letter in string.punctuation:
+                if letter.isdigit() or letter in string.punctuation:
                     return False
         else:
             return False
@@ -57,44 +57,69 @@ class VoyageLL():
     # def validate_aircraft_ID(self):  Þarf líklegast að import-a frá Airplane_LL
         # pass
 
-    def validate_captain(self, captain):  # Check if the id is 10 numbers
-        """ Validates that the captain's SSN is 10 letters long"""
+    def validate_captain(self, captain):
+        """ Validates that the captain's SSN is 10 letters long and consists only of digits"""
         if len(captain) == 10:
-            return True
+            for letter in captain:
+                if letter.isalpha() or letter in string.punctuation:
+                    return False
+        else: 
+            return False
+        return True
         
         # Kalla á fallið check_if_exist
        
 
-    def validate_co_pilot(self, co_pilot): # Check if the id is 10 numbers
-        """ Validates that the co-pilot's SSN is 10 letters long"""
+    def validate_co_pilot(self, co_pilot): 
+        """ Validates that the co-pilot's SSN is 10 letters long and consists only of digits"""
         if len(co_pilot) == 10:
-            return True
+            for letter in co_pilot:
+                if letter.isalpha() or letter in string.punctuation:
+                    return False
+        else: 
+            return False
+        return True
 
         # Kalla á fallið check_if_exist
 
-    def validate_fsm(self, fsm): # Check if the id is 10 numbers
-        """ Validates that the flight service manager's SSN is 10 letters long"""
+    def validate_fsm(self, fsm): 
+        """ Validates that the flight service manager's SSN is 10 letters long and consists only of digits"""
         if len(fsm) == 10:
-            return True
+            for letter in fsm:
+                if letter.isalpha() or letter in string.punctuation:
+                    return False
+        else: 
+            return False
+        return True
         
         # Kalla á fallið check_if_exist
         
         
-    def validate_fa1(self, fa1): # Check if the id is 10 numbers
-        """ Validates that the flight servant's SSN is 10 letters long"""
+    def validate_fa1(self, fa1): 
+        """ Validates that the flight servant's SSN is 10 letters long and consists only of digits"""
         if len(fa1) == 10:
-            return True
+            for letter in fa1:
+                if letter.isalpha() or letter in string.punctuation:
+                    return False
+        else: 
+            return False
+        return True
         
         # Kalla á fallið check_if_exist
 
-    def validate_fa2(self, fa2): # Check if the id is 10 numbers
-        """ Validates that the flight servant's SSN is 10 letters long"""
+    def validate_fa2(self, fa2): 
+        """ Validates that the flight servant's SSN is 10 letters long and consists only of digits"""
         if len(fa2) == 10:
-            return True
+            for letter in fa2:
+                if letter.isalpha() or letter in string.punctuation:
+                    return False
+        else: 
+            return False
+        return True
 
         # Kalla á fallið check_if_exist
 
-    def validate_flight_number(self, flight_number): # Check if the id is 10 numbers
+    def validate_flight_number(self, flight_number): 
         """ Validates that the flight number is 10 letters long"""
         if len(flight_number) == 10:
             return True
