@@ -1,17 +1,19 @@
+from model.DestinationM import Destination
+import csv
 
 class DestinationIO:
-    AIRPLANE_FILE = "./files/employee.csv"
+    DESTINATION_FILE = "./files/destination.csv"
 
     def __init__(self):
         self.__airplane_list = list()
 
-    def load_airplane_from_file(self):
-        with open(self.AIRPLANE_FILE, "r") as the_file:
+    def load_destination_from_file(self):
+        with open(self.DESTINATION_FILE, "r") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
-                employee = Airplane(line["Manufacturer"],line["Type-ID"],line["Plane_insignia"],line["Model"])
+                employee = Destination(line["destination name"],line["destination id"],line["country"],line["airport"],line["flight time"],line["distance"],line["emergency contact"],line["emergency phone"])
                 self.__airplane_list.append(employee)
-        sorted_list = self.sort_to_display(self.__airplane_list, sort_type)
+        sorted_list = self.sort_to_display(self.__airplane_list)
         
         self.__employee_list = sorted_list
 
@@ -21,7 +23,7 @@ class DestinationIO:
             strengur += employee.__str__() + '\n'
         return strengur
 
-    def sort_to_display(self, a_list, sort_type):
+    def sort_to_display(self, a_list):
         a_list.sort(key = lambda x: x.get_manufacturer())
         return a_list
 
