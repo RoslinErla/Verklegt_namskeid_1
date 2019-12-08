@@ -1,14 +1,14 @@
 from UI.Airplane_UI import AirplaneUI
 # from UI.Destination_UI import DestinationUI
 # from UI.Employee_UI import EmployeeUI
-# from UI.Voyage_UI import VoyageUI
+from UI.Voyage_UI import VoyageUI
 
 class MainUI():
     def __init__(self):
         self.airplaneui = AirplaneUI()
         # self.destinationui = DestinationUI()
         # self.employeeui = Employee_UI()
-        # self.voyageui = VoyageUI()
+        self.voyageui = VoyageUI()
 
     def main_menu(self):
         action = ""

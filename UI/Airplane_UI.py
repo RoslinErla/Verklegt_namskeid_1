@@ -26,7 +26,7 @@ class AirplaneUI:
                 self.call_on_validate_and_change()
             if action == "3":
                 pass
-            if action == "b" or action = "q":
+            if action == "b" or action == "q":
                 break
 
     def call_on_validate_and_create(self):
