@@ -1,6 +1,6 @@
 from UI.Airplane_UI import AirplaneUI
 # from UI.Destination_UI import DestinationUI
-# from UI.Employee_UI import EmployeeUI
+from UI.Employee_UI import EmployeeUI
 from UI.Voyage_UI import VoyageUI
 
 class MainUI():
@@ -33,8 +33,7 @@ class MainUI():
                 pass
                 # self.destinationui.destination_menu()
             if action == "3":
-                pass
-                # self.employee.employee_menu()
+                self.employee.employee_menu()
             if action == "4":
                 pass
                 # self.voyageui.voyage_menu()
