@@ -32,17 +32,17 @@ class VoyageUI:
            
             action = input("Please enter your command: ").lower()
 
-        if action == "1":
-            leave = self.create_menu()
+            if action == "1":
+                leave = self.create_menu()
             
-        if action == "2":
-            leave = self.change_menu()
+            if action == "2":
+                leave = self.change_menu()
             
-        if action == "3":
-            leave = self.display_menu()
+            if action == "3":
+                leave = self.display_menu()
         
-        if action == "b" or action == "q":
-            break              
+            if action == "b" or action == "q":
+                break              
     
     def create_menu(self):
         """After the user has chosen the "create" option, he has three new options"""
@@ -56,83 +56,83 @@ class VoyageUI:
 
             action = input("Please enter your commmand: ").lower()
         
-        if action == "1":
-            self.repeat_voyage()
+            if action == "1":
+                self.repeat_voyage()
         
-        if action == "2":
-            self.new_voyage()
+            if action == "2":
+                self.new_voyage()
         
-        if action =="3":
-            self.new_destination()
+            if action =="3":
+                self.new_destination()
 
-        if action == 'b':
-            self.voyage_menu() 
+            if action == 'b':
+                self.voyage_menu() 
             
-        if action == 'q':
-            self.__ui_main.main_menu()   #Hvernig kallar maður á main_menu fallið úr Main_UI ??"""
+            if action == 'q':
+                return "q"
               
         
     def change_menu(self):
         """After the user has chosen the "change" option, he has two new options"""
         action = ""
-        if (action != "q" or "b"):
+        while (action != "q" or "b"):
             print("\tEnter 1 to change voyage state")
             print("\tEnter 2 to change emergency contact's name and/or phone number")
             print('Enter "b" to go back and "q" to got to the main menu.')
 
             action = input("Please enter your commmand: ").lower()
         
-        if action == "1":
-            self.change_voyage_state()
+            if action == "1":
+                self.change_voyage_state()
         
-        if action == "2":
-            self.change_emergency_contact()
+            if action == "2":
+                self.change_emergency_contact()
         
-        if action == 'b':
-            self.voyage_menu() 
+            if action == 'b':
+                self.voyage_menu() 
         
-        #if action == 'q':
-            #self.__ui_main.main_menu() 
+            if action == 'q':
+                return "q"
         
             
     def display_menu(self):
         """After the user has chosen the "display" option, he has three new options"""
         action = ""
-        if (action != "q" or "b"):
+        while (action != "q" or "b"):
             print("\tEnter 1 for a daily list of voyages")
             print("\tEnter 2 for a list of flight numbers")
             print("\tEnter 3 to see the state of the voyages for today")
             print('Enter "b" to go back and "q" to got to the main menu.')
             action = input("Please enter your commmand: ").lower()
         
-        if action == "1":
-            self.daily_list()
+            if action == "1":
+                self.daily_list()
         
-        if action == "2":
-            self.flight_numbers()
+            if action == "2":
+                self.flight_numbers()
         
-        if action == "3":
-            self.daily_voyage_state()
+            if action == "3":
+                self.daily_voyage_state()
         
-        if action == 'b':
-            self.voyage_menu() 
+            if action == 'b':
+                self.voyage_menu() 
         
-        #if action == 'q':
-            #self.__ui_main.main_menu() 
+            if action == 'q':
+                return "q"
         
 
     def repeat_voyage(self):
         """The user has chosen to repeat an old voyage"""
         action = ""
-        print('Enter "b" to go back and "q" to got to the main menu.')
         
+        print('Enter "b" to go back and "q" to got to the main menu.')
         action = input("Enter destination: ").lower()      # Vantar virkni hér inn sem leyfir notandanum að endurtaka ferð
         
         if action == 'b':
             self.create_menu()
         
-        #if action == 'q':
-            #self.__ui_main.main_menu() 
+        if action == 'q':
+            return "q" 
     
     def new_voyage(self):
         """The user has chosen to create a new voyage"""
@@ -178,8 +178,8 @@ class VoyageUI:
         if action == 'b':
             self.create_menu()
 
-        #if action == 'q':
-            #self.__ui_main.main_menu()
+        if action == 'q':
+            return "q"
                 
     
     def new_destination(self):   # Vantar mögulega Land (country)
@@ -232,8 +232,8 @@ class VoyageUI:
         if action == 'b':
             self.create_menu()
         
-        #if action == 'q':
-            #self.__ui_main.main_menu() 
+        if action == 'q':
+            return "q"
                 
     
     def change_voyage_state(self):
@@ -248,8 +248,8 @@ class VoyageUI:
         if action == 'b':
             self.change_menu()
         
-        #if action == 'q':
-            #self.__ui_main.main_menu()
+        if action == 'q':
+            return "q"
     
 
     def change_emergency_contact(self):
@@ -261,8 +261,8 @@ class VoyageUI:
         if action == 'b':
             self.change_menu()
         
-        #if action == 'q':
-            #self.__ui_main.main_menu()
+        if action == 'q':
+            return "q"
 
     def daily_list(self):
         """The user has chosen to have a list of voyages for a given day displayed"""
@@ -273,8 +273,8 @@ class VoyageUI:
         if action == 'b':
             self.display_menu()
         
-        #if action == 'q':
-            #self.__ui_main.main_menu()
+        if action == 'q':
+            return "q"
     
     def flight_numbers(self):
         """The user has chosen to have a list of flight numbers for a given date displayed"""
@@ -286,8 +286,8 @@ class VoyageUI:
         if action == 'b':
             self.display_menu()
         
-        #if action == 'q':
-            #self.__ui_main.main_menu()
+        if action == 'q':
+            return "q"
     
     def daily_voyage_state(self):
         """The user has chosen to have a list of voyage's state (finished, arrived or cancelled) displayed """
@@ -298,8 +298,8 @@ class VoyageUI:
         if action == 'b':
             self.display_menu()
         
-        #if action == 'q':
-            #self.__ui_main.main_menu()
+        if action == 'q':
+            return "q"
 
 
 
