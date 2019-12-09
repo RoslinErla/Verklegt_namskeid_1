@@ -7,7 +7,7 @@ class EmployeeIO:
     def __init__(self):
         self.__employee_list = list()
         self.__header ="Name, SSN, Address, Phone_number, User_name, Rank, Permit, Status" 
-        self.__employee = Employee()
+        self.__employee = Employee("","","","","","","","")
 
     def get_employee_list(self):
         return self.__employee_list

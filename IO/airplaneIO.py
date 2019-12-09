@@ -6,7 +6,7 @@ class AirplaneIO:
 
     def __init__(self):
         self.__airplane_list = list()
-        self.__airplane = Airplane()
+        self.__airplane = Airplane("","","","")
 
     def load_airplane_from_file(self):
         with open(self.AIRPLANE_FILE, "r", encoding = "Latin-1") as the_file:
