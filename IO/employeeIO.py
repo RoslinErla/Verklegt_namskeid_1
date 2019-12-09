@@ -1,12 +1,15 @@
 from model.employeeM import Employee
 import csv
+import string
 
 class EmployeeIO:
     EMPLOYEE_FILE = "./files/employee.csv"
+    CONSTANT_LIST = ["SSN", "NAME", "ADDRESS", "PHONE_NUMBER", "USER_NAME", "RANK", "PERMIT", "STATUS" ]
 
     def __init__(self):
         self.__employee_list = list()
-        self.__header ="Name, SSN, Address, Phone_number, User_name, Rank, Permit, Status" 
+        self.__header = "{:35} | {:11} | {:30} | {:12} | {:15} | {:25} | {:15} | {:11}" \
+        .format("Name", "SSN", "Address", "Phone_number", "User_name", "Rank", "Permit", "Status")
         self.__employee = Employee("","","","","","","","")
 
     def get_employee_list(self):
@@ -63,6 +66,19 @@ class EmployeeIO:
             writer = csv.writer(csvfile)
             for lists in employee_file:
                 writer.writerow(lists)
+
+    def change_employee(self, ssn, change, new):
+        change_index = self.CONSTANT_LIST.index(change.upper())
+
+        with open(self.EMPLOYEE_FILE) as thefile:
+            reader = csv.DictReader(thefile.readlines())
+
+        with open(self.EMPLOYEE_FILE, "w") as csvfile:
+            writer = csv.writer(csvfile)
+            for line in reader:
+                if line[0] == ssn:
+                    writer.writerow(line[change_index], new)
+
 
 
 

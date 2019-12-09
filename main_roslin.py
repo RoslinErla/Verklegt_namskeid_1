@@ -11,9 +11,8 @@ print(a)
 
 
 
-def print_employee():
-    a = EmployeeIO()
-    a.load_employee_from_file("status")
-    print(a)
+a = EmployeeIO()
+a.load_employee_from_file("status")
+print(a)
 
 inp = input()
