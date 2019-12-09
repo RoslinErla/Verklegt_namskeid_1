@@ -57,18 +57,18 @@ class VoyageUI:
             action = input("Please enter your commmand: ").lower()
         
             if action == "1":
-                self.repeat_voyage()
+                leave = self.repeat_voyage()
         
             if action == "2":
-                self.new_voyage()
+                leave = self.new_voyage()
         
             if action =="3":
-                self.new_destination()
+                leave = self.new_destination()
 
             if action == 'b':
-                self.voyage_menu() 
+                leave = self.voyage_menu() 
             
-            if action == 'q':
+            if action == 'q' or leave == "q":
                 return "q"
               
         
@@ -128,7 +128,7 @@ class VoyageUI:
         print('Enter "b" to go back and "q" to got to the main menu.')
         action = input("Enter destination: ").lower()      # Vantar virkni hér inn sem leyfir notandanum að endurtaka ferð
         
-        if action == 'b':
+        if action == 'b':                     # Vantar validate !
             self.create_menu()
         
         if action == 'q':
@@ -139,47 +139,49 @@ class VoyageUI:
         action = ""
         new_voyage = ""
         print('Enter "b" to go back and "q" to got to the main menu.')
-        if action != "b" or action != "q":
-            action =  input("Enter the captain's SSN: ")
-            while not self.__ll_voyage.validate_SSN(action):
-                print("Input is invalid")
-                action = input("Enter the captain's SSN: ")
-            new_voyage += action
         
-        
-        if action != "b" or action != "q":
-            action = input("Enter the co-pilot's SSN: ")
-            while not self.__ll_voyage.validate_SSN(action):
-                print("Input is invalid")
-                action = input("Enter the co-pilot's SSN: ")
-            new_voyage += action
-        
-        if action != "b" or action != "q":
-            action = input("Enter the flight service manager's SSN: ")
-            while not self.__ll_voyage.validate_SSN(action):
-                print("Input is invalid")
-                action = input("Enter the flight service manager's SSN: ")
-            new_voyage += action
-        
-        if action != "b" or action != "q":
-            action = input("Enter the first flight servant's SSN: ")
-            while not self.__ll_voyage.validate_SSN(action):
-                print("Input is invalid")
-                action = input("Enter the first flight servant's SSN: ")
-            new_voyage += action
-        
-        if action != "b" or action != "q":
-            action = input("Enter the second flight servant's SSN: ")
-            while not self.__ll_voyage.validate_SSN(action):
-                print("Input is invalid")
-                action = input("Enter the second flight servant's SSN: ")
-            new_voyage += action
-        
+
+        action =  input("Enter the captain's SSN: ")
         if action == 'b':
             self.create_menu()
-
         if action == 'q':
             return "q"
+        while not self.__ll_voyage.validate_SSN(action):
+            print("Input is invalid")
+            action = input("Enter the captain's SSN: ")
+            if action == 'b':
+                self.create_menu()
+            if action == 'q':
+                return "q"
+        new_voyage += action
+          
+        action = input("Enter the co-pilot's SSN: ")
+        while not self.__ll_voyage.validate_SSN(action):
+            print("Input is invalid")
+            action = input("Enter the co-pilot's SSN: ")
+        new_voyage += action
+    
+        action = input("Enter the flight service manager's SSN: ")
+        while not self.__ll_voyage.validate_SSN(action):
+            print("Input is invalid")
+            action = input("Enter the flight service manager's SSN: ")
+        new_voyage += action
+        
+        action = input("Enter the first flight servant's SSN: ")
+        while not self.__ll_voyage.validate_SSN(action):
+            print("Input is invalid")
+            action = input("Enter the first flight servant's SSN: ")
+        new_voyage += action
+        
+        action = input("Enter the second flight servant's SSN: ")
+        while not self.__ll_voyage.validate_SSN(action):
+            print("Input is invalid")
+            action = input("Enter the second flight servant's SSN: ")
+        new_voyage += action
+        
+       
+
+        
                 
     
     def new_destination(self):   # Vantar mögulega Land (country)
