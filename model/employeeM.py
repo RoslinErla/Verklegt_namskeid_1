@@ -1,7 +1,7 @@
 
 class Employee():
 
-    def __init__(self,name,ssn,address,phone_number,user_name,rank, status = "At work", permits = ""):
+    def __init__(self,name,ssn,address,phone_number,user_name,rank,permits,status = "At work"):
         self.__name = name
         self.__ssn= ssn
         self.__phone_number = phone_number
