@@ -1,9 +1,10 @@
+from IO.airplaneIO import AirplaneIO
 from model.AirplaneM import Airplane
 import string
 
 class AirplaneLL(Airplane):
     def __init__(self):
-        pass
+        self.airplaneio = AirplaneIO
     # def strip_split(self):
     #     """ Strips and splits "inp" and then runs each bit of that through the appropiet validate functions """
     #     split_stripped = self.__inp.strip().split(",")
@@ -49,7 +50,7 @@ class AirplaneLL(Airplane):
         return False
 
     def create_plane(self, new_plane):
-        pass
+        self.airplaneio.Add_airplane_to_file(new_plane.split(","))
         
     def change_plane(self, change_plane):
         pass
