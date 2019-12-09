@@ -3,6 +3,7 @@ os.system('clear')
 filenames = ["ascii1.txt"]
 frames = []
 
+
 for name in filenames:
     with open(name,"r", encoding="utf8") as f:
         frames.append(f.readlines())

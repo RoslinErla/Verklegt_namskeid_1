@@ -1,9 +1,16 @@
+from model.AirplaneM import Airplane
+from IO.airplaneIO import AirplaneIO
+
 from model.employeeM import Employee
 from IO.employeeIO import EmployeeIO
 
 
+a = AirplaneIO()
+a.load_airplane_from_file()
+print(a)
+
 a = EmployeeIO()
-a.load_employee_from_file("status")
+a.load_employee_from_file("alpha")
 print(a)
 
 inp = input()

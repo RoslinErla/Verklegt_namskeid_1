@@ -3,16 +3,19 @@ import csv
 
 class AirplaneIO:
     AIRPLANE_FILE = "./files/airplane.csv"
+    HEADER = "Manufacturer | Type_ID | Plane_Insignia | Model"
+    HEADER = "{:12} | {:15} | {:15} | {:6}".format("Manufacturer", "Type-ID", "Plane_Insignia", "Model")
 
     def __init__(self):
         self.__airplane_list = list()
-        self.__airplane = Airplane()
+        self.__airplane = Airplane("","","","")
 
     def load_airplane_from_file(self):
+        print(self.HEADER)
         with open(self.AIRPLANE_FILE, "r", encoding = "Latin-1") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
-                airplane = Airplane(line["Manufacturer"],line["Type-ID"],line["Plane_insignia"],line["Model"])
+                airplane = Airplane(line["Manufacturer"],line["Type-ID"],line["Plane_Insignia"],line["Model"])
                 self.__airplane_list.append(airplane)
         sorted_list = self.sort_to_display(self.__airplane_list)
         

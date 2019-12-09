@@ -1,19 +1,19 @@
 from UI.Airplane_UI import AirplaneUI
 # from UI.Destination_UI import DestinationUI
 from UI.Employee_UI import EmployeeUI
-from UI.Voyage_UI import VoyageUI
+# from UI.Voyage_UI import VoyageUI
 
 class MainUI():
     def __init__(self):
         self.airplaneui = AirplaneUI()
         # self.destinationui = DestinationUI()
-        # self.employeeui = Employee_UI()
-        self.voyageui = VoyageUI()
+        self.employeeui = EmployeeUI()
+        # self.voyageui = VoyageUI()
 
     def main_menu(self):
         action = ""
         while True:
-            print("\tChange Airplane Menu")
+            print("\tMain Menu")
             print()
             print('The following actions are possible:')
             print('\t1. Open Airplane Menu.')
@@ -33,7 +33,7 @@ class MainUI():
                 pass
                 # self.destinationui.destination_menu()
             if action == "3":
-                self.employee.employee_menu()
+                self.employeeui.employee_menu()
             if action == "4":
                 pass
                 self.voyageui.voyage_menu()
