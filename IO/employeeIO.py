@@ -10,10 +10,7 @@ class employeeIO:
     def get_employee_list(self):
         return self.__employee_list
 
-    def check_if_exists(self, check):
-        for lists in self.__employee_list:
-            if check in lists:
-                print("oops")
+
 
 
     def load_employee_from_file(self,sort_type):

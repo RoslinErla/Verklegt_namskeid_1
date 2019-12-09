@@ -24,10 +24,10 @@ class DestinationIO:
         return strengur
 
     def sort_to_display(self, a_list):
-        a_list.sort(key = lambda x: x.get_manufacturer())
+        a_list.sort(key = lambda x: x.get_destination_name())
         return a_list
 
-    def Add_destination_to_file(self, country, airport, flight_time, distance, emergency_contact, emergency_phone):
+    def Add_destination_to_file(self,destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone):
         with open(self.DESTINATION_FILE, "a", newline = " ") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([country, airport, flight_time, distance, emergency_contact, emergency_phone])
+            writer.writerow([destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone])
