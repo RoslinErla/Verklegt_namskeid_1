@@ -1,9 +1,11 @@
+from IO.airplaneIO import AirplaneIO
 from logic.Airplane_LL import AirplaneLL
 
 
 class AirplaneUI:
     def __init__(self):
         self.airplanell = AirplaneLL()
+        self.airplaneio = AirplaneIO()
     def airplane_menu(self):
         action = ""
         leave = ''
@@ -25,7 +27,7 @@ class AirplaneUI:
             if action == "2":
                 leave = self.call_on_validate_and_change()
             if action == "3":
-                pass
+                leave = self.show()
             if action == "b" or action == "q":
                 break
 
@@ -72,60 +74,56 @@ class AirplaneUI:
                 return 'q'
             self.airplanell.create_plane(new_plane)
 
-        def call_on_validate_and_change(self):
-            action = ""
-            changed_plane = ""
-            print("\tChange Airplane Menu")
-            print()
-            print('The following actions are possible:')
-            print('\t1. Create a new plane within the system.')
-            print('\t2. Change planes already within the system.')
-            print('\t3. Display planes within the system.')
-            print('Enter "b" to go back and "q" to got to the main menu.')
-
-            sub_action = input("Please enter your command: ")
-
-            while sub_action == 1 and (action != "b" or action != "B"):
+    def call_on_validate_and_change(self):
+        action = ""
+        changed_plane = ""
+        print("\tChange Airplane Menu")
+        print()
+        print('The following actions are possible:')
+        print('\t1. Create a new plane within the system.')
+        print('\t2. Change planes already within the system.')
+        print('\t3. Display planes within the system.')
+        print('Enter "b" to go back and "q" to got to the main menu.')
+        sub_action = input("Please enter your command: ")
+        while sub_action == 1 and (action != "b" or action != "B"):
+            action = input("Enter the manufacturer: ")
+            while not self.airplanell.validate_manufacturer(action):
+                print("Input is invalid!")
                 action = input("Enter the manufacturer: ")
-                while not self.airplanell.validate_manufacturer(action):
-                    print("Input is invalid!")
-                    action = input("Enter the manufacturer: ")
-                changed_plane += action + ","
-                if action == "b":
-                    break
-                if action == 'q':
-                    return 'q'
-
-                action = input("Enter the type ID: ")
-                action = action
-                while not self.airplanell.validate_typeID(action):
-                    print("Input is invalid!")
-                    action = input("Enter the type ID: ")
-                changed_plane += action + ","
-                if action == "b":
-                    break
-                if action == 'q':
-                    return 'q'
-
-                action = input("Enter the plane insignia: ")
-                while not self.airplanell.validate_plane_insignia(action):
-                    print("Input is invalid!")
-                    action = input("Enter the plane insignia: ")
-                changed_plane += action + ","
-                if action == "b":
-                    break
-                if action == 'q':
-                    return 'q'
-
-                action = input("Enter the model: ")
-                while not self.airplanell.validate_model(action):
-                    print("Input is invalid!")
-                    action = input("Enter the model: ")
-                changed_plane += action + ","
-                if action == "b":
-                    break
-                if action == 'q':
-                    return 'q'
-
-                change_plane = self.airplanell.change_plane(new_plane)
+            changed_plane += action + ","
+            if action == "b":
                 break
+            if action == 'q':
+                return 'q'
+            action = input("Enter the type ID: ")
+            while not self.airplanell.validate_typeID(action):
+                print("Input is invalid!")
+                action = input("Enter the type ID: ")
+            changed_plane += action + ","
+            if action == "b":
+                break
+            if action == 'q':
+                return 'q'
+            action = input("Enter the plane insignia: ")
+            while not self.airplanell.validate_plane_insignia(action):
+                print("Input is invalid!")
+                action = input("Enter the plane insignia: ")
+            changed_plane += action + ","
+            if action == "b":
+                break
+            if action == 'q':
+                return 'q'
+            action = input("Enter the model: ")
+            while not self.airplanell.validate_model(action):
+                print("Input is invalid!")
+                action = input("Enter the model: ")
+            changed_plane += action + ","
+            if action == "b":
+                break
+            if action == 'q':
+                return 'q'
+            change_plane = self.airplanell.change_plane(new_plane)
+            break
+    
+    def show(self):
+        self.airplaneio.load_airplane_from_file()
