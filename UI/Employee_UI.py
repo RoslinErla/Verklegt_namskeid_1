@@ -16,7 +16,8 @@ class EmployeeUI():
             print('The following actions are possible:')
             print('\t1. enter "1" to create a new employee within the system.')
             print('\t2. enter "2" to change employees already within the system.')
-            print('\t3. enter "3" to display employees within the system.')
+            print('\t3. enter "3" to display employees within the system by their status.')
+            print('\t4. enter "4" to display employees within the system in alphabetical order.')
             print('Enter "b" to go back and "q" to got to the main menu.')
 
             action = input("Please enter your command: ")
@@ -30,6 +31,8 @@ class EmployeeUI():
                 leave =  self.call_on_validate_and_change()
             if action == "3":
                 self.show_by_status()
+            if action == "4":
+                self.show_by_aplha()
             if action == "b" or action == "q":
                 break
 
@@ -163,8 +166,15 @@ class EmployeeUI():
             sub_action = input("Please enter your command: ")
             change_employee = self.employeell.change_employee(new_employee)
             break
+    
     def show_by_status(self):
         print()
         self.employeeio.load_employee_from_file("status")
+        print(self.employeeio)
+        print()
+    
+    def show_by_aplha(self):
+        print()
+        self. employeeio.load_employee_from_file("alpha")
         print(self.employeeio)
         print()
