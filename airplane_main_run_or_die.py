@@ -8,5 +8,8 @@ from UI.Main_UI import MainUI
 from UI.Airplane_UI import AirplaneUI
 from UI.Employee_UI import EmployeeUI
 
+from IO.airplaneIO import AirplaneIO
+from IO.employeeIO import EmployeeIO
+
 ui = MainUI()
 ui.main_menu()
