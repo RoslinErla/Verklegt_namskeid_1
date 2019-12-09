@@ -31,3 +31,6 @@ class DestinationIO:
         with open(self.DESTINATION_FILE, "a", newline = " ") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone])
+
+    def change_destination(self,destination_name, change):
+        pass

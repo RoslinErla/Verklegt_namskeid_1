@@ -6,6 +6,7 @@ class AirplaneIO:
 
     def __init__(self):
         self.__airplane_list = list()
+        self.__airplane = Airplane()
 
     def load_airplane_from_file(self):
         with open(self.AIRPLANE_FILE, "r", encoding = "Latin-1") as the_file:
@@ -31,3 +32,16 @@ class AirplaneIO:
         with open(self.AIRPLANE_FILE, "a",encoding = "Latin-1", newline = " ") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([manufacturer,type_ID,plane_insignia,model])
+
+    def delete_plane(self, plane_insignia):
+        plane_file = list()
+        with open(self.AIRPLANE_FILE, "r", encoding="Latin-1") as the_file:
+            reader = csv.DictReader(the_file)
+            for line in reader:
+                if line[0] != (self.__airplane.get_plane_insignia or []):
+                    plane_file.append(line)
+
+        with open(self.AIRPLANE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
+            writer = csv.writer(csvfile)
+            for lists in plane_file:
+                writer.writerow(lists)

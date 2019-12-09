@@ -1,19 +1,21 @@
 from model.employeeM import Employee
 import csv
 
-class employeeIO:
+class EmployeeIO:
     EMPLOYEE_FILE = "./files/employee.csv"
 
     def __init__(self):
         self.__employee_list = list()
+        self.__header ="Name, SSN, Address, Phone_number, User_name, Rank, Permit, Status" 
+        self.__employee = Employee()
 
     def get_employee_list(self):
         return self.__employee_list
-
-
-
+            
 
     def load_employee_from_file(self,sort_type):
+        print(self.__header)
+
         with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
@@ -47,4 +49,19 @@ class employeeIO:
         with open(self.EMPLOYEE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([name,ssn,phone, user_name, rank, permits, status])
+
+    def delete_employee(self, ssn):
+        employee_file = list()
+        with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
+            reader = csv.DictReader(the_file)
+            for line in reader:
+                if line[0] != (self.__employee.get_ssn or []):
+                    employee_file.append(line)
+
+        with open(self.EMPLOYEE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
+            writer = csv.writer(csvfile)
+            for lists in employee_file:
+                writer.writerow(lists)
+
+
 
