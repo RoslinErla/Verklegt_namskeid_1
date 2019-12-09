@@ -1,7 +1,7 @@
 from model.employeeM import Employee
 import csv
 
-class employeeIO:
+class EmployeeIO:
     EMPLOYEE_FILE = "./files/employee.csv"
 
     def __init__(self):

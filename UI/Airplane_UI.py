@@ -7,7 +7,7 @@ class AirplaneUI:
     def airplane_menu(self):
         action = ""
         leave = ''
-        while action != "b" and leave != "q":
+        while leave != "q":
             print("\tAirplane Menu")
             print()
             print('The following actions are possible:')
@@ -23,7 +23,7 @@ class AirplaneUI:
             if action == "1":
                 leave = self.call_on_validate_and_create()
             if action == "2":
-                self.call_on_validate_and_change()
+                leave = self.call_on_validate_and_change()
             if action == "3":
                 pass
             if action == "b" or action == "q":
@@ -33,7 +33,7 @@ class AirplaneUI:
         print('Enter "b" to go back and "q" to got to the main menu.')
         action = ""
         new_plane = ""
-        while action.lower() != 'q':
+        while True:
             action = input("Enter the manufacturer: ")
             while not self.airplanell.validate_manufacturer(action):
                 print("Input is invalid!")
