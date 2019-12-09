@@ -119,9 +119,9 @@ class VoyageLL():
 
         # Kalla á fallið check_if_exist
 
-    def validate_flight_number(self, flight_number): 
-        """ Validates that the flight number is 10 letters long"""
-        if len(flight_number) == 10:
+    def validate_flight_number(self, flight_number):      # Á flight number kannski að vera í destination ? 
+        """ Validates that the flight number is 6 letters long"""
+        if len(flight_number) == 6:
             return True
     
 

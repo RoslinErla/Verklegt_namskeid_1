@@ -222,7 +222,7 @@ class VoyageUI:
         # Birta lista flugnúmera fyrir innslegna dagsetningu
     
     def daily_voyage_state(self):
-        """The user has chosen to have a list of voyage's state (finished, arrived or cancelled) displayed
+        """The user has chosen to have a list of voyage's state (finished, arrived or cancelled) displayed """
         input("Enter a date: ")
         # Birta lista vinnuferða þar sem sést hvaða ferðum er lokið, lent ytra og eða felld niður
 
