@@ -36,6 +36,6 @@ class MainUI():
                 self.employeeui.employee_menu()
             if action == "4":
                 pass
-                # self.voyageui.voyage_menu()
+                self.voyageui.voyage_menu()
             if action == "q":
                 break

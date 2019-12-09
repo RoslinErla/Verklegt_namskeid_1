@@ -11,11 +11,13 @@ from logic.Voyage_LL import VoyageLL
 from model.VoyageM import Voyage
 from UI.Voyage_UI import VoyageUI
 
-a = VoyageUI()
-a.voyage_menu()
+#a = VoyageUI()
+#a.voyage_menu()
 
 from model.DestinationM import Destination
 from logic.Destination_LL import DestinationLL
 
-# from UI.Main_UI import MainUI ?
+from UI.Main_UI import MainUI 
 
+a = MainUI()
+a.main_menu()
