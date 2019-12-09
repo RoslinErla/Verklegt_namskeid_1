@@ -1,6 +1,6 @@
 from model.VoyageM import Voyage
 
-from IO.employeeIO import employeeIO
+from IO.employeeIO import EmployeeIO
 
 import string
 
