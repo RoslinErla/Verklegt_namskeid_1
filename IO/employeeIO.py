@@ -19,7 +19,7 @@ class EmployeeIO:
         with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
-                employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Status"],line["Permit"])
+                employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],line["Status"])
                 self.__employee_list.append(employee)
 
         if sort_type == "alpha":
@@ -34,6 +34,7 @@ class EmployeeIO:
         strengur = ''
         for employee in self.__employee_list:
             strengur += employee.__str__() + '\n'
+        self.__employee_list = list()
         return strengur
 
     def sort_to_display(self, a_list, sort_type):
