@@ -19,7 +19,8 @@ class AirplaneUI:
             print('Enter "b" to go back and "q" to got to the main menu.')
 
             action = input("Please enter your command: ")
-            
+            print()
+
             action = action.lower()
 
             if action == "1":
@@ -126,4 +127,7 @@ class AirplaneUI:
             break
     
     def show(self):
+        print()
         self.airplaneio.load_airplane_from_file()
+        print(self.airplaneio)
+        print()
