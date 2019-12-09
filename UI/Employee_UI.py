@@ -20,7 +20,8 @@ class EmployeeUI():
             print('Enter "b" to go back and "q" to got to the main menu.')
 
             action = input("Please enter your command: ")
-            
+            print()
+
             action = action.lower()
 
             if action == "1":
@@ -163,4 +164,7 @@ class EmployeeUI():
             change_employee = self.employeell.change_employee(new_employee)
             break
     def show_by_status(self):
-        self.employeeio.load_employee_from_file("status")
+        print()
+        a=self.employeeio.load_employee_from_file("status")
+        print(a)
+        print()
