@@ -13,7 +13,7 @@ class MainUI():
     def main_menu(self):
         action = ""
         while True:
-            print("\tChange Airplane Menu")
+            print("\tMain Menu")
             print()
             print('The following actions are possible:')
             print('\t1. Open Airplane Menu.')
