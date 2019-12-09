@@ -1,6 +1,7 @@
 from logic.Voyage_LL import VoyageLL
 from model.VoyageM import Voyage
 from logic.Destination_LL import DestinationLL
+from IO.destinationIO import DestinationIO
 
 
 
@@ -9,6 +10,7 @@ class VoyageUI:
     def __init__(self):
         self.__ll_voyage = VoyageLL()
         self.__ll_destination = DestinationLL()
+        self.__io_destination = DestinationIO()
 
     def create_voyage(self):  
         pass
@@ -188,7 +190,7 @@ class VoyageUI:
             destination += action
     
         if action  != "b" or action != "q":
-            action = input("Enter airport: ")
+            action = input("Enter airport: ")                                     # velja flugvöll ?
             while not self.__ll_destination.validate_airport_name(action):
                 print("Input is invalid") 
                 action = input("Enter airport: ")
@@ -233,7 +235,8 @@ class VoyageUI:
         """The user has chosen to change the state of the voyage"""
         action = ""
         print('Enter "b" to go back and "q" to got to the main menu.')
-        input("Enter destination: ")   
+        self.__io_destination.load_destination_from_file()
+        input("Enter destination: ")                                      # Hægt að velja destination frá lista
         input("Enter date and time: ")
         # Breyta stöðunni!
 

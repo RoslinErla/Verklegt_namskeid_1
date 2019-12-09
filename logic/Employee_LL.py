@@ -21,7 +21,7 @@ class EmployeeLL():
         name = name.split()
         for elements in name:
             for letter in elements:
-                if letter.isdigit() or letter in string.punctuation:
+                if not letter.isalpha():
                     return False
         self.__name = name
         return True
