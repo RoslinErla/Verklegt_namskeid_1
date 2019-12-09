@@ -36,7 +36,7 @@ class AirplaneUI:
         while action.lower() != 'q':
             action = input("Enter the manufacturer: ")
             while not self.airplanell.validate_manufacturer(action):
-                print("Input is invalid")
+                print("Input is invalid!")
                 action = input("Enter the manufacturer: ")
             new_plane += action + ","
             if action == 'b':
@@ -45,31 +45,31 @@ class AirplaneUI:
                 return 'q'
             action = input("Enter the type ID: ")
             while not self.airplanell.validate_typeID(action):
-                print("Input is invalid")
+                print("Input is invalid!")
                 action = input("Enter the type ID: ")
             new_plane += action + ","
             if action == 'b':
                 break
             if action == 'q':
-                main_menu()
+                return 'q'
             action = input("Enter the plane insignia: ")
             while not self.airplanell.validate_plane_insignia(action):
-                print("Input is invalid")
+                print("Input is invalid!")
                 action = input("Enter the plane insignia: ")
             new_plane += action + ","
             if action == 'b':
                 break
             if action == 'q':
-                self.mainui.main_menu()
+                return 'q'
             action = input("Enter the model: ")
             while not self.airplanell.validate_model(action):
-                print("Input is invalid")
+                print("Input is invalid!")
                 action = input("Enter the model: ")
             new_plane += action + ","
             if action == 'b':
                 break
             if action == 'q':
-                self.main_menu()
+                return 'q'
             self.airplanell.create_plane(new_plane)
 
         def call_on_validate_and_change(self):
@@ -88,44 +88,44 @@ class AirplaneUI:
             while sub_action == 1 and (action != "b" or action != "B"):
                 action = input("Enter the manufacturer: ")
                 while not self.airplanell.validate_manufacturer(action):
-                    print("Input is invalid")
+                    print("Input is invalid!")
                     action = input("Enter the manufacturer: ")
                 changed_plane += action + ","
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 action = input("Enter the type ID: ")
                 action = action
                 while not self.airplanell.validate_typeID(action):
-                    print("Input is invalid")
+                    print("Input is invalid!")
                     action = input("Enter the type ID: ")
                 changed_plane += action + ","
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 action = input("Enter the plane insignia: ")
                 while not self.airplanell.validate_plane_insignia(action):
-                    print("Input is invalid")
+                    print("Input is invalid!")
                     action = input("Enter the plane insignia: ")
                 changed_plane += action + ","
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 action = input("Enter the model: ")
                 while not self.airplanell.validate_model(action):
-                    print("Input is invalid")
+                    print("Input is invalid!")
                     action = input("Enter the model: ")
                 changed_plane += action + ","
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 change_plane = self.airplanell.change_plane(new_plane)
                 break
