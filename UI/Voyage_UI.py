@@ -15,10 +15,15 @@ class VoyageUI:
     def create_voyage(self):  
         pass
 
+    def change_voyage(self):
+        pass
+
+
     def voyage_menu(self): 
         """ The user can choose between the create, change and display options in the system"""
         action = ""
-        if (action != "q" or "b"):
+        leave = ''
+        while action != "b" and leave != "q":
             print("The following actions are possible: ")
             print("\tEnter 1 to create a voyage within the system.")
             print("\tEnter 2 to change voyages already within the system.")
@@ -28,22 +33,22 @@ class VoyageUI:
             action = input("Please enter your command: ").lower()
 
         if action == "1":
-            self.create_menu()
+            leave = self.create_menu()
             
         if action == "2":
-            self.change_menu()
+            leave = self.change_menu()
             
         if action == "3":
-            self.display_menu()
+            leave = self.display_menu()
         
-        #if action == "b" or "q":
-            #self.__ui_main.main_menu()
-               
+        if action == "b" or action == "q":
+            break              
     
     def create_menu(self):
         """After the user has chosen the "create" option, he has three new options"""
         action = ""
-        if (action != "q" or "b"):
+        leave = ''
+        while action != "b" and leave != "q":
             print("\tEnter 1 to repeat an old voyage")
             print("\tEnter 2 to create a new voyage")
             print("\tEnter 3 to create a new destination")
@@ -63,7 +68,7 @@ class VoyageUI:
         if action == 'b':
             self.voyage_menu() 
             
-        """if action == 'q':
+        if action == 'q':
             self.__ui_main.main_menu()   #Hvernig kallar maður á main_menu fallið úr Main_UI ??"""
               
         
