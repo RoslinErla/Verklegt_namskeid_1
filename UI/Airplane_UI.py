@@ -51,7 +51,7 @@ class AirplaneUI:
             if action == 'b':
                 break
             if action == 'q':
-                main_menu()
+                return 'q'
             action = input("Enter the plane insignia: ")
             while not self.airplanell.validate_plane_insignia(action):
                 print("Input is invalid!")
@@ -60,7 +60,7 @@ class AirplaneUI:
             if action == 'b':
                 break
             if action == 'q':
-                self.mainui.main_menu()
+                return 'q'
             action = input("Enter the model: ")
             while not self.airplanell.validate_model(action):
                 print("Input is invalid!")
@@ -69,7 +69,7 @@ class AirplaneUI:
             if action == 'b':
                 break
             if action == 'q':
-                self.main_menu()
+                return 'q'
             self.airplanell.create_plane(new_plane)
 
         def call_on_validate_and_change(self):
@@ -94,7 +94,7 @@ class AirplaneUI:
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 action = input("Enter the type ID: ")
                 action = action
@@ -105,7 +105,7 @@ class AirplaneUI:
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 action = input("Enter the plane insignia: ")
                 while not self.airplanell.validate_plane_insignia(action):
@@ -115,7 +115,7 @@ class AirplaneUI:
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 action = input("Enter the model: ")
                 while not self.airplanell.validate_model(action):
@@ -125,7 +125,7 @@ class AirplaneUI:
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 change_plane = self.airplanell.change_plane(new_plane)
                 break

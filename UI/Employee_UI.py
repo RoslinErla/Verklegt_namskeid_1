@@ -52,16 +52,16 @@ class EmployeeUI():
             if action == 'b':
                 break
             if action == 'q':
-                main_menu()
-            action = input("Enter the employee insignia: ")
-            while not self.employeell.validate_employee_insignia(action):
+                return 'q'
+            action = input("Enter the phone number: ")
+            while not self.employeell.validate_phone_number(action):
                 print("Input is invalid!")
-                action = input("Enter the employee insignia: ")
+                action = input("Enter the phone number: ")
             new_employee += action + ","
             if action == 'b':
                 break
             if action == 'q':
-                self.mainui.main_menu()
+                return 'q'
             action = input("Enter the model: ")
             while not self.employeell.validate_model(action):
                 print("Input is invalid!")
@@ -70,7 +70,7 @@ class EmployeeUI():
             if action == 'b':
                 break
             if action == 'q':
-                self.main_menu()
+                return 'q'
             self.employeell.create_employee(new_employee)
 
         def call_on_validate_and_change(self):
@@ -95,7 +95,7 @@ class EmployeeUI():
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 action = input("Enter the type ID: ")
                 action = action
@@ -106,17 +106,17 @@ class EmployeeUI():
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
-                action = input("Enter the employee insignia: ")
+                action = input("Enter the phone number: ")
                 while not self.employeell.validate_employee_insignia(action):
                     print("Input is invalid!")
-                    action = input("Enter the employee insignia: ")
+                    action = input("Enter the phone number: ")
                 changed_employee += action + ","
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 action = input("Enter the model: ")
                 while not self.employeell.validate_model(action):
@@ -126,7 +126,7 @@ class EmployeeUI():
                 if action == "b":
                     break
                 if action == 'q':
-                    self.mainui.main_menu()
+                    return 'q'
 
                 change_employee = self.employeell.change_employee(new_employee)
                 break
