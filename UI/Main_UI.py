@@ -7,7 +7,7 @@ class MainUI():
     def __init__(self):
         self.airplaneui = AirplaneUI()
         # self.destinationui = DestinationUI()
-        # self.employeeui = Employee_UI()
+        self.employeeui = EmployeeUI()
         # self.voyageui = VoyageUI()
 
     def main_menu(self):
@@ -33,7 +33,7 @@ class MainUI():
                 pass
                 # self.destinationui.destination_menu()
             if action == "3":
-                self.employee.employee_menu()
+                self.employeeui.employee_menu()
             if action == "4":
                 pass
                 # self.voyageui.voyage_menu()
