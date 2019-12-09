@@ -165,6 +165,6 @@ class EmployeeUI():
             break
     def show_by_status(self):
         print()
-        a=self.employeeio.load_employee_from_file("status")
-        print(a)
+        self.employeeio.load_employee_from_file("status")
+        print(self.employeeio)
         print()
