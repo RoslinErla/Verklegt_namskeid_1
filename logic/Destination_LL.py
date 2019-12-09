@@ -65,6 +65,9 @@ class DestinationLL(Destination):
         for letter in contact_number:
             if letter.isdigit() or letter != "-":
                 return True
+    
+    def change_destination(self, THE_OTHER_THING):
+        pass
 
 
 
