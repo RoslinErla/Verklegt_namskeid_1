@@ -235,8 +235,8 @@ class VoyageUI:
         """The user has chosen to change the state of the voyage"""
         action = ""
         print('Enter "b" to go back and "q" to got to the main menu.')
-        self.__io_destination.load_destination_from_file()
-        input("Enter destination: ")                                      # Hægt að velja destination frá lista
+        self.__io_destination.load_destination_from_file()                   # Hægt að velja destination frá lista
+        input("Enter destination id: ")                                      
         input("Enter date and time: ")
         # Breyta stöðunni!
 
