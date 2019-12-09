@@ -36,7 +36,7 @@ class AirplaneUI:
         while action.lower() != 'q':
             action = input("Enter the manufacturer: ")
             while not self.airplanell.validate_manufacturer(action):
-                print("Input is invalid")
+                print("Input is invalid!")
                 action = input("Enter the manufacturer: ")
             new_plane += action + ","
             if action == 'b':
@@ -45,7 +45,7 @@ class AirplaneUI:
                 return 'q'
             action = input("Enter the type ID: ")
             while not self.airplanell.validate_typeID(action):
-                print("Input is invalid")
+                print("Input is invalid!")
                 action = input("Enter the type ID: ")
             new_plane += action + ","
             if action == 'b':
@@ -54,7 +54,7 @@ class AirplaneUI:
                 main_menu()
             action = input("Enter the plane insignia: ")
             while not self.airplanell.validate_plane_insignia(action):
-                print("Input is invalid")
+                print("Input is invalid!")
                 action = input("Enter the plane insignia: ")
             new_plane += action + ","
             if action == 'b':
@@ -63,7 +63,7 @@ class AirplaneUI:
                 self.mainui.main_menu()
             action = input("Enter the model: ")
             while not self.airplanell.validate_model(action):
-                print("Input is invalid")
+                print("Input is invalid!")
                 action = input("Enter the model: ")
             new_plane += action + ","
             if action == 'b':
@@ -88,7 +88,7 @@ class AirplaneUI:
             while sub_action == 1 and (action != "b" or action != "B"):
                 action = input("Enter the manufacturer: ")
                 while not self.airplanell.validate_manufacturer(action):
-                    print("Input is invalid")
+                    print("Input is invalid!")
                     action = input("Enter the manufacturer: ")
                 changed_plane += action + ","
                 if action == "b":
@@ -99,7 +99,7 @@ class AirplaneUI:
                 action = input("Enter the type ID: ")
                 action = action
                 while not self.airplanell.validate_typeID(action):
-                    print("Input is invalid")
+                    print("Input is invalid!")
                     action = input("Enter the type ID: ")
                 changed_plane += action + ","
                 if action == "b":
@@ -109,7 +109,7 @@ class AirplaneUI:
 
                 action = input("Enter the plane insignia: ")
                 while not self.airplanell.validate_plane_insignia(action):
-                    print("Input is invalid")
+                    print("Input is invalid!")
                     action = input("Enter the plane insignia: ")
                 changed_plane += action + ","
                 if action == "b":
@@ -119,7 +119,7 @@ class AirplaneUI:
 
                 action = input("Enter the model: ")
                 while not self.airplanell.validate_model(action):
-                    print("Input is invalid")
+                    print("Input is invalid!")
                     action = input("Enter the model: ")
                 changed_plane += action + ","
                 if action == "b":
