@@ -6,7 +6,7 @@ class Airplane():
             self.__model = Model
     
     def __str__(self):
-        return "{:12} | {:15} | {:6} | {}".format(self.__manufacturer, self.__type_ID, self.__plane_insignia, self.__model)
+        return "{:12} | {:15} | {:15} | {:6}".format(self.__manufacturer, self.__type_ID, self.__plane_insignia, self.__model)
     
     def get_manufacturer(self):
         return self.__manufacturer

@@ -4,6 +4,7 @@ import csv
 class AirplaneIO:
     AIRPLANE_FILE = "./files/airplane.csv"
     HEADER = "Manufacturer | Type_ID | Plane_Insignia | Model"
+    HEADER = "{:12} | {:15} | {:15} | {:6}".format("Manufacturer", "Type-ID", "Plane_Insignia", "Model")
 
     def __init__(self):
         self.__airplane_list = list()

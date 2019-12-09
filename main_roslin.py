@@ -9,8 +9,8 @@ a = AirplaneIO()
 a.load_airplane_from_file()
 print(a)
 
-# a = EmployeeIO()
-# a.load_employee_from_file("alpha")
-# print(a)
+a = EmployeeIO()
+a.load_employee_from_file("alpha")
+print(a)
 
 inp = input()
