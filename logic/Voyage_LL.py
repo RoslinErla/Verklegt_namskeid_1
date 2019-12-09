@@ -2,14 +2,18 @@ from model.VoyageM import Voyage
 
 from IO.employeeIO import EmployeeIO
 
+#from IO.voyageIO import VoyageIO
+
 import string
 
 class VoyageLL():
 
     def __init__(self):
-        pass  
+        #self.__io_voyage = VoyageIO
+        pass
 
-    def create_voyage(self):
+    def create_voyage(self, new_voyage):
+        #self.__io_voyage.Add_voyage_to_file(new_voyage.split(","))
         pass
 
     def change_voyage(self):
@@ -69,12 +73,6 @@ class VoyageLL():
         
         # Kalla á fallið check_if_exist
        
-
-    def validate_flight_number(self, flight_number):      # Á flight number kannski að vera í destination ? 
-        """ Validates that the flight number is 6 letters long"""
-        if len(flight_number) == 6:
-            return True
-    
 
     def check_if_exist(self):
         # Validate-a að nafn starfsmanns sé á skrá

@@ -66,8 +66,13 @@ class DestinationLL(Destination):
             if letter.isdigit() or letter != "-":
                 return True
     
-    def change_destination(self, THE_OTHER_THING):
-        pass
+    def validate_flight_number(self, flight_number):      
+        """ Validates that the flight number is 6 letters long"""     # Mögulega að setja inn þá virkni að fyrstu 2 stafirnir þurfi að vera NA
+        if len(flight_number) == 6:
+            return True
+        
+        def change_destination(self, THE_OTHER_THING):
+            pass
 
 
 

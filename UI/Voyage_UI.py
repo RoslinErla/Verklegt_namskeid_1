@@ -2,6 +2,7 @@ from logic.Voyage_LL import VoyageLL
 from model.VoyageM import Voyage
 from logic.Destination_LL import DestinationLL
 from IO.destinationIO import DestinationIO
+from UI.Destination_UI import DestinationUI
 
 
 
@@ -11,6 +12,7 @@ class VoyageUI:
         self.__ll_voyage = VoyageLL()
         self.__ll_destination = DestinationLL()
         self.__io_destination = DestinationIO()
+        self.__ui_destination = DestinationUI()
 
     def create_voyage(self):  
         pass
@@ -23,7 +25,7 @@ class VoyageUI:
         """ The user can choose between the create, change and display options in the system"""
         action = ""
         leave = ''
-        while action != "b" and leave != "q":
+        while True:
             print("The following actions are possible: ")
             print("\tEnter 1 to create a voyage within the system.")
             print("\tEnter 2 to change voyages already within the system.")
@@ -48,7 +50,7 @@ class VoyageUI:
         """After the user has chosen the "create" option, he has three new options"""
         action = ""
         leave = ''
-        while action != "b" and leave != "q":
+        while True:
             print("\tEnter 1 to repeat an old voyage")
             print("\tEnter 2 to create a new voyage")
             print("\tEnter 3 to create a new destination")
@@ -75,7 +77,7 @@ class VoyageUI:
     def change_menu(self):
         """After the user has chosen the "change" option, he has two new options"""
         action = ""
-        while (action != "q" or "b"):
+        while True:
             print("\tEnter 1 to change voyage state")
             print("\tEnter 2 to change emergency contact's name and/or phone number")
             print('Enter "b" to go back and "q" to got to the main menu.')
@@ -98,7 +100,7 @@ class VoyageUI:
     def display_menu(self):
         """After the user has chosen the "display" option, he has three new options"""
         action = ""
-        while (action != "q" or "b"):
+        while True:
             print("\tEnter 1 for a daily list of voyages")
             print("\tEnter 2 for a list of flight numbers")
             print("\tEnter 3 to see the state of the voyages for today")
@@ -140,173 +142,69 @@ class VoyageUI:
         new_voyage = ""
         print('Enter "b" to go back and "q" to got to the main menu.')
         
-        action =  input("Enter the captain's SSN: ")
-        if action == 'b':
-            self.create_menu()
-        if action == 'q':
-            return "q"
-        while not self.__ll_voyage.validate_SSN(action):
-            print("Input is invalid")
-            action = input("Enter the captain's SSN: ")
+        while True: 
+            action =  input("Enter the captain's SSN: ")
+            while not self.__ll_voyage.validate_SSN(action):
+                print("Input is invalid")
+                action = input("Enter the captain's SSN: ")
+            new_voyage += action
             if action == 'b':
                 self.create_menu()
             if action == 'q':
                 return "q"
-        new_voyage += action
+        
           
-        action = input("Enter the co-pilot's SSN: ")
-        if action == 'b':
-            self.create_menu()
-        if action == 'q':
-            return "q"
-        while not self.__ll_voyage.validate_SSN(action):
-            print("Input is invalid")
             action = input("Enter the co-pilot's SSN: ")
+            while not self.__ll_voyage.validate_SSN(action):
+                print("Input is invalid")
+                action = input("Enter the co-pilot's SSN: ")
+            new_voyage += action
             if action == 'b':
                 self.create_menu()
             if action == 'q':
                 return "q"
-        new_voyage += action
-    
-        action = input("Enter the flight service manager's SSN: ")
-        if action == 'b':
-            self.create_menu()
-        if action == 'q':
-            return "q"
-        while not self.__ll_voyage.validate_SSN(action):
-            print("Input is invalid")
+           
+        
             action = input("Enter the flight service manager's SSN: ")
+            while not self.__ll_voyage.validate_SSN(action):
+                print("Input is invalid")
+                action = input("Enter the flight service manager's SSN: ")
+            new_voyage += action
             if action == 'b':
                 self.create_menu()
             if action == 'q':
                 return "q"
-        new_voyage += action
-        
-        action = input("Enter the first flight servant's SSN: ")
-        if action == 'b':
-            self.create_menu()
-        if action == 'q':
-            return "q"
-        while not self.__ll_voyage.validate_SSN(action):
-            print("Input is invalid")
+                        
             action = input("Enter the first flight servant's SSN: ")
+            while not self.__ll_voyage.validate_SSN(action):
+                print("Input is invalid")
+                action = input("Enter the first flight servant's SSN: ")
+            new_voyage += action
             if action == 'b':
                 self.create_menu()
             if action == 'q':
                 return "q"
-        new_voyage += action
-        
-        action = input("Enter the second flight servant's SSN: ")
-        if action == 'b':
-            self.create_menu()
-        if action == 'q':
-            return "q"
-        while not self.__ll_voyage.validate_SSN(action):
-            print("Input is invalid")
+            
             action = input("Enter the second flight servant's SSN: ")
+            while not self.__ll_voyage.validate_SSN(action):
+                print("Input is invalid")
+                action = input("Enter the second flight servant's SSN: ")
+            new_voyage += action
             if action == 'b':
                 self.create_menu()
             if action == 'q':
                 return "q"
-        new_voyage += action
+            #self.__ll_voyage.create_voyage(new_voyage)
+          
+            
         
                       
     
-    def new_destination(self):   # Vantar mögulega Land (country)
+    def new_destination(self):   
         """The user has chosen to create a new destination"""
-        action = ""
-        destination = ""
-        print('Enter "b" to go back and "q" to got to the main menu.')
-        action = input("Enter flight number: ")    # Ekki viss hvort flight number eigi að vera hér
-        if action == 'b':
-            self.create_menu()
-        if action == 'q':
-            return "q"
-        while not self.__ll_voyage.validate_flight_number(action):
-            print("Input is invalid")
-            action = input("Enter flight number: ")
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
-                return "q"
-        destination += action
-    
-       
-        action = input("Enter airport: ")
-        if action == 'b':
-            self.create_menu()
-        if action == 'q':
-            return "q"                                     # velja flugvöll ?
-        while not self.__ll_destination.validate_airport_name(action):
-            print("Input is invalid") 
-            action = input("Enter airport: ")
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
-                return "q"
-        destination += action    
-
-                         # Eftir að gera validate-ið fyrir flugtíma
-        #action = input("Enter flight-time: ")
-        #if action == 'b':
-            #self.create_menu()
-        #if action == 'q':
-            #return "q"
-        #while not self.__ll_destination.validate_flight_time(action):
-            #print("Input is invalid")
-            #action = input("Enter flight-time: ")
-            #if action == 'b':
-                #self.create_menu()
-            #if action == 'q':
-                #return "q"
-        #destination += action    
+        self.__ui_destination.add_destination()
         
-        
-        action = input("Enter distance from Iceland: ")
-        if action == 'b':
-            self.create_menu()
-        if action == 'q':
-            return "q"
-        while not self.__ll_destination.validate_distance(action):
-            print("Input is invalid")
-            action = input("Enter distance from Iceland: ")
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
-                return "q"
-        destination += action   
-        
-     
-        action = input("Enter name of emergency contact: ")
-        if action == 'b':
-            self.create_menu()
-        if action == 'q':
-            return "q"
-        while not self.__ll_destination.validate_contact_name(action):
-            print("Input is invalid")
-            action = input("Enter name of emergency contact: ")
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
-                return "q"
-        destination += action 
-        
-        action = input("Enter emergency contact's phone number: ")   
-        if action == 'b':
-            self.create_menu()
-        if action == 'q':
-            return "q" 
-        while not self.__ll_destination.validate_contact_number(action):
-            print("Invalid input")
-            action = input("Enter emergency contact's phone number: ")
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
-                return "q"
-        destination += action 
-        
-
-                
+                   
     
     def change_voyage_state(self):
         """The user has chosen to change the state of the voyage"""
