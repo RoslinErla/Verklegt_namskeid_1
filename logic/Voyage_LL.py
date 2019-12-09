@@ -57,10 +57,10 @@ class VoyageLL():
     # def validate_aircraft_ID(self):  Þarf líklegast að import-a frá Airplane_LL
         # pass
 
-    def validate_captain(self, captain):
-        """ Validates that the captain's SSN is 10 letters long and consists only of digits"""
-        if len(captain) == 10:
-            for letter in captain:
+    def validate_SSN(self, SSN):
+        """ Validates that the Social security number (SSN) is 10 letters long and consists only of digits"""
+        if len(SSN) == 10:
+            for letter in SSN:
                 if letter.isalpha() or letter in string.punctuation:
                     return False
         else: 
@@ -69,55 +69,6 @@ class VoyageLL():
         
         # Kalla á fallið check_if_exist
        
-
-    def validate_co_pilot(self, co_pilot): 
-        """ Validates that the co-pilot's SSN is 10 letters long and consists only of digits"""
-        if len(co_pilot) == 10:
-            for letter in co_pilot:
-                if letter.isalpha() or letter in string.punctuation:
-                    return False
-        else: 
-            return False
-        return True
-
-        # Kalla á fallið check_if_exist
-
-    def validate_fsm(self, fsm): 
-        """ Validates that the flight service manager's SSN is 10 letters long and consists only of digits"""
-        if len(fsm) == 10:
-            for letter in fsm:
-                if letter.isalpha() or letter in string.punctuation:
-                    return False
-        else: 
-            return False
-        return True
-        
-        # Kalla á fallið check_if_exist
-        
-        
-    def validate_fa1(self, fa1): 
-        """ Validates that the flight servant's SSN is 10 letters long and consists only of digits"""
-        if len(fa1) == 10:
-            for letter in fa1:
-                if letter.isalpha() or letter in string.punctuation:
-                    return False
-        else: 
-            return False
-        return True
-        
-        # Kalla á fallið check_if_exist
-
-    def validate_fa2(self, fa2): 
-        """ Validates that the flight servant's SSN is 10 letters long and consists only of digits"""
-        if len(fa2) == 10:
-            for letter in fa2:
-                if letter.isalpha() or letter in string.punctuation:
-                    return False
-        else: 
-            return False
-        return True
-
-        # Kalla á fallið check_if_exist
 
     def validate_flight_number(self, flight_number):      # Á flight number kannski að vera í destination ? 
         """ Validates that the flight number is 6 letters long"""
