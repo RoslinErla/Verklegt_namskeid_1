@@ -1,14 +1,22 @@
 from model.DestinationM import Destination
-
+from IO. destinationIO import DestinationIO
 import string
 
 class DestinationLL(Destination):
 
     def __init__(self):
-        pass
+        self.__destination = DestinationIO()
+    
+    def check_if_exists(self, check):
+        employee_list = self.__employee.get_employee_list()
+        for lists in employee_list:
+            if check in lists:
+                return False
         
+        else: 
+            return True
 
-    def add_employee(self):
+    def Create_employee(self):
         pass
 
     def change_employee(self):
@@ -57,7 +65,7 @@ class DestinationLL(Destination):
         for letter in contact_number:
             if letter.isdigit() or letter != "-":
                 return True
-       
+
 
 
 
