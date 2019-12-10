@@ -41,20 +41,25 @@ class EmployeeUI():
         action = ""
         new_employee = ""
         while action.lower() != 'q':
-            
-            action = input("Enter the ssn: ")
-            while not self.employeell.validate_ssn(action):
+            action = input("Enter the name: ")
+            while not self.employeell.validate_name(action):
                 print("Input is invalid!")
+<<<<<<< HEAD
                 action = input("Enter the ssn: ")
                 if action == 'b':
                     break
                 elif action == 'q':
                     return 'q'
             
+=======
+                action = input("Enter the name: ")
+            new_employee += action + ","
+>>>>>>> 4d65377eab185b295f3b972392c485348bb1c3c9
             if action == 'b':
                 break
-            if action == 'q':
+            elif action == 'q':
                 return 'q'
+<<<<<<< HEAD
 
             new_employee += action + ","
 
@@ -66,12 +71,17 @@ class EmployeeUI():
                     break
                 if action == 'q':
                     return 'q'
+=======
+            action = input("Enter the ssn: ")
+            while not self.employeell.validate_ssn(action):
+                print("Input is invalid!")
+                action = input("Enter the ssn: ")
+>>>>>>> 4d65377eab185b295f3b972392c485348bb1c3c9
             new_employee += action + ","
             if action == 'b':
                 break
-            elif action == 'q':
+            if action == 'q':
                 return 'q'
-
             action = input("Enter the address: ")
             if action == 'b':
                 break
@@ -82,11 +92,14 @@ class EmployeeUI():
                 print("input is invalid!")
                 action = input("Enter the address")
             new_employee += action +","
+<<<<<<< HEAD
             if action == 'b':
                 break
             elif action == 'q':
                 return 'q'
 
+=======
+>>>>>>> 4d65377eab185b295f3b972392c485348bb1c3c9
             action = input("Enter the phone number: ")
             while not self.employeell.validate_phone_number(action):
                 print("Input is invalid!")
@@ -96,7 +109,6 @@ class EmployeeUI():
                 break
             if action == 'q':
                 return 'q'
-
             action = input("Enter the user name: ")
             while not self.employeell.validate_user_name(action):
                 print("Input is invalid!")
@@ -111,8 +123,12 @@ class EmployeeUI():
                 break
             if action == 'q':
                 return 'q'
+<<<<<<< HEAD
 
             action = input("Enter the rank (flight attendant, flight service manager, co-pilot or captain)")
+=======
+            action = input("Enter the rank: ")
+>>>>>>> 4d65377eab185b295f3b972392c485348bb1c3c9
             while not self.employeell.validate_rank(action):
                 print("Input is invalid!")
                 action = input("Enter the rank: ")
@@ -122,7 +138,14 @@ class EmployeeUI():
                     return 'q'
                 
             new_employee += action + ","
+<<<<<<< HEAD
 
+=======
+            if action == 'b':
+                break
+            if action == 'q':
+                return 'q'
+>>>>>>> 4d65377eab185b295f3b972392c485348bb1c3c9
             action = input("Enter the permit, enter N/A if not appropriate: ")
             while not self.employeell.validate_permit(action):
                 print("Input is invalid!")
@@ -147,74 +170,26 @@ class EmployeeUI():
 
 
     def call_on_validate_and_change(self):
-        action = ""
-        changed_employee = ""
-        print("\tChange Employee Menu")
+        self. employeeio.load_employee_from_file("alpha")
+        print(self.employeeio)
         print()
-        print('The following actions are possible:')
-        print('\t1. Create a new employee within the system.')
-        print('\t2. Change employees already within the system.')
-        print('\t3. Display employees within the system.')
-        print('Enter "b" to go back and "q" to got to the main menu.')
-        print('Enter "b" to go back and "q" to got to the main menu.')
-        while action.lower() != 'q':
-            action = input("Enter the name: ")
-            while not self.employeell.validate_name(action):
-                print("Input is invalid!")
-                action = input("Enter the name: ")
-            new_employee += action + ","
-            if action == 'b':
-                break
-            elif action == 'q':
-                return 'q'
-            action = input("Enter the ssn: ")
-            while not self.employeell.validate_ssn(action):
-                print("Input is invalid!")
-                action = input("Enter the ssn: ")
-            new_employee += action + ","
-            if action == 'b':
-                break
-            if action == 'q':
-                return 'q'
-            action = input("Enter the phone number: ")
-            while not self.employeell.validate_phone_number(action):
-                print("Input is invalid!")
-                action = input("Enter the phone number: ")
-            new_employee += action + ","
-            if action == 'b':
-                break
-            if action == 'q':
-                return 'q'
-            action = input("Enter the user name: ")
-            while not self.employeell.validate_user_name(action):
-                print("Input is invalid!")
-                action = input("Enter the user name: ")
-            new_employee += action + ","
-            if action == 'b':
-                break
-            if action == 'q':
-                return 'q'
-            action = input("Enter the rank: ")
-            while not self.employeell.validate_rank(action):
-                print("Input is invalid!")
-                action = input("Enter the rank: ")
-            new_employee += action + ","
-            if action == 'b':
-                break
-            if action == 'q':
-                return 'q'
-            action = input("Enter the permit, if appropiet: ")
-            while not self.employeell.validate_permit(action):
-                print("Input is invalid!")
-                action = input("Enter the permit, if appropiet: ")
-            new_employee += action + ","
-            if action == 'b':
-                break
-            if action == 'q':
-                return 'q'
-            sub_action = input("Please enter your command: ")
-            change_employee = self.employeell.change_employee(new_employee)
+        ssn = input("Please enter the SSN of the employee who's information you want to edit: ")
+        if ssn == "q":
+            return "q"
+        if ssn == "b":
             break
+        change = input("Please enter what you wish to change: ")
+        if change == "q":
+            return "q"
+        if change == "b":
+            break
+        new = input("Please enter the new entry for {}".format(change))
+        if new == "q":
+            return "q"
+        if new == "b":
+            break
+        print()
+        self.employeeio.change_employee(ssn, change, new)
     
     def show_by_status(self):
         print()
