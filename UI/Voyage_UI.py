@@ -24,8 +24,8 @@ class VoyageUI:
     def voyage_menu(self): 
         """ The user can choose between the create, change and display options in the system"""
         action = ""
-        leave = ''
-        while True:
+        leave = ""
+        while leave != "q":
             print("The following actions are possible: ")
             print("\tEnter 1 to create a voyage within the system.")
             print("\tEnter 2 to change voyages already within the system.")
@@ -50,7 +50,7 @@ class VoyageUI:
         """After the user has chosen the "create" option, he has three new options"""
         action = ""
         leave = ''
-        while True:
+        while leave != "q":
             print("\tEnter 1 to repeat an old voyage")
             print("\tEnter 2 to create a new voyage")
             print("\tEnter 3 to create a new destination")
@@ -70,7 +70,7 @@ class VoyageUI:
             if action == 'b':
                 leave = self.voyage_menu() 
             
-            if action == 'q' or leave == "q":
+            if action == 'q' or action == "q":
                 return "q"
               
         
@@ -145,9 +145,13 @@ class VoyageUI:
         action = ""
         new_voyage = ""
         print('Enter "b" to go back and "q" to got to the main menu.')
-        
+ 
         while True: 
-            action =  input("Enter the captain's SSN: ")
+            action =  input("Enter the captain's SSN: ")         # User inputs the SSN for the captain
+            if action == 'b':
+                self.create_menu()
+            if action == 'q':
+                return "q"
             while not self.__ll_voyage.validate_SSN(action):
                 print("Input is invalid")
                 action = input("Enter the captain's SSN: ")
@@ -158,7 +162,11 @@ class VoyageUI:
                 return "q"
         
           
-            action = input("Enter the co-pilot's SSN: ")
+            action = input("Enter the co-pilot's SSN: ")      # User inputs the SSN for the co-pilot
+            if action == 'b':
+                self.create_menu()
+            if action == 'q':
+                return "q"
             while not self.__ll_voyage.validate_SSN(action):
                 print("Input is invalid")
                 action = input("Enter the co-pilot's SSN: ")
@@ -169,7 +177,11 @@ class VoyageUI:
                 return "q"
            
         
-            action = input("Enter the flight service manager's SSN: ")
+            action = input("Enter the flight service manager's SSN: ")  # User inputs the SSN for the fsm
+            if action == 'b':
+                self.create_menu()
+            if action == 'q':
+                return "q"
             while not self.__ll_voyage.validate_SSN(action):
                 print("Input is invalid")
                 action = input("Enter the flight service manager's SSN: ")
@@ -179,7 +191,11 @@ class VoyageUI:
             if action == 'q':
                 return "q"
                         
-            action = input("Enter the first flight servant's SSN: ")
+            action = input("Enter the first flight attendant SSN: ")   # User inputs the SSN for the first flight attendant
+            if action == 'b':
+                self.create_menu()
+            if action == 'q':
+                return "q"
             while not self.__ll_voyage.validate_SSN(action):
                 print("Input is invalid")
                 action = input("Enter the first flight servant's SSN: ")
@@ -189,7 +205,11 @@ class VoyageUI:
             if action == 'q':
                 return "q"
             
-            action = input("Enter the second flight servant's SSN: ")
+            action = input("Enter the second flight servant's SSN: ")       # User inputs the SSN for the second flight attendant
+            if action == 'b':
+                self.create_menu()
+            if action == 'q':
+                return "q"
             while not self.__ll_voyage.validate_SSN(action):
                 print("Input is invalid")
                 action = input("Enter the second flight servant's SSN: ")
@@ -201,7 +221,7 @@ class VoyageUI:
             #self.__ll_voyage.create_voyage(new_voyage)
           
             
-        
+    # Hvað gerist þegar búið er að skrá allar upplýsingar inn ? 
                       
     
     def new_destination(self):   
