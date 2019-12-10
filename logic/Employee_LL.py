@@ -49,6 +49,14 @@ class EmployeeLL():
         if len(phone_number) == 7:
             return True
 
+    def validate_address(self,address):
+        address = address.split()
+        for letter in address[0]:
+            if not letter.isalpha():
+                return False
+
+        return True
+
     def validate_user_name(self, user):
         """Checks if the user name is valid. Returns True if it is valid"""
         if len(user) >= 4:
