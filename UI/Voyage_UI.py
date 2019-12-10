@@ -126,15 +126,19 @@ class VoyageUI:
     def repeat_voyage(self):
         """The user has chosen to repeat an old voyage"""
         action = ""
+        voyage_repeat = ""
         
         print('Enter "b" to go back and "q" to got to the main menu.')
-        action = input("Enter destination: ").lower()      # Vantar virkni hér inn sem leyfir notandanum að endurtaka ferð
-        
-        if action == 'b':                     # Vantar validate !
-            self.create_menu()
-        
-        if action == 'q':
-            return "q" 
+        while True: 
+            action = input("Enter destination: ").lower()      # Vantar virkni hér inn sem leyfir notandanum að endurtaka ferð
+            while not self.__ll_destination.validate_destination_name(action):
+                print("Input is invalid")
+                action = input("Enter destination: ").lower()
+            voyage_repeat += action
+            if action == 'b':                    
+                self.create_menu()
+            if action == 'q':
+                return "q" 
     
     def new_voyage(self):
         """The user has chosen to create a new voyage"""
