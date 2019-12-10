@@ -86,5 +86,5 @@ class EmployeeLL():
         ssn,name,address,phone_number,user_name,rank,permits,status = value_string.split(",")
         self.__employee.Add_employee_to_file(ssn,name,address,phone_number,user_name,rank,permits,status)
 
-    def change_employee(self):
-        pass
+    def change_employee(self, ssn, change, new):
+        self.__employee.change_employee(ssn, change, new)
