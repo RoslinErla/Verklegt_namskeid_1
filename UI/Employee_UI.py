@@ -86,7 +86,7 @@ class EmployeeUI():
                 break
             if action == 'q':
                 return 'q'
-            action = input("Enter the permit, if appropiet: ")
+            action = input("Enter the permit, enter N/A if not appropriate: ")
             while not self.employeell.validate_permit(action):
                 print("Input is invalid!")
                 action = input("Enter the permit, if appropiet: ")

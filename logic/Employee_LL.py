@@ -73,8 +73,9 @@ class EmployeeLL():
                 return False
         return True
 
-    def add_employee(self):
-        pass
+    def add_employee(self,value_string):
+        name,ssn,address,phone_number,user_name,rank,permits,status = value_string.split(",")
+        self.__employee.Add_employee_to_file(name,ssn,address,phone_number,user_name,rank,permits,status)
 
     def change_employee(self):
         pass
