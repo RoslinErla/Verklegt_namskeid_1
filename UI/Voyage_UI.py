@@ -77,7 +77,8 @@ class VoyageUI:
     def change_menu(self):
         """After the user has chosen the "change" option, he has two new options"""
         action = ""
-        while True:
+        leave = ''
+        while leave != "q":
             print("\tEnter 1 to change voyage state")
             print("\tEnter 2 to change emergency contact's name and/or phone number")
             print('Enter "b" to go back and "q" to got to the main menu.')
@@ -85,13 +86,13 @@ class VoyageUI:
             action = input("Please enter your commmand: ").lower()
         
             if action == "1":
-                self.change_voyage_state()
+                leave = self.change_voyage_state()
         
             if action == "2":
-                self.change_emergency_contact()
+                leave = self.change_emergency_contact()
         
             if action == 'b':
-                self.voyage_menu() 
+                leave = self.voyage_menu() 
         
             if action == 'q':
                 return "q"
@@ -100,7 +101,8 @@ class VoyageUI:
     def display_menu(self):
         """After the user has chosen the "display" option, he has three new options"""
         action = ""
-        while True:
+        leave = ''
+        while leave != "q":
             print("\tEnter 1 for a daily list of voyages")
             print("\tEnter 2 for a list of flight numbers")
             print("\tEnter 3 to see the state of the voyages for today")
@@ -108,16 +110,16 @@ class VoyageUI:
             action = input("Please enter your commmand: ").lower()
         
             if action == "1":
-                self.daily_list()
+                leave = self.daily_list()
         
             if action == "2":
-                self.flight_numbers()
+                leave = self.flight_numbers()
         
             if action == "3":
-                self.daily_voyage_state()
+                leave = self.daily_voyage_state()
         
             if action == 'b':
-                self.voyage_menu() 
+                leave =self.voyage_menu() 
         
             if action == 'q':
                 return "q"
@@ -129,16 +131,15 @@ class VoyageUI:
         voyage_repeat = ""
         
         print('Enter "b" to go back and "q" to got to the main menu.')
-        while True: 
-            action = input("Enter destination: ").lower()      # Vantar virkni hér inn sem leyfir notandanum að endurtaka ferð
-            while not self.__ll_destination.validate_destination_name(action):
-                print("Input is invalid")
-                action = input("Enter destination: ").lower()
-            voyage_repeat += action
-            if action == 'b':                    
-                self.create_menu()
-            if action == 'q':
-                return "q" 
+        action = input("Enter destination: ").lower()      # Vantar virkni hér inn sem leyfir notandanum að endurtaka ferð
+        while not self.__ll_destination.validate_destination_name(action):
+            print("Input is invalid")
+            action = input("Enter destination: ").lower()
+        voyage_repeat += action
+        if action == 'b':                    
+            self.create_menu()
+        if action == 'q':
+            return "q" 
     
     def new_voyage(self):
         """The user has chosen to create a new voyage"""
@@ -218,7 +219,7 @@ class VoyageUI:
                 self.create_menu()
             if action == 'q':
                 return "q"
-            #self.__ll_voyage.create_voyage(new_voyage)
+            #self.__ll_voyage.create_voyage(new_voyage)   # veit ekki hvað þetta gerir, er allavega ekki að virka rétt. Hermdi eftir því sem Arnar gerði í Airplane_UI
           
             
     # Hvað gerist þegar búið er að skrá allar upplýsingar inn ? 
@@ -226,10 +227,9 @@ class VoyageUI:
     
     def new_destination(self):   
         """The user has chosen to create a new destination"""
-        self.__ui_destination.add_destination()
+        self.__ui_destination.add_destination()                   # Calls the Destination_UI file
         
-                   
-    
+                    
     def change_voyage_state(self):
         """The user has chosen to change the state of the voyage"""
         action = ""
@@ -261,39 +261,87 @@ class VoyageUI:
     def daily_list(self):
         """The user has chosen to have a list of voyages for a given day displayed"""
         action = ""
+        display_voyages = ""
+
         print('Enter "b" to go back and "q" to got to the main menu.')
-        input("Enter a date: ")
-        # Birta listannn ! 
-        if action == 'b':
-            self.display_menu()
+       
+        while True:                                                       # ..og maður ýtir á q ferð maður bara til baka í voyage_menu...ekki main menu 
+            action = input("Enter a date: ")
+            if action == 'b':
+                self.display_menu()
+            if action == 'q':
+                return "q"
+            while not self.__ll_destination.validate_distance(action):       # Nota distance núna því bara tölur MUNA :Breyta í DATETIME validated
+                print("Input is invalid")
+                action = input("Enter a date: ")
+            display_voyages += action
+            if action == 'b':
+                self.display_menu()
+            if action == 'q':
+                return "q"
         
-        if action == 'q':
-            return "q"
+        # Birta listannn ! 
     
     def flight_numbers(self):
         """The user has chosen to have a list of flight numbers for a given date displayed"""
         action = ""
-        print('Enter "b" to go back and "q" to got to the main menu.')
-        input("Enter destination: ")
-        input("Enter a date: ")
+        display_numbers = ""
+        print('Enter "b" to go back and "q" to got to the main menu.')  # fer líka bara til baka úr "Enter destination" í voyage menu mep q 
+        while True:                                                      # En þá er hægt að ýta aftur á q og þá fer maður í main menu...
+            action = input("Enter destination: ")
+            if action == 'b':
+                self.display_menu()
+            if action == 'q':
+                return "q"
+            while not self.__ll_destination.validate_country_name(action):
+                print("Input is invalid")
+                action = input("Enter destination: ")
+            display_numbers += action
+            if action == 'b':
+                self.display_menu()
+            if action == 'q':
+                return "q"
+            
+            action = input("Enter a date: ")
+            if action == 'b':
+                self.display_menu()
+            if action == 'q':
+                return "q"
+            while not self.__ll_destination.validate_distance(action):       # Nota distance núna því bara tölur MUNA :Breyta í DATETIME validated
+                print("Input is invalid")
+                action = input("Enter a date: ")
+            display_numbers += action
+            if action == 'b':
+                self.display_menu()
+            if action == 'q':
+                return "q"
+            
         # Birta lista flugnúmera fyrir innslegna dagsetningu
-        if action == 'b':
-            self.display_menu()
         
-        if action == 'q':
-            return "q"
     
     def daily_voyage_state(self):
         """The user has chosen to have a list of voyage's state (finished, arrived or cancelled) displayed """
         action = ""
-        print('Enter "b" to go back and "q" to got to the main menu.')
-        input("Enter a date: ")
-        # Birta lista vinnuferða þar sem sést hvaða ferðum er lokið, lent ytra og eða felld niður
+        display_state = ""
+        print('Enter "b" to go back and "q" to got to the main menu.')      # Þegar maður er búinn að velja "see the state of the voyages.." og kemur "Enter date" ..
+                                                          # ..og maður ýtir á q ferð maður bara til baka í voyage_menu...ekki main menu 
+        action = input("Enter a date: ")                                 # og ef maður velur b í Enter date og fer svo aftur inn og velur q þá fær maður input is invalid!
         if action == 'b':
             self.display_menu()
-        
         if action == 'q':
             return "q"
+        while not self.__ll_destination.validate_distance(action):       # Nota distance núna því bara tölur MUNA :Breyta í DATETIME validated
+            print("Input is invalid")
+            action = input("Enter a date: ")
+        display_state += action
+        if action == 'b':
+            self.display_menu()
+        if action == 'q':
+            return "q"
+
+
+        # VANTAR Birta lista vinnuferða þar sem sést hvaða ferðum er lokið, lent ytra og eða felld niður
+        
 
 
 
