@@ -3,6 +3,7 @@ import csv
 
 class DestinationIO:
     DESTINATION_FILE = "./files/destination.csv"
+    CONSTANT_LIST = ["DESTINATION NAME", "DESTINATION ID", "COUNTRY", "AIRPORT", "FLIGHT TIME", "DISTANCE", "EMERGENCY CONTACT", "EMERGENCY PHONE"]
 
     def __init__(self):
         self.__airplane_list = list()
@@ -32,5 +33,14 @@ class DestinationIO:
             writer = csv.writer(csvfile)
             writer.writerow([destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone])
 
-    def change_destination(self,destination_name, change):
-        pass
+    def change_destination(self, destination_id, change, new):
+        change_index = self.CONSTANT_LIST.index(change.upper())
+
+        with open(self.DESTINATION_FILE) as thefile:
+            reader = csv.DictReader(thefile.readlines())
+
+        with open(self.DESTINATION_FILE, "w") as csvfile:
+            writer = csv.writer(csvfile)
+            for line in reader:
+                if line[1] == destination_id.upper():
+                    writer.writerow(line[change_index], new)

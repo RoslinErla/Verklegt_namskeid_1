@@ -49,14 +49,19 @@ class AirplaneIO:
             for lists in plane_file:
                 writer.writerow(lists)
         
-    def change_employee(self,ssn, change, new):
+    def change_airplane(self,plane_insignia, change, new):
         change_index = self.CONSTANTS_LIST.index(change.upper())
 
         with open(self.AIRPLANE_FILE) as thefile:
-            reader = csv.DictReader(thefile.readlines())
+            reader = csv.reader(thefile.readlines())
 
-        with open(self.AIRPLANE_FILE, "w") as csvfile:
+        with open(self.AIRPLANE_FILE, "w", encoding="Latin-1",newline="") as csvfile:
             writer = csv.writer(csvfile)
             for line in reader:
-                if line[0] == ssn:
-                    writer.writerow(line[change_index], new)
+                if line[2] == plane_insignia.upper():
+                    line[change_index] = new
+                    writer.writerow(line[0:])
+                    break
+                else: 
+                    writer.writerow(line)
+            writer.writerows(reader)
