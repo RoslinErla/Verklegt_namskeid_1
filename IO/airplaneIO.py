@@ -60,7 +60,7 @@ class AirplaneIO:
             for line in reader:
                 if line[2] == plane_insignia.upper():
                     line[change_index] = new
-                    writer.writerow(line[0:])
+                    writer.writerow(line)
                     break
                 else: 
                     writer.writerow(line)

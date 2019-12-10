@@ -37,10 +37,15 @@ class DestinationIO:
         change_index = self.CONSTANT_LIST.index(change.upper())
 
         with open(self.DESTINATION_FILE) as thefile:
-            reader = csv.DictReader(thefile.readlines())
+            reader = csv.reader(thefile.readlines())
 
-        with open(self.DESTINATION_FILE, "w") as csvfile:
+        with open(self.DESTINATION_FILE, "w", encoding = "Latin-1", newline="") as csvfile:
             writer = csv.writer(csvfile)
             for line in reader:
                 if line[1] == destination_id.upper():
-                    writer.writerow(line[change_index], new)
+                    line[change_index] = new
+                    writer.writerow(line)
+                    break
+                else:
+                    writer.writerow(line)
+            writer.writerows(reader)
