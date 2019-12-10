@@ -14,7 +14,7 @@ class DestinationUI:
         action = ""                                       # User puts in the name of the country
         destination = ""
         while True:
-            action = input("Enter country name: ")    
+            action = input("Enter country name: ")                      # Þarf að laga: q virkar bara eins og b hér
             while not self.__ll_destination.validate_country_name:
                 print("Input is invalid")
                 action = input("Enter country name: ")
