@@ -68,6 +68,9 @@ class EmployeeLL():
             return True
 
     def validate_permit(self,permit):
+        if permit == "N/A":
+            return True
+
         for letter in permit:
             if not letter.isalpha() and not letter.isdigit():
                 return False
@@ -75,7 +78,7 @@ class EmployeeLL():
 
     def add_employee(self,value_string):
         name,ssn,address,phone_number,user_name,rank,permits,status = value_string.split(",")
-        self.__employee.Add_employee_to_file(name,ssn,address,phone_number,user_name,rank,permits,status)
+        self.__employee.Add_employee_to_file(ssn,name,address,phone_number,user_name,rank,permits,status)
 
     def change_employee(self):
         pass

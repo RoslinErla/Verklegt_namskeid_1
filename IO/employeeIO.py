@@ -49,10 +49,10 @@ class EmployeeIO:
             a_list.sort(key = lambda x: x.get_status())
             return a_list
 
-    def Add_employee_to_file(self, name, ssn, phone, user_name, rank, permits, status):
+    def Add_employee_to_file(self, name, ssn, address, phone, user_name, rank, permits, status):
         with open(self.EMPLOYEE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([name,ssn,phone, user_name, rank, permits, status])
+            writer.writerow([name,ssn, address, phone, user_name, rank, permits, status])
 
     def delete_employee(self, ssn):
         employee_file = list()

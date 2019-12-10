@@ -59,6 +59,8 @@ class EmployeeUI():
                 break
             if action == 'q':
                 return 'q'
+            action = input("Enter the address: ")
+            new_employee += action +","
             action = input("Enter the phone number: ")
             while not self.employeell.validate_phone_number(action):
                 print("Input is invalid!")
@@ -91,11 +93,20 @@ class EmployeeUI():
                 print("Input is invalid!")
                 action = input("Enter the permit, if appropiet: ")
             new_employee += action + ","
+            action = input("Enter the status of the employee (at work, not at work, on vacation)")
+            while not self.employeell.validate_status(action):
+                print("input is invalid")
+                action = input("Enter the status")
+            new_employee += action
+
+            action = input("Do you want to create a new employee? (Y)es or (N)o").lower()
+
             if action == 'b':
                 break
-            if action == 'q':
+            if action == ('q' or "n"):
                 return 'q'
             self.employeell.add_employee(new_employee)
+            action = "q"
 
     def call_on_validate_and_change(self):
         action = ""
