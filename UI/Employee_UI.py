@@ -91,22 +91,25 @@ class EmployeeUI():
             action = input("Enter the permit, enter N/A if not appropriate: ")
             while not self.employeell.validate_permit(action):
                 print("Input is invalid!")
-                action = input("Enter the permit, if appropiet: ")
+                action = input("Enter the permit, enter N/A if not appropriate: ")
             new_employee += action + ","
-            action = input("Enter the status of the employee (at work, not at work, on vacation)")
+            action = input("Enter the status of the employee (at work, not at work, on vacation): ")
             while not self.employeell.validate_status(action):
                 print("input is invalid")
                 action = input("Enter the status")
             new_employee += action
 
-            action = input("Do you want to create a new employee? (Y)es or (N)o").lower()
-
             if action == 'b':
                 break
-            if action == ('q' or "n"):
+            if action == 'q':
                 return 'q'
+
             self.employeell.add_employee(new_employee)
-            action = "q"
+
+            action = input("Do you want to create a new employee? (y)es or (n)o: " ).lower()
+            if action == "n":
+                action = "q"
+
 
     def call_on_validate_and_change(self):
         action = ""

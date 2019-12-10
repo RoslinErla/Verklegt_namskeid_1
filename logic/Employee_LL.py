@@ -10,6 +10,7 @@ class EmployeeLL():
         employee_list = self.__employee.get_employee_list()
         for lists in employee_list:
             if check in lists:
+                print("This ssn already exists press 'b' to go back")
                 return False
         
         else: 
@@ -23,11 +24,11 @@ class EmployeeLL():
             for letter in elements:
                 if not letter.isalpha():
                     return False
-        self.__name = name
         return True
 
     def validate_ssn(self,ssn):
         """Checks if the ssn is valid. Returns True if it is valid"""
+        
         if self.check_if_ssn_exists(ssn):
             try: 
                 int(ssn)
@@ -55,9 +56,7 @@ class EmployeeLL():
     
     def validate_rank(self, rank):
         """Checks if the rank is valid. Returns True if it is valid"""
-        if rank.lower() == "flight attendant" or rank.lower() == "flight service manager" \
-            or rank.lower() == "co-pilot" or rank.lower() == "captain":
-            self.__rank = rank
+        if rank.lower() == ("flight attendant" or "flight service manager" or "co-pilot" or "captain"):
             return True
 
     def validate_status(self,status):

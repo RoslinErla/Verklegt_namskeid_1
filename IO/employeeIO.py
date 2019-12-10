@@ -10,7 +10,7 @@ class EmployeeIO:
         self.__employee_list = list()
         self.__header = "{:35} | {:11} | {:30} | {:12} | {:15} | {:25} | {:15} | {:11}" \
         .format("Name", "SSN", "Address", "Phone_number", "User_name", "Rank", "Permit", "Status")
-        self.__employee = Employee("","","","","","","","")
+        self.__employee = Employee()
 
     def get_employee_list(self):
         return self.__employee_list
