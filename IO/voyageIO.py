@@ -35,3 +35,5 @@ class VoyageIO:
             writer.writerow(["Reykjavík", departure_time, arriving_abroad, arrival_time, 
             "Reykjavík", departure_time_home, arrival_time_home, plane_insignia, 
             captain, co_pilot, fsm, fa1, fa2, flight_number,status])
+
+
