@@ -99,7 +99,7 @@ class AirplaneUI:
             if new == "b":
                 break
             print()
-            self.airplaneio.change_airplane(plane_insignia, change, new)
+            self.airplanell.change_airplane(plane_insignia, change, new)
             action = input("Do you want to change another airplane? (y)es or (n)o: " ).lower()
             if action == "n":
                 action = "q"
