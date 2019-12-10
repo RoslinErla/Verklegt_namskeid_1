@@ -7,9 +7,9 @@ class EmployeeLL():
         self.__employee = EmployeeIO()
     
     def check_if_ssn_exists(self, check):
-        employee_list = self.__employee.get_employee_list()
-        for lists in employee_list:
-            if check in lists:
+        employee_set = self.__employee.get_set()
+        for elements in employee_set:
+            if check == elements:
                 print("This ssn already exists press 'b' to go back")
                 return False
         
@@ -60,14 +60,13 @@ class EmployeeLL():
             return True
 
     def validate_status(self,status):
-        if status != "At work": 
-            if status == ("not at work" or "on vacation"): 
-                return True
-        else: 
+        if status == ("at work" or "not at work" or "on vacation"): 
             return True
+        else: 
+            return False
 
     def validate_permit(self,permit):
-        if permit == "N/A":
+        if permit == ("N/A" or "n/a") :
             return True
 
         for letter in permit:
@@ -76,7 +75,7 @@ class EmployeeLL():
         return True
 
     def add_employee(self,value_string):
-        name,ssn,address,phone_number,user_name,rank,permits,status = value_string.split(",")
+        ssn,name,address,phone_number,user_name,rank,permits,status = value_string.split(",")
         self.__employee.Add_employee_to_file(ssn,name,address,phone_number,user_name,rank,permits,status)
 
     def change_employee(self):
