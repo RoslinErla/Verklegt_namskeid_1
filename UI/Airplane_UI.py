@@ -79,7 +79,7 @@ class AirplaneUI:
         self.airplaneio.load_airplane_from_file()
         print(self.airplaneio)
         print()
-        planeinsignia = input("Please enter the Plane Insignia of the employee who's information you want to edit: ")
+        planeinsignia = input("Please enter the Plane Insignia of the plane you want to edit: ")
         if planeinsignia == "q":
             return "q"
         if planeinsignia == "b":
@@ -95,7 +95,7 @@ class AirplaneUI:
         if new == "b":
             break
         print()
-        self.airplaneio.change_airplane(plane_insignia, change, new)
+        self.airplaneio.change_airplane(planeinsignia, change, new)
         
     
     def show(self):
