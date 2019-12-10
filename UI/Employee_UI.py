@@ -112,26 +112,31 @@ class EmployeeUI():
 
 
     def call_on_validate_and_change(self):
-        self. employeeio.load_employee_from_file("alpha")
-        print(self.employeeio)
-        print()
-        ssn = input("Please enter the SSN of the employee who's information you want to edit: ")
-        if ssn == "q":
-            return "q"
-        if ssn == "b":
-            break
-        change = input("Please enter what you wish to change: ")
-        if change == "q":
-            return "q"
-        if change == "b":
-            break
-        new = input("Please enter the new entry for {}".format(change))
-        if new == "q":
-            return "q"
-        if new == "b":
-            break
-        print()
-        self.employeeio.change_employee(ssn, change, new)
+        while True:
+            self. employeeio.load_employee_from_file("alpha")
+            print(self.employeeio)
+            print()
+            ssn = input("Please enter the SSN of the employee who's information you want to edit: ")
+            if ssn == "q":
+                return "q"
+            if ssn == "b":
+                break
+            change = input("Please enter what you wish to change: ")
+            if change == "q":
+                return "q"
+            if change == "b":
+                break
+            new = input("Please enter the new entry for {}".format(change))
+            if new == "q":
+                return "q"
+            if new == "b":
+                break
+            print()
+            self.employeeio.change_employee(ssn, change, new)
+
+            action = input("Do you want to change another employee? (y)es or (n)o: " ).lower()
+                if action == "n":
+                    action = "q"
     
     def show_by_status(self):
         print()
