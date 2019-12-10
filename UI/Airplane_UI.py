@@ -110,9 +110,3 @@ class AirplaneUI:
         self.airplaneio.load_airplane_from_file()
         print(self.airplaneio)
         print()
-    
-    def show(self):
-        print()
-        self.airplaneio.load_airplane_from_file()
-        print(self.airplaneio)
-        print()
