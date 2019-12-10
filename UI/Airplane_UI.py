@@ -74,35 +74,36 @@ class AirplaneUI:
             if action == 'q':
                 return 'q'
             self.airplanell.create_plane(new_plane)
+            action = input("Do you want to create another airplane? (y)es or (n)o: " ).lower()
+            if action == "n":
+                action = "q"
 
     def call_on_validate_and_change(self):
-        self.airplaneio.load_airplane_from_file()
-        print(self.airplaneio)
-        print()
-        planeinsignia = input("Please enter the Plane Insignia of the plane you want to edit: ")
-        if planeinsignia == "q":
-            return "q"
-        if planeinsignia == "b":
-            break
-        change = input("Please enter what you wish to change: ")
-        if change == "q":
-            return "q"
-        if change == "b":
-            break
-        new = input("Please enter the new entry for {}".format(change))
-        if new == "q":
-            return "q"
-        if new == "b":
-            break
-        print()
-        self.airplaneio.change_airplane(planeinsignia, change, new)
+        while True:
+            self.airplaneio.load_airplane_from_file()
+            print(self.airplaneio)
+            print()
+            planeinsignia = input("Please enter the Plane Insignia of the employee who's information you want to edit: ")
+            if planeinsignia == "q":
+                return "q"
+            if planeinsignia == "b":
+                break
+            change = input("Please enter what you wish to change: ")
+            if change == "q":
+                return "q"
+            if change == "b":
+                break
+            new = input("Please enter the new entry for {}".format(change))
+            if new == "q":
+                return "q"
+            if new == "b":
+                break
+            print()
+            self.airplaneio.change_airplane(plane_insignia, change, new)
+            action = input("Do you want to change another airplane? (y)es or (n)o: " ).lower()
+            if action == "n":
+                action = "q"
         
-    
-    def show(self):
-        print()
-        self.airplaneio.load_airplane_from_file()
-        print(self.airplaneio)
-        print()
     
     def show(self):
         print()
