@@ -52,5 +52,5 @@ class AirplaneLL(Airplane):
     def create_plane(self, new_plane):
         self.airplaneio.Add_airplane_to_file(new_plane.split(","))
         
-    def change_plane(self, change_plane):
-        pass
+    def change_plane(self, planeinsignia, change, new):
+        self.airplaneio.change_airplane(planeinsignia, change, new)
