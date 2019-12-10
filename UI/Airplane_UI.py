@@ -68,7 +68,7 @@ class AirplaneUI:
             while not self.airplanell.validate_model(action):
                 print("Input is invalid!")
                 action = input("Enter the model: ")
-            new_plane += action + ","
+            new_plane += action
             if action == 'b':
                 break
             if action == 'q':
