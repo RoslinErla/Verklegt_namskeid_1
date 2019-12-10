@@ -8,13 +8,21 @@ class EmployeeIO:
 
     def __init__(self):
         self.__employee_list = list()
+        self.__ssn_set = set()
         self.__header = "{:35} | {:11} | {:30} | {:12} | {:15} | {:25} | {:15} | {:11}" \
         .format("Name", "SSN", "Address", "Phone_number", "User_name", "Rank", "Permit", "Status")
         self.__employee = Employee()
 
-    def get_employee_list(self):
-        return self.__employee_list
-            
+    def make_ssn_set(self):
+        with open(self.EMPLOYEE_FILE, "r",encoding= "Latin-1") as the_file:
+            reader = csv.reader(the_file)
+            for line in reader:
+                self.__ssn_set.add(line[0])
+
+    def get_set(self):
+        self.make_ssn_set()
+        return self.__ssn_set
+
 
     def load_employee_from_file(self,sort_type):
         print(self.__header)

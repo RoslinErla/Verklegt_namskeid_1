@@ -41,15 +41,7 @@ class EmployeeUI():
         action = ""
         new_employee = ""
         while action.lower() != 'q':
-            action = input("Enter the name: ")
-            while not self.employeell.validate_name(action):
-                print("Input is invalid!")
-                action = input("Enter the name: ")
-            new_employee += action + ","
-            if action == 'b':
-                break
-            elif action == 'q':
-                return 'q'
+            
             action = input("Enter the ssn: ")
             while not self.employeell.validate_ssn(action):
                 print("Input is invalid!")
@@ -59,8 +51,20 @@ class EmployeeUI():
                 break
             if action == 'q':
                 return 'q'
+
+            action = input("Enter the name: ")
+            while not self.employeell.validate_name(action):
+                print("Input is invalid!")
+                action = input("Enter the name: ")
+            new_employee += action + ","
+            if action == 'b':
+                break
+            elif action == 'q':
+                return 'q'
+
             action = input("Enter the address: ")
             new_employee += action +","
+
             action = input("Enter the phone number: ")
             while not self.employeell.validate_phone_number(action):
                 print("Input is invalid!")
@@ -70,6 +74,7 @@ class EmployeeUI():
                 break
             if action == 'q':
                 return 'q'
+
             action = input("Enter the user name: ")
             while not self.employeell.validate_user_name(action):
                 print("Input is invalid!")
@@ -79,6 +84,7 @@ class EmployeeUI():
                 break
             if action == 'q':
                 return 'q'
+
             action = input("Enter the rank: ")
             while not self.employeell.validate_rank(action):
                 print("Input is invalid!")
@@ -88,6 +94,7 @@ class EmployeeUI():
                 break
             if action == 'q':
                 return 'q'
+
             action = input("Enter the permit, enter N/A if not appropriate: ")
             while not self.employeell.validate_permit(action):
                 print("Input is invalid!")
