@@ -44,17 +44,16 @@ class EmployeeUI():
             action = input("Enter the ssn: ")
             while not self.employeell.validate_ssn(action):
                 print("Input is invalid!")
-<<<<<<< HEAD
                 action = input("Enter the ssn: ")
                 if action == 'b':
                     break
                 elif action == 'q':
                     return 'q'
             
-            # if action == 'b':
-            #     break
-            # elif action == 'q':
-            #     return 'q'
+            if action == 'b':
+                break
+            elif action == 'q':
+                return 'q'
 
             new_employee += action + ","
 
@@ -67,18 +66,6 @@ class EmployeeUI():
                 if action == 'q':
                     return 'q'
 
-=======
-                action = input("Enter the name: ")
-            new_employee += action + ","
-            if action == 'b':
-                break
-            elif action == 'q':
-                return 'q'
-            action = input("Enter the ssn: ")
-            while not self.employeell.validate_ssn(action):
-                print("Input is invalid!")
-                action = input("Enter the ssn: ")
->>>>>>> 62ad5536e615ba01262f711e8f2baa3aa0188fd9
             new_employee += action + ","
 
             if action == 'b':
@@ -90,7 +77,6 @@ class EmployeeUI():
             while not self.employeell.validate_address(action):
                 print("input is invalid!")
                 action = input("Enter the address")
-<<<<<<< HEAD
                 if action == 'b':
                     break
                 elif action == 'q':
@@ -98,9 +84,6 @@ class EmployeeUI():
     
             new_employee += action + ","
 
-=======
-            new_employee += action +","
->>>>>>> 62ad5536e615ba01262f711e8f2baa3aa0188fd9
             action = input("Enter the phone number: ")
             while not self.employeell.validate_phone_number(action):
                 print("Input is invalid!")
@@ -124,12 +107,8 @@ class EmployeeUI():
                 break
             if action == 'q':
                 return 'q'
-<<<<<<< HEAD
 
             action = input("Enter the rank (flight attendant, flight service manager, co-pilot or captain)")
-=======
-            action = input("Enter the rank: ")
->>>>>>> 62ad5536e615ba01262f711e8f2baa3aa0188fd9
             while not self.employeell.validate_rank(action):
                 print("Input is invalid!")
                 action = input("Enter the rank: ")
@@ -139,13 +118,6 @@ class EmployeeUI():
                     return 'q'
                 
             new_employee += action + ","
-<<<<<<< HEAD
-=======
-            if action == 'b':
-                break
-            if action == 'q':
-                return 'q'
->>>>>>> 62ad5536e615ba01262f711e8f2baa3aa0188fd9
             action = input("Enter the permit, enter N/A if not appropriate: ")
             while not self.employeell.validate_permit(action):
                 print("Input is invalid!")
