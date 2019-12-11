@@ -54,6 +54,7 @@ class EmployeeIO:
             return a_list
 
         elif sort_type =="status":
+            a_list = sorted(a_list, key = lambda x: x.get_name())
             a_list.sort(key = lambda x: x.get_status())
             return a_list
 

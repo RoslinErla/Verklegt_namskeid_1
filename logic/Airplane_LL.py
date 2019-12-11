@@ -45,8 +45,8 @@ class AirplaneLL(Airplane):
         return False
 
     def create_plane(self, new_plane):
-        manufacturer, type_ID, plane_insignia, model= new_plane.split(",") 
-        self.airplaneio.Add_airplane_to_file(manufacturer, type_ID, plane_insignia, model)
+        manufacturer, type_id, plane_insignia, model = new_plane.split(",") 
+        self.airplaneio.Add_airplane_to_file(manufacturer, ID, plane_insignia, model)
         
     def change_plane(self, planeinsignia, change, new):
         self.airplaneio.change_airplane(planeinsignia, change, new)

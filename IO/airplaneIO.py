@@ -25,6 +25,7 @@ class AirplaneIO:
         return_str = ''
         for airplane in self.__airplane_list:
             return_str += airplane.__str__() + '\n'
+        self.__airplane_list = list()
         return return_str
 
     def sort_to_display(self, a_list):
