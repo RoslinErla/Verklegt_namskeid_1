@@ -3,6 +3,7 @@ from model.VoyageM import Voyage
 from logic.Destination_LL import DestinationLL
 from IO.destinationIO import DestinationIO
 from UI.Destination_UI import DestinationUI
+from IO.voyageIO import VoyageIO
 
 import string
 
@@ -13,6 +14,7 @@ class VoyageUI:
         self.__ll_destination = DestinationLL()
         self.__io_destination = DestinationIO()
         self.__ui_destination = DestinationUI()
+        self.__io_voyage = VoyageIO()
 
     def create_voyage(self):  
         pass
@@ -239,8 +241,8 @@ class VoyageUI:
         """The user has chosen to change the status of the voyage"""     
         print('Enter "b" to go back and "q" to got to the main menu.')
         while True: 
-            self.__io_destination.load_destination_from_file()                   # Hægt að velja destination frá lista
-            print(self.__io_destination)
+            self.__io_voyage.load_voyage_from_file()                        #destination.load_destination_from_file()                   # Hægt að velja destination frá lista
+            print(self.__io_voyage)
             print()
             des = input("Enter destination: ")             # vantar validate
             if des == 'b':
