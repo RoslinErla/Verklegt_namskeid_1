@@ -8,7 +8,12 @@ _  /|  / / /_/ /_  /|  /    / /_/ /_  / _  /
 
 """
 print(header)  
-import os
-clear = lambda: os.system('clear')
-clear()
+def cls():
+    print('\n'* 5)
+
+cls()
+
+'''import os
+clear = lambda: os.system('cls' or 'clear')
+clear()'''
 
