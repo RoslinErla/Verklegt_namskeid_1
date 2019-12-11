@@ -1,5 +1,6 @@
 from IO.employeeIO import EmployeeIO
 from logic.Employee_LL import EmployeeLL
+import datetime
 
 class EmployeeUI():
     
@@ -18,6 +19,9 @@ class EmployeeUI():
             print('\t2. enter "2" to change employees already within the system.')
             print('\t3. enter "3" to display employees within the system by their status.')
             print('\t4. enter "4" to display employees within the system in alphabetical order.')
+            print("\t5. enter '5' to display all flight attendants within the system. ")
+            print("\t6. enter '6' to display all pilots within the system. ")
+            print("\t7. enter '7' to display all information about a employee. ")
             print('Enter "b" to go back and "q" to got to the main menu.')
 
             action = input("Please enter your command: ")
@@ -27,13 +31,19 @@ class EmployeeUI():
 
             if action == "1":
                 leave = self.call_on_validate_and_create()
-            if action == "2":
+            elif action == "2":
                 leave =  self.call_on_validate_and_change()
-            if action == "3":
+            elif action == "3":
                 self.show_by_status()
-            if action == "4":
+            elif action == "4":
                 self.show_by_aplha()
-            if action == "b" or action == "q":
+            elif action == "5":
+                self.show_by_rank("flight attendant")
+            elif action == "6":
+                self.show_by_rank("pilot")
+            elif action == "7":
+                self.show_a_single_employee()
+            elif action == "b" or action == "q":
                 break
 
     def call_on_validate_and_create(self):
@@ -168,22 +178,61 @@ class EmployeeUI():
                 return "q"
             if ssn == "b":
                 break
-            change = input("Please enter what you wish to change: ")
-            if change == "q":
-                return "q"
-            if change == "b":
+            print("Enter '1' to change the name. ")
+            print("Enter '2' to change the address. ")
+            print("Enter '3' to change the phone_number. ")
+            print("Enter '4' to change the user_name. ")
+            print("Enter '5' to change the status. ")
+            print("Enter 'q' to go back to the main menu")
+            print("Enter 'b' to go back to the employee menu")
+
+            action = input("Please enter your command: ")
+
+            if action == "b":
                 break
-            new = input("Please enter the new entry for {}".format(change))
-            if new == "q":
+            elif action == "q":
                 return "q"
-            if new == "b":
-                break
-            print()
+            elif action == "1":
+                change = "name"
+                new = input("please enter the new entry for {}: ".format(change))
+                while not self.employeell.validate_status(new):
+                    print("input is invalid")
+                    new = input("please enter the new entry for {}: ".format(change))
+                    
+
+            elif action == "2":
+                change = "address"
+                new = input("please enter the new entry for {}: ".format(change))
+                while not self.employeell.validate_address(new):
+                    print("input is invalid")
+                    new = input("please enter the new entry for {}: ".format(change))
+            
+            elif action == "3":
+                change = "phone_number"
+                new = input("please enter the new entry for {}: ".format(change))
+                while not self.employeell.validate_phone_number(action):
+                    print("input is invalid")
+                    new = input("please enter the new entry for {}: ".format(change))
+            
+            elif action == "4":
+                change = "user_name"
+                new = input("please enter the new entry for {}: ".format(change))
+                while not self.employeell.validate_user_name(action):
+                    print("input is invalid")
+                    new = input("please enter the new entry for {}: ".format(change))
+
+            elif action == "5":
+                change = "status"
+                new = input("please enter the new entry for {}: ".format(change))
+                while not self.employeell.validate_status(action):
+                    print("input is invalid")
+                    new = input("please enter the new entry for {}: ".format(change))
+
             self.employeell.change_employee(ssn, change, new)
 
             action = input("Do you want to change another employee? (y)es or (n)o: " ).lower()
             if action == "n":
-                action = "q"
+                return "q"
     
     def show_by_status(self):
         print()
@@ -194,5 +243,25 @@ class EmployeeUI():
     def show_by_aplha(self):
         print()
         self. employeeio.load_employee_from_file("alpha")
+        print(self.employeeio)
+        print()
+
+    def show_by_rank(self,rank):
+        print()
+        if rank == "pilot":
+            self.employeeio.display_pilots()
+            print(self.employeeio)
+            print()
+
+        if rank == "flight attendant":
+            self.employeeio.display_flight_attendants()
+            print(self.employeeio)
+            print()
+
+    def show_a_single_employee(self):
+        self.employeeio.load_employee_from_file("alpha")
+        print(self.employeeio)
+        ssn = input("enter the ssn of the employee you want to see: ")
+        self.employeeio.display_one_employee(ssn)
         print(self.employeeio)
         print()
