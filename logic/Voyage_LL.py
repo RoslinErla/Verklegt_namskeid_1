@@ -2,6 +2,8 @@ from model.VoyageM import Voyage
 
 from IO.employeeIO import EmployeeIO
 
+import datetime
+
 #from IO.voyageIO import VoyageIO
 
 import string
@@ -41,8 +43,10 @@ class VoyageLL():
         return True
     
                     
-    #def validate_departure_time(self):  # Þarf líklega ekki að validate-a, útfært sem datetime í UI
-        #pass
+    #def validate_departure_time(self, a_time):  # Þarf líklega ekki að validate-a, útfært sem datetime í UI
+       
+
+
 
     def validate_arriving_at(self, arriving_at):  # Check if string only has alphabetical letters and is 3 letters long
         """ Validates whether "arriving_at" is 3 letters long (e.g KEF) and that every letter is a part of the alphabet"""
