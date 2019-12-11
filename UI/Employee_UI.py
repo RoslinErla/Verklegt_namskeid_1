@@ -108,7 +108,7 @@ class EmployeeUI():
             if action == 'q':
                 return 'q'
 
-            action = input("Enter the rank (flight attendant, flight service manager, co-pilot or captain)")
+            action = input("Enter the rank (flight attendant, flight service manager, co-pilot or captain): ")
             while not self.employeell.validate_rank(action):
                 print("Input is invalid!")
                 action = input("Enter the rank: ")
@@ -118,12 +118,29 @@ class EmployeeUI():
                     return 'q'
                 
             new_employee += action + ","
+
+            if action == 'b':
+                    break
+            if action == 'q':
+                return 'q'
+
             action = input("Enter the permit, enter N/A if not appropriate: ")
             while not self.employeell.validate_permit(action):
                 print("Input is invalid!")
                 action = input("Enter the permit, enter N/A if not appropriate: ")
+                if action == 'b':
+                    break
+                if action == 'q':
+                    return 'q'
+
             new_employee += action + ","
+            if action == 'b':
+                break
+            if action == 'q':
+                return 'q'
+
             action = input("Enter the status of the employee (at work, not at work, on vacation): ")
+
             while not self.employeell.validate_status(action):
                 print("input is invalid")
                 action = input("Enter the status")
@@ -138,7 +155,7 @@ class EmployeeUI():
 
             action = input("Do you want to create a new employee? (y)es or (n)o: " ).lower()
             if action == "n":
-                action = "q"
+                return "q"
 
 
     def call_on_validate_and_change(self):
