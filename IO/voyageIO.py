@@ -6,6 +6,23 @@ class VoyageIO:
 
     def __init__(self):
         self.__voyage_list = list()
+    
+    """def change_voyage(self, change, new):     # óklárað 
+        change_index = self.CONSTANT_LIST.index(change.upper())
+
+        with open(self.VOYAGE_FILE) as thefile:
+            reader = csv.reader(thefile.readlines())
+
+        with open(self.VOYAGE_FILE, "w", encoding= "Latin-1", newline="") as csvfile:
+            writer = csv.writer(csvfile)
+            for line in reader:
+                if line[0] == ssn:        # Á eftir að breyta ssn í eh annað .. 
+                    line[change_index] = new
+                    writer.writerow(line)
+                    break
+                else:
+                    writer.writerow(line)
+            writer.writerows(reader)"""
 
     def load_voyage_from_file(self):
         with open(self.VOYAGE_FILE, "r") as the_file:
