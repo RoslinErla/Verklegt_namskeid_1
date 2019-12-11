@@ -20,7 +20,6 @@ class VoyageUI:
     def change_voyage(self):
         pass
 
-
     def voyage_menu(self): 
         """ The user can choose between the create, change and display options in the system"""
         action = ""
@@ -125,21 +124,23 @@ class VoyageUI:
                 return "q"
         
 
-    def repeat_voyage(self):
+    def repeat_voyage(self):             # C krafa GEYMA
         """The user has chosen to repeat an old voyage"""
         action = ""
         voyage_repeat = ""
+        leave = ""
         
         print('Enter "b" to go back and "q" to got to the main menu.')
-        action = input("Enter destination: ").lower()      # Vantar virkni hér inn sem leyfir notandanum að endurtaka ferð
-        while not self.__ll_destination.validate_destination_name(action):
-            print("Input is invalid")
-            action = input("Enter destination: ").lower()
-        voyage_repeat += action
-        if action == 'b':                    
-            self.create_menu()
-        if action == 'q':
-            return "q" 
+        while leave != "q":
+            action = input("Enter destination: ").lower()      # Vantar virkni hér inn sem leyfir notandanum að endurtaka ferð
+            while not self.__ll_destination.validate_destination_name(action):
+                print("Input is invalid")
+                action = input("Enter destination: ").lower()
+            voyage_repeat += action
+            if action == 'b':                    
+                leave = self.create_menu()
+            if action == 'q':
+                return "q" 
     
     def new_voyage(self):
         """The user has chosen to create a new voyage"""
@@ -220,9 +221,18 @@ class VoyageUI:
             if action == 'q':
                 return "q"
             #self.__ll_voyage.create_voyage(new_voyage)   # veit ekki hvað þetta gerir, er allavega ekki að virka rétt. Hermdi eftir því sem Arnar gerði í Airplane_UI
+
+            action = input("Do you want to create another voyage? (y/n): ").lower
+            if action == "y":  # virkar
+                continue
+            if action == "n":  # virkar ekki!
+                action = "q"
           
             
     # Hvað gerist þegar búið er að skrá allar upplýsingar inn ? 
+
+    # pæling að hafa aftast eins og t.d. í create employee: Do you want to create another one? Y or N
+    # og ef svarið er Y þá gerist loopan aftur en ef hún er N þá breytist það í q og fer í main menuið
                       
     
     def new_destination(self):   
@@ -230,8 +240,8 @@ class VoyageUI:
         self.__ui_destination.add_destination()                   # Calls the Destination_UI file
         
                     
-    def change_voyage_state(self):
-        """The user has chosen to change the state of the voyage"""
+    def change_voyage_state(self):                                      
+        """The user has chosen to change the state of the voyage"""     
         action = ""
         print('Enter "b" to go back and "q" to got to the main menu.')
         self.__io_destination.load_destination_from_file()                   # Hægt að velja destination frá lista
@@ -241,22 +251,12 @@ class VoyageUI:
 
         if action == 'b':
             self.change_menu()
-        
         if action == 'q':
             return "q"
     
 
     def change_emergency_contact(self):
-        """The user has chosen to change the name and/or phone number of the emergency contact"""
-        action = ""
-        print('Enter "b" to go back and "q" to got to the main menu.')
-        #Veljið stað tengiliðs?
-        #Númer staðsetningar innan kerfisins ? 
-        if action == 'b':
-            self.change_menu()
-        
-        if action == 'q':
-            return "q"
+        self.__ui_destination.change_contact()
 
     def daily_list(self):
         """The user has chosen to have a list of voyages for a given day displayed"""
@@ -320,7 +320,7 @@ class VoyageUI:
         
     
     def daily_voyage_state(self):
-        """The user has chosen to have a list of voyage's state (finished, arrived or cancelled) displayed """
+        """The user has chosen to have a list of voyage's status (finished, arrived or cancelled) displayed """
         action = ""
         display_state = ""
         print('Enter "b" to go back and "q" to got to the main menu.')      # Þegar maður er búinn að velja "see the state of the voyages.." og kemur "Enter date" ..
@@ -332,12 +332,12 @@ class VoyageUI:
             return "q"
         while not self.__ll_destination.validate_distance(action):       # Nota distance núna því bara tölur MUNA :Breyta í DATETIME validated
             print("Input is invalid")
-            action = input("Enter a date: ")
-        display_state += action
-        if action == 'b':
-            self.display_menu()
-        if action == 'q':
-            return "q"
+            action = input("Enter a date: ")    #sýna stöðuna á vinnuferð miðað við dags. Og tíma núna. T.d. ferð gæti verið:
+        display_state += action                   # a) lokið, b) lent ytra, c) í loftinu eða d) ekki hafin
+        if action == 'b': 
+            self.display_menu()                  # now = datetime.now()
+        if action == 'q':                        # if now < "2019-12-10T22:00:00":
+            return "q"                           #  þarf að breyta strengnum í hlut, t.a.m. með dateutil.parser,
 
 
         # VANTAR Birta lista vinnuferða þar sem sést hvaða ferðum er lokið, lent ytra og eða felld niður
