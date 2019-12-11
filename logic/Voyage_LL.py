@@ -1,11 +1,7 @@
 from model.VoyageM import Voyage
-
 from IO.employeeIO import EmployeeIO
-
 import datetime
-
 from IO.voyageIO import VoyageIO
-
 import string
 
 class VoyageLL():
@@ -15,8 +11,9 @@ class VoyageLL():
     
 
     def create_voyage(self, new_voyage):
-        #self.__io_voyage.Add_voyage_to_file(new_voyage.split(","))
-        pass
+        start_of_journey , departure_time_out , arriving_abroad , arrival_time_abroad , departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number = new_voyage.split(",")
+        self.__io_voyage.Add_voyage_to_file(start_of_journey , departure_time_out , arriving_abroad , arrival_time_abroad , departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number)
+
 
     def change_voyage(self, des, date_time, change, new):
         #self.__io_voyage.change_voyage(new, change) 

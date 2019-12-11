@@ -4,7 +4,7 @@ import csv
 class AirplaneIO:
     AIRPLANE_FILE = "./files/airplane.csv"
     CONSTANTS_LIST = ["MANUFACTURER", "TYPE-ID", "PLANE_INSIGNIA", "MODEL", "STATUS"]
-    HEADER = "{:12} | {:15} | {:15} | {:6} | {:15}".format("Manufacturer", "Type-ID", "Plane_Insignia", "Model", "Status")
+    HEADER = "{:12} | {:15} | {:15} | {:6}".format("Manufacturer", "Type-ID", "Plane_Insignia", "Model")
 
     def __init__(self):
         self.__airplane_list = list()
@@ -15,7 +15,7 @@ class AirplaneIO:
         with open(self.AIRPLANE_FILE, "r", encoding = "Latin-1") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
-                airplane = Airplane(line["Manufacturer"],line["Type-ID"],line["Plane_Insignia"],line["Model"],line["Status"])
+                airplane = Airplane(line["Manufacturer"],line["Type-ID"],line["Plane_Insignia"],line["Model"])
                 self.__airplane_list.append(airplane)
         sorted_list = self.sort_to_display(self.__airplane_list)
         
@@ -32,7 +32,7 @@ class AirplaneIO:
         a_list.sort(key = lambda x: x.get_manufacturer())
         return a_list
 
-    def Add_airplane_to_file(self,manufacturer, type_ID, plane_insignia, model):
+    def Add_airplane_to_file(self, manufacturer, type_ID, plane_insignia, model):
         with open(self.AIRPLANE_FILE, "a",encoding = "Latin-1", newline = " ") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([manufacturer,type_ID,plane_insignia,model])

@@ -4,7 +4,7 @@ import string
 
 class AirplaneLL(Airplane):
     def __init__(self):
-        self.airplaneio = AirplaneIO
+        self.__airplaneio = AirplaneIO
 
     def validate_manufacturer(self, manufacturer):
         """ Validates whether "manufacturer" is a string and whether or not every letter is a part of the alphabet. """
@@ -46,7 +46,7 @@ class AirplaneLL(Airplane):
 
     def create_plane(self, new_plane):
         manufacturer, type_id, plane_insignia, model = new_plane.split(",") 
-        self.airplaneio.Add_airplane_to_file(manufacturer, ID, plane_insignia, model)
+        self.__airplaneio.Add_airplane_to_file(manufacturer, type_id, plane_insignia, model)
         
     def change_plane(self, planeinsignia, change, new):
-        self.airplaneio.change_airplane(planeinsignia, change, new)
+        self.__airplaneio.change_airplane(planeinsignia, change, new)

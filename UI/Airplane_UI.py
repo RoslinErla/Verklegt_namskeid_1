@@ -28,7 +28,7 @@ class AirplaneUI:
             if action == "2":
                 leave = self.call_on_validate_and_change()
             if action == "3":
-                leave = self.show()
+                self.show()
             if action == "b" or action == "q":
                 break
 
