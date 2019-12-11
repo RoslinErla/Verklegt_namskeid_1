@@ -1,6 +1,5 @@
-SSN,Name,Address,Phone_number,User_name,Rank,Permit,Status
-2609003230,Róslín Erla Tómasdóttir,Sunnuhlíð 7,8411579,roslin,co-pilot,NAFokkerF100,at work
-0707002040,Guðjón Armand Ericsson,Sunnuhlíð 7,8575736,gudjon,flight attendant,N/A,not at work
-1812703499,Tómas Sævarsson,Sunnuhlíð 7,8636868,Tommi,co-pilot,NAFokkerF100,at work
-2502733049,Hrafhildur Sólrún Sigurgeirsdóttir,Mánahlíð 13 ,8999899,hrabba,flight attendant,N/A,at work
-1234567890,dfdsf,jkkh,1234567,ldsfkæ,flight attendant,N/A,at work
+SSN,Name,Address,Phone_number,User_name,Rank,Permit
+2609003230,Róslín Erla Tómasdóttir,Sunnuhlíð 7,8411579,roslin,co-pilot,NAFokkerF100
+3009907461,William Carillo,Fellsmúli 1,8998801,williamC,Captain,NAFokkerF100
+2910858778,Virginia Ho,Fellsmúli 2,8998802,virginia,Captain,NABAE146
+2602733399,Jonathan Morgenstern,Aragerði 12,8999899,johnny,flight service manager,N/A

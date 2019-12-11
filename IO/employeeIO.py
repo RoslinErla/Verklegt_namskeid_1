@@ -9,8 +9,9 @@ class EmployeeIO:
     def __init__(self):
         self.__employee_list = list()
         self.__ssn_set = set()
-        self.__header = "{:35} | {:11} | {:30} | {:12} | {:15} | {:25} | {:15} | {:11}" \
-        .format("Name", "SSN", "Address", "Phone_number", "User_name", "Rank", "Permit", "Status")
+        self.__user_name_set = set()
+        self.__header = "{:35} | {:11} | {:30} | {:12} | {:15} | {:25} | {:15}" \
+        .format("Name", "SSN", "Address", "Phone_number", "User_name", "Rank", "Permit")
         self.__employee = Employee()
 
     def make_ssn_set(self):
@@ -18,10 +19,20 @@ class EmployeeIO:
             reader = csv.reader(the_file)
             for line in reader:
                 self.__ssn_set.add(line[0])
+    
+    def make_user_name_set(self):
+        with open(self.EMPLOYEE_FILE, "r", encoding= "Latin-1") as the_file:
+            reader = csv.reader(the_file)
+            for line in reader:
+                self.__ssn_set.add(line[0])
 
     def get_set(self):
         self.make_ssn_set()
         return self.__ssn_set
+
+    def get_user_name_set(self):
+        self.make_user_name_set()
+        return self.__user_name_set
 
 
     def load_employee_from_file(self,sort_type):
@@ -48,14 +59,28 @@ class EmployeeIO:
         self.__employee_list = list()
         return strengur
 
-    def display_pilots(self):
+    def display_pilots(self,sort_type):
         print(self.__header)
 
         with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
-                if line["Rank"] == "captain" or line["Rank"] == "co-pilot":
-                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],line["Status"])
+                if line["Rank"].lower() == "captain" or line["Rank"] == "co-pilot":
+                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"])
+                    self.__employee_list.append(employee)
+            if sort_type == "alpha":
+                sorted_list = self.sort_to_display(self.__employee_list,"alpha")
+            elif sort_type == "permit":
+                sorted_list = self.sort_to_display(self.__employee_list, "type_id")
+            self.__employee_list = sorted_list
+
+    def display_by_licence(self,licence):
+        print(self.__header)
+        with open(self.EMPLOYEE_FILE, "r", encoding= "Latin-1") as the_file:
+            reader = csv.DictReader(the_file)
+            for line in reader:
+                if line["Permit"].lower() == licence.lower():
+                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"])
                     self.__employee_list.append(employee)
             sorted_list = self.sort_to_display(self.__employee_list,"alpha")
             self.__employee_list = sorted_list
@@ -93,10 +118,15 @@ class EmployeeIO:
             a_list.sort(key = lambda x: x.get_status())
             return a_list
 
-    def Add_employee_to_file(self, name, ssn, address, phone, user_name, rank, permits, status):
+        elif sort_type == "type_id":
+            a_list = sorted(a_list, key = lambda x: x.get_name())
+            a_list.sort(key = lambda x: x.get_permit())
+            return a_list
+
+    def Add_employee_to_file(self, name, ssn, address, phone, user_name, rank, permits):
         with open(self.EMPLOYEE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([name,ssn, address, phone, user_name, rank, permits, status])
+            writer.writerow([name,ssn, address, phone, user_name, rank, permits])
 
     def delete_employee(self, ssn):
         employee_file = list()

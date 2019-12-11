@@ -16,6 +16,16 @@ class EmployeeLL():
         else: 
             return True
 
+    def check_if_user_name_exists(self,check):
+        user_name_set = self.__employee.get_user_name_set()
+        for elements in user_name_set:
+            if check == elements:
+                print("This username is already being used")
+                return False
+        
+        else: 
+            return True
+
 
     def validate_name(self,name):
         """Checks if name is valid and Returns True if it is valid"""
@@ -59,10 +69,14 @@ class EmployeeLL():
 
     def validate_user_name(self, user):
         """Checks if the user name is valid. Returns True if it is valid"""
-        if len(user) >= 4:
-            return True
-        else: 
-            print("The user name has to be longer than or equal to 4 letters")
+        if self.check_if_user_name_exists(user):
+            if len(user) >= 4:
+                return True
+            else: 
+                print("The user name has to be longer than or equal to 4 letters")
+                return False
+        else:
+            return False
     
     def validate_rank(self, rank):
         """Checks if the rank is valid. Returns True if it is valid"""
@@ -86,8 +100,8 @@ class EmployeeLL():
         return True
 
     def add_employee(self,value_string):
-        ssn,name,address,phone_number,user_name,rank,permits,status = value_string.split(",")
-        self.__employee.Add_employee_to_file(ssn,name,address,phone_number,user_name,rank,permits,status)
+        ssn,name,address,phone_number,user_name,rank,permits= value_string.split(",")
+        self.__employee.Add_employee_to_file(ssn,name,address,phone_number,user_name,rank,permits)
 
     def change_employee(self, ssn, change, new):
         self.__employee.change_employee(ssn, change, new)

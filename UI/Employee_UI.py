@@ -21,7 +21,8 @@ class EmployeeUI():
             print('\t4. enter "4" to display employees within the system in alphabetical order.')
             print("\t5. enter '5' to display all flight attendants within the system. ")
             print("\t6. enter '6' to display all pilots within the system. ")
-            print("\t7. enter '7' to display all information about a employee. ")
+            print("\t7. enter '7' to display all pilots sorted by there permits. ")
+            print("\t8. enter '8' to display all information about a employee. ")
             print('Enter "b" to go back and "q" to got to the main menu.')
 
             action = input("Please enter your command: ")
@@ -41,7 +42,9 @@ class EmployeeUI():
                 self.show_by_rank("flight attendant")
             elif action == "6":
                 self.show_by_rank("pilot")
-            elif action == "7":
+            elif action =="7":
+                self.show_by_licence()
+            elif action == "8":
                 self.show_a_single_employee()
             elif action == "b" or action == "q":
                 break
@@ -52,6 +55,10 @@ class EmployeeUI():
         new_employee = ""
         while action.lower() != 'q':
             action = input("Enter the ssn: ")
+            if action == 'b':
+                    break
+            elif action == 'q':
+                return 'q'
             while not self.employeell.validate_ssn(action):
                 print("Input is invalid!")
                 action = input("Enter the ssn: ")
@@ -59,15 +66,16 @@ class EmployeeUI():
                     break
                 elif action == 'q':
                     return 'q'
-            
-            if action == 'b':
-                break
-            elif action == 'q':
-                return 'q'
 
             new_employee += action + ","
 
             action = input("Enter the name: ")
+
+            if action == 'b':
+                    break
+            elif action == 'q':
+                return 'q'
+
             while not self.employeell.validate_name(action):
                 print("Input is invalid!")
                 action = input("Enter the name: ")
@@ -78,12 +86,12 @@ class EmployeeUI():
 
             new_employee += action + ","
 
+            action = input("Enter the address: ")
             if action == 'b':
-                break
-            if action == 'q':
+                    break
+            elif action == 'q':
                 return 'q'
 
-            action = input("Enter the address: ")
             while not self.employeell.validate_address(action):
                 print("input is invalid!")
                 action = input("Enter the address")
@@ -95,15 +103,28 @@ class EmployeeUI():
             new_employee += action + ","
 
             action = input("Enter the phone number: ")
+
+            if action == 'b':
+                    break
+            elif action == 'q':
+                return 'q'
+
             while not self.employeell.validate_phone_number(action):
                 print("Input is invalid!")
                 action = input("Enter the phone number: ")
+                if action == 'b':
+                    break
+                elif action == 'q':
+                    return 'q'
+
             new_employee += action + ","
-            if action == 'b':
-                break
-            if action == 'q':
-                return 'q'
+
             action = input("Enter the user name: ")
+            if action == 'b':
+                    break
+            elif action == 'q':
+                return 'q'
+
             while not self.employeell.validate_user_name(action):
                 print("Input is invalid!")
                 action = input("Enter the user name: ")
@@ -113,12 +134,13 @@ class EmployeeUI():
                     return 'q'
             new_employee += action + ","
 
+            action = input("Enter the rank (flight attendant, flight service manager, co-pilot or captain): ")
+            
             if action == 'b':
-                break
-            if action == 'q':
+                    break
+            elif action == 'q':
                 return 'q'
 
-            action = input("Enter the rank (flight attendant, flight service manager, co-pilot or captain): ")
             while not self.employeell.validate_rank(action):
                 print("Input is invalid!")
                 action = input("Enter the rank: ")
@@ -129,12 +151,13 @@ class EmployeeUI():
                 
             new_employee += action + ","
 
+            action = input("Enter the permit, enter N/A if not appropriate: ")
+
             if action == 'b':
                     break
-            if action == 'q':
+            elif action == 'q':
                 return 'q'
 
-            action = input("Enter the permit, enter N/A if not appropriate: ")
             while not self.employeell.validate_permit(action):
                 print("Input is invalid!")
                 action = input("Enter the permit, enter N/A if not appropriate: ")
@@ -143,23 +166,7 @@ class EmployeeUI():
                 if action == 'q':
                     return 'q'
 
-            new_employee += action + ","
-            if action == 'b':
-                break
-            if action == 'q':
-                return 'q'
-
-            action = input("Enter the status of the employee (at work, not at work, on vacation): ")
-
-            while not self.employeell.validate_status(action):
-                print("input is invalid")
-                action = input("Enter the status")
             new_employee += action
-
-            if action == 'b':
-                break
-            if action == 'q':
-                return 'q'
 
             self.employeell.add_employee(new_employee)
 
@@ -251,7 +258,7 @@ class EmployeeUI():
     def show_by_rank(self,rank):
         print()
         if rank == "pilot":
-            self.employeeio.display_pilots()
+            self.employeeio.display_pilots("alpha")
             print(self.employeeio)
             print()
 
@@ -265,5 +272,11 @@ class EmployeeUI():
         print(self.employeeio)
         ssn = input("enter the ssn of the employee you want to see: ")
         self.employeeio.display_one_employee(ssn)
+        print(self.employeeio)
+        print()
+
+    def show_by_licence(self):
+        print()
+        self.employeeio.display_pilots("permit")
         print(self.employeeio)
         print()
