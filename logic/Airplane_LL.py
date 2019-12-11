@@ -5,11 +5,6 @@ import string
 class AirplaneLL(Airplane):
     def __init__(self):
         self.airplaneio = AirplaneIO
-    # def strip_split(self):
-    #     """ Strips and splits "inp" and then runs each bit of that through the appropiet validate functions """
-    #     split_stripped = self.__inp.strip().split(",")
-    #     if validate_manufacturer(split_stripped[0]) == True and validate_typeID(split_stripped[1]) == True and validate_plane_insignia(split_stripped[2]) == True and model(split_stripped[3]) == True:
-    #         return split_stripped
 
     def validate_manufacturer(self, manufacturer):
         """ Validates whether "manufacturer" is a string and whether or not every letter is a part of the alphabet. """
@@ -50,7 +45,8 @@ class AirplaneLL(Airplane):
         return False
 
     def create_plane(self, new_plane):
-        self.airplaneio.Add_airplane_to_file(new_plane.split(","))
+        manufacturer, type_ID, plane_insignia, model= new_plane.split(",") 
+        self.airplaneio.Add_airplane_to_file(manufacturer, type_ID, plane_insignia, model)
         
     def change_plane(self, planeinsignia, change, new):
         self.airplaneio.change_airplane(planeinsignia, change, new)
