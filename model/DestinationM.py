@@ -16,7 +16,7 @@ class Destination():
     def get_destinantion_id(self):
         return self.__destination_id
 
-    def get_destinantion_name(self):
+    def get_destination_name(self):
         return self.__destination_name
     
     def get_country(self, country):

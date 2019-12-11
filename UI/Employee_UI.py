@@ -190,12 +190,14 @@ class EmployeeUI():
 
             if action == "b":
                 break
+
             elif action == "q":
                 return "q"
+
             elif action == "1":
                 change = "name"
                 new = input("please enter the new entry for {}: ".format(change))
-                while not self.employeell.validate_status(new):
+                while not self.employeell.validate_name(new):
                     print("input is invalid")
                     new = input("please enter the new entry for {}: ".format(change))
                     
