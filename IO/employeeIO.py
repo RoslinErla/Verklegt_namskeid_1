@@ -48,6 +48,41 @@ class EmployeeIO:
         self.__employee_list = list()
         return strengur
 
+    def display_pilots(self):
+        print(self.__header)
+
+        with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
+            reader = csv.DictReader(the_file)
+            for line in reader:
+                if line["Rank"] == "captain" or line["Rank"] == "co-pilot":
+                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],line["Status"])
+                    self.__employee_list.append(employee)
+            sorted_list = self.sort_to_display(self.__employee_list,"alpha")
+            self.__employee_list = sorted_list
+
+    def display_flight_attendants(self):
+        print(self.__header)
+
+        with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
+            reader = csv.DictReader(the_file)
+            for line in reader:
+                if line["Rank"] == "flight attendant" or line["Rank"] == "flight service manager":
+                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],line["Status"])
+                    self.__employee_list.append(employee)
+            sorted_list = self.sort_to_display(self.__employee_list,"alpha")
+            self.__employee_list = sorted_list
+
+    def display_one_employee(self,ssn):
+        self.__employee_list = list()
+        print(self.__header)
+
+        with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
+            reader = csv.DictReader(the_file)
+            for line in reader:
+                if line["SSN"] == ssn:
+                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],line["Status"])
+                    self.__employee_list.append(employee)
+
     def sort_to_display(self, a_list, sort_type):
         if sort_type == "alpha":
             a_list.sort(key = lambda x: x.get_name())
