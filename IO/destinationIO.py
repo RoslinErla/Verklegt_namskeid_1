@@ -33,7 +33,7 @@ class DestinationIO:
             writer = csv.writer(csvfile)
             writer.writerow([destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone])
 
-    def change_destination(self, destination_id, change, new):
+    def change_destination(self, des, change, new):
         change_index = self.CONSTANT_LIST.index(change.upper())
 
         with open(self.DESTINATION_FILE) as thefile:
@@ -42,7 +42,7 @@ class DestinationIO:
         with open(self.DESTINATION_FILE, "w", encoding = "Latin-1", newline="") as csvfile:
             writer = csv.writer(csvfile)
             for line in reader:
-                if line[1] == destination_id.upper():
+                if line[1] == des.upper():
                     line[change_index] = new
                     writer.writerow(line)
                     break

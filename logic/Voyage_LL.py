@@ -4,22 +4,24 @@ from IO.employeeIO import EmployeeIO
 
 import datetime
 
-#from IO.voyageIO import VoyageIO
+from IO.voyageIO import VoyageIO
 
 import string
 
 class VoyageLL():
 
     def __init__(self):
-        #self.__io_voyage = VoyageIO
-        pass
+        self.__io_voyage = VoyageIO
+    
 
     def create_voyage(self, new_voyage):
         #self.__io_voyage.Add_voyage_to_file(new_voyage.split(","))
         pass
 
-    def change_voyage(self):
-        pass
+    def change_voyage(self, des, date_time, change, new):
+        #self.__io_voyage.change_voyage(new, change) 
+        pass                                   
+        
 
     def validate_employee(self):
         pass

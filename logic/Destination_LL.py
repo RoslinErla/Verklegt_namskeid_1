@@ -71,8 +71,9 @@ class DestinationLL(Destination):
         if len(flight_number) == 6:
             return True
         
-        def change_destination(self, THE_OTHER_THING):
-            pass
+    def change_destination(self, des, change, new):
+        self.__destination.change_destination(des, change, new)
+            
 
 
 

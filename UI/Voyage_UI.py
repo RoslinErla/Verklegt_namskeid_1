@@ -4,7 +4,7 @@ from logic.Destination_LL import DestinationLL
 from IO.destinationIO import DestinationIO
 from UI.Destination_UI import DestinationUI
 
-
+import string
 
 class VoyageUI:
 
@@ -148,7 +148,7 @@ class VoyageUI:
         new_voyage = ""
         print('Enter "b" to go back and "q" to got to the main menu.')
  
-        while True: 
+        while action != "q":
             action =  input("Enter the captain's SSN: ")         # User inputs the SSN for the captain
             if action == 'b':
                 self.create_menu()
@@ -226,33 +226,51 @@ class VoyageUI:
             if action == "y":  # virkar
                 continue
             if action == "n":  # virkar ekki!
-                action = "q"
-          
-            
+                return "q"
+                  
     # Hvað gerist þegar búið er að skrá allar upplýsingar inn ? 
-
-    # pæling að hafa aftast eins og t.d. í create employee: Do you want to create another one? Y or N
-    # og ef svarið er Y þá gerist loopan aftur en ef hún er N þá breytist það í q og fer í main menuið
-                      
-    
+                          
     def new_destination(self):   
         """The user has chosen to create a new destination"""
         self.__ui_destination.add_destination()                   # Calls the Destination_UI file
         
                     
     def change_voyage_state(self):                                      
-        """The user has chosen to change the state of the voyage"""     
-        action = ""
+        """The user has chosen to change the status of the voyage"""     
         print('Enter "b" to go back and "q" to got to the main menu.')
-        self.__io_destination.load_destination_from_file()                   # Hægt að velja destination frá lista
-        input("Enter destination id: ")                                      
-        input("Enter date and time: ")
-        # Breyta stöðunni!
+        while True: 
+            self.__io_destination.load_destination_from_file()                   # Hægt að velja destination frá lista
+            print(self.__io_destination)
+            print()
+            des = input("Enter destination: ")             # vantar validate
+            if des == 'b':
+                self.change_menu()
+            if des == 'q':
+                return "q"
+            #date_time = input("Enter date and time: ")
+            #if date_time == 'b':
+                #self.change_menu()
+            #if date_time == 'q':
+                #return "q"
+            change = input("Please enter what you wish to change: ")
+            if change == "q":
+                return "q"
+            if change == "b":
+                self.change_menu()
+            new = input("Please enter the new entry for {}".format(change))
+            if new == "q":
+                return "q"
+            if new == "b":
+                self.change_menu()
+            print()
+            self.__ll_destination.change_destination(des, change, new)       #(des, change, new)  
 
-        if action == 'b':
-            self.change_menu()
-        if action == 'q':
-            return "q"
+            action = input("Do you want to change another voyage status? (y)es or (n)o: " ).lower()
+            if action == "n":
+                action = "q"                          
+    
+
+    
     
 
     def change_emergency_contact(self):
