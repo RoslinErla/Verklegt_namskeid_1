@@ -1,2 +1,7 @@
-destination name,destination id,country,airport,flight time,distance,emergency contact,emergency phone
-Boston, BOS, USA, Boston Logan International Airport, 5 hours, 4067 km, Joyce Merrimac, 978 123 4567
+destination number,destination name,destination id,country,airport,flight time,distance,emergency contact,emergency phone
+01,Longyearbyean,LYR,Svalbard,Svalbard airport,3 hours 14 minutes,2087 km,Jaappili Kattatsi,5552525
+02,Nuuk,GOH,Greenland,Nuuk international airport,2 hours 16 minutes,1428 km,Ammu Igiti,5885522
+03,Kulusuk,KUS,Greenland,Kulusuk airport,1 hour 53 minutes,734 km,Equ kuka,1235227
+04,Thorshavn,FAE,Faroe islands,Vágar airport,2 hours 3 minutes,797 km,Hans Joensen,4568558
+05,Tingwall,LWK,Shetland,Tingwall airport,2 hours,1050 km,Magnus Paulsen,7895555
+06,Keflavík,KEF,Iceland,Keflavík airport,0 hours o minutes,0 km,Gylfi Þór Guðmundsson,8625510
