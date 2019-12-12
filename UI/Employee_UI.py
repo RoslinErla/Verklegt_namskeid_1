@@ -21,7 +21,7 @@ class EmployeeUI():
             print('\t4. enter "4" to display employees within the system in alphabetical order.')
             print("\t5. enter '5' to display all flight attendants within the system. ")
             print("\t6. enter '6' to display all pilots within the system. ")
-            print("\t7. enter '7' to display all pilots sorted by there permits. ")
+            print("\t7. enter '7' to display all pilots sorted by their permits. ")
             print("\t8. enter '8' to display all information about a employee. ")
             print('Enter "b" to go back and "q" to got to the main menu.')
 
