@@ -14,7 +14,11 @@ class DestinationUI:
         action = ""                                       # User puts in the name of the country
         destination = ""
         while True:
-            
+            action = input("Enter destination number: ")
+            if action == 'b':                                           # eða þegar maður setur q inn  í Enter country name
+                break                                                   # en svo kemur "please enter your command" og þá virkar q rétt
+            if action == 'q':
+                return "q"
             action = input("Enter country name: ")                      # Þarf að laga: q virkar bara eins og b hér
             if action == 'b':                                           # eða þegar maður setur q inn  í Enter country name
                 break                                                   # en svo kemur "please enter your command" og þá virkar q rétt
