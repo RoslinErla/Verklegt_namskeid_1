@@ -1,5 +1,6 @@
 class Destination():
-    def __init__(self, destination_name, destination_id, country, airport, flight_time, distance, contact_name, contact_phone_number):
+    def __init__(self, destination_num, destination_name, destination_id, country, airport, flight_time, distance, contact_name, contact_phone_number):
+        self.__destination_num = destination_num
         self.__destination_id = destination_id
         self.__destination_name = destination_name
         self.__country = country
@@ -10,9 +11,12 @@ class Destination():
         self.__contact_phone_number = contact_phone_number
 
     def __str__(self):
-        return "{},{},{},{},{},{},{},{}".format(self.__destination_id, self.__destination_name, self.__county, self.__airport,
+        return "{},{},{},{},{},{},{},{},{}".format(self.__destination_num, self.__destination_id, self.__destination_name, self.__county, self.__airport,
         self.__flight_time, self.__distance, self.__contact_name, self.__contact_phone_number)
 
+    def get_destination_num(self):
+        return self.__destination_num
+    
     def get_destinantion_id(self):
         return self.__destination_id
 

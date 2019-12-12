@@ -11,7 +11,7 @@ class VoyageLL():
     
 
     def create_voyage(self, new_voyage):
-        start_of_journey , departure_time_out , arriving_abroad , arrival_time_abroad , departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number = new_voyage.split(",")
+        start_of_journey , departure_time_out, arriving_abroad, departure_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2= new_voyage.split(",")
         self.__io_voyage.Add_voyage_to_file(start_of_journey , departure_time_out , arriving_abroad , arrival_time_abroad , departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number)
 
 
