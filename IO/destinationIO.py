@@ -7,7 +7,17 @@ class DestinationIO:
     HEADER = "Destination number | Destination name | Destination ID | Country | Airport | Flight time | Distance | Emergency contact | Emergency phone"
     def __init__(self):
         self.__airplane_list = list()
+        self.__destination_id_set = set()
         
+    def make_set(self):
+        with open(self.DESTINATION_FILE, "r",encoding= "Latin-1") as the_file:
+            reader = csv.reader(the_file)
+            for line in reader:
+                self.__destination_id_set.add(line[2])
+
+    def get_set(self):
+        self.make_set()
+        return self.__destination_id_set
 
     def load_destination_from_file(self):
         print(self.HEADER)

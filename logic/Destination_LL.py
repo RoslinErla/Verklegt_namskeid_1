@@ -8,11 +8,11 @@ class DestinationLL(Destination):
         self.__destination = DestinationIO()
     
     def check_if_exists(self, check):
-        employee_list = self.__employee.get_employee_list()
-        for lists in employee_list:
-            if check in lists:
+        employee_set = self.__destination.get_set()
+        for elements in employee_set:
+            if check == elements:
+                print("This ssn already exists press 'b' to go back")
                 return False
-        
         else: 
             return True
 
@@ -33,6 +33,7 @@ class DestinationLL(Destination):
                     return False
             return True
         return False
+
     
     def validate_destination_name(self, destination_name): #  Check if name only has alphabetical letters
         if type(destination_name) == str:

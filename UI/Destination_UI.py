@@ -178,7 +178,7 @@ class DestinationUI:
                 break
             if action.lower() == 'q':
                 return "q" 
-            while not self.__ll_destination.validate_destination_name(action):
+            while not self.__ll_destination.check_if_exists(action):
                 print("Invalid input")
                 self.__io_destination.load_destination_from_file()
                 print(self.__io_destination)
