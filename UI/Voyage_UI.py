@@ -154,7 +154,6 @@ class VoyageUI():
         print('Enter "b" to go back and "q" to got to the main menu.')
  
         while action != "q":
-<<<<<<< HEAD
             action = input("Enter the departure time from Iceland: ")
             print()
             if action == 'b':
@@ -205,8 +204,6 @@ class VoyageUI():
             new_voyage += action + ","
 
 
-=======
->>>>>>> 3362a84d6ef5a5a04ca1f2c9a239724f6fe9d0ce
             self.__io_employee.display_pilots("alpha")
             print(self.__io_employee)
             print()
