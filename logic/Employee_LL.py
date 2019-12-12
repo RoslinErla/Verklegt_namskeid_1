@@ -12,7 +12,6 @@ class EmployeeLL():
             if check == elements:
                 print("This ssn already exists press 'b' to go back")
                 return False
-        
         else: 
             return True
 
@@ -22,10 +21,8 @@ class EmployeeLL():
             if check == elements:
                 print("This username is already being used")
                 return False
-        
         else: 
             return True
-
 
     def validate_name(self,name):
         """Checks if name is valid and Returns True if it is valid"""
