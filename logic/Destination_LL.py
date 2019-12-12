@@ -16,11 +16,6 @@ class DestinationLL(Destination):
         else: 
             return True
 
-    def Create_employee(self):
-        pass
-
-    def change_employee(self):
-        pass
 
     def validate_destination_num(self, destination_num):
         if len(destination_num) <=2:
@@ -31,16 +26,18 @@ class DestinationLL(Destination):
     def validate_destination_id(self, destination_id):  #  Check if id (KEF) only has alphabetical letters and is 3 letters long
         if len(destination_id) == 3: 
             for letter in destination_id:
-                if letter.isalpha():
-                    return True
-        else:
-            return False
-        return True
+                if not letter.isalpha():
+                    return False
+            return True
+        return False
     
     def validate_destination_name(self, destination_name): #  Check if name only has alphabetical letters
-        for letter in destination_name:
-            if letter.isalpha():
-                return True
+        if type(destination_name) == str:
+            for letter in destination_name:
+                if not letter.isalpha():
+                    return False
+            return True
+        return False
     
 
     def validate_country_name(self, country_name):  # Eftir að búa til gögn fyrir þetta, geri ráð fyrir að það séu bara bókstafir
