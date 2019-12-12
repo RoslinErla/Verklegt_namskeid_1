@@ -46,7 +46,7 @@ class DestinationIO:
         with open(self.DESTINATION_FILE, "w", encoding = "Latin-1", newline="") as csvfile:
             writer = csv.writer(csvfile)
             for line in reader:
-                if line[1] == des.upper():
+                if line[2] == des.upper():
                     line[change_index] = new
                     writer.writerow(line)
                     break

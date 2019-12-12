@@ -10,17 +10,8 @@ class DestinationUI:
         self.__io_destination = DestinationIO()
     
     def destination_menu(self):
-<<<<<<< HEAD
         ''' Presents the user with  '''
         leave = ""
-=======
-
-        ''' Presents the user with  '''
-        leave = ""
-        
-        ''' Presents the user with the options available in "destination_menu" '''
-
->>>>>>> 6ff88f5750d74270c960b895d1d91b8e5c345c08
         while leave != "q":    
             print("\tDestination Menu")
             print()
@@ -182,16 +173,16 @@ class DestinationUI:
             print()
             self.__io_destination.load_destination_from_file()
             print(self.__io_destination)
-            action = input("Enter the contact's location: ").upper()           # The user inputs the location of the emergency contact
-            if action == 'b':
+            action = input("Enter the contact's destination ID: ").upper()           # The user inputs the location of the emergency contact
+            if action.lower() == 'b':
                 break
-            if action == 'q':
+            if action.lower() == 'q':
                 return "q" 
             while not self.__ll_destination.validate_destination_name(action):
                 print("Invalid input")
                 self.__io_destination.load_destination_from_file()
                 print(self.__io_destination)
-                action = input("Enter the contact's location: ").upper()
+                action = input("Enter the contact's destination ID: ").upper()
             contact = action
             if action == 'b':
                 break        
@@ -202,23 +193,28 @@ class DestinationUI:
             print("Enter 2 to change the emergency contact's phone number")
             action = input("Please enter you command: ")
 
-            if action == 1:
-                change = "name"
+            if action == "1":
+                change = "emergency contact"
                 new = input("Please enter the new entry for {}: ".format(change))
                 while not self.__ll_destination.validate_contact_name(new):
                     print("Input is invalid!")
                     new = input("Please enter the new entry for {}:".format(change))
             
-            elif action == 2:
-                change = "phone number"
+            elif action == "2":
+                change = "emergency phone"
                 new = input("Please enter the new entry for {}: ".format(change))
                 while not self.__ll_destination.validate_contact_number(new):
                     print("Input is invalid!")
                     new = input("Please enter the new entry for {}: ".format(change))
 
+            elif action == 'b':
+                break        
+            elif action == 'q':
+                return "q" 
+
             self.__io_destination.change_destination(contact,change,new)
 
-            action = input("Do you want to change another employee? (y)es or (n)o: " ).upper()
+            action = input("Do you want to change another employee? (y)es or (n)o: " ).lower()
             if action == "n":
                 return "q"
 
@@ -227,6 +223,6 @@ class DestinationUI:
         print()
         self.__io_destination.load_destination_from_file()
         print(self.__io_destination)
-        input("Press 'q' to go back")
+        input("Press 'q' to go back: ")
         print()
             

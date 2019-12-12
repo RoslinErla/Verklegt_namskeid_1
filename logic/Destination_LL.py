@@ -63,9 +63,11 @@ class DestinationLL(Destination):
         return True
     
     def validate_contact_name(self, contact_name): # Búið að búa til nöfnin, þurfa að vera bókstafir
-        for letter in contact_name:
-            if not letter.isalpha():
-                return False
+        contact_name = contact_name.split()
+        for elements in contact_name:
+            for letter in contact_name:
+                if not letter.isalpha():
+                    return False
         return True
     
     def validate_contact_number(self, contact_number):
