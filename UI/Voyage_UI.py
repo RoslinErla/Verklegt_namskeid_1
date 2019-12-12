@@ -8,6 +8,9 @@ from logic.Employee_LL import EmployeeLL
 from IO.employeeIO import EmployeeIO
 from logic.Airplane_LL import AirplaneLL
 from IO.airplaneIO import AirplaneIO
+from datetime import datetime
+import datetime
+from datetime import date
 import string
 
 class VoyageUI():
@@ -53,23 +56,23 @@ class VoyageUI():
         action = ""
         leave = ''
         while leave != "q":
-            print("\tEnter 1 to repeat an old voyage")
-            print("\tEnter 2 to create a new voyage")
-            print('Enter "b" to go back and "q" to got to the main menu.')
+            self.new_voyage()
+            # print("\tEnter 1 to create a new voyage")
+            # print('Enter "b" to go back and "q" to got to the main menu.')
 
-            action = input("Please enter your commmand: ").lower()
+            # action = input("Please enter your commmand: ").lower()
         
-            if action == "1":
-                leave = self.repeat_voyage()
+            # if action == "1":
+            #     leave = self.repeat_voyage()
         
-            if action == "2":
-                leave = self.new_voyage()
+            # if action == "2":
+            #     leave = self.new_voyage()
 
-            if action == 'b':
-                leave = self.voyage_menu() 
+            # if action == 'b':
+            #     leave = self.voyage_menu() 
             
-            if action == 'q' or action == "q":
-                return "q"
+            # if action == 'q' or action == "q":
+            #     return "q"
         
     def change_menu(self):
         """After the user has chosen the "change" option, he has two new options"""
@@ -154,7 +157,10 @@ class VoyageUI():
         while action != "q":
             self.__io_voyage.load_voyage_from_file()
             print(self.__io_voyage)
-            action = input("Enter the departure time from Iceland: ")
+            action = input("Enter the departure time from Iceland (year(YYYY),month(0-12),day(0-31),hour(0-23),minutes(0-59): ")
+            year,month,day,hour,minutes = action.split(",")
+            action = datetime.datetime(int(year),int(month),int(day),int(hour),int(minutes)).isoformat()
+
             print()
             if action == 'b':
                 self.create_menu()
@@ -181,7 +187,9 @@ class VoyageUI():
             new_voyage += action + ","
 
             
-            action = input("Enter the departing time to Reykjavík: ")
+            action = input("Enter the departing time to Reykjavík (year(YYYY),month(0-12),day(0-31),hour(0-23),minutes(0-59): ")
+            year,month,day,hour,minutes = action.split(",")
+            action = datetime.datetime(int(year),int(month),int(day),int(hour),int(minutes)).isoformat()
             print()
             if action == 'b':
                 self.create_menu()
@@ -301,9 +309,7 @@ class VoyageUI():
             self.__ll_voyage.create_voyage(new_voyage)   
 
             action = input("Do you want to create another voyage? (y/n): ").lower()
-            if action == "y":  # virkar
-                continue
-            elif action == "n":  # virkar ekki!
+            if action == "n":  # virkar ekki!
                 return "q"
                   
     # Hvað gerist þegar búið er að skrá allar upplýsingar inn ? 

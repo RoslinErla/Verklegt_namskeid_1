@@ -7,7 +7,7 @@ import string
 class VoyageLL():
 
     def __init__(self):
-        self.__io_voyage = VoyageIO
+        self.__io_voyage = VoyageIO()
     
 
     def create_voyage(self, new_voyage):
@@ -16,7 +16,7 @@ class VoyageLL():
         departing_to_RVK = 0
         arrival_time_home = 0
         flight_number = 0
-        self.__io_voyage.Add_voyage_to_file(start_of_journey , departure_time_out , arriving_abroad , arrival_time_abroad , departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number)
+        self.__io_voyage.Add_voyage_to_file(start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number)
 
 
     def change_voyage(self, des, date_time, change, new):
