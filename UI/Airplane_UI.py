@@ -138,3 +138,14 @@ class AirplaneUI:
         self.airplaneio.load_airplane_from_file()
         print(self.airplaneio)
         print()
+
+    # def print_status(self,a_list):
+    #     return "{:12} | {:15} | {:15} | {:6}".format(self.__manufacturer, self.__type_ID, self.__plane_insignia, self.__model)
+        
+
+    # def status(self):
+    #     a.print_status()
+
+
+    # flight_number = [NA,X,X,X]
+    # joined = flight_number.join()

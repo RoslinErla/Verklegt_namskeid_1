@@ -41,7 +41,7 @@ class EmployeeIO:
         with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
-                employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],line["Status"])
+                employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"])
                 self.__employee_list.append(employee)
 
         if sort_type == "alpha":
@@ -92,7 +92,7 @@ class EmployeeIO:
             reader = csv.DictReader(the_file)
             for line in reader:
                 if line["Rank"] == "flight attendant" or line["Rank"] == "flight service manager":
-                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],line["Status"])
+                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"])
                     self.__employee_list.append(employee)
             sorted_list = self.sort_to_display(self.__employee_list,"alpha")
             self.__employee_list = sorted_list
@@ -157,6 +157,21 @@ class EmployeeIO:
                 else:
                     writer.writerow(line)
             writer.writerows(reader)
+
+    # def display_status(self,date):
+    #     a = False
+    #     # with open8bla voyage
+    #     #employee
+    #     for line in employee_reader:
+    #         for elements in voyage_reader:
+    #             if elements{4} ==date and elements[5] == line[0]:
+    #                 employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],"at work")
+    #                 a_list.append(employee)
+    #                 a = True
+    #         if not a:
+    #             employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],"not at work")
+
+
 
 
 
