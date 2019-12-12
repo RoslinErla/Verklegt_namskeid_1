@@ -39,7 +39,7 @@ class AirplaneUI:
         action = ""
         new_plane = ""
         while True:
-            action = input("Enter the manufacturer: ")
+            action = input("Enter the manufacturer: ").upper()
             if action == 'b':
                 self.airplane_menu()
             elif action == 'q':
@@ -47,7 +47,7 @@ class AirplaneUI:
 
             while not self.airplanell.validate_manufacturer(action):
                 print("Input is invalid!")
-                action = input("Enter the manufacturer: ")
+                action = input("Enter the manufacturer: ").upper()
                 if action == 'b':
                     self.airplane_menu()
                 elif action == 'q':
@@ -55,7 +55,7 @@ class AirplaneUI:
             new_plane += action + ","
 
 
-            action = input("Enter the type ID: ")
+            action = input("Enter the type ID: ").upper()
             if action == 'b':
                 self.airplane_menu()
             elif action == 'q':
@@ -63,14 +63,14 @@ class AirplaneUI:
 
             while not self.airplanell.validate_typeID(action):
                 print("Input is invalid!")
-                action = input("Enter the type ID: ")
+                action = input("Enter the type ID: ").upper()
                 if action == 'b':
                     self.airplane_menu()
                 elif action == 'q':
                     return 'q'
             new_plane += action + ","
 
-            action = input("Enter the plane insignia: ")
+            action = input("Enter the plane insignia: ").upper()
             if action == 'b':
                     self.airplane_menu()
             elif action == 'q':
@@ -78,14 +78,14 @@ class AirplaneUI:
 
             while not self.airplanell.validate_plane_insignia(action):
                 print("Input is invalid!")
-                action = input("Enter the plane insignia: ")
+                action = input("Enter the plane insignia: ").upper()
                 if action == 'b':
                     self.airplane_menu()
                 elif action == 'q':
                     return 'q'
             new_plane += action + ","
 
-            action = input("Enter the model: ")
+            action = input("Enter the model: ").upper()
             if action == 'b':
                 self.airplane_menu()
             elif action == 'q':
@@ -93,7 +93,7 @@ class AirplaneUI:
 
             while not self.airplanell.validate_model(action):
                 print("Input is invalid!")
-                action = input("Enter the model: ")
+                action = input("Enter the model: ").upper()
                 if action == 'b':
                     self.airplane_menu()
                 elif action == 'q':

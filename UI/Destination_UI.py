@@ -14,27 +14,27 @@ class DestinationUI:
         action = ""                                       # User puts in the name of the country
         destination = ""
         while True:
-            action = input("Enter destination number: ")
+            action = input("Enter destination number: ").upper()
             if action == 'b':                                           
                 break                                                   # en svo kemur "please enter your command" og þá virkar q rétt
             if action == 'q':
                 return "q"
             while not self.__ll_destination.validate_destination_num(action):
-                action = input("Enter destination number: ")
+                action = input("Enter destination number: ").upper()
                 if action == 'b':                                           
                     break                                                   # en svo kemur "please enter your command" og þá virkar q rétt
                 if action == 'q':
                     return "q"
             if action == 'b':                                           
                 break  
-            action = input("Enter country name: ")                      # Þarf að laga: q virkar bara eins og b hér
+            action = input("Enter country name: ").upper()                      # Þarf að laga: q virkar bara eins og b hér
             if action == 'b':                                           
                 break                                                   # en svo kemur "please enter your command" og þá virkar q rétt
             if action == 'q':
                 return "q"
             while not self.__ll_destination.validate_country_name(action):
                 print("Input is invalid")
-                action = input("Enter country name: ")
+                action = input("Enter country name: ").upper()
                 if action == 'b':
                     break
                 if action == 'q':
@@ -45,14 +45,14 @@ class DestinationUI:
             if action == 'b':                # b virkar rétt!  
                 break
             destination += action
-            # action = input("Enter flight number: ")     # flugnúmer á ekki að vera í destination
+            # action = input("Enter flight number: ").upper()     # flugnúmer á ekki að vera í destination
             # if action == 'b':
             #     break
             # if action == 'q':
             #     return "q"   
             # while not self.__ll_destination.validate_flight_number(action):
             #     print("Input is invalid")
-            #     action = input("Enter flight number: ")
+            #     action = input("Enter flight number: ").upper()
             #     if action == 'b':
             #         break
             #     if action == 'q':
@@ -61,14 +61,14 @@ class DestinationUI:
             # if action == 'b':
             #     break
                                                     
-            action = input("Enter airport: ")    # User puts in the name of the airport
+            action = input("Enter airport: ").upper()    # User puts in the name of the airport
             if action == 'b':
                 break
             if action == 'q':
                 return "q" 
             while not self.__ll_destination.validate_airport_name(action):    # velja flugvöll ?
                 print("Input is invalid") 
-                action = input("Enter airport: ")
+                action = input("Enter airport: ").upper()
                 if action == 'b':
                     return
                 if action == 'q':
@@ -78,14 +78,14 @@ class DestinationUI:
             destination += action
                     # Eftir að gera validate-ið fyrir flugtíma
                                                          
-            #action = input("Enter flight-time: ")          # User puts in the flight time
+            #action = input("Enter flight-time: ").upper()          # User puts in the flight time
             # if action == 'b':
                 #break
             #if action == 'q':
                 #return "q"                                      
             #while not self.__ll_destination.validate_flight_time(action):
                 #print("Input is invalid")
-                #action = input("Enter flight-time: ")
+                #action = input("Enter flight-time: ").upper()
                 # if action == 'b':
                 # break
                 # if action == 'q':
@@ -95,14 +95,14 @@ class DestinationUI:
                 #break
                                           # User puts in the distance from Iceland
             
-            action = input("Enter distance from Iceland: ")
+            action = input("Enter distance from Iceland: ").upper()
             if action == 'b':
                 break
             if action == 'q':
                 return "q" 
             while not self.__ll_destination.validate_distance(action):
                 print("Input is invalid")
-                action = input("Enter distance from Iceland: ")
+                action = input("Enter distance from Iceland: ").upper()
                 if action == 'b':
                     break
                 if action == 'q':
@@ -111,14 +111,14 @@ class DestinationUI:
                 break
             destination += action
              
-            action = input("Enter name of emergency contact: ")
+            action = input("Enter name of emergency contact: ").upper()
             if action == 'b':
                 break
             if action == 'q':
                 return "q" 
             while not self.__ll_destination.validate_contact_name(action):  
                 print("Input is invalid")
-                action = input("Enter name of emergency contact: ")
+                action = input("Enter name of emergency contact: ").upper()
                 if action == 'b':
                     break        
                 if action == 'q':
@@ -130,14 +130,14 @@ class DestinationUI:
                 
                       # User puts in the phone number of the emergency contact
             
-            action = input("Enter emergency contact's phone number: ")  
+            action = input("Enter emergency contact's phone number: ").upper()  
             if action == 'b':
                 break
             if action == 'q':
                 return "q"  
             while not self.__ll_destination.validate_contact_number(action):
-                print("Invalid input")
-                action = input("Enter emergency contact's phone number: ")
+                print("Invalid input").upper()
+                action = input("Enter emergency contact's phone number: ").upper()
                 if action == 'b':
                     break        
                 if action == 'q':
@@ -160,14 +160,14 @@ class DestinationUI:
         contact = ""
         print('Enter "b" to go back and "q" to got to the main menu.')    # q virkar bara eins og b
         while True:
-            action = input("Enter the contact's location: ")           # The user inputs the location of the emergency contact
+            action = input("Enter the contact's location: ").upper()           # The user inputs the location of the emergency contact
             if action == 'b':
                 break
             if action == 'q':
                 return "q" 
             while not self.__ll_destination.validate_destination_name(action):
-                print("Invalid input")
-                action = input("Enter the contact's location: ")
+                print("Invalid input").upper()
+                action = input("Enter the contact's location: ").upper()
                 if action == 'b':
                     break        
                 if action == 'q':

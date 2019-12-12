@@ -245,7 +245,7 @@ class EmployeeUI():
     
     def show_by_status(self):
         print()
-        self.employeeio.load_employee_from_file("status")
+        self.employeeio.load_employee_from_file("Status")
         print(self.employeeio)
         print()
     
