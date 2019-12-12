@@ -256,8 +256,10 @@ class VoyageUI():
                           
     def new_destination(self):   
         """The user has chosen to create a new destination"""
-        self.__ui_destination.add_destination()                   # Calls the Destination_UI file
-        
+        leave = self.__ui_destination.add_destination()                   # Calls the Destination_UI file
+        if leave == "q":
+            return "q"
+
     def change_voyage_state(self):                                      
         """The user has chosen to change the status of the voyage"""     
         print('Enter "b" to go back and "q" to got to the main menu.')
