@@ -22,6 +22,12 @@ class DestinationLL(Destination):
     def change_employee(self):
         pass
 
+    def validate_destination_num(self, destination_num):
+        if len(destination_num) <=2:
+            for letter in destination_num:
+                if letter.isdigit():
+                    return True
+    
     def validate_destination_id(self, destination_id):  #  Check if id (KEF) only has alphabetical letters and is 3 letters long
         if len(destination_id) == 3: 
             for letter in destination_id:
