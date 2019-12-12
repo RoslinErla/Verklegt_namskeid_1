@@ -1,6 +1,8 @@
 from logic.Destination_LL import DestinationLL
 from IO.destinationIO import DestinationIO
 
+import string
+
 class DestinationUI:
 
     def __init__(self):
@@ -8,7 +10,12 @@ class DestinationUI:
         self.__io_destination = DestinationIO()
     
     def destination_menu(self):
+<<<<<<< HEAD
         ''' Presents the user with  '''
+        leave = ""
+=======
+        ''' Presents the user with the options available in "destination_menu" '''
+>>>>>>> 86c98cd44147a09399c9ce8e541de2fc0209218d
         while leave != "q":    
             print("\tDestination Menu")
             print()
@@ -25,7 +32,7 @@ class DestinationUI:
             elif action == "2":
                 leave =  self.change_contact()
             elif action == "3":
-                leave == self.display_destination
+                leave == self.display_destination()
             elif action == "b" or action == "q":
                 break
             
@@ -162,27 +169,54 @@ class DestinationUI:
                   
         
     def change_contact(self):
-        """The user has chosen to change the name and/or phone number of the emergency contact"""
+        """ The user has chosen to change the name and/or phone number of the emergency contact"""
         action = ""
         contact = ""
         print('Enter "b" to go back and "q" to got to the main menu.')    # q virkar bara eins og b
         while True:
+            print()
+            self.__io_destination.load_destination_from_file()
+            print(self.__io_destination)
             action = input("Enter the contact's location: ").upper()           # The user inputs the location of the emergency contact
             if action == 'b':
                 break
             if action == 'q':
                 return "q" 
             while not self.__ll_destination.validate_destination_name(action):
-                print("Invalid input").upper()
+                print("Invalid input")
+                self.__io_destination.load_destination_from_file()
+                print(self.__io_destination)
                 action = input("Enter the contact's location: ").upper()
-                if action == 'b':
-                    break        
-                if action == 'q':
-                    return "q" 
             contact += action
             if action == 'b':
-                break
+                break        
+            elif action == 'q':
+                return "q" 
         
+            print("Enter 1 to change the name of the emergency contact")
+            print("Enter 2 to change the emergency contact's phone number")
+            action = input("Please enter you command: ")
+
+            if action == 1:
+                change = "name"
+                new = input("Please enter the new entry for {}: ".format(change))
+                while not self.__ll_destination.validate_contact_name(new):
+                    print("Input is invalid!")
+                    new = input("Please enter the new entry for {}:".format(change))
+            
+            elif action == 2:
+                change = "phone number"
+                new = input("Please enter the new entry for {}: ".format(change))
+                while not self.__ll_destination.validate_contact_number(new):
+                    print("Input is invalid!")
+                    new = input("Please enter the new entry for {}: ".format(change))
+
+            self.__io_destination.change_destination(contact,change,new)
+
+            action = input("Do you want to change another employee? (y)es or (n)o: " ).upper()
+            if action == "n":
+                return "q"
+
         # Velja númer staðsetningar innan kerfisins ? 
 
     def display_destination(self):

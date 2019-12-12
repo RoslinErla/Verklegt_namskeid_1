@@ -11,6 +11,7 @@ class MainUI():
         self.voyageui = VoyageUI()
 
     def main_menu(self):
+        """ Presents the user with the option to open any menu within the system """
         action = ""
         while True:
             print("\tMain Menu")
@@ -30,8 +31,7 @@ class MainUI():
             if action == "1":
                 self.airplaneui.airplane_menu()
             if action == "2":
-                pass
-                # self.destinationui.destination_menu()
+                self.destinationui.destination_menu()
             if action == "3":
                 self.employeeui.employee_menu()
             if action == "4":
