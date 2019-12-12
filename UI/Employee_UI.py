@@ -21,7 +21,7 @@ class EmployeeUI():
             print('\t4. enter "4" to display employees within the system in alphabetical order.')
             print("\t5. enter '5' to display all flight attendants within the system. ")
             print("\t6. enter '6' to display all pilots within the system. ")
-            print("\t7. enter '7' to display all pilots sorted by there permits. ")
+            print("\t7. enter '7' to display all pilots sorted by their permits. ")
             print("\t8. enter '8' to display all information about a employee. ")
             print('Enter "b" to go back and "q" to got to the main menu.')
 
@@ -54,14 +54,14 @@ class EmployeeUI():
         action = ""
         new_employee = ""
         while action.lower() != 'q':
-            action = input("Enter the ssn: ")
+            action = input("Enter the ssn: ").upper()
             if action == 'b':
                     break
             elif action == 'q':
                 return 'q'
             while not self.employeell.validate_ssn(action):
                 print("Input is invalid!")
-                action = input("Enter the ssn: ")
+                action = input("Enter the ssn: ").upper()
                 if action == 'b':
                     break
                 elif action == 'q':
@@ -69,7 +69,7 @@ class EmployeeUI():
 
             new_employee += action + ","
 
-            action = input("Enter the name: ")
+            action = input("Enter the name: ").upper()
 
             if action == 'b':
                     break
@@ -78,7 +78,7 @@ class EmployeeUI():
 
             while not self.employeell.validate_name(action):
                 print("Input is invalid!")
-                action = input("Enter the name: ")
+                action = input("Enter the name: ").upper()
                 if action == 'b':
                     break
                 if action == 'q':
@@ -86,7 +86,7 @@ class EmployeeUI():
 
             new_employee += action + ","
 
-            action = input("Enter the address: ")
+            action = input("Enter the address: ").upper()
             if action == 'b':
                     break
             elif action == 'q':
@@ -94,7 +94,7 @@ class EmployeeUI():
 
             while not self.employeell.validate_address(action):
                 print("input is invalid!")
-                action = input("Enter the address")
+                action = input("Enter the address").upper()
                 if action == 'b':
                     break
                 elif action == 'q':
@@ -102,7 +102,7 @@ class EmployeeUI():
     
             new_employee += action + ","
 
-            action = input("Enter the phone number: ")
+            action = input("Enter the phone number: ").upper()
 
             if action == 'b':
                     break
@@ -111,7 +111,7 @@ class EmployeeUI():
 
             while not self.employeell.validate_phone_number(action):
                 print("Input is invalid!")
-                action = input("Enter the phone number: ")
+                action = input("Enter the phone number: ").upper()
                 if action == 'b':
                     break
                 elif action == 'q':
@@ -119,7 +119,7 @@ class EmployeeUI():
 
             new_employee += action + ","
 
-            action = input("Enter the user name: ")
+            action = input("Enter the user name: ").upper()
             if action == 'b':
                     break
             elif action == 'q':
@@ -127,14 +127,14 @@ class EmployeeUI():
 
             while not self.employeell.validate_user_name(action):
                 print("Input is invalid!")
-                action = input("Enter the user name: ")
+                action = input("Enter the user name: ").upper()
                 if action == 'b':
                     break
                 if action == 'q':
                     return 'q'
             new_employee += action + ","
 
-            action = input("Enter the rank (flight attendant, flight service manager, co-pilot or captain): ")
+            action = input("Enter the rank (flight attendant, flight service manager, co-pilot or captain): ").upper()
             
             if action == 'b':
                     break
@@ -143,7 +143,7 @@ class EmployeeUI():
 
             while not self.employeell.validate_rank(action):
                 print("Input is invalid!")
-                action = input("Enter the rank: ")
+                action = input("Enter the rank: ").upper()
                 if action == 'b':
                     break
                 if action == 'q':
@@ -151,7 +151,7 @@ class EmployeeUI():
                 
             new_employee += action + ","
 
-            action = input("Enter the permit, enter N/A if not appropriate: ")
+            action = input("Enter the permit, enter N/A if not appropriate: ").upper()
 
             if action == 'b':
                     break
@@ -160,7 +160,7 @@ class EmployeeUI():
 
             while not self.employeell.validate_permit(action):
                 print("Input is invalid!")
-                action = input("Enter the permit, enter N/A if not appropriate: ")
+                action = input("Enter the permit, enter N/A if not appropriate: ").upper()
                 if action == 'b':
                     break
                 if action == 'q':
@@ -239,13 +239,13 @@ class EmployeeUI():
 
             self.employeell.change_employee(ssn, change, new)
 
-            action = input("Do you want to change another employee? (y)es or (n)o: " ).lower()
+            action = input("Do you want to change another employee? (y)es or (n)o: " ).lower().upper()
             if action == "n":
                 return "q"
     
     def show_by_status(self):
         print()
-        self.employeeio.load_employee_from_file("status")
+        self.employeeio.load_employee_from_file("Status")
         print(self.employeeio)
         print()
     

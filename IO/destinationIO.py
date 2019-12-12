@@ -3,7 +3,7 @@ import csv
 
 class DestinationIO:
     DESTINATION_FILE = "./files/destination.csv"
-    CONSTANT_LIST = ["DESTINATION NAME", "DESTINATION ID", "COUNTRY", "AIRPORT", "FLIGHT TIME", "DISTANCE", "EMERGENCY CONTACT", "EMERGENCY PHONE"]
+    CONSTANT_LIST = ["DESTINATION NUMBER", "DESTINATION NAME", "DESTINATION ID", "COUNTRY", "AIRPORT", "FLIGHT TIME", "DISTANCE", "EMERGENCY CONTACT", "EMERGENCY PHONE"]
 
     def __init__(self):
         self.__airplane_list = list()
@@ -12,26 +12,32 @@ class DestinationIO:
         with open(self.DESTINATION_FILE, "r") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
+<<<<<<< HEAD
                 employee = Destination(line["destination number"],line["destination name"],line["destination id"],line["country"],line["airport"],line["flight time"],line["distance"],line["emergency contact"],line["emergency phone"])
                 self.__airplane_list.append(employee)
+=======
+                destination = Destination(line["destination number"],line["destination name"],line["destination id"],line["country"],line["airport"],line["flight time"],line["distance"],line["emergency contact"],line["emergency phone"])
+                self.__airplane_list.append(destination)
+>>>>>>> 3362a84d6ef5a5a04ca1f2c9a239724f6fe9d0ce
         sorted_list = self.sort_to_display(self.__airplane_list)
         
-        self.__employee_list = sorted_list
+        self.__destination_list = sorted_list
 
     def __str__(self):
         strengur = ''
-        for employee in self.__employee_list:
-            strengur += employee.__str__() + '\n'
+        for destination in self.__destination_list:
+            strengur += destination.__str__() + '\n'
+        self.__airplane_list = list()
         return strengur
 
     def sort_to_display(self, a_list):
-        a_list.sort(key = lambda x: x.get_destination_name())
+        a_list.sort(key = lambda x: x.get_destination_num())
         return a_list
 
-    def Add_destination_to_file(self,destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone):
+    def Add_destination_to_file(self, destination_num, destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone):
         with open(self.DESTINATION_FILE, "a", newline = " ") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone])
+            writer.writerow([destination_num, destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone])
 
     def change_destination(self, des, change, new):
         change_index = self.CONSTANT_LIST.index(change.upper())

@@ -4,6 +4,7 @@ import string
 
 class EmployeeIO:
     EMPLOYEE_FILE = "./files/employee.csv"
+    VOYAGE_FILE = "./files/voyage.csv"
     CONSTANT_LIST = ["SSN", "NAME", "ADDRESS", "PHONE_NUMBER", "USER_NAME", "RANK", "PERMIT", "STATUS" ]
 
     def __init__(self):
@@ -158,18 +159,23 @@ class EmployeeIO:
                     writer.writerow(line)
             writer.writerows(reader)
 
-    # def display_status(self,date):
-    #     a = False
-    #     # with open8bla voyage
-    #     #employee
-    #     for line in employee_reader:
-    #         for elements in voyage_reader:
-    #             if elements{4} ==date and elements[5] == line[0]:
-    #                 employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],"at work")
-    #                 a_list.append(employee)
-    #                 a = True
-    #         if not a:
-    #             employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],"not at work")
+    def display_status(self,date):
+        a = False
+         # with open8bla voyage
+         #employee
+        with open(self.EMPLOYEE_FILE) as thefile:
+            employee_reader = csv.DictReader(thefile)
+        with open(self.VOYAGE_FILE) as csvfile:
+            voyage_reader = csv.DictReader(csvfile)
+
+        for line in employee_reader:
+            for elements in voyage_reader:
+                if (elements["departure time out"] == date or elements["Departure time home"] == date) and (elements["captain/pilot"] == line["SSN"] or elements["co"] == "YOUR MOM"):
+                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],"at work")
+                    self.__employee_list.append(employee)
+                    a = True
+            if not a:
+                 employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],"not at work")
 
 
 
