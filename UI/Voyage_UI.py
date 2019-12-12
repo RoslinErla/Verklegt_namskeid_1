@@ -55,7 +55,6 @@ class VoyageUI():
         while leave != "q":
             print("\tEnter 1 to repeat an old voyage")
             print("\tEnter 2 to create a new voyage")
-            print("\tEnter 3 to create a new destination")
             print('Enter "b" to go back and "q" to got to the main menu.')
 
             action = input("Please enter your commmand: ").lower()
@@ -65,9 +64,6 @@ class VoyageUI():
         
             if action == "2":
                 leave = self.new_voyage()
-        
-            if action =="3":
-                leave = self.new_destination()
 
             if action == 'b':
                 leave = self.voyage_menu() 
@@ -365,9 +361,6 @@ class VoyageUI():
             action = input("Do you want to change another voyage status? (y)es or (n)o: " ).lower()
             if action == "n":
                 return "q"                          
-    
-    def change_emergency_contact(self):
-        self.__ui_destination.change_contact()
 
     def daily_list(self):
         """The user has chosen to have a list of voyages for a given day displayed"""
@@ -393,39 +386,39 @@ class VoyageUI():
         
         # Birta listannn ! 
     
-    def flight_numbers(self):
-        """The user has chosen to have a list of flight numbers for a given date displayed""" 
-        action = ""
-        display_numbers = ""
-        print('Enter "b" to go back and "q" to got to the main menu.')  # fer líka bara til baka úr "Enter destination" í voyage menu með q 
-        while True:                                                      # En þá er hægt að ýta aftur á q og þá fer maður í main menu...
-            action = input("Enter destination: ")
-            if action == 'b':
-                self.display_menu()
-            if action == 'q':
-                return "q"
-            while not self.__ll_destination.validate_country_name(action):   # Sýna flugnúmer beggja flugferða þegar vinnuferðir eru listaðar.
-                print("Input is invalid")
-                action = input("Enter destination: ")
-            display_numbers += action
-            if action == 'b':
-                self.display_menu()
-            if action == 'q':
-                return "q"
+    # def flight_numbers(self):
+    #     """The user has chosen to have a list of flight numbers for a given date displayed""" 
+    #     action = ""
+    #     display_numbers = ""
+    #     print('Enter "b" to go back and "q" to got to the main menu.')  # fer líka bara til baka úr "Enter destination" í voyage menu með q 
+    #     while True:                                                      # En þá er hægt að ýta aftur á q og þá fer maður í main menu...
+    #         action = input("Enter destination: ")
+    #         if action == 'b':
+    #             self.display_menu()
+    #         if action == 'q':
+    #             return "q"
+    #         while not self.__ll_destination.validate_country_name(action):   # Sýna flugnúmer beggja flugferða þegar vinnuferðir eru listaðar.
+    #             print("Input is invalid")
+    #             action = input("Enter destination: ")
+    #         display_numbers += action
+    #         if action == 'b':
+    #             self.display_menu()
+    #         if action == 'q':
+    #             return "q"
             
-            action = input("Enter a date: ")
-            if action == 'b':
-                self.display_menu()
-            if action == 'q':
-                return "q"
-            while not self.__ll_destination.validate_distance(action):       # Nota distance núna því bara tölur MUNA :Breyta í DATETIME validated
-                print("Input is invalid")
-                action = input("Enter a date: ")
-            display_numbers += action
-            if action == 'b':
-                self.display_menu()
-            if action == 'q':
-                return "q"
+    #         action = input("Enter a date: ")
+    #         if action == 'b':
+    #             self.display_menu()
+    #         if action == 'q':
+    #             return "q"
+    #         while not self.__ll_destination.validate_distance(action):       # Nota distance núna því bara tölur MUNA :Breyta í DATETIME validated
+    #             print("Input is invalid")
+    #             action = input("Enter a date: ")
+    #         display_numbers += action
+    #         if action == 'b':
+    #             self.display_menu()
+    #         if action == 'q':
+    #             return "q"
             
         # Birta lista flugnúmera fyrir innslegna dagsetningu
         
