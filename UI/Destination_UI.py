@@ -177,5 +177,8 @@ class DestinationUI:
                 break
         
         # Velja númer staðsetningar innan kerfisins ? 
+
+        def display_destination(self):
+            
                  
 

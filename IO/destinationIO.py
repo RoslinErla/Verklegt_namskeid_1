@@ -25,7 +25,7 @@ class DestinationIO:
         return strengur
 
     def sort_to_display(self, a_list):
-        a_list.sort(key = lambda x: x.get_destination_name())
+        a_list.sort(key = lambda x: x.get_destination_num())
         return a_list
 
     def Add_destination_to_file(self, destination_num, destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone):
