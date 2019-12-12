@@ -10,8 +10,12 @@ class DestinationUI:
         self.__io_destination = DestinationIO()
     
     def destination_menu(self):
+<<<<<<< HEAD
         ''' Presents the user with  '''
         leave = ""
+=======
+        ''' Presents the user with the options available in "destination_menu" '''
+>>>>>>> 86c98cd44147a09399c9ce8e541de2fc0209218d
         while leave != "q":    
             print("\tDestination Menu")
             print()
@@ -165,7 +169,7 @@ class DestinationUI:
                   
         
     def change_contact(self):
-        """The user has chosen to change the name and/or phone number of the emergency contact"""
+        """ The user has chosen to change the name and/or phone number of the emergency contact"""
         action = ""
         contact = ""
         print('Enter "b" to go back and "q" to got to the main menu.')    # q virkar bara eins og b

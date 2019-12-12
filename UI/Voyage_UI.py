@@ -152,6 +152,8 @@ class VoyageUI():
         print('Enter "b" to go back and "q" to got to the main menu.')
  
         while action != "q":
+            self.__io_voyage.load_voyage_from_file()
+            print(self.__io_voyage)
             action = input("Enter the departure time from Iceland: ")
             print()
             if action == 'b':

@@ -8,7 +8,9 @@ class AirplaneUI:
         self.airplanell = AirplaneLL()
         self.airplaneio = AirplaneIO()
         self.employeeio = EmployeeIO()
+    
     def airplane_menu(self):
+        ''' Presents the user with every interaction for "airplane_menu". '''
         action = ""
         leave = ''
         while leave != "q":
@@ -35,77 +37,79 @@ class AirplaneUI:
                 break
 
     def call_on_validate_and_create(self):
+        """ Asks the user for input for each object required in  """
         print('Enter "b" to go back and "q" to got to the main menu.')
         action = ""
         new_plane = ""
         while True:
             action = input("Enter the manufacturer: ").upper()
-            if action == 'b':
+            if action == "B":
                 self.airplane_menu()
-            elif action == 'q':
+            elif action == "Q":
                 return 'q'
 
             while not self.airplanell.validate_manufacturer(action):
                 print("Input is invalid!")
                 action = input("Enter the manufacturer: ").upper()
-                if action == 'b':
+                if action == "B":
                     self.airplane_menu()
-                elif action == 'q':
+                elif action == "Q":
                     return 'q'          
             new_plane += action + ","
 
 
             action = input("Enter the type ID: ").upper()
-            if action == 'b':
+            if action == "B":
                 self.airplane_menu()
-            elif action == 'q':
+            elif action == "Q":
                 return 'q'
 
             while not self.airplanell.validate_typeID(action):
                 print("Input is invalid!")
                 action = input("Enter the type ID: ").upper()
-                if action == 'b':
+                if action == "B":
                     self.airplane_menu()
-                elif action == 'q':
+                elif action == "Q":
                     return 'q'
             new_plane += action + ","
 
             action = input("Enter the plane insignia: ").upper()
-            if action == 'b':
+            if action == "B":
                     self.airplane_menu()
-            elif action == 'q':
+            elif action == "Q":
                 return 'q'
 
             while not self.airplanell.validate_plane_insignia(action):
                 print("Input is invalid!")
                 action = input("Enter the plane insignia: ").upper()
-                if action == 'b':
+                if action == "B":
                     self.airplane_menu()
-                elif action == 'q':
+                elif action == "Q":
                     return 'q'
             new_plane += action + ","
 
             action = input("Enter the model: ").upper()
-            if action == 'b':
+            if action == "B":
                 self.airplane_menu()
-            elif action == 'q':
+            elif action == "Q":
                 return 'q'
 
             while not self.airplanell.validate_model(action):
                 print("Input is invalid!")
                 action = input("Enter the model: ").upper()
-                if action == 'b':
+                if action == "B":
                     self.airplane_menu()
-                elif action == 'q':
+                elif action == "Q":
                     return 'q'
             new_plane += action
 
             self.airplanell.create_plane(new_plane)
             action = input("Do you want to create another airplane? (y)es or (n)o: " ).lower()
             if action == "n":
-                action = "q"
+                return "q"
 
     def show_pilots_by_airplane_type(self):
+        ''' Presents the user with every pilot with the selected flight license '''
         self.airplaneio.load_airplane_from_file()
         print(self.airplaneio)
         type_id = input("By what plane type do you want to search? ")
@@ -146,6 +150,7 @@ class AirplaneUI:
         
     
     def show(self):
+        ''' Presents the user with every plane within the system '''
         print()
         self.airplaneio.load_airplane_from_file()
         print(self.airplaneio)
