@@ -162,4 +162,13 @@ class DestinationUI:
             if action == 'b':                             # b virkar rétt!
                 break
         
+<<<<<<< HEAD
+        # Velja númer staðsetningar innan kerfisins ? 
+
+        def display_destination(self):
+            
+                 
+
+=======
         # Velja númer staðsetningar innan kerfisins ?
+>>>>>>> 5f1f57a411f84e2b882663d7c71c6a1002b30683
