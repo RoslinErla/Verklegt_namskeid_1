@@ -12,11 +12,14 @@ class Employee():
         self.__status = status
 
     def __str__(self):
-        return "{:35} | {}-{} | {:30} | {}-{:8} | {:15} | {:25} | {:15}".format(self.__name, self.__ssn[:6], self.__ssn[6:], self.__address, self.__phone_number[:3],self.__phone_number[3:],self.__user_name, self.__rank, self.__permit)
+        return "{:35} | {}-{} | {:30} | {}-{:8} | {:15} | {:25} | {:15} | {}".format(self.__name, self.__ssn[:6], self.__ssn[6:], self.__address, self.__phone_number[:3],self.__phone_number[3:],self.__user_name, self.__rank, self.__permit,self.__status)
 
 
     def get_name(self):
         return self.__name
+
+    def get_user_name(self):
+        return self.__user_name
 
     def get_status(self):
         return self.__status

@@ -244,11 +244,12 @@ class EmployeeUI():
                 return "q"
     
     def show_by_status(self):
+        a = input("Please enter dd/mm/YYYY: ")
         print()
-        self.employeeio.load_employee_from_file("Status")
+        self.employeeio.display_status(a)
         print(self.employeeio)
         print()
-    
+
     def show_by_aplha(self):
         print()
         self. employeeio.load_employee_from_file("alpha")
