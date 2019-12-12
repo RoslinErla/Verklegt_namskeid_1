@@ -1,2 +1,3 @@
 start of journey,departure time out,arriving abroad,arrival time abroad,flight number out, departing to RVK,departure time to RVK,arrival time at RVK,flight number home,plane_insignia,captain/pilot,co-pilot,fsm,fa1,fa2,flight_number
-KEF,2019-12-20T06:45:00,LYR,2019-12-20T10:45:00,FLIGHT_NUMBER,KEF,2019-12-20T11:45:00,2019-12-20T15:45:00,FLIGHT_NUMBER,TF-XZR,William Carillo(williamC),Róslín Erla Tómasdóttir(roslin),Jonathan Morgenstern(johnny),Guðjón Ericsson(gudjon),Tómas Sævarsson(tommi)
+KEF,2019-12-20T06:45:00,LYR,2019-12-20T10:45:00,FLIGHT_NUMBER,KEF,2019-12-20T11:45:00,2019-12-20T15:45:00,FLIGHT_NUMBER,TF-XZR,williamC,roslin,johnny,gudjon,tommi
+KEF,2019-12-20T06:45:00,LYR,2019-12-20T10:45:00,FLIGHT_NUMBER,KEF,2019-12-20T11:45:00,2019-12-20T15:45:00,FLIGHT_NUMBER,TF-XZR,virginia,roslin,johnny,gudjon,tommi
