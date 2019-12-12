@@ -108,7 +108,7 @@ class EmployeeIO:
             reader = csv.DictReader(the_file)
             for line in reader:
                 if line["SSN"] == ssn:
-                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],line["Status"])
+                    employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"])
                     self.__employee_list.append(employee)
 
     def sort_to_display(self, a_list, sort_type):

@@ -34,6 +34,7 @@ class DestinationIO:
             writer = csv.writer(csvfile)
             writer.writerow([destination_num, destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone])
 
+
     def change_destination(self, des, change, new):
         change_index = self.CONSTANT_LIST.index(change.upper())
 

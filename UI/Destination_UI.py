@@ -9,6 +9,7 @@ class DestinationUI:
     
     def destination_menu(self):
         ''' Presents the user with  '''
+        leave = ""
         while leave != "q":    
             print("\tDestination Menu")
             print()
@@ -25,7 +26,7 @@ class DestinationUI:
             elif action == "2":
                 leave =  self.change_contact()
             elif action == "3":
-                leave == self.display_destination
+                leave == self.display_destination()
             elif action == "b" or action == "q":
                 break
             
