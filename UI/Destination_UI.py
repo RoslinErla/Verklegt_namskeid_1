@@ -23,6 +23,7 @@ class DestinationUI:
             if action == 'q':
                 return "q"
             while not self.__ll_destination.validate_destination_num(action):
+                print("Input is invalid!")
                 action = input("Enter destination number: ").upper()
                 if action == 'b':                                           
                     break                                                   # en svo kemur "please enter your command" og þá virkar q rétt
@@ -71,16 +72,15 @@ class DestinationUI:
                 break
             if action == 'q':
                 return "q"                                      
-            while not self.__ll_destination.validate_flight_time(action):
-               print("Input is invalid")
-               action = input("Enter flight-time: ").upper()
-               if action == 'b':
-                   break
-               if action == 'q':
-                   return "q"
-            destination += action
-            if action == 'b':
-               break
+            # while not self.__ll_destination.validate_flight_time(action):
+            #    print("Input is invalid")
+            #    action = input("Enter flight-time: ").upper()
+            #    if action == 'b':
+            #        break
+            #    if action == 'q':
+            #        return "q"
+            # destination += action
+           
                                          # User puts in the distance from Iceland
             
             action = input("Enter distance from Iceland: ").upper()
