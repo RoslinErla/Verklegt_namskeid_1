@@ -46,20 +46,41 @@ class DestinationUI:
                 break                                                   # en svo kemur "please enter your command" og þá virkar q rétt
             if action == 'q':
                 return "q"
-            while not self.__ll_destination.validate_destination_num(action):
+            while self.__ll_destination.check_if_exists(action,2):
                 print("Input is invalid!")
                 action = input("Enter destination number: ").upper()
                 if action == 'b':                                           
                     break                                                   # en svo kemur "please enter your command" og þá virkar q rétt
                 if action == 'q':
                     return "q"
-            if action == 'b':                                           
-                break  
-            action = input("Enter country name: ").upper()                      # Þarf að laga: q virkar bara eins og b hér
-            if action == 'b':                                           
-                break                                                   # en svo kemur "please enter your command" og þá virkar q rétt
+
+            destination += action + ","
+
+            self.__io_destination.load_destination_from_file()
+            print(self.__io_destination)
+            action = input("Enter the destination: ")
+            print()
+            if action == 'b':
+                
             if action == 'q':
                 return "q"
+            while not self.__ll_destination.validate_destination_name(action):
+                print("Input is invalid!")
+                self.__io_destination.load_destination_from_file()
+                print(self.__io_destination)
+                action = input("Enter the destination: ")
+                print()
+                if action == 'b':
+                    self.create_menu()
+                if action == 'q':
+                    return "q"
+
+            action = input("Enter country name: ")                      # Þarf að laga: q virkar bara eins og b hér
+            if action.lower() == 'b':                                           
+                break                                                   # en svo kemur "please enter your command" og þá virkar q rétt
+            if action.lower() == 'q':
+                return "q"
+
             while not self.__ll_destination.validate_country_name(action):
                 print("Input is invalid!")
                 action = input("Enter country name: ").upper()
@@ -67,12 +88,8 @@ class DestinationUI:
                     break
                 if action == 'q':
                     return "q"
-            if action == 'b':                                           
-                break     
-            destination += action
-            if action == 'b':                # b virkar rétt!  
-                break
-            destination += action
+
+            destination += action + ","
                                                     
             action = input("Enter airport: ").upper()    # User puts in the name of the airport
             if action == 'b':
@@ -96,16 +113,14 @@ class DestinationUI:
                 break
             if action == 'q':
                 return "q"                                      
-            # while not self.__ll_destination.validate_flight_time(action):
-            #    print("Input is invalid!")
-            #    action = input("Enter flight-time: ").upper()
-            #    if action == 'b':
-            #        break
-            #    if action == 'q':
-            #        return "q"
-            # destination += action
-           
-                                         # User puts in the distance from Iceland
+            while not self.__ll_destination.validate_flight_time(action):
+               print("Input is invalid!")
+               action = input("Enter flight-time(hours.minutes): ")
+               if action == 'b':
+                   break
+               if action == 'q':
+                   return "q"
+            destination += action + ","
             
             action = input("Enter distance from Iceland: ").upper()
             if action == 'b':
@@ -178,7 +193,7 @@ class DestinationUI:
                 break
             if action.lower() == 'q':
                 return "q" 
-            while not self.__ll_destination.check_if_exists(action):
+            while self.__ll_destination.check_if_exists(action,2):
                 print("Invalid input")
                 self.__io_destination.load_destination_from_file()
                 print(self.__io_destination)

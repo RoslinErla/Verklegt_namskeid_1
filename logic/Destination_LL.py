@@ -9,17 +9,16 @@ class DestinationLL(Destination):
     def __init__(self):
         self.__destination = DestinationIO()
     
-    def check_if_exists(self, check):
-        employee_set = self.__destination.get_set()
-        for elements in employee_set:
+    def check_if_exists(self, check, num):
+        destination_set = self.__destination.get_set(num)
+        for elements in destination_set:
             if check == elements:
-                print("This ssn already exists press 'b' to go back")
                 return False
         else: 
             return True
 
-
     def validate_destination_num(self, destination_num):
+        if self.destinaion_num
         if len(destination_num) <=2:
             for letter in destination_num:
                 if not letter.isdigit():
@@ -64,14 +63,11 @@ class DestinationLL(Destination):
     def validate_flight_time(self, flight_time): # Eftir að búa til gögn fyrir þetta
         hours,minutes = flight_time.split()
         try:
-            flight_time = datetime.datetime(hours,minutes)
+            flight_time = datetime.datetime(int(hours),int(minutes))
             return True
 
         except ValueError:
             return False
-
-        # Ekki viss hvernig hann ætti að vera .. 
-        pass
 
     def validate_distance(self, distance): # Eftir að búa til gögn fyrir þetta, fjarlægð frá Íslandi, væntalega bara tölustafir
         for letter in distance:
@@ -100,7 +96,7 @@ class DestinationLL(Destination):
         
     def change_destination(self, des, change, new):
         self.__destination.change_destination(des, change, new)
-            
+
 
 
 

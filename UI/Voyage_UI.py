@@ -40,7 +40,7 @@ class VoyageUI():
             action = input("Please enter your command: ").lower()
 
             if action == "1":
-                leave = self.create_menu()
+                leave = self.new_voyage()
             
             if action == "2":
                 leave = self.change_menu()
@@ -51,29 +51,6 @@ class VoyageUI():
             if action == "q" or action == "b":
                 break
                         
-    
-    def create_menu(self):
-        """After the user has chosen the "create" option, he has three new options"""
-        action = ""
-        leave = ''
-        while True:
-            self.new_voyage()
-            # print("\tEnter 1 to create a new voyage")
-            # print('Enter "b" to go back and "q" to got to the main menu.')
-
-            # action = input("Please enter your commmand: ").lower()
-        
-            # if action == "1":
-            #     leave = self.repeat_voyage()
-        
-            # if action == "2":
-            #     leave = self.new_voyage()
-
-            # if action == 'b':
-            #     leave = self.voyage_menu() 
-            
-            # if action == 'q' or action == "q":
-            #     return "q"
         
     def change_menu(self):
         """After the user has chosen the "change" option, he has two new options"""
@@ -96,61 +73,11 @@ class VoyageUI():
         
             if action == 'q':
                 return "q"
-            
-    def display_menu(self):
-        """After the user has chosen the "display" option, he has three new options"""
-        action = ""
-        leave = ''
-        while leave != "q":
-            print("\tEnter 1 for a daily list of voyages")
-            print("\tEnter 2 for a list of flight numbers")
-            print("\tEnter 3 to see the state of the voyages for today")
-            print('Enter "b" to go back and "q" to got to the main menu.')
-            action = input("Please enter your commmand: ").lower()
-        
-            if action == "1":
-                action = self.daily_list()
-        
-            if action == "2":
-                action = self.flight_numbers()
-        
-            if action == "3":
-                action = self.daily_voyage_state()
-        
-            if action == 'b':
-                self.voyage_menu() 
-        
-            if action == 'q':
-                return "q"
 
-    def repeat_voyage(self):             # C krafa GEYMA
-        """The user has chosen to repeat an old voyage"""
-        action = ""
-        voyage_repeat = ""
-        leave = ""
-        
-        print('Enter "b" to go back and "q" to got to the main menu.')
-        while leave != "q":
-            action = input("Enter destination: ").lower()      # Vantar virkni hér inn sem leyfir notandanum að endurtaka ferð
-            while not self.__ll_destination.validate_destination_name(action):
-                print("Input is invalid")
-                action = input("Enter destination: ").lower()
-                if action == 'b':
-                    self.create_menu()
-                if action == 'q':
-                    return "q"
-            voyage_repeat += action
-            
-            action = input("Do you want to repeat another voyage? (y/n): ").lower
-            if action == "y":  # virkar
-                continue
-            if action == "n":  # virkar ekki!
-                return "q"
-    
-    def new_voyage(self):
+def new_voyage(self):
         """The user has chosen to create a new voyage"""
         action = ""
-        new_voyage = "Reykjavík,"
+        new_voyage = "KEF,"
         
         print('Enter "b" to go back and "q" to got to the main menu.')
  
@@ -323,8 +250,34 @@ class VoyageUI():
             action = input("Do you want to create another voyage? (y/n): ").lower()
             if action == "n":  # virkar ekki!
                 return "q"
+            
+    def display_menu(self):
+        """After the user has chosen the "display" option, he has three new options"""
+        action = ""
+        leave = ''
+        while leave != "q":
+            print("\tEnter 1 for a daily list of voyages")
+            print("\tEnter 2 for a list of flight numbers")
+            print("\tEnter 3 to see the state of the voyages for today")
+            print('Enter "b" to go back and "q" to got to the main menu.')
+            action = input("Please enter your commmand: ").lower()
+        
+            if action == "1":
+                action = self.daily_list()
+        
+            if action == "2":
+                action = self.flight_numbers()
+        
+            if action == "3":
+                action = self.daily_voyage_state()
+        
+            if action == 'b':
+                self.voyage_menu() 
+        
+            if action == 'q':
+                return "q"
                   
-    # Hvað gerist þegar búið er að skrá allar upplýsingar inn ? 
+
                           
     def change_voyage_state(self):                                      
         """The user has chosen to change the status of the voyage"""     

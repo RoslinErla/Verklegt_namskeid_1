@@ -81,12 +81,6 @@ class EmployeeLL():
         or rank.lower() ==  "co-pilot" or rank.lower() == "captain":
             return True
 
-    def validate_status(self,status):
-        if status == "at work" or status == "not at work" or  status == "on vacation": 
-            return True
-        else: 
-            return False
-
     def validate_permit(self,permit):
         if permit == "N/A" or permit == "n/a" :
             return True
