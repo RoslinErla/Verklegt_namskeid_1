@@ -12,8 +12,13 @@ class DestinationIO:
         with open(self.DESTINATION_FILE, "r") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
+<<<<<<< HEAD
+                employee = Destination(line["destination number"],line["destination name"],line["destination id"],line["country"],line["airport"],line["flight time"],line["distance"],line["emergency contact"],line["emergency phone"])
+                self.__airplane_list.append(employee)
+=======
                 destination = Destination(line["destination number"],line["destination name"],line["destination id"],line["country"],line["airport"],line["flight time"],line["distance"],line["emergency contact"],line["emergency phone"])
                 self.__airplane_list.append(destination)
+>>>>>>> 3362a84d6ef5a5a04ca1f2c9a239724f6fe9d0ce
         sorted_list = self.sort_to_display(self.__airplane_list)
         
         self.__destination_list = sorted_list
