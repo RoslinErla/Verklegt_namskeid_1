@@ -202,8 +202,12 @@ class VoyageUI():
                 self.__io_employee.display_pilots("alpha")
                 print(self.__io_employee)
                 print()
+<<<<<<< HEAD
+                action = input("Enter the captain's SSN: ")
+=======
                 action = input("Enter the captain's SSN (0000000000): ")
                 print()
+>>>>>>> 070378496ee2df5f672175f3127a7523e01eb5d2
             new_voyage += action + ","
             if action == 'b':
                 self.create_menu()

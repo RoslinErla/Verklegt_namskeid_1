@@ -10,12 +10,18 @@ _  /|  / / /_/ /_  /|  /    / /_/ /_  / _  /
 
 """
 print(header)  
+
+
+
 def cls():
     print('\n'* 50)
+    print(header)
 
 cls()
 
-print(header)
+input()
+
+
 
 
 
