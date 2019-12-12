@@ -4,10 +4,11 @@ from IO.voyageIO import VoyageIO
 from logic.Destination_LL import DestinationLL
 from IO.destinationIO import DestinationIO
 from UI.Destination_UI import DestinationUI
+from logic.Employee_LL import EmployeeLL
 from IO.employeeIO import EmployeeIO
 import string
 
-class VoyageUI:
+class VoyageUI():
 
     def __init__(self):
         self.__ll_voyage = VoyageLL()
@@ -15,6 +16,7 @@ class VoyageUI:
         self.__io_destination = DestinationIO()
         self.__ui_destination = DestinationUI()
         self.__io_voyage = VoyageIO()
+        self.__ll_employee = EmployeeLL()
         self.__io_employee = EmployeeIO()
 
     def voyage_menu(self): 
@@ -189,7 +191,7 @@ class VoyageUI:
             if action == 'q':
                 return "q"
 
-            self.__io_employee().display_flight_attendants("alpha")
+            self.__io_employee().display_flight_attendants()
             print(self.__io_employee())
             print()
             action = input("Enter the flight service manager's SSN: ")  # User inputs the SSN for the fsm
@@ -199,7 +201,7 @@ class VoyageUI:
                 return "q"
             while not self.__ll_voyage.validate_SSN(action):
                 print("Input is invalid")
-                self.__io_employee().display_flight_attendants("alpha")
+                self.__io_employee().display_flight_attendants()
                 print(self.__io_employee())
                 print()
                 action = input("Enter the flight service manager's SSN: ")
@@ -209,7 +211,7 @@ class VoyageUI:
             if action == 'q':
                 return "q"
 
-            self.__io_employee().display_flight_attendants("alpha")
+            self.__io_employee().display_flight_attendants()
             print(self.__io_employee())
             print()            
             action = input("Enter the first flight attendant SSN: ")   # User inputs the SSN for the first flight attendant
@@ -226,7 +228,7 @@ class VoyageUI:
             if action == 'q':
                 return "q"
             
-            self.__io_employee().display_flight_attendants("alpha")
+            self.__io_employee().display_flight_attendants()
             print(self.__io_employee())
             print()
             action = input("Enter the second flight servant's SSN: ")       # User inputs the SSN for the second flight attendant
