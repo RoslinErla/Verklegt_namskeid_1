@@ -162,7 +162,7 @@ class DestinationUI:
                 continue
             if action == "n":  # virkar ekki!
                 return "q"
-                  
+
         
     def change_contact(self):
         """ The user has chosen to change the name and/or phone number of the emergency contact"""
@@ -183,7 +183,7 @@ class DestinationUI:
                 self.__io_destination.load_destination_from_file()
                 print(self.__io_destination)
                 action = input("Enter the contact's location: ").upper()
-            contact += action
+            contact = action
             if action == 'b':
                 break        
             elif action == 'q':
@@ -213,12 +213,11 @@ class DestinationUI:
             if action == "n":
                 return "q"
 
-        # Velja númer staðsetningar innan kerfisins ? 
-
     def display_destination(self):
         ''' Calls for "load_destination_from_file" from "Destination_UI.py" to display every destination within the system. '''
         print()
         self.__io_destination.load_destination_from_file()
         print(self.__io_destination)
+        input("Press 'q' to go back")
         print()
             
