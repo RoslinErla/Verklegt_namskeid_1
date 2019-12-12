@@ -189,7 +189,7 @@ class VoyageUI:
             if action == 'q':
                 return "q"
 
-            self.__io_employee().display_flight_attendants()
+            self.__io_employee().display_flight_attendants("alpha")
             print(self.__io_employee())
             print()
             action = input("Enter the flight service manager's SSN: ")  # User inputs the SSN for the fsm
@@ -199,7 +199,7 @@ class VoyageUI:
                 return "q"
             while not self.__ll_voyage.validate_SSN(action):
                 print("Input is invalid")
-                self.__io_employee().display_flight_attendants()
+                self.__io_employee().display_flight_attendants("alpha")
                 print(self.__io_employee())
                 print()
                 action = input("Enter the flight service manager's SSN: ")
@@ -209,7 +209,7 @@ class VoyageUI:
             if action == 'q':
                 return "q"
 
-            self.__io_employee().display_flight_attendants()
+            self.__io_employee().display_flight_attendants("alpha")
             print(self.__io_employee())
             print()            
             action = input("Enter the first flight attendant SSN: ")   # User inputs the SSN for the first flight attendant
@@ -226,7 +226,7 @@ class VoyageUI:
             if action == 'q':
                 return "q"
             
-            self.__io_employee().display_flight_attendants()
+            self.__io_employee().display_flight_attendants("alpha")
             print(self.__io_employee())
             print()
             action = input("Enter the second flight servant's SSN: ")       # User inputs the SSN for the second flight attendant
