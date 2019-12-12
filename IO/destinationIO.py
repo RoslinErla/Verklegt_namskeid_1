@@ -15,6 +15,8 @@ class DestinationIO:
             for line in reader:
                 self.__destination_id_set.add(line[2])
 
+    def make_destination_number_set(self):
+
     def get_set(self):
         self.make_set()
         return self.__destination_id_set

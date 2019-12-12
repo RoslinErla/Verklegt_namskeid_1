@@ -1,5 +1,7 @@
 from model.DestinationM import Destination
 from IO. destinationIO import DestinationIO
+from datetime import datetime
+import datetime
 import string
 
 class DestinationLL(Destination):
@@ -44,16 +46,30 @@ class DestinationLL(Destination):
         return False
     
     def validate_country_name(self, country_name):  # Eftir að búa til gögn fyrir þetta, geri ráð fyrir að það séu bara bókstafir
-        for letter in country_name:
-            if letter.isalpha():
-                return True
+        country_name = country_name.split()
+        for elements in country_name:
+            for letters in elements:
+                if not letters.isalpha():
+                    return False
+        return True
     
-    def validate_airport_name(self, airport_name): # Eftir að búa til gögn fyrir þetta, geri ráð fyrir að það séu bara bókstafir
-        for letter in airport_name:
-            if letter.isalpha():
-                return True
+    def validate_airport_name(self, airport_name):
+        airport_name = airport_name.split()
+        for elements in airport_name:
+            for letters in elements:
+                if not letters.isalpha():
+                    return False
+        return True
     
     def validate_flight_time(self, flight_time): # Eftir að búa til gögn fyrir þetta
+        hours,minutes = flight_time.split()
+        try:
+            flight_time = datetime.datetime(hours,minutes)
+            return True
+
+        except ValueError:
+            return False
+
         # Ekki viss hvernig hann ætti að vera .. 
         pass
 
