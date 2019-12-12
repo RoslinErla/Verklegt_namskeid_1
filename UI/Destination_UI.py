@@ -10,12 +10,8 @@ class DestinationUI:
         self.__io_destination = DestinationIO()
     
     def destination_menu(self):
-<<<<<<< HEAD
-        ''' Presents the user with  '''
         leave = ""
-=======
         ''' Presents the user with the options available in "destination_menu" '''
->>>>>>> 86c98cd44147a09399c9ce8e541de2fc0209218d
         while leave != "q":    
             print("\tDestination Menu")
             print()

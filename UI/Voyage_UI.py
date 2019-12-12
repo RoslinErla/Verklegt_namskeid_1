@@ -29,7 +29,6 @@ class VoyageUI():
     def voyage_menu(self): 
         """ The user can choose between the create, change and display options in the system"""
         action = ""
-        leave = ""
         while leave != "q":
             print("The following actions are possible: ")
             print("\tEnter 1 to create a voyage within the system.")
@@ -48,14 +47,15 @@ class VoyageUI():
             if action == "3":
                 leave = self.display_menu()
         
-            if action == "b" or action == "q":
-                break              
+            if action == "q" or action == "b":
+                break
+                        
     
     def create_menu(self):
         """After the user has chosen the "create" option, he has three new options"""
         action = ""
         leave = ''
-        while leave != "q":
+        while True:
             self.new_voyage()
             # print("\tEnter 1 to create a new voyage")
             # print('Enter "b" to go back and "q" to got to the main menu.')
@@ -77,7 +77,6 @@ class VoyageUI():
     def change_menu(self):
         """After the user has chosen the "change" option, he has two new options"""
         action = ""
-        leave = ''
         while leave != "q":
             print("\tEnter 1 to change voyage state")
             print("\tEnter 2 to change emergency contact's name and/or phone number")
@@ -86,13 +85,13 @@ class VoyageUI():
             action = input("Please enter your commmand: ").lower()
         
             if action == "1":
-                leave = self.change_voyage_state()
+                action = self.change_voyage_state()
         
             if action == "2":
-                leave = self.__ui_destination.change_contact()
+                action = self.__ui_destination.change_contact()
         
             if action == 'b':
-                leave = self.voyage_menu() 
+                self.voyage_menu() 
         
             if action == 'q':
                 return "q"
@@ -109,16 +108,16 @@ class VoyageUI():
             action = input("Please enter your commmand: ").lower()
         
             if action == "1":
-                leave = self.daily_list()
+                action = self.daily_list()
         
             if action == "2":
-                leave = self.flight_numbers()
+                action = self.flight_numbers()
         
             if action == "3":
-                leave = self.daily_voyage_state()
+                action = self.daily_voyage_state()
         
             if action == 'b':
-                leave =self.voyage_menu() 
+                self.voyage_menu() 
         
             if action == 'q':
                 return "q"
