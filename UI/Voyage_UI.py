@@ -149,8 +149,8 @@ class VoyageUI:
         print('Enter "b" to go back and "q" to got to the main menu.')
  
         while action != "q":
-            self.__io_employee.display_pilots("alpha")
-            print(self.__io_employee())
+            a = self.__io_employee.display_pilots("alpha")
+            print(a)
             print()
             action =  input("Enter the captain's SSN: ")         # User inputs the SSN for the captain
             if action == 'b':
