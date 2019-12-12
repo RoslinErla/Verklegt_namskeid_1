@@ -1,9 +1,12 @@
 from logic.Voyage_LL import VoyageLL
 from model.VoyageM import Voyage
+from IO.voyageIO import VoyageIO
+
 from logic.Destination_LL import DestinationLL
 from IO.destinationIO import DestinationIO
 from UI.Destination_UI import DestinationUI
-from IO.voyageIO import VoyageIO
+
+from IO.employeeIO import EmployeeIO
 
 import string
 
@@ -15,12 +18,7 @@ class VoyageUI:
         self.__io_destination = DestinationIO()
         self.__ui_destination = DestinationUI()
         self.__io_voyage = VoyageIO()
-
-    def create_voyage(self):  
-        pass
-
-    def change_voyage(self):
-        pass
+        self.__io_employee = EmployeeIO()
 
     def voyage_menu(self): 
         """ The user can choose between the create, change and display options in the system"""
@@ -151,6 +149,8 @@ class VoyageUI:
         print('Enter "b" to go back and "q" to got to the main menu.')
  
         while action != "q":
+            __io_employee.__employee_list()
+            print(self.__header)
             action =  input("Enter the captain's SSN: ")         # User inputs the SSN for the captain
             if action == 'b':
                 self.create_menu()
@@ -164,8 +164,8 @@ class VoyageUI:
                 self.create_menu()
             if action == 'q':
                 return "q"
-        
-          
+
+
             action = input("Enter the co-pilot's SSN: ")      # User inputs the SSN for the co-pilot
             if action == 'b':
                 self.create_menu()
@@ -222,12 +222,12 @@ class VoyageUI:
                 self.create_menu()
             if action == 'q':
                 return "q"
-            #self.__ll_voyage.create_voyage(new_voyage)   # veit ekki hvað þetta gerir, er allavega ekki að virka rétt. Hermdi eftir því sem Arnar gerði í Airplane_UI
+            self.__ll_voyage.create_voyage(new_voyage)   # veit ekki hvað þetta gerir, er allavega ekki að virka rétt. Hermdi eftir því sem Arnar gerði í Airplane_UI
 
             action = input("Do you want to create another voyage? (y/n): ").lower
             if action == "y":  # virkar
                 continue
-            if action == "n":  # virkar ekki!
+            if action == "n":
                 return "q"
                   
     # Hvað gerist þegar búið er að skrá allar upplýsingar inn ? 
