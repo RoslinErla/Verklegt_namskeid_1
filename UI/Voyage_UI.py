@@ -141,6 +141,12 @@ class VoyageUI:
                 leave = self.create_menu()
             if action == 'q':
                 return "q" 
+            
+            action = input("Do you want to repeat another voyage? (y/n): ").lower
+            if action == "y":  # virkar
+                continue
+            if action == "n":  # virkar ekki!
+                return "q"
     
     def new_voyage(self):
         """The user has chosen to create a new voyage"""
@@ -227,7 +233,11 @@ class VoyageUI:
             action = input("Do you want to create another voyage? (y/n): ").lower
             if action == "y":  # virkar
                 continue
+<<<<<<< HEAD
             if action == "n":
+=======
+            elif action == "n":  # virkar ekki!
+>>>>>>> 5bf98a8d49951c55f5b457c97b8e5d8fc52ab4f5
                 return "q"
                   
     # Hvað gerist þegar búið er að skrá allar upplýsingar inn ? 
@@ -303,17 +313,17 @@ class VoyageUI:
         # Birta listannn ! 
     
     def flight_numbers(self):
-        """The user has chosen to have a list of flight numbers for a given date displayed"""
+        """The user has chosen to have a list of flight numbers for a given date displayed""" 
         action = ""
         display_numbers = ""
-        print('Enter "b" to go back and "q" to got to the main menu.')  # fer líka bara til baka úr "Enter destination" í voyage menu mep q 
+        print('Enter "b" to go back and "q" to got to the main menu.')  # fer líka bara til baka úr "Enter destination" í voyage menu með q 
         while True:                                                      # En þá er hægt að ýta aftur á q og þá fer maður í main menu...
             action = input("Enter destination: ")
             if action == 'b':
                 self.display_menu()
             if action == 'q':
                 return "q"
-            while not self.__ll_destination.validate_country_name(action):
+            while not self.__ll_destination.validate_country_name(action):   # Sýna flugnúmer beggja flugferða þegar vinnuferðir eru listaðar.
                 print("Input is invalid")
                 action = input("Enter destination: ")
             display_numbers += action
