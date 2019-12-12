@@ -22,6 +22,7 @@ class DestinationIO:
         strengur = ''
         for destination in self.__destination_list:
             strengur += destination.__str__() + '\n'
+        self.__airplane_list = list()
         return strengur
 
     def sort_to_display(self, a_list):

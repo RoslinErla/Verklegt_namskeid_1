@@ -170,7 +170,7 @@ class EmployeeIO:
 
         for line in employee_reader:
             for elements in voyage_reader:
-                if (elements["departure time out"] == date or elements["Departure time home"] == date) and elements[] == line["SSN"]:
+                if (elements["departure time out"] == date or elements["Departure time home"] == date) and (elements["captain/pilot"] == line["SSN"] or elements["co"] == "YOUR MOM"):
                     employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],"at work")
                     self.__employee_list.append(employee)
                     a = True

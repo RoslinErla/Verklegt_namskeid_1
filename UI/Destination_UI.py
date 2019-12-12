@@ -67,15 +67,15 @@ class DestinationUI:
                     # Eftir að gera validate-ið fyrir flugtíma
                                                          
             action = input("Enter flight-time: ").upper()          # User puts in the flight time
-             if action == 'b':
-               break
+            if action == 'b':
+                break
             if action == 'q':
-               return "q"                                      
+                return "q"                                      
             while not self.__ll_destination.validate_flight_time(action):
                print("Input is invalid")
                action = input("Enter flight-time: ").upper()
                if action == 'b':
-               break
+                   break
                if action == 'q':
                    return "q"
             destination += action
@@ -162,13 +162,7 @@ class DestinationUI:
             if action == 'b':                             # b virkar rétt!
                 break
         
-<<<<<<< HEAD
         # Velja númer staðsetningar innan kerfisins ? 
 
         def display_destination(self):
-            
-                 
-
-=======
-        # Velja númer staðsetningar innan kerfisins ?
->>>>>>> 5f1f57a411f84e2b882663d7c71c6a1002b30683
+            pass
