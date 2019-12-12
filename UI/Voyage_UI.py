@@ -165,7 +165,7 @@ class VoyageUI():
                 print(self.__io_employee())
                 print()
                 action = input("Enter the captain's SSN: ")
-            new_voyage += action
+            new_voyage += action + ","
             if action == 'b':
                 self.create_menu()
             if action == 'q':
