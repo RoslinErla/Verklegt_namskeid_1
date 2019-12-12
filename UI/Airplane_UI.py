@@ -8,7 +8,9 @@ class AirplaneUI:
         self.airplanell = AirplaneLL()
         self.airplaneio = AirplaneIO()
         self.employeeio = EmployeeIO()
+    
     def airplane_menu(self):
+        ''' Presents the user with every interaction for "airplane_menu". '''
         action = ""
         leave = ''
         while leave != "q":
@@ -35,6 +37,7 @@ class AirplaneUI:
                 break
 
     def call_on_validate_and_create(self):
+        """ Asks the user for input for each object required in  """
         print('Enter "b" to go back and "q" to got to the main menu.')
         action = ""
         new_plane = ""
@@ -106,6 +109,7 @@ class AirplaneUI:
                 return "q"
 
     def show_pilots_by_airplane_type(self):
+        ''' Presents the user with every pilot with the selected flight license '''
         self.airplaneio.load_airplane_from_file()
         print(self.airplaneio)
         type_id = input("By what plane type do you want to search? ")
@@ -146,6 +150,7 @@ class AirplaneUI:
         
     
     def show(self):
+        ''' Presents the user with every plane within the system '''
         print()
         self.airplaneio.load_airplane_from_file()
         print(self.airplaneio)
