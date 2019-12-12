@@ -57,7 +57,6 @@ class DestinationUI:
             if action == 'q':
                 return "q"
                     # Eftir að gera validate-ið fyrir flugtíma
-
                                                          
             #action = input("Enter flight-time: ")          # User puts in the flight time
             # if action == 'b':
@@ -88,8 +87,7 @@ class DestinationUI:
             if action == 'q':
                 return "q"
                                                  # User puts in the name of the emergency contact
-            
-           
+             
             action = input("Enter name of emergency contact: ")
             if action == 'b':
                 break
@@ -106,7 +104,6 @@ class DestinationUI:
                 
                       # User puts in the phone number of the emergency contact
             
-           
             action = input("Enter emergency contact's phone number: ")  
             if action == 'b':
                 break
@@ -120,9 +117,14 @@ class DestinationUI:
                 break
             if action == 'q':
                 return "q"
+            
+            action = input("Do you want to input another destination? (y/n): ").lower
+            if action == "y":  # virkar
+                continue
+            if action == "n":  # virkar ekki!
+                return "q"
+                  
         
-
-
     def change_contact(self):
         """The user has chosen to change the name and/or phone number of the emergency contact"""
         action = ""
