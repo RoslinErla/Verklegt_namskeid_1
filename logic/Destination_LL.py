@@ -20,9 +20,12 @@ class DestinationLL(Destination):
     def validate_destination_num(self, destination_num):
         if len(destination_num) <=2:
             for letter in destination_num:
-                if letter.isdigit():
-                    return True
-    
+                if not letter.isdigit():
+                    return False
+            return True        
+        return False
+           
+
     def validate_destination_id(self, destination_id):  #  Check if id (KEF) only has alphabetical letters and is 3 letters long
         if len(destination_id) == 3: 
             for letter in destination_id:
@@ -39,7 +42,6 @@ class DestinationLL(Destination):
             return True
         return False
     
-
     def validate_country_name(self, country_name):  # Eftir að búa til gögn fyrir þetta, geri ráð fyrir að það séu bara bókstafir
         for letter in country_name:
             if letter.isalpha():
