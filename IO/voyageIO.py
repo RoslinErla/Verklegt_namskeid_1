@@ -47,7 +47,7 @@ class VoyageIO:
         return a_list
 
     def Add_voyage_to_file(self, departure_time, arriving_abroad, arrival_time, departure_time_home, arrival_time_home, plane_insignia, captain, co_pilot, fsm, fa1, fa2, flight_number,status):
-        with open(self.VOYAGE_FILE, "a", newline = " ") as csvfile:
+        with open(self.VOYAGE_FILE, "a", newline = "") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(["Reykjavík", departure_time, arriving_abroad, arrival_time, 
             "Reykjavík", departure_time_home, arrival_time_home, plane_insignia, 
