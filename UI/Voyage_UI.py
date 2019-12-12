@@ -86,7 +86,7 @@ class VoyageUI():
                 leave = self.change_voyage_state()
         
             if action == "2":
-                leave = self.change_emergency_contact()
+                leave = self.__ui_destination.change_contact()
         
             if action == 'b':
                 leave = self.voyage_menu() 
