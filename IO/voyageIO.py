@@ -31,7 +31,7 @@ class VoyageIO:
                 voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
                 line["arrival time abroad"], line["departing to RVK"], line["departure time to RVK"],
                 line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
-                line["fsm"], line["fa1"],line["fa2"], line["flight_number"], line["status"])
+                line["fsm"], line["fa1"],line["fa2"], line["flight_number"])
                 self.__voyage_list.append(voyage)
         sorted_list = self.sort_to_display(self.__voyage_list)
         self.__voyage_list = sorted_list
@@ -46,11 +46,11 @@ class VoyageIO:
         a_list.sort(key = lambda x: x.get_departure_time_out())
         return a_list
 
-    def Add_voyage_to_file(self, departure_time, arriving_abroad, arrival_time, departure_time_home, arrival_time_home, plane_insignia, captain, co_pilot, fsm, fa1, fa2, flight_number,status):
-        with open(self.VOYAGE_FILE, "a", newline = "") as csvfile:
+    def Add_voyage_to_file(self, start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number):
+        with open(self.VOYAGE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow(["Reykjavík", departure_time, arriving_abroad, arrival_time, 
-            "Reykjavík", departure_time_home, arrival_time_home, plane_insignia, 
-            captain, co_pilot, fsm, fa1, fa2, flight_number,status])
+            writer.writerow([start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, 
+            departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, 
+            captain, co_pilot, fsm, fa1, fa2, flight_number])
 
 

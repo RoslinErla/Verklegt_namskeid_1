@@ -58,18 +58,21 @@ class DestinationLL(Destination):
 
     def validate_distance(self, distance): # Eftir að búa til gögn fyrir þetta, fjarlægð frá Íslandi, væntalega bara tölustafir
         for letter in distance:
-            if letter.isdigit():
-                return True
+            if not letter.isdigit():
+                return False
+        return True
     
     def validate_contact_name(self, contact_name): # Búið að búa til nöfnin, þurfa að vera bókstafir
         for letter in contact_name:
-            if letter.isalpha():
-                return True
+            if not letter.isalpha():
+                return False
+        return True
     
     def validate_contact_number(self, contact_number):
         for letter in contact_number:
-            if letter.isdigit() or letter != "-":
-                return True
+            if not letter.isdigit():
+                return False
+        return True
     
     def validate_flight_number(self, flight_number):      
         """ Validates that the flight number is 6 letters long"""     # Mögulega að setja inn þá virkni að fyrstu 2 stafirnir þurfi að vera NA
