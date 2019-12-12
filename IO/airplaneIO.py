@@ -66,3 +66,9 @@ class AirplaneIO:
                 else: 
                     writer.writerow(line)
             writer.writerows(reader)
+
+    # def display_status(self,date):
+    #     reader 
+    #     reader
+    #     if first: 
+            
