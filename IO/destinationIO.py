@@ -4,11 +4,13 @@ import csv
 class DestinationIO:
     DESTINATION_FILE = "./files/destination.csv"
     CONSTANT_LIST = ["DESTINATION NUMBER", "DESTINATION NAME", "DESTINATION ID", "COUNTRY", "AIRPORT", "FLIGHT TIME", "DISTANCE", "EMERGENCY CONTACT", "EMERGENCY PHONE"]
-
+    HEADER = "Destination number | Destination name | Destination ID | Country | Airport | Flight time | Distance | Emergency contact | Emergency phone"
     def __init__(self):
         self.__airplane_list = list()
+        
 
     def load_destination_from_file(self):
+        print(self.HEADER)
         with open(self.DESTINATION_FILE, "r") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
