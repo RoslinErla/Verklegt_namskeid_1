@@ -12,7 +12,7 @@ class DestinationUI:
         """The user has chosen to create a new destination"""
         print("Destinations within the systems: ")
         self.__io_destination.load_destination_from_file()
-        print(self.employeeio)
+        print(self.__io_destination)
         print('Enter "b" to go back and "q" to got to the main menu.')
         action = ""                                       # User puts in the name of the country
         destination = ""
@@ -164,5 +164,9 @@ class DestinationUI:
         
         # Velja númer staðsetningar innan kerfisins ? 
 
-        def display_destination(self):
-            pass
+    def display_destination(self):
+        print()
+        self.__io_destination.load_destination_from_file()
+        print(self.__io_destination)
+        print()
+            
