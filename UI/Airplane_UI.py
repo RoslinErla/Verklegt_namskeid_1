@@ -28,9 +28,9 @@ class AirplaneUI:
             if action == "1":
                 leave = self.call_on_validate_and_create()
             if action == "2":
-                self.show_pilots_by_airplane_type()
+                leave = self.show_pilots_by_airplane_type()
             if action == "3":
-                self.show()
+                leave = self.show()
             if action == "b" or action == "q":
                 break
 
@@ -39,7 +39,6 @@ class AirplaneUI:
         action = ""
         new_plane = ""
         while True:
-
             action = input("Enter the manufacturer: ")
             if action == 'b':
                 self.airplane_menu()
@@ -53,9 +52,6 @@ class AirplaneUI:
                     self.airplane_menu()
                 elif action == 'q':
                     return 'q'          
-
-            if action == 'b':
-                break
             new_plane += action + ","
 
 
@@ -91,7 +87,7 @@ class AirplaneUI:
 
             action = input("Enter the model: ")
             if action == 'b':
-                break
+                self.airplane_menu()
             elif action == 'q':
                 return 'q'
 
@@ -113,10 +109,13 @@ class AirplaneUI:
         self.airplaneio.load_airplane_from_file()
         print(self.airplaneio)
         type_id = input("By what plane type do you want to search? ")
+        if type_id == "b":
+            return
+        if type_id == "q":
+            return "q"
         self.employeeio.display_by_licence(type_id)
         print(self.employeeio)
 
-        pass
 
 
     # def call_on_validate_and_change(self):
