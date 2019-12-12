@@ -31,21 +31,21 @@ class DestinationUI:
             if action == 'b':                # b virkar rétt!  
                 break
             destination += action
-            action = input("Enter flight number: ")
-            if action == 'b':
-                break
-            if action == 'q':
-                return "q"   
-            while not self.__ll_destination.validate_flight_number(action):
-                print("Input is invalid")
-                action = input("Enter flight number: ")
-                if action == 'b':
-                    break
-                if action == 'q':
-                    return "q"
-            destination += action
-            if action == 'b':
-                break
+            # action = input("Enter flight number: ")     # flugnúmer á ekki að vera í destination
+            # if action == 'b':
+            #     break
+            # if action == 'q':
+            #     return "q"   
+            # while not self.__ll_destination.validate_flight_number(action):
+            #     print("Input is invalid")
+            #     action = input("Enter flight number: ")
+            #     if action == 'b':
+            #         break
+            #     if action == 'q':
+            #         return "q"
+            # destination += action
+            # if action == 'b':
+            #     break
                                                     
             action = input("Enter airport: ")    # User puts in the name of the airport
             if action == 'b':
