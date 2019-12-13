@@ -120,8 +120,8 @@ class VoyageLL():
         self.__io_voyage.display_voyages_on_a_day(date)
         return str(self.__io_voyage)
 
-    def show_voyages_in_a_week(self,date):
-        self.__io_voyage.display_voyages_on_a_week(date)
+    def show_voyages_in_a_week(self,date,end_date):
+        self.__io_voyage.display_voyages_on_a_week(date,end_date)
         return str(self.__io_voyage)
 
        

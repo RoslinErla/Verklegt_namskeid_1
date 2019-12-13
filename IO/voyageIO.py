@@ -98,19 +98,19 @@ class VoyageIO:
         sorted_list = self.sort_to_display(self.__voyage_list)
         self.__voyage_list = sorted_list
     
-    def display_voyages_on_a_week(self,start_date):
+    def display_voyages_on_a_week(self,start_date,end_date):
         year,month,day = start_date.split("/")
         start_date_datetime = datetime.date(int(year),int(month),int(day))
-        end_date_datetime = start_date_datetime + datetime.timedelta(days = 7)
-        start_date = "{}-{}-{}".format(year,month,day)
+        year,month,day = end_date.split("/")
+        end_date_datetime = datetime.date(int(year),int(month),int(day))
 
         a = False
         with open(self.VOYAGE_FILE) as the_file:
             for line in csv.DictReader(the_file):
                 year,month,day = line["departure time out"].split(" ")[0].split("-")
-                departure_date_out = datetime.datetime(int(year),int(month),int(day))
+                departure_date_out = datetime.date(int(year),int(month),int(day))
                 year,month,day = line["departure time to RVK"].split(" ")[0].split("-") 
-                departure_date_home = datetime.datetime(int(year),int(month),int(day))
+                departure_date_home = datetime.date(int(year),int(month),int(day))
 
                 if (start_date_datetime >= departure_date_out or start_date_datetime >= departure_date_home) \
                     and (end_date_datetime <= departure_date_out or end_date_datetime <= departure_date_home) \
@@ -120,6 +120,7 @@ class VoyageIO:
                     line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],
                     line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
                     line["fsm"], line["fa1"],line["fa2"], line["flight_number"],"Fully staffed")
+                    
                     a = True
                     self.__voyage_list.append(voyage)
 
