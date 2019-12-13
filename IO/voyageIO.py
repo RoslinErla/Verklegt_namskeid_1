@@ -104,17 +104,25 @@ class VoyageIO:
         end_date_datetime = start_date_datetime + datetime.timedelta(days = 7)
         start_date = "{}-{}-{}".format(year,month,day)
 
-
         a = False
         with open(self.VOYAGE_FILE) as the_file:
             for line in csv.DictReader(the_file):
-                if (line["departure time out"].split(" ")[0] == date or line["departure time to RVK"].split(" ")[0] == date) and (line["captain/pilot"] != "N/A" and line["co-pilot"] != "N/A" and line["fsm"] != "N/A"):
+                year,month,day = line["departure time out"].split(" ")[0].split("-")
+                departure_date_out = datetime.datetime(int(year),int(month),int(day))
+                year,month,day = line["departure time to RVK"].split(" ")[0].split("-") 
+                departure_date_home = datetime.datetime(int(year),int(month),int(day))
+
+                if (start_date_datetime >= departure_date_out or start_date_datetime >= departure_date_home) \
+                    and (end_date_datetime <= departure_date_out or end_date_datetime <= departure_date_home) \
+                    and (line["captain/pilot"] != "N/A" and line["co-pilot"] != "N/A" and line["fsm"] != "N/A"):
+                    
                     voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
                     line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],
                     line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
                     line["fsm"], line["fa1"],line["fa2"], line["flight_number"],"Fully staffed")
                     a = True
                     self.__voyage_list.append(voyage)
+
                 if not a: 
                     voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
                     line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],

@@ -40,8 +40,10 @@ class VoyageUI():
                 action = input("Enter your command")
                 if action == "b" or action == "q":
                     break
-                elif action == "1":
-                    self.show_by_status()
+                if action == "1":
+                    self.show_by_status_day()
+                elif action == "2":
+                    self.show_by_status_week()
 
             if action == "q" or action == "b":
                 break
@@ -341,7 +343,19 @@ class VoyageUI():
             return_str += voyage.__str__() + '\n'
         return return_str
 
-    def show_by_status(self):
+    def show_by_status_day(self):
+        date = input("Please enter YYYY/mm/dd: ")
+        if date.lower() == "b":
+            self.voyage_menu()
+        if date.lower() == "q":
+            return "q"
+        print()
+        print(self.__ll_voyage.show_voyages_on_a_day(date))
+        action = input('Enter "b" to go back and "q" to got to the main menu: ')
+        if action == "q":
+            return "q"
+
+    def show_by_status_week(self):
         date = input("Please enter YYYY/mm/dd: ")
         if date.lower() == "b":
             self.voyage_menu()
