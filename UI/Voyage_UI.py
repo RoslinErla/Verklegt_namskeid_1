@@ -40,14 +40,13 @@ class VoyageUI():
             
             elif action == "2":
                 print("Enter 1 to display a specific day.")
-                print("Enter 2 to display all voyages twice of a specific week.")
-                action = input("Enter your command")
+                print("Enter 2 to display all of employees voyages. ")
+
+                action = input("Enter your command: ")
                 if action == "b" or action == "q":
                     break
                 if action == "1":
                     self.show_by_status_day()
-                elif action == "2":
-                    self.show_by_status_week()
 
             if action == "q" or action == "b":
                 break
@@ -400,36 +399,16 @@ class VoyageUI():
             return "q"
         self.frame.clear_all()
 
-    def show_by_status_week(self):
-        start_date = input("Please enter first date YYYY/mm/dd: ")
-        end_date = input("Please enter the end date YYYY/mm/dd: ")
-
-        print()
-
-        print(self.__ll_voyage.show_voyages_in_a_week(start_date,end_date))
-        action = input('Enter "b" to go back and "q" to got to the main menu: ')
-        if action == "q":
+    def show_all_of_employees_voyages(self):
+        ssn = input("Enter the ssn of the employee (0000000000): ")
+        if ssn == "b":
+            self.display_menu
+        if ssn == "q":
             return "q"
-        self.frame.clear_all()
-
-
-
-    
-
-
-
-
-
-
-        
-
-        
-
+        while self.__ll_employee.check_if_ssn_exists(ssn):
+            print("Invalid input! ")
+            ssn = input("Enter the ssn of the employee(0000000000):"
             
 
 
 
- 
-      
-
-        

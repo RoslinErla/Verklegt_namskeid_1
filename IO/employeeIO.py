@@ -164,13 +164,14 @@ class EmployeeIO:
             writer.writerows(reader)
 
     def check_if_not_available_and_cant_licence(self,date,rank):
+        """Checks which pilots are unavailable or don't have licence"""
         employee_list = list()
         year,month,day,hours,minutes = date.split("/")
         date = "{}-{}-{}".format(year,month,day)
         with open(self.VOYAGE_FILE) as the_file:
             voyage_reader = csv.DictReader(the_file)
             for line in voyage_reader:
-                if line["departure time out"].split("T")[0] == date or line["departure time to RVK"].split("T")[0]== date:
+                if line["departure time out"].split(" ")[0] == date or line["departure time to RVK"].split(" ")[0]== date:
                     with open(self.EMPLOYEE_FILE) as other_file:
                         employee_reader = csv.DictReader(other_file)
                         for elements in employee_reader:
@@ -180,6 +181,7 @@ class EmployeeIO:
         return employee_list
 
     def check_if_available_and_has_licence(self,date,rank):
+        """Checks which pilots are available and have the licence to fly the plane"""
         unavailable_list = self.check_if_not_available_and_cant_licence(date,rank)
         available_list = list() 
         with open(self.EMPLOYEE_FILE) as the_file:
@@ -193,6 +195,7 @@ class EmployeeIO:
         return available_list
 
     def display_status(self,date):
+        """Goes throught the employee list and voyage list. If employee is on a voyage he gets the status "at work" else he gets the status "not at work"."""
         year,month,day = date.split("/")
         date = "{}-{}-{}".format(year,month,day)
 

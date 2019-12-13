@@ -16,6 +16,12 @@ class VoyageIO:
     def get_voyage_list(self):
         return self.__voyage_list
 
+
+    def get_all_voyages_for_employee(self,ssn):
+        with open(self.VOYAGE_FILE, "r",encoding= "Latin-1") as the_file:
+            reader = csv.reader(the_file)
+            for line in reader:
+                self.__voyage_set.add(line[num])
     def make_set(self,num):
         """Makes a set of all values in the num spot of the line"""
         with open(self.VOYAGE_FILE, "r",encoding= "Latin-1") as the_file:
@@ -98,44 +104,6 @@ class VoyageIO:
 
         sorted_list = self.sort_to_display(self.__voyage_list)
         self.__voyage_list = sorted_list
-    
-    def display_voyages_on_a_week(self,start_date,end_date):
-        year,month,day = start_date.split("/")
-        start_date_datetime = datetime.date(int(year),int(month),int(day))
-        year,month,day = end_date.split("/")
-        end_date_datetime = datetime.date(int(year),int(month),int(day))
-
-        a = False
-        with open(self.VOYAGE_FILE) as the_file:
-            for line in csv.DictReader(the_file):
-                year,month,day = line["departure time out"].split(" ")[0].split("-")
-                departure_date_out = datetime.date(int(year),int(month),int(day))
-                year,month,day = line["departure time to RVK"].split(" ")[0].split("-") 
-                departure_date_home = datetime.date(int(year),int(month),int(day))
-
-                if (start_date_datetime >= departure_date_out or start_date_datetime >= departure_date_home) \
-                    and (end_date_datetime <= departure_date_out or end_date_datetime <= departure_date_home): 
-                    if (line["captain/pilot"] != "N/A" and line["co-pilot"] != "N/A" and line["fsm"] != "N/A"):
-                    
-                        voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
-                        line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],
-                        line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
-                        line["fsm"], line["fa1"],line["fa2"], line["flight_number"],"Fully staffed")
-                    
-                        a = True
-                        self.__voyage_list.append(voyage)
-
-                    if not a: 
-                        voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
-                        line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],
-                        line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
-                        line["fsm"], line["fa1"],line["fa2"], line["flight_number"],"Not fully staffed")
-                        a = True
-                        self.__voyage_list.append(voyage)
-
-        sorted_list = self.sort_to_display(self.__voyage_list)
-        self.__voyage_list = sorted_list
-
 
     def get_destination_id(self,destination_num):
         with open(self.DESTINATION_FILE) as the_file:

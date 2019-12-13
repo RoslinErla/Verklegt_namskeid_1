@@ -16,7 +16,6 @@ class EmployeeLL():
         employee_set = self.__employee.get_set()
         for elements in employee_set:
             if check == elements:
-                print("This ssn already exists press 'b' to go back")
                 return False
         else: 
             return True

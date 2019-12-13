@@ -33,8 +33,6 @@ class MainUI():
             action = action.lower()
             self.frame.clear_all()
 
-            
-
             if action == "1":
                 self.airplaneui.airplane_menu()
             if action == "2":
