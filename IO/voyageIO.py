@@ -68,6 +68,21 @@ class VoyageIO:
 
         return user_name
 
+    def make_flight_list(self,destination_id,date):
+        flight_list = list()
+        with open(self.VOYAGE_FILE) as csvfile:
+            reader = csv.DictReader(csvfile)
+            for line in reader:
+                if line ["departure_time_out"] == date and line["arriving abroad"] == destination_id:
+                    voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
+                    line["arrival time abroad"], line["departing to RVK"], line["departure time to RVK"],
+                    line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
+                    line["fsm"], line["fa1"],line["fa2"], line["flight_number"])
+                    flight_list.append(voyage)
+
+        return fligh_list
+
+
     def Add_voyage_to_file(self, start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number):
         """opens the voyage file and appends the new voyage to it"""
         with open(self.VOYAGE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
