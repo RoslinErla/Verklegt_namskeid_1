@@ -186,7 +186,6 @@ class EmployeeUI():
             print("Enter '2' to change the address. ")
             print("Enter '3' to change the phone_number. ")
             print("Enter '4' to change the user_name. ")
-            print("Enter '5' to change the status. ")
             print("Enter 'q' to go back to the main menu")
             print("Enter 'b' to go back to the employee menu")
 
@@ -224,13 +223,6 @@ class EmployeeUI():
                 change = "user_name"
                 new = input("please enter the new entry for {}: ".format(change))
                 while not self.employeell.validate_user_name(action):
-                    print("input is invalid")
-                    new = input("please enter the new entry for {}: ".format(change))
-
-            elif action == "5":
-                change = "status"
-                new = input("please enter the new entry for {}: ".format(change))
-                while not self.employeell.validate_status(action):
                     print("input is invalid")
                     new = input("please enter the new entry for {}: ".format(change))
 
