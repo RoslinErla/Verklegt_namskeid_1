@@ -198,11 +198,13 @@ class DestinationUI:
                 self.__io_destination.load_destination_from_file()
                 print(self.__io_destination)
                 action = input("Enter the contact's destination ID: ").upper()
-            contact = action
+                if action == 'b':
+                    break        
+                elif action == 'q':
+                    return "q"
             if action == 'b':
-                break        
-            elif action == 'q':
-                return "q" 
+                break 
+            contact = action
         
             print("Enter 1 to change the name of the emergency contact")
             print("Enter 2 to change the emergency contact's phone number")
