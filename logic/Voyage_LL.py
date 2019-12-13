@@ -21,6 +21,10 @@ class VoyageLL():
         else: 
             return True
 
+
+    def load_voyage_from_file(self):
+        return self.__io_voyage.load_voyage_from_file()
+
     def make_flight_number(self,date,destination_number):
         flight_system = ["NA","XX","X"]
         flight_system[1] = destination_number
