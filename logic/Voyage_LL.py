@@ -27,7 +27,7 @@ class VoyageLL():
         return str(self.__io_voyage)
 
     def load_all_voyages(self,ssn):
-        self.__io_voyage.get_all_voyages_for_employee(ssn)
+        a = self.__io_voyage.get_all_voyages_for_employee(ssn)
         return str(self.__io_voyage)
 
     def make_flight_number(self,date,destination_number):
@@ -78,10 +78,8 @@ class VoyageLL():
         self.__io_voyage.Add_voyage_to_file(start_of_journey, departure_time_out_datetime, arriving_abroad, arrival_time_abroad,flight_number1, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number2)
 
 
-    def change_voyage(self, des, date_time, change, new):
-        #self.__io_voyage.change_voyage(new, change) 
-        pass                                   
-        
+    def change_voyage(self, date_time, change, new):
+        self.__io_voyage.change_voyage(date_time,change,new) 
 
     def validate_departure(self,departure):
         try:

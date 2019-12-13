@@ -41,7 +41,6 @@ class VoyageUI():
             
             elif action == "2":
                 print("Enter 1 to display a specific day.")
-                print("Enter 2 to display all of employees voyages. ")
 
                 action = input("Enter your command: ")
                 if action == "b" or action == "q":

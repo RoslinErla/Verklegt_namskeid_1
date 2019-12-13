@@ -93,11 +93,6 @@ class DestinationLL(Destination):
         if len(flight_number) == 6:
             return True
 
-    def load_destination_from_file(self):
-        self.__destination.load_destination_from_file()
-        return str(self.__destination)
-
-
     def create_destination(self,new_destination):
         destination_num, destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone = new_destination.split(",")
         self.__destination.Add_destination_to_file(destination_num,destination_name,destination_id,country,airport,flight_time,distance,emergency_contact,emergency_phone)
