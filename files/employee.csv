@@ -1,22 +1,21 @@
-SSN,Name,Address,Phone_number,User_name,Rank,Permit
-2609003230,R�sl�n Erla T�masd�ttir,Sunnuhl�� 7,8411579,roslin,co-pilot,NAFokkerF100
-3009907461,William Carillo,Fellsm�li 1,8998801,williamC,Captain,NAFokkerF100
-2910858778,Virginia Ho,Fellsm�li 2,8998802,virginia,Captain,NABAE123
-2602733399,Jonathan Morgenstern,Arager�i 12,8999899,johnny,flight service manager,N/A,
-0707002040,q,Arager�i 9,8991235,gudjon,flight attendant,N/A
-0909003230,T�mas S�varsson,Hraunbraut 1,1234567,tommi,flight attendant,N/A
-0308913279,Stefan�a Finnsd�ttir,�lfahei�i 45,8323407,stefaniaF,co-pilot,NABAE123
-1507872389,Fj�la �sk P�tursd�ttir,Tinnuberg 15,6290372,fjolaP,flight service manager,N/A
-2312883419,Hanna L�f Bollad�ttir,Furugrund 50,8234920,hannaB,flight attendant,N/A
-3011872349,Georg  Bjarnfre�arsson,Fly�rugrandi 7,8234092,georgB,flight attendant,N/A
+﻿SSN,Name,Address,Phone_number,User_name,Rank,Permit
+2609003230,Róslón Erla Tómasdóttir,Sunnuhlíð 7,8411579,roslin,co-pilot,NAFokkerF100
+3009907461,William Carillo,Fellsmúlii 1,8998801,williamC,Captain,NAFokkerF100
+2910858778,Virginia Ho,FellsmÔøΩli 2,8998802,virginia,Captain,NABAE123
+2602733399,Jonathan Morgenstern,Aragerði 12,8999899,johnny,flight service manager,N/A,
+0707002040,q,Aragerði 9,8991235,gudjon,flight attendant,N/A
+0909003230,Tómas Sævarsson,Hraunbraut 1,1234567,tommi,flight attendant,N/A
+0308913279,Stefanía Finnsdóttir,Álfaheiði 45,8323407,stefaniaF,co-pilot,NABAE123
+1507872389,Fjóla Ósk Pétursdóttir,Tinnuberg 15,6290372,fjolaP,flight service manager,N/A
+2312883419,Hanna Líf Bolladóttir,Furugrund 50,8234920,hannaB,flight attendant,N/A
+3011872349,Georg  Bjarnfreðarsson,Flyðrugrandi 7,8234092,georgB,flight attendant,N/A
 2703922339,Flemming Geir Georgsson,Dvergabakki 18,8239471,flemmingG,Captain,BUGGER
-0209824539,Gu�brandur Ormsson,�verbrekka 11,6286541,gudbrandurO,co-pilot,BUGGER
-2210892359,D�ana J�nsd�ttir,Lyngbrekka 5,8392748,dianaJ,flight service manager,N/A
-1206835619,Hallger�ur Langbr�k,D�fnah�lar 12,5838238,hallgerdurL,flight attendant,N/A
-3108953479,Dan�el S�varsson,S�mat�n 20,8297438,danielS,flight attendant,N/A
+0209824539,Guðbrandur Ormsson,Þverbrekka 11,6286541,gudbrandurO,co-pilot,BUGGER
+2210892359,Díana Jónsdóttir,Lyngbrekka 5,8392748,dianaJ,flight service manager,N/A
+1206835619,Hallgerður Langbrók,Dúfnahólar 12,5838238,hallgerdurL,flight attendant,N/A
+3108953479,Daníel Sævarsson,Sómatún 20,8297438,danielS,flight attendant,N/A
 2503903469,Hermann,Engihjalli 19,8294867,thormodurS,Captain,NAFokkerF28
-0902792349,Patrekur Gu�mundsson,Eggertsgata 8,6725670,patrekurG,co-pilot,NAFokkerF28
-2906782359,�lafur Ragnar Hannesson,B�sta�arvegur 45,5548297,olafurH,flight service manager,N/A
-2905652359,D�a Dav��sd�ttir,Helgamagrastr�ti 40,4829572,duaD,flight attendant,N/A
-2811823459,Hla�ger�ur J�sefsd�ttir,Gr�nagata 5,8374821,hladgerdurL,flight attendant,N/A
-0101203210,Gerfir�ur,Snj�lausagata 23,8888888,gerfir,captain,N/A
+0902792349,Patrekur Guðmundsson,Eggertsgata 8,6725670,patrekurG,co-pilot,NAFokkerF28
+2906782359,Ólafur Ragnar Hannesson,Bústaðarvegur 45,5548297,olafurH,flight service manager,N/A
+2905652359,Dúa Davíðdóttir,Helgamagrastræti 40,4829572,duaD,flight attendant,N/A
+2811823459,Hlaðgerður Jósefsdóttir,Grænagata 5,8374821,hladgerdurL,flight attendant,N/A
