@@ -6,7 +6,6 @@ import time
 class Frame:
     def __init__(self): 
         self.window() # get length of columns and rows of console window
-        self.start_list
         self.logo = """
  _____   __      _____   __         _____        
 ___  | / /_____ ___  | / /  ______ ___(_)_______
