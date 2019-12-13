@@ -11,6 +11,7 @@ class VoyageIO:
         self.__voyage_set = set
 
     def make_set(self,num):
+        """Makes a set of all values in the num spot of the line"""
         with open(self.VOYAGE_FILE, "r",encoding= "Latin-1") as the_file:
             reader = csv.reader(the_file)
             for line in reader:
@@ -21,6 +22,7 @@ class VoyageIO:
         return self.__voyage_set
     
     def get_flight_time(self,destination_name):
+        """Goes through the destination file and finds the flight time from KEF to that destination"""
         with open(self.DESTINATION_FILE) as thefile:
             reader = csv.DictReader(thefile)
             for line in reader:
@@ -28,8 +30,8 @@ class VoyageIO:
                     return line["flight time"]
 
 
-
     def load_voyage_from_file(self):
+        """Makes a list of all the voyages in the voyage file"""
         with open(self.VOYAGE_FILE, "r") as the_file:
             reader = csv.DictReader(the_file)
             for line in reader:
@@ -48,10 +50,12 @@ class VoyageIO:
         return return_str
 
     def sort_to_display(self,a_list):
+        """sorts the list by time"""
         a_list.sort(key = lambda x: x.get_departure_time_out())
         return a_list
 
     def transform_ssn_into_user_name(self,ssn):
+        """Goes through the employee file finds the person that matches the ssn and writes out the user_name"""
         user_name = ""
         if ssn != "N/A":
             with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
@@ -59,13 +63,13 @@ class VoyageIO:
                 for line in reader:
                     if line["SSN"] == ssn:
                         user_name =  line["User_name"]
-
         else:
             user_name = ssn
 
         return user_name
 
     def Add_voyage_to_file(self, start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number):
+        """opens the voyage file and appends the new voyage to it"""
         with open(self.VOYAGE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, 
