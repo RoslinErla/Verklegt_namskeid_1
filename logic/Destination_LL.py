@@ -94,7 +94,8 @@ class DestinationLL(Destination):
             return True
 
     def load_destination_from_file(self):
-        return self.__destination.load_destination_from_file()
+        self.__destination.load_destination_from_file()
+        return str(self.__destination)
 
 
     def create_destination(self,new_destination):

@@ -1,13 +1,9 @@
 from logic.Voyage_LL import VoyageLL
 from model.VoyageM import Voyage
-from IO.voyageIO import VoyageIO
 from logic.Destination_LL import DestinationLL
-from IO.destinationIO import DestinationIO
 from UI.Destination_UI import DestinationUI
 from logic.Employee_LL import EmployeeLL
-from IO.employeeIO import EmployeeIO
 from logic.Airplane_LL import AirplaneLL
-from IO.airplaneIO import AirplaneIO
 from datetime import datetime
 import datetime
 from datetime import date
@@ -21,6 +17,7 @@ class VoyageUI():
         self.__ui_destination = DestinationUI()
         self.__ll_employee = EmployeeLL()
         self.__ll_airplane = AirplaneLL()
+        self.__voyage_list = list()
 
     def voyage_menu(self): 
         """ The user can choose between the create, change and display options in the system"""
@@ -74,8 +71,8 @@ class VoyageUI():
         print('Enter "b" to go back and "q" to got to the main menu.')
  
         while action != "q":
-            a = self.__ll_voyage.load_voyage_from_file()
-            print(a)
+            self.__voyage_list = self.__ll_voyage.load_voyage_from_file()
+            print(self.__voyage_list)
             print()
             date = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
             action = date
@@ -100,8 +97,8 @@ class VoyageUI():
 
             while not self.__ll_destination.check_if_exists(action,0):
                 print("Input is invalid!")
-                self.__io_destination.load_destination_from_file()
-                print(self.__io_destination)
+                a= self.__ll_destination.load_destination_from_file()
+                print(a)
                 action = input("Enter the destination: ")
                 print()
                 if action.lower() == 'b' or action.lower() == "q":
@@ -375,7 +372,11 @@ class VoyageUI():
         # VANTAR Birta lista vinnuferða þar sem sést hvaða ferðum er lokið, lent ytra og eða felld niður
 
         
-
+    def __str__(self):
+        return_str = ""
+        for voyage in self.__voyage_list:
+            return_str += voyage.__str__() + '\n'
+        return return_str
 
 
 

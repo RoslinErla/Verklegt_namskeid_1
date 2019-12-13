@@ -39,7 +39,7 @@ class AirplaneIO:
         return airplane_list
 
     def check_if_available(self,date):
-        unavailable_list = self.check_if_available(date)
+        unavailable_list = self.check_if_not_available(date)
         available_list = list() 
         with open(self.AIRPLANE_FILE) as the_file:
             reader = csv.DictReader(the_file)

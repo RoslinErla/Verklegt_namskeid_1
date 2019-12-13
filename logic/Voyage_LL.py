@@ -23,7 +23,8 @@ class VoyageLL():
             return True
 
     def load_voyage_from_file(self):
-        return self.__io_voyage.load_voyage_from_file()
+        self.__io_voyage.load_voyage_from_file()
+        return str(self.__io_voyage)
 
     def make_flight_number(self,date,destination_number):
         """Gets a list of all the flights that day to that destination. Makes the flight number"""

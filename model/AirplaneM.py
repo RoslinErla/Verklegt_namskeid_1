@@ -20,3 +20,4 @@ class Airplane():
 
     def get_model(self):
         return self.__model
+

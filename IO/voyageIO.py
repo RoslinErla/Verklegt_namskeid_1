@@ -36,12 +36,13 @@ class VoyageIO:
             reader = csv.DictReader(the_file)
             for line in reader:
                 voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
-                line["arrival time abroad"],line["flight_number out"], line["departing to RVK"], line["departure time to RVK"],
+                line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],
                 line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
                 line["fsm"], line["fa1"],line["fa2"], line["flight_number"])
                 self.__voyage_list.append(voyage)
         sorted_list = self.sort_to_display(self.__voyage_list)
         self.__voyage_list = sorted_list
+        return self.__voyage_list
 
     def __str__(self):
         return_str = ""
