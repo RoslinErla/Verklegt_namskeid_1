@@ -3,26 +3,20 @@ import csv
 
 class VoyageIO:
     VOYAGE_FILE = "./files/voyage.csv"
+    EMPLOYEE_FILE = "./files/employee.csv"
+    DESTINATION_FILE = "./files/destination.csv"
 
     def __init__(self):
         self.__voyage_list = list()
     
-    """def change_voyage(self, change, new):     # óklárað 
-        change_index = self.CONSTANT_LIST.index(change.upper())
-
-        with open(self.VOYAGE_FILE) as thefile:
-            reader = csv.reader(thefile.readlines())
-
-        with open(self.VOYAGE_FILE, "w", encoding= "Latin-1", newline="") as csvfile:
-            writer = csv.writer(csvfile)
+    def get_flight_time(self,destination_name):
+        with open(self.DESTINATION_FILE) as thefile:
+            reader = csv.DictReader(thefile)
             for line in reader:
-                if line[0] == ssn:        # Á eftir að breyta ssn í eh annað .. 
-                    line[change_index] = new
-                    writer.writerow(line)
-                    break
-                else:
-                    writer.writerow(line)
-            writer.writerows(reader)"""
+                if line["destination name"] == destination_name:
+                    return line["flight time"]
+
+
 
     def load_voyage_from_file(self):
         with open(self.VOYAGE_FILE, "r") as the_file:
@@ -45,6 +39,20 @@ class VoyageIO:
     def sort_to_display(self,a_list):
         a_list.sort(key = lambda x: x.get_departure_time_out())
         return a_list
+
+    def transform_ssn_into_user_name(self,ssn):
+        user_name = ""
+        if ssn != "N/A":
+            with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
+                reader = csv.DictReader(the_file)
+                for line in reader:
+                    if line["SSN"] == ssn:
+                        user_name =  line["User_name"]
+
+        else:
+            user_name = ssn
+
+        return user_name
 
     def Add_voyage_to_file(self, start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number):
         with open(self.VOYAGE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
