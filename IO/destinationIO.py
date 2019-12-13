@@ -42,7 +42,7 @@ class DestinationIO:
         return a_list
 
     def Add_destination_to_file(self, destination_num, destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone):
-        with open(self.DESTINATION_FILE, "a", newline = " ") as csvfile:
+        with open(self.DESTINATION_FILE, "a", newline = "") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([destination_num, destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone])
 

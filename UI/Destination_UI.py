@@ -80,6 +80,9 @@ class DestinationUI:
                     self.destination_menu()
                 if action.lower() == 'q':
                     return "q"
+
+            
+            destination += action + ","
                 
 
             action = input("Enter destination id")
@@ -138,7 +141,7 @@ class DestinationUI:
             destination += action + ","
             
                                                          
-            action = input("Enter flight-time: ")          # User puts in the flight time
+            action = input("Enter flight-time (hours.minutes): ")          # User puts in the flight time
             if action == 'b':
                 break
             if action == 'q':
@@ -208,6 +211,8 @@ class DestinationUI:
                 if action.lower() == 'q':
                     return "q"
             destination += action
+
+            self.__ll_destination.create_destination(destination)
             
 
             

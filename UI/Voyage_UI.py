@@ -34,7 +34,6 @@ class VoyageUI():
             if action == "1":
                 leave = self.new_voyage()
             
-<<<<<<< HEAD
             elif action == "2":
                 leave = self.change_menu()
             
@@ -47,11 +46,6 @@ class VoyageUI():
                 elif action == "1":
                     self.show_by_status()
 
-=======
-            if action == "2":
-                leave = self.display_menu()
-        
->>>>>>> 5ca839fc876b02ad16a93c0596543c5fe5f0eb29
             if action == "q" or action == "b":
                 break
 

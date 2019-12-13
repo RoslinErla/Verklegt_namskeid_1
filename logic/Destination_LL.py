@@ -60,9 +60,9 @@ class DestinationLL(Destination):
         return True
     
     def validate_flight_time(self, flight_time): # Eftir að búa til gögn fyrir þetta
-        hours,minutes = flight_time.split()
+        hours,minutes = flight_time.split(".")
         try:
-            flight_time = datetime.datetime(int(hours),int(minutes))
+            flight_time = datetime.time(int(hours),int(minutes))
             return True
 
         except ValueError:
@@ -105,6 +105,9 @@ class DestinationLL(Destination):
     def change_destination(self, des, change, new):
         self.__destination.change_destination(des, change, new)
 
+    def load_destination(self):
+        self.__destination.load_destination_from_file()
+        return str(self.__destination)
 
 
 
