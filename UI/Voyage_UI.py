@@ -29,6 +29,7 @@ class VoyageUI():
             print("The following actions are possible: ")
             print("\tEnter 1 to create a voyage within the system.")
             print("\tEnter 2 to display voyages within the system.")
+            print("\tEnter 3 to change voyage staff.")
             print("Enter b or q to got to the main menu.")
            
             action = input("Please enter your command: ").lower()
@@ -46,10 +47,11 @@ class VoyageUI():
                 if action == "b" or action == "q":
                     break
                 if action == "1":
-                    self.show_by_status_day()
+                    leave = self.show_by_status_day()
                 elif action == "2":
-                    self.show_all_of_employees_voyages()
-
+                    leave = self.show_all_of_employees_voyages()
+            elif action == "3":
+                leave = self.change_staff_on_voyage()
             if action == "q" or action == "b":
                 break
             self.frame.clear_all()
@@ -75,7 +77,7 @@ class VoyageUI():
 
             while not self.__ll_voyage.validate_departure(action):
                 print("Input is invalid!")
-                action = input("Enter the departure time fr4om Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
+                action = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
                 if action.lower() == 'b':
                     self.voyage_menu()
                 if action.lower() == "q":
@@ -413,6 +415,46 @@ class VoyageUI():
     
         a = self.__ll_voyage.load_all_voyages(ssn)
         print(a)
+    def change_staff_on_voyage(self)
+        while True:
+            print("1. Change captain")
+            print("2. Change co-pilot")
+            print("3. Change flight service manager")
+            print("4. Change flight attendant 1")
+            print("5. Change flight attendant 2")
+            action = input("Enter your command: ")
+            if action == "1":
+                change = "captain"
+            elif action == "2":
+                change = "co-pilot"
+            elif action == "3":
+                change = "fsm"
+            elif action == "4":
+                change = "fa1"
+            elif action == "5":
+                change = "fa2"
+            elif action.lower() == 'b':
+                self.voyage_menu()
+            elif action.lower() == "q":
+                return "q"
+            action = input("Enter what you wish to change: ")
+            if action.lower() == 'b':
+                self.voyage_menu()
+            elif action.lower() == "q":
+                return "q"
+            
+            date = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ") 
+            if date.lower() == 'b':
+                self.voyage_menu()
+            if date.lower() == "q":
+                return "q"
+
+            new = input ("Enter the new entry for {}: ".format(change))
+            if new.lower() == 'b':
+                self.voyage_menu()
+            if new.lower() == "q":
+                return "q"    
+            change_voyage(change, date, new)
 
 
 
