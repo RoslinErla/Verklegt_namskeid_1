@@ -241,7 +241,11 @@ class EmployeeUI():
                 return "q"
     
     def show_by_status(self):
-        a = input("Please enter dd/mm/YYYY: ")
+        a = input("Please enter YYYY/mm/dd: ")
+        if a == "b":
+            self.employee_menu()
+        if a == "q":
+            return "q"
         print()
         b = self.employeell.show_by_status(a)
         print(b)
@@ -286,10 +290,10 @@ class EmployeeUI():
             return 'q'
         while not self.employeell.check_for_ssn(ssn):
             print("Invalid input!")
-            action = input("Enter the ssn: ")
-            if action == 'b':
-                break
-            if action == 'q':
+            ssn = input("Enter the ssn: ")
+            if ssn == 'b':
+                self.employee_menu()
+            if ssn == 'q':
                 return 'q'
         employio = self.employeell.show_single_employee(ssn)
         print(employio)

@@ -46,67 +46,67 @@ class AirplaneUI:
             elif action == "Q":
                 return 'q'
         
-        while not self.airplanell.validate_manufacturer(action):
+            while not self.airplanell.validate_manufacturer(action):
                 print("Input is invalid!")
                 action = input("Enter the manufacturer: ").upper()
                 if action == "B":
                     self.airplane_menu()
                 elif action == "Q":
                     return 'q'
-        new_plane += action + ","
+            new_plane += action + ","
 
 
 
-        action = input("Enter the type ID: ").upper()
-        if action == "B":
-            self.airplane_menu()
-        elif action == "Q":
-            return 'q'
-
-        while not self.airplanell.validate_typeID(action):
-            print("Input is invalid!")
             action = input("Enter the type ID: ").upper()
             if action == "B":
                 self.airplane_menu()
             elif action == "Q":
                 return 'q'
-        new_plane += action + ","
 
-        action = input("Enter the plane insignia: ").upper()
-        if action == "B":
-            self.airplane_menu()
-        elif action == "Q":
-            return 'q'
+            while not self.airplanell.validate_typeID(action):
+                print("Input is invalid!")
+                action = input("Enter the type ID: ").upper()
+                if action == "B":
+                    self.airplane_menu()
+                elif action == "Q":
+                    return 'q'
+            new_plane += action + ","
 
-        while not self.airplanell.validate_plane_insignia(action):
-            print("Input is invalid!")
             action = input("Enter the plane insignia: ").upper()
             if action == "B":
                 self.airplane_menu()
             elif action == "Q":
                 return 'q'
-        new_plane += action + ","
 
-        action = input("Enter the model: ").upper()
-        if action == "B":
-            self.airplane_menu()
-        elif action == "Q":
-            return 'q'
+            while not self.airplanell.validate_plane_insignia(action):
+                print("Input is invalid!")
+                action = input("Enter the plane insignia: ").upper()
+                if action == "B":
+                    self.airplane_menu()
+                elif action == "Q":
+                    return 'q'
+            new_plane += action + ","
 
-        while not self.airplanell.validate_model(action):
-            print("Input is invalid!")
             action = input("Enter the model: ").upper()
             if action == "B":
                 self.airplane_menu()
             elif action == "Q":
                 return 'q'
-        new_plane += action
 
-        self.airplanell.create_plane(new_plane)
-        action = input("Do you want to create another airplane? (y)es or (n)o: " ).lower()
-        if action == "n":
-            return "q"
+            while not self.airplanell.validate_model(action):
+                print("Input is invalid!")
+                action = input("Enter the model: ").upper()
+                if action == "B":
+                    self.airplane_menu()
+                elif action == "Q":
+                    return 'q'
+            new_plane += action
 
+            self.airplanell.create_plane(new_plane)
+            action = input("Do you want to create another airplane? (y)es or (n)o: " ).lower()
+            if action == "n":
+                return "q"
+    
     def show_pilots_by_airplane_type(self):
         ''' Presents the user with every pilot with the selected flight license '''
         airio = self.airplanell.load_from_file()
