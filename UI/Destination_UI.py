@@ -85,7 +85,7 @@ class DestinationUI:
             destination += action + ","
                 
 
-            action = input("Enter destination id")
+            action = input("Enter destination id: ")
 
             if action == 'b':
                 self.destination_menu()
@@ -95,7 +95,7 @@ class DestinationUI:
             
             while not self.__ll_destination.validate_destination_id(action):
                 print("Input is invalid")
-                action = input("Enter destination id")
+                action = input("Enter destination id: ")
                 if action.lower() == "b":
                     self.destination_menu()
                 if action.lower() == "q":
