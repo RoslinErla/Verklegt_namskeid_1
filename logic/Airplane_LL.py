@@ -43,6 +43,16 @@ class AirplaneLL(Airplane):
             return True
         return False
 
+    def check_if_available(self,date):
+        return self.__airplaneio.check_if_available(date)
+
+    def check_if_in_available(self,date,plane_insignia):
+        a = self.check_if_available(date)
+        for elements in a:
+            if elements[2] == plane_insignia:
+                return True
+        return False
+
     def validate_model(self, model):
         """ validates whether "model" is a string and whether or not it's letters are numerals or in the alphabet. """
         if type(model) == str:
