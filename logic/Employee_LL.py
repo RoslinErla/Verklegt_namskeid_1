@@ -138,6 +138,7 @@ class EmployeeLL():
 
     def show_flight_atendants(self):
         self.__employee.display_flight_attendants()
+        return str(self.__employee)
 
     def show_single_employee(self, ssn):
         self.__employee.display_one_employee(ssn)

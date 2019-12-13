@@ -340,8 +340,8 @@ class EmployeeUI():
                 return "q"
 
         if rank == "flight attendant":
-            employio = self.employeell.show_flight_atendants()
-            print(employio)
+            a = self.employeell.show_flight_atendants()
+            print(a)
             print()
             action = input('Enter "b" to go back and "q" to got to the main menu: ')
             if action == "q":
