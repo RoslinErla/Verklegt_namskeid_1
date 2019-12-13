@@ -3,6 +3,7 @@ import csv
 
 class AirplaneIO:
     AIRPLANE_FILE = "./files/airplane.csv"
+    VOYAGE_FILE = "./files/voyage.csv"
     CONSTANTS_LIST = ["MANUFACTURER", "TYPE-ID", "PLANE_INSIGNIA", "MODEL", "STATUS"]
     HEADER = "{:12} | {:15} | {:15} | {:6}".format("Manufacturer", "Type-ID", "Plane_Insignia", "Model")
 
@@ -20,6 +21,34 @@ class AirplaneIO:
     def get_set(self,num):
         self.make_set(num)
         return self.__airplane_set
+        
+    def check_if_not_available(self,date):
+        airplane_list = list()
+        year,month,day,hours,minutes = date.split("/")
+        date = "{}-{}-{}".format(year,month,day)
+        with open(self.VOYAGE_FILE) as the_file:
+            voyage_reader = csv.DictReader(the_file)
+            for line in voyage_reader:
+                if line["departure time out"].split("T")[0] == date or line["departure time to RVK"].split("T")[0]== date:
+                    with open(self.AIRPLANE_FILE) as other_file:
+                        airplane_reader = csv.DictReader(other_file)
+                        for elements in airplane_reader:
+                            if line["plane_insignia"] == elements["Plane insignia"]:
+                                airplane = Airplane(elements["Manufacturer"],elements["Type-ID"],elements["Plane_Insignia"],elements["Model"])
+                                airplane_list.append(airplane)
+        return airplane_list
+
+    def check_if_available(self,date):
+        unavailable_list = self.check_if_available(date)
+        available_list = list() 
+        with open(self.AIRPLANE_FILE) as the_file:
+            reader = csv.DictReader(the_file)
+            for line in reader:
+                airplane = Airplane(line["Manufacturer"],line["Type-ID"],line["Plane_Insignia"],line["Model"])
+                if airplane not in unavailable_list:
+                    available_list.append(airplane)
+
+        return available_list
 
     def load_airplane_from_file(self):
         print(self.HEADER)

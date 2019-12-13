@@ -161,6 +161,34 @@ class EmployeeIO:
                     writer.writerow(line)
             writer.writerows(reader)
 
+    def check_if_not_available_and_cant_licence(self,date,rank):
+        employee_list = list()
+        year,month,day,hours,minutes = date.split("/")
+        date = "{}-{}-{}".format(year,month,day)
+        with open(self.VOYAGE_FILE) as the_file:
+            voyage_reader = csv.DictReader(the_file)
+            for line in voyage_reader:
+                if line["departure time out"].split("T")[0] == date or line["departure time to RVK"].split("T")[0]== date:
+                    with open(self.EMPLOYEE_FILE) as other_file:
+                        employee_reader = csv.DictReader(other_file)
+                        for elements in employee_reader:
+                            if line[rank] == elements["User_name"]:
+                                employee = Employee(elements["Name"],elements["SSN"],elements["Address"],elements["Phone_number"], elements["User_name"],elements["Rank"],elements["Permit"])
+                                employee_list.append(employee)
+        return employee_list
+
+    def check_if_available_and_has_licence(self,date,rank):
+        unavailable_list = self.check_if_not_available_and_cant_licence(date)
+        available_list = list() 
+        with open(self.EMPLOYEE_FILE) as the_file:
+            reader = csv.DictReader(the_file)
+            for line in reader:
+                employee =Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"])
+                if line["Rank"].lower() == rank.split("/")[0] and employee not in unavailable_list:
+                    available_list.append(employee)
+
+        return available_list
+
     def display_status(self,date):
         year,month,day = date.split("/")
         date = "{}-{}-{}".format(year,month,day)
