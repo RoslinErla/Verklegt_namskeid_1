@@ -1,5 +1,4 @@
 SSN,Name,Address,Phone_number,User_name,Rank,Permit
-<<<<<<< HEAD
 2609003230,Róslín Erla Tómasdóttir,Sunnuhlíğ 7,8411579,roslin,co-pilot,NAFokkerF100
 3009907461,William Carillo,Fellsmúli 1,8998801,williamC,Captain,NAFokkerF100
 2910858778,Virginia Ho,Fellsmúli 2,8998802,virginia,Captain,NABAE123
@@ -20,25 +19,3 @@ SSN,Name,Address,Phone_number,User_name,Rank,Permit
 2906782359,Ólafur Ragnar Hannesson,Bústağarvegur 45,5548297,olafurH,flight service manager,N/A
 2905652359,Dúa Davíğdóttir,Helgamagrastræti 40,4829572,duaD,flight attendant,N/A
 2811823459,Hlağgerğur Jósefsdóttir,Grænagata 5,8374821,hladgerdurL,flight attendant,N/A
-=======
-2609003230,R—sl’n Erla T—masd—ttir,Sunnuhl’_ 7,8411579,roslin,co-pilot,NAFokkerF100
-3009907461,William Carillo,Fellsmœli 1,8998801,williamC,Captain,NAFokkerF100
-2910858778,Virginia Ho,Fellsmœli 2,8998802,virginia,Captain,NABAE123
-2602733399,Jonathan Morgenstern,Arager_i 12,8999899,johnny,flight service manager,N/A,
-0707002040,q,Arager_i 9,8991235,gudjon,flight attendant,N/A
-0909003230,T—mas S¾varsson,Hraunbraut 1,1234567,tommi,flight attendant,N/A
-0308913279,Stefan’a Finnsd—ttir,çlfahei_i 45,8323407,stefaniaF,co-pilot,NABAE123
-1507872389,Fj—la îsk Ptursd—ttir,Tinnuberg 15,6290372,fjolaP,flight service manager,N/A
-2312883419,Hanna L’f Bollad—ttir,Furugrund 50,8234920,hannaB,flight attendant,N/A
-3011872349,Georg  Bjarnfre_arsson,Fly_rugrandi 7,8234092,georgB,flight attendant,N/A
-2703922339,Flemming Geir Georgsson,Dvergabakki 18,8239471,flemmingG,Captain,BUGGER
-0209824539,Gu_brandur Ormsson,_verbrekka 11,6286541,gudbrandurO,co-pilot,BUGGER
-2210892359,D’ana J—nsd—ttir,Lyngbrekka 5,8392748,dianaJ,flight service manager,N/A
-1206835619,Hallger_ur Langbr—k,Dœfnah—lar 12,5838238,hallgerdurL,flight attendant,N/A
-3108953479,Dan’el S¾varsson,S—matœn 20,8297438,danielS,flight attendant,N/A
-2503903469,Hermann,Engihjalli 19,8294867,thormodurS,Captain,NAFokkerF28
-0902792349,Patrekur Gu_mundsson,Eggertsgata 8,6725670,patrekurG,co-pilot,NAFokkerF28
-2906782359,îlafur Ragnar Hannesson,Bœsta_arvegur 45,5548297,olafurH,flight service manager,N/A
-2905652359,Dœa Dav’_d—ttir,Helgamagrastr¾ti 40,4829572,duaD,flight attendant,N/A
-2811823459,Hla_ger_ur J—sefsd—ttir,Gr¾nagata 5,8374821,hladgerdurL,flight attendant,N/A
->>>>>>> 8c75b198392fa34db070e1d88890fa0440da6ce0

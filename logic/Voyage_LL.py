@@ -54,7 +54,6 @@ class VoyageLL():
         year,month,day,hour,minutes = departure_time_out.split("/")
         date = "{}-{}-{}".format(year,month,day)
         departure_time_out_datetime = datetime.datetime(int(year),int(month),int(day),int(hour),int(minutes))
-
         
         flight_time = self.__io_voyage.get_flight_time(arriving_abroad)
 
@@ -62,7 +61,7 @@ class VoyageLL():
 
         arrival_time_abroad = departure_time_out_datetime + datetime.timedelta(hours = int(hours), minutes = int(minutes))
         departing_to_RVK = "KEF"
-        departure_time_home = arrival_time_abroad + datetime.timedelta(hours = 1)
+        departure_time_home = (arrival_time_abroad + datetime.timedelta(hours = 1))
         arrival_time_home = departure_time_home + datetime.timedelta(hours= int(hours), minutes = int(minutes))
 
         flight_number1,flight_number2 = self.make_flight_number(date,arriving_abroad)
@@ -72,7 +71,7 @@ class VoyageLL():
         fsm  = self.__io_voyage.transform_ssn_into_user_name(fsm)
         fa1 = self.__io_voyage.transform_ssn_into_user_name(fa1)
         fa2 = self.__io_voyage.transform_ssn_into_user_name(fa2)
-        self.__io_voyage.Add_voyage_to_file(start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad,flight_number1, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number2)
+        self.__io_voyage.Add_voyage_to_file(start_of_journey, departure_time_out_datetime, arriving_abroad, arrival_time_abroad,flight_number1, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number2)
 
 
     def change_voyage(self, des, date_time, change, new):

@@ -83,7 +83,7 @@ class VoyageIO:
         with open(self.VOYAGE_FILE) as csvfile:
             reader = csv.DictReader(csvfile)
             for line in reader:
-                if line ["departure time out"].split("T")[0] == date and line["arriving abroad"] == destination_id:
+                if line ["departure time out"].split(" ")[0] == date and line["arriving abroad"] == destination_id:
                     voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
                     line["arrival time abroad"], line["departing to RVK"], line["departure time to RVK"],
                     line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
@@ -95,6 +95,7 @@ class VoyageIO:
 
     def Add_voyage_to_file(self, start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, flight_number1, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number2):
         """opens the voyage file and appends the new voyage to it"""
+        
         with open(self.VOYAGE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, flight_number1, 
