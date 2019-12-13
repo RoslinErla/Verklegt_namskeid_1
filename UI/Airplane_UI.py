@@ -48,8 +48,8 @@ class AirplaneUI:
             elif action == "Q":
                 return 'q'
         delete_line(100)
-
-            while not self.airplanell.validate_manufacturer(action):
+        
+        while not self.airplanell.validate_manufacturer(action):
                 print("Input is invalid!")
                 action = input("Enter the manufacturer: ").upper()
                 if action == "B":
