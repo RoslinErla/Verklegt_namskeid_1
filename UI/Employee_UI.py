@@ -386,5 +386,8 @@ class EmployeeUI():
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
+<<<<<<< HEAD
             
         self.frame.clear_all()
+=======
+>>>>>>> 165cdb920dfbd90867c676a628f84874ffa61580

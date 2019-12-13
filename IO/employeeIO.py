@@ -202,7 +202,8 @@ class EmployeeIO:
                 a = False
                 with open(self.VOYAGE_FILE) as the_file:
                     for elements in csv.DictReader(the_file):
-                        if (elements["departure time out"].split("T")[0] == date or elements["departure time to RVK"].split("T")[0] == date) and (elements["captain/pilot"] == line["User_name"] or elements["co-pilot"] == line["User_name"]):
+                        if (elements["departure time out"].split(" ")[0] == date or elements["departure time to RVK"].split(" ")[0] == date) and (elements["captain/pilot"] == line["User_name"] or elements["co-pilot"] == line["User_name"] or \
+                            elements["fsm"] == line["User_name"] or elements["fa1"] == line["User_name"] or elements["fa2"] == line["User_name"]):
                             employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],"at work")
                             try:
                                 bla = [emp for emp in self.__employee_list if emp.get_user_name() == line["User_name"]]
@@ -225,27 +226,7 @@ class EmployeeIO:
         sorted_list = self.sort_to_display(self.__employee_list,"status")
         self.__employee_list = sorted_list
 
-    def display_status1(self,date):
-        year,month,day = date.split("/")
-        date = "{}-{}-{}".format(year,month,day)
-        
-        with open(self.VOYAGE_FILE) as csvfile:
-            voyage_reader = csv.DictReader(csvfile)
-            for elements in voyage_reader:
-                with open(self.EMPLOYEE_FILE) as thefile:
-                    print('cap', elements["captain/pilot"])
-                    for line in csv.DictReader(thefile):
-                        a = False
-                        print('username', line["User_name"])
-                        if (elements["departure time out"].split("T")[0] == date or elements["departure time to RVK"].split("T")[0] == date) and (elements["captain/pilot"] == line["User_name"] or elements["co-pilot"] == line["User_name"]):
-                            employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],"at work")
-                            self.__employee_list.append(employee)
-                            a = True
-                        if not a:
-                            employee = Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"],"not at work")
 
-        sorted_list = self.sort_to_display(self.__employee_list,"status")
-        self.__employee_list = sorted_list
 
 
 

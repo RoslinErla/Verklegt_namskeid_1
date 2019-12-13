@@ -105,12 +105,7 @@ class DestinationLL(Destination):
     def change_destination(self, des, change, new):
         self.__destination.change_destination(des, change, new)
 
-    def load_destination(self):
-        self.__destination.load_destination_from_file()
-        return str(self.__destination)
 
-    def change_destination(self, contact, change, new):
-        self.__destination.change_destination(contact,change,new)
 
 
 
