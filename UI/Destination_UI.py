@@ -1,5 +1,5 @@
-from logic.Destination_LL import DestinationLLO
-from UI.header import Frame
+from logic.Destination_LL import DestinationLL
+from UI.frame import Frame
 
 import string
 
@@ -60,7 +60,7 @@ class DestinationUI:
             destination += action + ","
 
             carl = self.__ll_destination.load_destination()
-                print(carl)
+            print(carl)
             action = input("Enter the destination name: ")
             print()
             if action == 'b':
@@ -72,7 +72,7 @@ class DestinationUI:
             while not self.__ll_destination.validate_destination_name(action):
                 print("Input is invalid!")
                 carl = self.__ll_destination.load_destination()
-                    print(carl)
+                print(carl)
                 delete_line(100)
                 action = input("Enter the destination name: ")
                 print()
@@ -228,7 +228,7 @@ class DestinationUI:
         while True:
             print()
             carl = self.__ll_destination.load_destination()
-                print(carl)
+            print(carl)
             action = input("Enter the contact's destination ID: ").upper()           # The user inputs the location of the emergency contact
             if action.lower() == 'b':
                 break
@@ -238,7 +238,7 @@ class DestinationUI:
             while self.__ll_destination.check_if_exists(action,2):
                 print("Invalid input")
                 carl = self.__ll_destination.load_destination()
-                    print(carl)
+                print(carl)
                 delete_line(100)
 
                 action = input("Enter the contact's destination ID: ").upper()
@@ -294,7 +294,7 @@ class DestinationUI:
         ''' Calls for "load_destination_from_file" from "Destination_UI.py" to display every destination within the system. '''
         print()
         carl = self.__ll_destination.load_destination()
-            print(carl)
+        print(carl)
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"

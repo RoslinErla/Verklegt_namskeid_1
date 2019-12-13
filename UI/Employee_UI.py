@@ -281,7 +281,7 @@ class EmployeeUI():
         print(employio)
         ssn = input("enter the ssn of the employee you want to see: ")
         if ssn == 'b':
-            break
+            self.employee_menu()
         elif ssn == 'q':
             return 'q'
         while not self.employeell.check_for_ssn(ssn):
