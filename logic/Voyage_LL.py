@@ -14,6 +14,7 @@ class VoyageLL():
         self.__destinatio = DestinationIO()
 
     def check_if_exists(self, check, num):
+        """Checks if a specific destination element already exists in other destinations"""
         destination_set = self.__io_voyage.get_set(num)
         for elements in destination_set:
             if check == elements:
@@ -21,29 +22,41 @@ class VoyageLL():
         else: 
             return True
 
+    def load_voyage_from_file(self):
+        return self.__io_voyage.load_voyage_from_file()
+
     def make_flight_number(self,date,destination_number):
+        """Gets a list of all the flights that day to that destination. Makes the flight number"""
+        flight_list = self.__io_voyage.make_flight_list(destination_number, date)
         flight_system = ["NA","XX","X"]
         flight_system[1] = destination_number
+        length = len(flight_list) + 1 #The voyage we are making would be the next element in that list
         flight_number1 = flight_system
-        flight_number1[-1] = len(flight_list)*2
+        flight_number1[-1] = length*2
         flight_number2 = flight_system
-        flight_number2 = len(flight_list) + 1
+        flight_number2[-1] = length * 2 + 1
+        return flight_number1,flight_number2
     
     def create_voyage(self, new_voyage):
         start_of_journey , departure_time_out, arriving_abroad, departure_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2= new_voyage.split(",")
+
+        year,month,day,hour,minutes = departure_time_out.split("/")
+        date = "{}-{}-{}".format(year,month,day)
+
         flight_time = self.__io_voyage.get_flight_time(arriving_abroad)
         hours, minutes = flight_time.split(".")
         flight_time = datetime.time(int(hours),int(minutes))
         arrival_time_abroad = departure_time_out + flight_time
         departing_to_RVK = "KEF"
         arrival_time_home = 0
-        flight_number = 0
+        flight_number1,flight_number2 = self.make_flight_number(date,arriving_abroad)
+
         captain = self.__io_voyage.transform_ssn_into_user_name(captain)
         co_pilot = self.__io_voyage.transform_ssn_into_user_name(co_pilot)
         fsm  = self.__io_voyage.transform_ssn_into_user_name(fsm)
         fa1 = self.__io_voyage.transform_ssn_into_user_name(fa1)
         fa2 = self.__io_voyage.transform_ssn_into_user_name(fa2)
-        self.__io_voyage.Add_voyage_to_file(start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number)
+        self.__io_voyage.Add_voyage_to_file(start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad,flight_number1, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number2)
 
 
     def change_voyage(self, des, date_time, change, new):

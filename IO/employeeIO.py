@@ -178,7 +178,7 @@ class EmployeeIO:
         return employee_list
 
     def check_if_available_and_has_licence(self,date,rank):
-        unavailable_list = self.check_if_not_available_and_cant_licence(date)
+        unavailable_list = self.check_if_not_available_and_cant_licence(date,rank)
         available_list = list() 
         with open(self.EMPLOYEE_FILE) as the_file:
             reader = csv.DictReader(the_file)

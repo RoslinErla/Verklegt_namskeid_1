@@ -6,6 +6,12 @@ class EmployeeLL():
     def __init__(self):
         self.__employee = EmployeeIO()
     
+    def check_for_ssn(self, check):
+        employee_set = self.__employee.get_set()
+        for elements in employee_set:
+            if check == elements:
+                return True
+
     def check_if_ssn_exists(self, check):
         employee_set = self.__employee.get_set()
         for elements in employee_set:
@@ -109,3 +115,22 @@ class EmployeeLL():
 
     def change_employee(self, ssn, change, new):
         self.__employee.change_employee(ssn, change, new)
+
+    def display_pilots(self, a):
+        self.__employee.display_pilots(a)
+        return str(self.__employee)
+    
+    def sort_employees_by_alpha(self):
+        self.__employee.load_employee_from_file("alpha")
+        return str(self.__employee)
+
+    def show_by_status(self, a):
+        self.__employee.display_status(a)
+        return str(self.__employee)
+
+    def show_flight_atendants(self):
+        self.__employee.display_flight_attendants()
+
+    def show_single_employee(self, ssn):
+        self.__employee.display_one_employee(ssn)
+        return str(self.__employee)

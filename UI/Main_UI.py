@@ -3,12 +3,14 @@ from UI.Destination_UI import DestinationUI
 from UI.Employee_UI import EmployeeUI
 from UI.Voyage_UI import VoyageUI
 
+
 class MainUI():
     def __init__(self):
         self.airplaneui = AirplaneUI()
         self.destinationui = DestinationUI()
         self.employeeui = EmployeeUI()
         self.voyageui = VoyageUI()
+        
 
     def main_menu(self):
         """ Presents the user with the option to open any menu within the system """
@@ -27,6 +29,7 @@ class MainUI():
             action = input("Please enter your command: ")
             
             action = action.lower()
+            
 
             if action == "1":
                 self.airplaneui.airplane_menu()
@@ -38,3 +41,4 @@ class MainUI():
                 self.voyageui.voyage_menu()
             if action == "q":
                 break
+            

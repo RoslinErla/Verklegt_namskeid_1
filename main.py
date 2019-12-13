@@ -6,9 +6,9 @@
 # from logic.Voyage_LL import VoyageLL
 # from logic.Employee_LL import EmployeeLL
 
-from UI.header import Frame
-frame = Frame()
-print(frame) 
+#from UI.frame import Frame
+#frame = Frame()
+#print(frame) 
 from logic.Voyage_LL import VoyageLL
 from model.VoyageM import Voyage
 from UI.Voyage_UI import VoyageUI

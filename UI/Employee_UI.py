@@ -1,4 +1,3 @@
-from IO.employeeIO import EmployeeIO
 from logic.Employee_LL import EmployeeLL
 import datetime
 
@@ -6,8 +5,6 @@ class EmployeeUI():
     
     def __init__(self):
         self.employeell = EmployeeLL()
-        self.employeeio = EmployeeIO()
-
     def employee_menu(self):
         action = ""
         leave = ''
@@ -35,17 +32,17 @@ class EmployeeUI():
             elif action == "2":
                 leave =  self.call_on_validate_and_change()
             elif action == "3":
-                self.show_by_status()
+                leave = self.show_by_status()
             elif action == "4":
-                self.show_by_aplha()
+                leave = self.show_by_aplha()
             elif action == "5":
-                self.show_by_rank("flight attendant")
+                leave = self.show_by_rank("flight attendant")
             elif action == "6":
-                self.show_by_rank("pilot")
+                leave = self.show_by_rank("pilot")
             elif action =="7":
-                self.show_by_licence()
+                leave = self.show_by_licence()
             elif action == "8":
-                self.show_a_single_employee()
+                leave = self.show_a_single_employee()
             elif action == "b" or action == "q":
                 break
 
@@ -177,8 +174,8 @@ class EmployeeUI():
 
     def call_on_validate_and_change(self):
         while True:
-            self. employeeio.load_employee_from_file("alpha")
-            print(self.employeeio)
+            employio = self.employeell.sort_employees_by_alpha()
+            print(employio)
             print()
             ssn = input("Please enter the SSN of the employee who's information you want to edit: ")
             if ssn == "q":
@@ -246,17 +243,16 @@ class EmployeeUI():
     def show_by_status(self):
         a = input("Please enter dd/mm/YYYY: ")
         print()
-        self.employeeio.display_status(a)
-        print(self.employeeio)
-        print()
+        b = self.employeell.show_by_status(a)
+        print(b)
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
 
     def show_by_aplha(self):
         print()
-        self. employeeio.load_employee_from_file("alpha")
-        print(self.employeeio)
+        employio = self.employeell.sort_employees_by_alpha()
+        print(employio)
         print()
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
@@ -265,27 +261,38 @@ class EmployeeUI():
     def show_by_rank(self,rank):
         print()
         if rank == "pilot":
-            self.employeeio.display_pilots("alpha")
-            print(self.employeeio)
+            employio = self.employeell.display_pilots("alpha")
+            print(employio)
             print()
             action = input('Enter "b" to go back and "q" to got to the main menu: ')
             if action == "q":
                 return "q"
 
         if rank == "flight attendant":
-            self.employeeio.display_flight_attendants()
-            print(self.employeeio)
+            employio = self.employeell.show_flight_atendants()
+            print(employio)
             print()
             action = input('Enter "b" to go back and "q" to got to the main menu: ')
             if action == "q":
                 return "q"
 
     def show_a_single_employee(self):
-        self.employeeio.load_employee_from_file("alpha")
-        print(self.employeeio)
+        employio = self.employeell.sort_employees_by_alpha()
+        print(employio)
         ssn = input("enter the ssn of the employee you want to see: ")
-        self.employeeio.display_one_employee(ssn)
-        print(self.employeeio)
+        if ssn == 'b':
+            self.employee_menu()
+        elif ssn == 'q':
+            return 'q'
+        while not self.employeell.check_for_ssn(ssn):
+            print("Invalid input!")
+            action = input("Enter the ssn: ")
+            if action == 'b':
+                break
+            if action == 'q':
+                return 'q'
+        employio = self.employeell.show_single_employee(ssn)
+        print(employio)
         print()
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
@@ -293,8 +300,8 @@ class EmployeeUI():
 
     def show_by_licence(self):
         print()
-        self.employeeio.display_pilots("permit")
-        print(self.employeeio)
+        employio = self.employeell.display_pilots("permit")
+        print(employio)
         print()
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":

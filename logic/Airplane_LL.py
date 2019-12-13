@@ -1,10 +1,12 @@
 from IO.airplaneIO import AirplaneIO
+from IO.employeeIO import EmployeeIO
 from model.AirplaneM import Airplane
 import string
 
 class AirplaneLL(Airplane):
     def __init__(self):
         self.__airplaneio = AirplaneIO()
+        self.__employeeio = EmployeeIO()
 
     def check_if_exists(self,check,num):
         destination_set = self.__airplaneio.get_set(num)
@@ -66,5 +68,10 @@ class AirplaneLL(Airplane):
         manufacturer, type_id, plane_insignia, model = new_plane.split(",") 
         self.__airplaneio.Add_airplane_to_file(manufacturer, type_id, plane_insignia, model)
         
-    # def change_plane(self, planeinsignia, change, new):
-    #     self.__airplaneio.change_airplane(planeinsignia, change, new)
+    def load_from_file(self):
+        self.__airplaneio.load_airplane_from_file()
+        return str(self.__airplaneio)
+
+    def display_by_licence(self, type_id):
+        self.__employeeio.display_by_licence(type_id)
+        return str(self.__employeeio)    
