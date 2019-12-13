@@ -18,7 +18,6 @@ class DestinationLL(Destination):
             return True
 
     def validate_destination_num(self, destination_num):
-        if self.destinaion_num
         if len(destination_num) <=2:
             for letter in destination_num:
                 if not letter.isdigit():
@@ -94,6 +93,11 @@ class DestinationLL(Destination):
         if len(flight_number) == 6:
             return True
         
+
+    def create_destination(self,new_destination):
+        destination_num, destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone = new_destination.split(",")
+        self.__destination.Add_destination_to_file(destination_num,destination_name,destination_id,country,airport,flight_time,distance,emergency_contact,emergency_phone)
+
     def change_destination(self, des, change, new):
         self.__destination.change_destination(des, change, new)
 
