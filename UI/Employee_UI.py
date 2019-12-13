@@ -241,7 +241,7 @@ class EmployeeUI():
                 return "q"
     
     def show_by_status(self):
-        a = input("Please enter dd/mm/YYYY: ")
+        a = input("Please enter YYYY/mm/dd: ")
         if a == "b":
             self.employee_menu()
         if a == "q":
@@ -292,7 +292,7 @@ class EmployeeUI():
             print("Invalid input!")
             ssn = input("Enter the ssn: ")
             if ssn == 'b':
-                break
+                self.employee_menu()
             if ssn == 'q':
                 return 'q'
         employio = self.employeell.show_single_employee(ssn)
