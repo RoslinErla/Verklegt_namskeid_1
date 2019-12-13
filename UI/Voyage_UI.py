@@ -47,6 +47,8 @@ class VoyageUI():
                     break
                 if action == "1":
                     self.show_by_status_day()
+                elif action == "2":
+                    self.show_all_of_employees_voyages()
 
             if action == "q" or action == "b":
                 break
@@ -407,8 +409,10 @@ class VoyageUI():
             return "q"
         while self.__ll_employee.check_if_ssn_exists(ssn):
             print("Invalid input! ")
-            ssn = input("Enter the ssn of the employee(0000000000):"
-            
+            ssn = input("Enter the ssn of the employee(0000000000):")
+    
+        a = self.__ll_voyage.load_all_voyages(ssn)
+        print(a)
 
 
 

@@ -11,17 +11,31 @@ class VoyageIO:
 
     def __init__(self):
         self.__voyage_list = list()
-        self.__voyage_set = set
+        self.__voyage_set = set()
+        self.__employees_set = list()
 
     def get_voyage_list(self):
         return self.__voyage_list
 
 
     def get_all_voyages_for_employee(self,ssn):
+        user_name = self.transform_ssn_into_user_name(ssn)
+
         with open(self.VOYAGE_FILE, "r",encoding= "Latin-1") as the_file:
-            reader = csv.reader(the_file)
+            reader = csv.DictReader(the_file)
             for line in reader:
-                self.__voyage_set.add(line[num])
+                if line["captain/pilot"] == user_name or line["co-pilot"] == user_name \
+                    or line ["fsm"] == user_name or line ["fa1"] == user_name or line["fa2"] == user_name:
+                    voyage = voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
+                    line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],
+                    line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
+                    line["fsm"], line["fa1"],line["fa2"], line["flight_number"])
+                    self.__employees_set.append(voyage)
+        sorted_list = self.sort_to_display(self.__voyage_list)
+        self.__voyage_list = sorted_list
+
+
+
     def make_set(self,num):
         """Makes a set of all values in the num spot of the line"""
         with open(self.VOYAGE_FILE, "r",encoding= "Latin-1") as the_file:
