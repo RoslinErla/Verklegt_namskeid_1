@@ -67,7 +67,6 @@ class AirplaneIO:
 
     def __str__(self):
         return_str = ''
-        print('listinn', self.__airplane_list)
         for airplane in self.__airplane_list:
             return_str += airplane.__str__() + '\n'
         self.__airplane_list = list()
