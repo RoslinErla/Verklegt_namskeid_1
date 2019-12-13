@@ -16,11 +16,7 @@ _  /|  / / /_/ /_  /|  /    / /_/ /_  / _  /
 """
 
     def window(self):
-        if os.name == "nt":
-            import shutil
-            self.columns, self.rows = shutil.terminal()
-        else:
-            self.rows, self.columns = os.popen("stty size", "r").read().split()
+        self.rows, self.columns = os.popen("stty size", "r").read().split()
 
     def delete_line(self, n=1):
         for _ in range(n):
