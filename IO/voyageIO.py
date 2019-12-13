@@ -83,7 +83,7 @@ class VoyageIO:
         with open(self.VOYAGE_FILE) as csvfile:
             reader = csv.DictReader(csvfile)
             for line in reader:
-                if line ["departure time out"].split("T")[0] == date and line["arriving abroad"] == destination_id:
+                if line ["departure_time_out"].split("T")[0] == date and line["arriving abroad"] == destination_id:
                     voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
                     line["arrival time abroad"], line["departing to RVK"], line["departure time to RVK"],
                     line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
