@@ -7,6 +7,7 @@ class VoyageIO:
     VOYAGE_FILE = "./files/voyage.csv"
     EMPLOYEE_FILE = "./files/employee.csv"
     DESTINATION_FILE = "./files/destination.csv"
+    HEADER = ""
 
     def __init__(self):
         self.__voyage_list = list()
