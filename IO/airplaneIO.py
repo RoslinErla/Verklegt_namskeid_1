@@ -9,6 +9,17 @@ class AirplaneIO:
     def __init__(self):
         self.__airplane_list = list()
         self.__airplane = Airplane()
+        self.__airplane_set = set()
+
+    def make_set(self,num):
+        with open(self.AIRPLANE_FILE, "r",encoding= "Latin-1") as the_file:
+            reader = csv.reader(the_file)
+            for line in reader:
+                self.__airplane_set.add(line[num])
+
+    def get_set(self,num):
+        self.make_set(num)
+        return self.__airplane_set
 
     def load_airplane_from_file(self):
         print(self.HEADER)

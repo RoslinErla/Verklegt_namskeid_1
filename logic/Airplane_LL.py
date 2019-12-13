@@ -6,6 +6,14 @@ class AirplaneLL(Airplane):
     def __init__(self):
         self.__airplaneio = AirplaneIO()
 
+    def check_if_exists(self,check,num):
+        destination_set = self.__airplaneio.get_set(num)
+        for elements in destination_set:
+            if check == elements:
+                return True
+        else: 
+            return False
+
     def validate_manufacturer(self, manufacturer):
         """ Validates whether "manufacturer" is a string and whether or not every letter is a part of the alphabet. """
         if type(manufacturer) == str:

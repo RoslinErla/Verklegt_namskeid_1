@@ -3,6 +3,7 @@ from IO.employeeIO import EmployeeIO
 from datetime import datetime
 import datetime
 from IO.voyageIO import VoyageIO
+from IO.destinationIO import DestinationIO
 import string
 
 class VoyageLL():
@@ -10,13 +11,19 @@ class VoyageLL():
     def __init__(self):
         self.__io_voyage = VoyageIO()
         self.__employee = EmployeeIO()
+        self.__destinatio = DestinationIO()
 
+    def check_if_exists(self, check, num):
+        destination_set = self.__io_voyage.get_set(num)
+        for elements in destination_set:
+            if check == elements:
+                return False
+        else: 
+            return True
 
     def make_flight_number(self,date,destination_number):
         flight_system = ["NA","XX","X"]
         flight_system[1] = destination_number
-
-
         pass
     
 
@@ -26,7 +33,7 @@ class VoyageLL():
         hours, minutes = flight_time.split(".")
         flight_time = datetime.time(int(hours),int(minutes))
         arrival_time_abroad = departure_time_out + flight_time
-        departing_to_RVK = 0
+        departing_to_RVK = "KEF"
         arrival_time_home = 0
         flight_number = 0
         captain = self.__io_voyage.transform_ssn_into_user_name(captain)
@@ -45,11 +52,16 @@ class VoyageLL():
     def validate_employee(self):
         pass
 
-    def validate_flight_out(self):
-        pass
-
-    def validate_flight_home(self):
-        pass
+    def validate_departure(self,departure):
+        try:
+            year,month,day,hours,minutes = departure.split("/")
+            departure = datetime.datetime(int(year),int(month),int(day),int(hours),int(minutes))
+            now = datetime.datetime.now()
+            if now < departure:
+                return True
+        except ValueError:
+            return False
+        
 
     # Here comes validations form the former Flight_LL class
 
@@ -63,12 +75,6 @@ class VoyageLL():
             return False
         return True
     
-                    
-    #def validate_departure_time(self, a_time):  # Þarf líklega ekki að validate-a, útfært sem datetime í UI
-       
-
-
-
     def validate_arriving_at(self, arriving_at):  # Check if string only has alphabetical letters and is 3 letters long
         """ Validates whether "arriving_at" is 3 letters long (e.g KEF) and that every letter is a part of the alphabet"""
         if len(arriving_at) == 3:
@@ -97,11 +103,3 @@ class VoyageLL():
         
         # Kalla á fallið check_if_exist
        
-
-    def check_if_exist(self,check):
-        employee_set = self.__employee.get_set()
-        for elements in employee_set:
-            if check == elements:
-                return True
-        else: 
-            return False

@@ -8,6 +8,17 @@ class VoyageIO:
 
     def __init__(self):
         self.__voyage_list = list()
+        self.__voyage_set = set
+
+    def make_set(self,num):
+        with open(self.VOYAGE_FILE, "r",encoding= "Latin-1") as the_file:
+            reader = csv.reader(the_file)
+            for line in reader:
+                self.__voyage_set.add(line[num])
+
+    def get_set(self,num):
+        self.make_set(num)
+        return self.__voyage_set
     
     def get_flight_time(self,destination_name):
         with open(self.DESTINATION_FILE) as thefile:

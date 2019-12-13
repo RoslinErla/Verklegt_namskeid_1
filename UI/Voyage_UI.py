@@ -33,7 +33,7 @@ class VoyageUI():
         while leave != "q":
             print("The following actions are possible: ")
             print("\tEnter 1 to create a voyage within the system.")
-            print("\tEnter 2 to change voyages already within the system.")
+            print("\tEnter 2 to change staff on voyages already within the system.")
             print("\tEnter 3 to display voyages within the system.")
             print("Enter b or q to got to the main menu.")
            
@@ -56,10 +56,7 @@ class VoyageUI():
         """After the user has chosen the "change" option, he has two new options"""
         action = ""
         while leave != "q":
-            print("\tEnter 1 to change voyage state")
-            print("\tEnter 2 to change emergency contact's name and/or phone number")
-            print('Enter "b" to go back and "q" to got to the main menu.')
-
+            
             action = input("Please enter your commmand: ").lower()
         
             if action == "1":
@@ -74,7 +71,7 @@ class VoyageUI():
             if action == 'q':
                 return "q"
 
-def new_voyage(self):
+    def new_voyage(self):
         """The user has chosen to create a new voyage"""
         action = ""
         new_voyage = "KEF,"
@@ -84,60 +81,45 @@ def new_voyage(self):
         while action != "q":
             self.__io_voyage.load_voyage_from_file()
             print(self.__io_voyage)
-            action = input("Enter the departure time from Iceland (year(YYYY),month(0-12),day(0-31),hour(0-23),minutes(0-59): ")
-            year,month,day,hour,minutes = action.split(",")
-            action = datetime.datetime(int(year),int(month),int(day),int(hour),int(minutes)).isoformat()
-
             print()
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
+            action = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
+            if action.lower() == 'b' or action.lower() == "q":
                 return "q"
-            # vantar validate fyrir date-time
+
+            while not self.__ll_voyage.validate_departure(action):
+                print("Input is invalid!")
+                action = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
+                if action.lower() == 'b' or action.lower() == "q":
+                    return "q"
+
             new_voyage += action + ","
             
             
             self.__io_destination.load_destination_from_file()
             print(self.__io_destination)
-            action = input("Enter the destination: ")
+            action = input("Enter the destination number: ")
             print()
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
+            if action.lower() == 'b' or action.lower() == "q":
                 return "q"
-            while not self.__ll_destination.validate_destination_name(action):
+
+            while not self.__ll_destination.check_if_exists(action,0):
                 print("Input is invalid!")
                 self.__io_destination.load_destination_from_file()
                 print(self.__io_destination)
                 action = input("Enter the destination: ")
                 print()
-                if action == 'b':
-                    self.create_menu()
-                if action == 'q':
+                if action.lower() == 'b' or action.lower() == "q":
                     return "q"
-            new_voyage += action + ","
 
-            
-            action = input("Enter the departing time to Reykjavík (year(YYYY)month(0-12),day(0-31),hour(0-23),minutes(0-59): ")
-            year,month,day,hour,minutes = action.split(",")
-            action = datetime.datetime(int(year),int(month),int(day),int(hour),int(minutes)).isoformat()
-            print()
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
-                return "q"
-            # vantar validate fyrir date-time
             new_voyage += action + ","
 
             self.__io_airplane.load_airplane_from_file()
             print(self.__io_airplane)
             action = input("Enter the plane insignia of the airplane: ")
             print()
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
+            if action.lower() == 'b' or action.lower() == "q":
                 return "q"
-            while not self.__ll_airplane.validate_plane_insignia(action):
+            while not self.__ll_airplane.check_if_exists(2):
                 print("Input is invalid!")
                 action = input("Enter the plane insignia of the airplane: ")
                 print()

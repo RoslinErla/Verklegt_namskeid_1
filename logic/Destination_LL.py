@@ -43,7 +43,7 @@ class DestinationLL(Destination):
             return True
         return False
     
-    def validate_country_name(self, country_name):  # Eftir að búa til gögn fyrir þetta, geri ráð fyrir að það séu bara bókstafir
+    def validate_country_name(self, country_name):  
         country_name = country_name.split()
         for elements in country_name:
             for letters in elements:
