@@ -6,9 +6,15 @@
 # from logic.Voyage_LL import VoyageLL
 # from logic.Employee_LL import EmployeeLL
 
+<<<<<<< HEAD
+# from UI.frame import Frame
+# frame = Frame()
+# print(frame) 
+=======
 #from UI.frame import Frame
 #frame = Frame()
 #print(frame) 
+>>>>>>> 1758a4b891779080e8a7c49e37816a5e316c76e1
 from logic.Voyage_LL import VoyageLL
 from model.VoyageM import Voyage
 from UI.Voyage_UI import VoyageUI
