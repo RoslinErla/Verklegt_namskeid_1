@@ -58,14 +58,14 @@ class VoyageIO:
     def transform_ssn_into_user_name(self,ssn):
         """Goes through the employee file finds the person that matches the ssn and writes out the user_name"""
         user_name = ""
-        if ssn != "N/A":
+        if ssn.upper() != "N/A":
             with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
                 reader = csv.DictReader(the_file)
                 for line in reader:
                     if line["SSN"] == ssn:
                         user_name =  line["User_name"]
         else:
-            user_name = ssn
+            user_name = ssn.upper()
 
         return user_name
 
@@ -83,7 +83,7 @@ class VoyageIO:
         with open(self.VOYAGE_FILE) as csvfile:
             reader = csv.DictReader(csvfile)
             for line in reader:
-                if line ["departure_time_out"].split("T")[0] == date and line["arriving abroad"] == destination_id:
+                if line ["departure time out"].split(" ")[0] == date and line["arriving abroad"] == destination_id:
                     voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
                     line["arrival time abroad"], line["departing to RVK"], line["departure time to RVK"],
                     line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
@@ -95,6 +95,7 @@ class VoyageIO:
 
     def Add_voyage_to_file(self, start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, flight_number1, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number2):
         """opens the voyage file and appends the new voyage to it"""
+        
         with open(self.VOYAGE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, flight_number1, 
