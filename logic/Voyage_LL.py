@@ -118,6 +118,6 @@ class VoyageLL():
 
     def show_voyages_on_a_day(self, date):
         self.__io_voyage.display_voyages_on_a_day(date)
-        return self.__io_voyage.get_voyage_list()
+        return str(self.__io_voyage)
 
        

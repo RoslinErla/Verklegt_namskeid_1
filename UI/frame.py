@@ -24,11 +24,4 @@ _  /|  / / /_/ /_  /|  /    / /_/ /_  / _  /
         #print("{}\n\n\n".format(self.logo)
     def clear_all(self):
         os.system("cls" if os.name == "nt" else "clear")
-<<<<<<< HEAD
         print("{}\n\n\n".format(self.logo))
-=======
-        print("{}\n\n\n".format(self.logo))
-    
-    def __str__(self):
-        return "{}\n\n\n".format(self.logo)
->>>>>>> 31d8db78b4244928e356b1db6f7b65429a37c57c

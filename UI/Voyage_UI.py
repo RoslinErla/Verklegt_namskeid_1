@@ -35,9 +35,6 @@ class VoyageUI():
                 leave = self.new_voyage()
             
             elif action == "2":
-                leave = self.change_menu()
-            
-            elif action == "3":
                 print("Enter 1 to display a specific day.")
                 print("Enter 2 to display a specific week.")
                 action = input("Enter your command")
