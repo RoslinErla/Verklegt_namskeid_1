@@ -43,9 +43,11 @@ class VoyageLL():
 
         year,month,day,hour,minutes = departure_time_out.split("/")
         date = "{}-{}-{}".format(year,month,day)
-        departure_time_out_datetime = datetime.datetime(int(year,month,day,hour,minutes))
+        departure_time_out_datetime = datetime.datetime(int(year),int(month),int(day),int(hour),int(minutes))
 
+        
         flight_time = self.__io_voyage.get_flight_time(arriving_abroad)
+
         hours, minutes = flight_time.split(".")
 
         arrival_time_abroad = departure_time_out_datetime + datetime.timedelta(hours = int(hours), minutes = int(minutes))

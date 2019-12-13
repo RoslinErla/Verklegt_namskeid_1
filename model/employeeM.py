@@ -24,6 +24,9 @@ class Employee():
     def get_status(self):
         return self.__status
 
+    def get_rank(self):
+        return self.__rank
+
     def get_ssn(self):
         return self.__ssn
 

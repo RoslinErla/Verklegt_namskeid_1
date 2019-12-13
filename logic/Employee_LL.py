@@ -74,12 +74,17 @@ class EmployeeLL():
         return True
 
     def check_if_available(self,date,rank):
-        return self.__employee.check_if_available_and_has_licence(date,rank)
+        self.__employee.check_if_available_and_has_licence(date,rank)
+        return str(self.__employee)
+
+    def check_if_matches(self,date,rank):
+        self.__employee.check_if_available_and_has_licence(date,rank)
+        return self.__employee.get_employee_list()
 
     def check_if_in_available(self,date,rank,ssn):
-        a = self.check_if_available(date,rank)
-        for elements in a:
-            if elements[0] == ssn:
+        a = self.check_if_matches(date,rank)
+        for employee in a:
+            if employee.get_ssn() == ssn:
                 return True
         return False
 
