@@ -286,10 +286,10 @@ class EmployeeUI():
             return 'q'
         while not self.employeell.check_for_ssn(ssn):
             print("Invalid input!")
-            action = input("Enter the ssn: ")
-            if action == 'b':
+            ssn = input("Enter the ssn: ")
+            if ssn == 'b':
                 break
-            if action == 'q':
+            if ssn == 'q':
                 return 'q'
         employio = self.employeell.show_single_employee(ssn)
         print(employio)
