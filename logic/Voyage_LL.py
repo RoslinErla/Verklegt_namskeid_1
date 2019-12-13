@@ -1,5 +1,6 @@
 from model.VoyageM import Voyage
 from IO.employeeIO import EmployeeIO
+from datetime import datetime
 import datetime
 from IO.voyageIO import VoyageIO
 import string
@@ -8,14 +9,31 @@ class VoyageLL():
 
     def __init__(self):
         self.__io_voyage = VoyageIO()
+        self.__employee = EmployeeIO()
+
+
+    def make_flight_number(self,date,destination_number):
+        flight_system = ["NA","XX","X"]
+        flight_system[1] = destination_number
+
+
+        pass
     
 
     def create_voyage(self, new_voyage):
         start_of_journey , departure_time_out, arriving_abroad, departure_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2= new_voyage.split(",")
-        arrival_time_abroad = 0
+        flight_time = self.__io_voyage.get_flight_time(arriving_abroad)
+        hours, minutes = flight_time.split(".")
+        flight_time = datetime.time(int(hours),int(minutes))
+        arrival_time_abroad = departure_time_out + flight_time
         departing_to_RVK = 0
         arrival_time_home = 0
         flight_number = 0
+        captain = self.__io_voyage.transform_ssn_into_user_name(captain)
+        co_pilot = self.__io_voyage.transform_ssn_into_user_name(co_pilot)
+        fsm  = self.__io_voyage.transform_ssn_into_user_name(fsm)
+        fa1 = self.__io_voyage.transform_ssn_into_user_name(fa1)
+        fa2 = self.__io_voyage.transform_ssn_into_user_name(fa2)
         self.__io_voyage.Add_voyage_to_file(start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number)
 
 
@@ -70,27 +88,20 @@ class VoyageLL():
 
     def validate_SSN(self, SSN):
         """ Validates that the Social security number (SSN) is 10 letters long and consists only of digits"""
-        if len(SSN) == 10:
-            for letter in SSN:
-                if letter.isalpha() or letter in string.punctuation:
-                    return False
-        else: 
-            return False
+        if SSN != "N/A":
+            if self.check_if_exist(SSN):
+                return True
+            else: 
+                return False
         return True
         
         # Kalla á fallið check_if_exist
        
 
-    def check_if_exist(self):
-        # Validate-a að nafn starfsmanns sé á skrá
-        # mögulega aðra hluti .. 
-        # importa frá IO employee
-        pass
-
-        
-    
-
-
-
-
-    
+    def check_if_exist(self,check):
+        employee_set = self.__employee.get_set()
+        for elements in employee_set:
+            if check == elements:
+                return True
+        else: 
+            return False

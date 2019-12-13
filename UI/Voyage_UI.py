@@ -118,7 +118,7 @@ def new_voyage(self):
             new_voyage += action + ","
 
             
-            action = input("Enter the departing time to Reykjavík (year(YYYY),month(0-12),day(0-31),hour(0-23),minutes(0-59): ")
+            action = input("Enter the departing time to Reykjavík (year(YYYY)month(0-12),day(0-31),hour(0-23),minutes(0-59): ")
             year,month,day,hour,minutes = action.split(",")
             action = datetime.datetime(int(year),int(month),int(day),int(hour),int(minutes)).isoformat()
             print()
