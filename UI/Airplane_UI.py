@@ -102,11 +102,11 @@ class AirplaneUI:
                     return 'q'
             new_plane += action
 
-        self.airplanell.create_plane(new_plane)
-        action = input("Do you want to create another airplane? (y)es or (n)o: " ).lower()
-        if action == "n":
-            return "q"
-
+            self.airplanell.create_plane(new_plane)
+            action = input("Do you want to create another airplane? (y)es or (n)o: " ).lower()
+            if action == "n":
+                return "q"
+    
     def show_pilots_by_airplane_type(self):
         ''' Presents the user with every pilot with the selected flight license '''
         airio = self.airplanell.load_from_file()
