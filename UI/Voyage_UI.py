@@ -48,7 +48,7 @@ class VoyageUI():
     def change_menu(self):
         """After the user has chosen the "change" option, he has two new options"""
         action = ""
-        while leave != "q":
+        while True:
             action = input("Please enter your commmand: ").lower()
         
             if action == "1":
