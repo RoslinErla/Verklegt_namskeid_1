@@ -96,3 +96,22 @@ class EmployeeLL():
 
     def change_employee(self, ssn, change, new):
         self.__employee.change_employee(ssn, change, new)
+
+    def display_pilots(self):
+        self.__employee.display_pilots("permit")
+        return str(self.__employee)
+    
+    def sort_employees_by_alpha(self):
+        self.__employee.load_employee_from_file("alpha")
+        return str(self.__employee)
+
+    def show_by_status(self, a):
+        self.__employee.display_status(a)
+        return str(self.__employee)
+
+    def show_pilots(self, a):
+        self.__employee.display_pilots(a)
+        return str(self.__employee)
+
+    def show_flight_atendants(self):
+        self.__employee.display_flight_attendants()
