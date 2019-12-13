@@ -199,34 +199,65 @@ class EmployeeUI():
 
             elif action == "1":
                 change = "name"
-                new = input("please enter the new entry for {}: ".format(change))
-                while not self.employeell.validate_name(new):
+                action = input("please enter the new entry for {}: ".format(change))
+                if action == 'b':
+                    break
+                elif action == 'q':
+                    return 'q'
+                while not self.employeell.validate_name(action):
                     print("input is invalid")
-                    new = input("please enter the new entry for {}: ".format(change))
-                    
+                    action = input("please enter the new entry for {}: ".format(change))
+                    if action == 'b':
+                        break
+                    elif action == 'q':
+                        return 'q'
 
             elif action == "2":
                 change = "address"
-                new = input("please enter the new entry for {}: ".format(change))
-                while not self.employeell.validate_address(new):
+                action = input("please enter the new entry for {}: ".format(change))
+                if action == 'b':
+                    break
+                elif action == 'q':
+                    return 'q'
+                while not self.employeell.validate_address(action):
                     print("input is invalid")
-                    new = input("please enter the new entry for {}: ".format(change))
-            
+                    action = input("please enter the new entry for {}: ".format(change))
+                    if action == 'b':
+                        break
+                    elif action == 'q':
+                        return 'q'
+
             elif action == "3":
                 change = "phone_number"
-                new = input("please enter the new entry for {}: ".format(change))
+                action = input("please enter the new entry for {}: ".format(change))
+                if action == 'b':
+                    break
+                elif action == 'q':
+                    return 'q'
                 while not self.employeell.validate_phone_number(action):
                     print("input is invalid")
-                    new = input("please enter the new entry for {}: ".format(change))
-            
+                    action = input("please enter the new entry for {}: ".format(change))
+                    if action == 'b':
+                        break
+                    elif action == 'q':
+                        return 'q'
+
             elif action == "4":
                 change = "user_name"
-                new = input("please enter the new entry for {}: ".format(change))
+                action = input("please enter the new entry for {}: ".format(change))
+                if action == 'b':
+                    break
+                elif action == 'q':
+                    return 'q'
                 while not self.employeell.validate_user_name(action):
                     print("input is invalid")
-                    new = input("please enter the new entry for {}: ".format(change))
+                    action = input("please enter the new entry for {}: ".format(change))
+                    if action == 'b':
+                        break
+                    elif action == 'q':
+                        return 'q'
 
-            self.employeell.change_employee(ssn, change, new)
+            self.employeell.change_employee(ssn, change, action)
 
             action = input("Do you want to change another employee? (y)es or (n)o: " ).lower()
             if action == "n":
