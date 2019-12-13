@@ -21,7 +21,7 @@ _  /|  / / /_/ /_  /|  /    / /_/ /_  / _  /
         for _ in range(n):
             sys.stdout.write("\x1b[1A")
             sys.stdout.write("\x1b[2K")
-        print("{}\n\n\n".format(self.logo))
+        print("{}\n\n\n".format(self.logo)
         
     def clearing(self):
         os.system("cls" if os.name == "nt" else "clear")
