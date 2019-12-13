@@ -58,14 +58,14 @@ class VoyageIO:
     def transform_ssn_into_user_name(self,ssn):
         """Goes through the employee file finds the person that matches the ssn and writes out the user_name"""
         user_name = ""
-        if ssn != "N/A":
+        if ssn.upper() != "N/A":
             with open(self.EMPLOYEE_FILE, "r", encoding="Latin-1") as the_file:
                 reader = csv.DictReader(the_file)
                 for line in reader:
                     if line["SSN"] == ssn:
                         user_name =  line["User_name"]
         else:
-            user_name = ssn
+            user_name = ssn.upper()
 
         return user_name
 

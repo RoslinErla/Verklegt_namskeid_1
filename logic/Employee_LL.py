@@ -82,11 +82,14 @@ class EmployeeLL():
         return self.__employee.get_employee_list()
 
     def check_if_in_available(self,date,rank,ssn):
-        a = self.check_if_matches(date,rank)
-        for employee in a:
-            if employee.get_ssn() == ssn:
-                return True
-        return False
+        if ssn.upper() != "N/A":
+            a = self.check_if_matches(date,rank)
+            for employee in a:
+                if employee.get_ssn() == ssn:
+                    return True
+            return False
+        else: 
+            return True
 
     def validate_user_name(self, user):
         """Checks if the user name is valid. Returns True if it is valid"""
