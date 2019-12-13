@@ -100,7 +100,8 @@ class VoyageIO:
     
     def display_voyages_on_a_week(self,start_date):
         year,month,day = start_date.split("/")
-        start_date.datetime = datetime.date
+        start_date_datetime = datetime.date(int(year),int(month),int(day))
+        end_date_datetime = start_date_datetime + datetime.timedelta(days = 7)
         start_date = "{}-{}-{}".format(year,month,day)
 
 
