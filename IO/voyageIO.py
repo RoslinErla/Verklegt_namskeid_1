@@ -26,7 +26,7 @@ class VoyageIO:
         with open(self.DESTINATION_FILE) as thefile:
             reader = csv.DictReader(thefile)
             for line in reader:
-                if line["destination name"] == destination_name:
+                if line["destination number"] == destination_name:
                     return line["flight time"]
 
 

@@ -17,6 +17,9 @@ class EmployeeIO:
         .format("Name", "SSN", "Address", "Phone_number", "User_name", "Rank", "Permit")
         self.__employee = Employee()
 
+    def get_employee_list(self):
+        return self.__employee_list
+
     def make_ssn_set(self):
         with open(self.EMPLOYEE_FILE, "r",encoding= "Latin-1") as the_file:
             reader = csv.reader(the_file)
@@ -185,6 +188,7 @@ class EmployeeIO:
                 employee =Employee(line["Name"],line["SSN"],line["Address"],line["Phone_number"], line["User_name"],line["Rank"],line["Permit"])
                 if line["Rank"].lower() == rank.split("/")[0] and employee not in unavailable_list:
                     available_list.append(employee)
+        self.__employee_list = available_list
 
         return available_list
 
