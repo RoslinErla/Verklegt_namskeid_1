@@ -1,6 +1,5 @@
-from logic.Destination_LL import DestinationLL
-from IO.destinationIO import DestinationIO
-from UI.frame import Frame
+from logic.Destination_LL import DestinationLLO
+from UI.header import Frame
 
 import string
 
@@ -8,7 +7,6 @@ class DestinationUI:
 
     def __init__(self):
         self.__ll_destination = DestinationLL()
-        self.__io_destination = DestinationIO()
     
     def destination_menu(self):
         ''' Presents the user with  '''
@@ -37,8 +35,8 @@ class DestinationUI:
     def add_destination(self):   
         """The user has chosen to create a new destination"""
         print("Destinations within the systems: ")
-        self.__io_destination.load_destination_from_file()
-        print(self.__io_destination)
+        carl = self.__ll_destination.load_destination()
+        print(carl)
         print('Enter "b" to go back and "q" to got to the main menu.')
         action = ""                                       # User puts in the name of the country
         destination = ""
@@ -61,8 +59,8 @@ class DestinationUI:
 
             destination += action + ","
 
-            self.__io_destination.load_destination_from_file()
-            print(self.__io_destination)
+            carl = self.__ll_destination.load_destination()
+                print(carl)
             action = input("Enter the destination name: ")
             print()
             if action == 'b':
@@ -73,8 +71,8 @@ class DestinationUI:
 
             while not self.__ll_destination.validate_destination_name(action):
                 print("Input is invalid!")
-                self.__io_destination.load_destination_from_file()
-                print(self.__io_destination)
+                carl = self.__ll_destination.load_destination()
+                    print(carl)
                 delete_line(100)
                 action = input("Enter the destination name: ")
                 print()
@@ -229,8 +227,8 @@ class DestinationUI:
         delete_line(100)
         while True:
             print()
-            self.__io_destination.load_destination_from_file()
-            print(self.__io_destination)
+            carl = self.__ll_destination.load_destination()
+                print(carl)
             action = input("Enter the contact's destination ID: ").upper()           # The user inputs the location of the emergency contact
             if action.lower() == 'b':
                 break
@@ -239,8 +237,8 @@ class DestinationUI:
             delete_line(100)
             while self.__ll_destination.check_if_exists(action,2):
                 print("Invalid input")
-                self.__io_destination.load_destination_from_file()
-                print(self.__io_destination)
+                carl = self.__ll_destination.load_destination()
+                    print(carl)
                 delete_line(100)
 
                 action = input("Enter the contact's destination ID: ").upper()
@@ -285,7 +283,7 @@ class DestinationUI:
                 return "q" 
             delete_line(100)
 
-            self.__io_destination.change_destination(contact,change,new)
+            self.__ll_destination.change_destination(contact,change,new)
 
             action = input("Do you want to change another employee? (y)es or (n)o: " ).lower()
             if action == "n":
@@ -295,8 +293,8 @@ class DestinationUI:
     def display_destination(self):
         ''' Calls for "load_destination_from_file" from "Destination_UI.py" to display every destination within the system. '''
         print()
-        self.__io_destination.load_destination_from_file()
-        print(self.__io_destination)
+        carl = self.__ll_destination.load_destination()
+            print(carl)
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
