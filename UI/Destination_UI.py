@@ -169,7 +169,7 @@ class DestinationUI:
                    break
                if action == 'q':
                    return "q"
-                self.frame.clear_all()
+                   self.frame.clear_all()
 
             destination += action + ","
             
