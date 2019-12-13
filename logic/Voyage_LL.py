@@ -30,12 +30,22 @@ class VoyageLL():
         """Gets a list of all the flights that day to that destination. Makes the flight number"""
         flight_list = self.__io_voyage.make_flight_list(destination_number, date)
         flight_system = ["NA","XX","X"]
+
         flight_system[1] = destination_number
-        length = len(flight_list) + 1 #The voyage we are making would be the next element in that list
-        flight_number1 = flight_system
-        flight_number1[-1] = length*2
-        flight_number2 = flight_system
-        flight_number2[-1] = length * 2 + 1
+
+        if len(flight_list) == 0:
+            length = len(flight_list)
+        else:
+            length = len(flight_list) + 1 #The voyage we are making would be the next element in that list
+
+        flight_number1 = flight_system.copy()
+        flight_number1[-1] = str(length*2)
+        flight_number2 = flight_system.copy()
+        flight_number2[-1] = str(length * 2 + 1)
+
+        flight_number1 = "".join(flight_number1)
+        flight_number2 = "".join(flight_number2)
+
         return flight_number1,flight_number2
     
     def create_voyage(self, new_voyage):
