@@ -7,7 +7,17 @@ class DestinationIO:
     HEADER = "Destination number | Destination name | Destination ID | Country | Airport | Flight time | Distance | Emergency contact | Emergency phone"
     def __init__(self):
         self.__airplane_list = list()
+        self.__destination_id_set = set()
         
+    def make_set(self,num):
+        with open(self.DESTINATION_FILE, "r",encoding= "Latin-1") as the_file:
+            reader = csv.reader(the_file)
+            for line in reader:
+                self.__destination_id_set.add(line[num])
+
+    def get_set(self,num):
+        self.make_set(num)
+        return self.__destination_id_set
 
     def load_destination_from_file(self):
         print(self.HEADER)
@@ -46,7 +56,7 @@ class DestinationIO:
         with open(self.DESTINATION_FILE, "w", encoding = "Latin-1", newline="") as csvfile:
             writer = csv.writer(csvfile)
             for line in reader:
-                if line[1] == des.upper():
+                if line[2] == des.upper():
                     line[change_index] = new
                     writer.writerow(line)
                     break

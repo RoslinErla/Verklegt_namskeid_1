@@ -1,5 +1,7 @@
 from model.DestinationM import Destination
 from IO. destinationIO import DestinationIO
+from datetime import datetime
+import datetime
 import string
 
 class DestinationLL(Destination):
@@ -7,15 +9,13 @@ class DestinationLL(Destination):
     def __init__(self):
         self.__destination = DestinationIO()
     
-    def check_if_exists(self, check):
-        employee_list = self.__employee.get_employee_list()
-        for lists in employee_list:
-            if check in lists:
+    def check_if_exists(self, check, num):
+        destination_set = self.__destination.get_set(num)
+        for elements in destination_set:
+            if check == elements:
                 return False
-        
         else: 
             return True
-
 
     def validate_destination_num(self, destination_num):
         if len(destination_num) <=2:
@@ -33,6 +33,7 @@ class DestinationLL(Destination):
                     return False
             return True
         return False
+
     
     def validate_destination_name(self, destination_name): #  Check if name only has alphabetical letters
         if type(destination_name) == str:
@@ -43,18 +44,29 @@ class DestinationLL(Destination):
         return False
     
     def validate_country_name(self, country_name):  # Eftir að búa til gögn fyrir þetta, geri ráð fyrir að það séu bara bókstafir
-        for letter in country_name:
-            if letter.isalpha():
-                return True
+        country_name = country_name.split()
+        for elements in country_name:
+            for letters in elements:
+                if not letters.isalpha():
+                    return False
+        return True
     
-    def validate_airport_name(self, airport_name): # Eftir að búa til gögn fyrir þetta, geri ráð fyrir að það séu bara bókstafir
-        for letter in airport_name:
-            if letter.isalpha():
-                return True
+    def validate_airport_name(self, airport_name):
+        airport_name = airport_name.split()
+        for elements in airport_name:
+            for letters in elements:
+                if not letters.isalpha():
+                    return False
+        return True
     
     def validate_flight_time(self, flight_time): # Eftir að búa til gögn fyrir þetta
-        # Ekki viss hvernig hann ætti að vera .. 
-        pass
+        hours,minutes = flight_time.split()
+        try:
+            flight_time = datetime.datetime(int(hours),int(minutes))
+            return True
+
+        except ValueError:
+            return False
 
     def validate_distance(self, distance): # Eftir að búa til gögn fyrir þetta, fjarlægð frá Íslandi, væntalega bara tölustafir
         for letter in distance:
@@ -63,9 +75,11 @@ class DestinationLL(Destination):
         return True
     
     def validate_contact_name(self, contact_name): # Búið að búa til nöfnin, þurfa að vera bókstafir
-        for letter in contact_name:
-            if not letter.isalpha():
-                return False
+        contact_name = contact_name.split()
+        for elements in contact_name:
+            for letter in contact_name:
+                if not letter.isalpha():
+                    return False
         return True
     
     def validate_contact_number(self, contact_number):
@@ -79,9 +93,14 @@ class DestinationLL(Destination):
         if len(flight_number) == 6:
             return True
         
+
+    def create_destination(self,new_destination):
+        destination_num, destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone = new_destination.split(",")
+        self.__destination.Add_destination_to_file(destination_num,destination_name,destination_id,country,airport,flight_time,distance,emergency_contact,emergency_phone)
+
     def change_destination(self, des, change, new):
         self.__destination.change_destination(des, change, new)
-            
+
 
 
 

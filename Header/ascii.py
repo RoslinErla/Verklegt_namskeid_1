@@ -5,28 +5,26 @@ import time
 
 class Frame:
     def __init__(self): 
-        self.get_size_of_screen() # get length of columns and rows of console window
+        self.window() # get length of columns and rows of console window
+        self.start_list = 
         self.logo = """
-_____   __      _____   __         _____        
+ _____   __      _____   __         _____        
 ___  | / /_____ ___  | / /  ______ ___(_)_______
 __   |/ /_  __ `/_   |/ /   _  __ `/_  /__  ___/
 _  /|  / / /_/ /_  /|  /    / /_/ /_  / _  /    
-/_/ |_/  \__,_/ /_/ |_/     \__,_/ /_/  /_/  
+/_/ |_/  \__,_/ /_/ |_/     \__,_/ /_/  /_/    
 """
 
+    def window(self):
+        self.rows, self.columns = os.popen("stty size", "r").read().split()
 
-    def get_size_of_screen(self):
-        if os.name == "nt":
-            import shutil
-            self.columns, self.rows = shutil.get_terminal_size()
-        else:
-            self.rows, self.columns = os.popen("stty size", "r").read().split()
-    
-    def clear_window(self):
+    def delete_line(self, n=1):
+        for _ in range(n):
+            sys.stdout.write("\x1b[2K")
+            sys.stdout.write("\x1b[2K")
+        
+    def clearing(self):
         os.system("cls" if os.name == "nt" else "clear")
 
-        #self.delete_last_lines(3) # delete 3 lines to remove the progress bar after it"s finished
-    
     def __str__(self):
-        """ Print header of application """
-        return "{}{}\n\n".format(self.logo,"bold")
+        return "{}\n\n\n".format(self.logo)
