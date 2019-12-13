@@ -40,15 +40,12 @@ class VoyageUI():
             
             elif action == "2":
                 print("Enter 1 to display a specific day.")
-                print("Enter 2 to display all of employees voyages. ")
 
                 action = input("Enter your command: ")
                 if action == "b" or action == "q":
                     break
                 if action == "1":
                     self.show_by_status_day()
-                elif action == "2":
-                    self.show_all_of_employees_voyages()
 
             if action == "q" or action == "b":
                 break
@@ -413,6 +410,6 @@ class VoyageUI():
     
         a = self.__ll_voyage.load_all_voyages(ssn)
         print(a)
-
+        input()
 
 

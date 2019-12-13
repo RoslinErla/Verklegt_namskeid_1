@@ -7,7 +7,7 @@ class VoyageIO:
     VOYAGE_FILE = "./files/voyage.csv"
     EMPLOYEE_FILE = "./files/employee.csv"
     DESTINATION_FILE = "./files/destination.csv"
-    HEADER = ""
+    CONSTANTS_LIST = ["start of journey", "departure time out","arriving abroad","arrival time abroad","fligh number out","departing to rvk", "departure time to RVK", "arrival time at RVK","plane_insignia","captain","co-pilot","fsm","fa1", "fa2","flight number"]
 
     def __init__(self):
         self.__voyage_list = list()
@@ -16,6 +16,9 @@ class VoyageIO:
 
     def get_voyage_list(self):
         return self.__voyage_list
+
+    def get_employee_set(self):
+        return self.__employees_set
 
 
     def get_all_voyages_for_employee(self,ssn):
@@ -33,6 +36,7 @@ class VoyageIO:
                     self.__employees_set.append(voyage)
         sorted_list = self.sort_to_display(self.__voyage_list)
         self.__voyage_list = sorted_list
+        return self.__voyage_list
 
 
 
@@ -151,5 +155,25 @@ class VoyageIO:
             writer.writerow([start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, flight_number1, 
             departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, 
             captain, co_pilot, fsm, fa1, fa2, flight_number2])
+
+    def change_voyage(self,date, change, new):
+        year,month,day,hour,minutes = date.split("/")
+        second = 00
+        date = "{}-{}-{} {}:{}:{}".format(year,month,day,hour,minutes,second)
+        change_index = self.CONSTANTS_LIST.index(change)
+
+        with open(self.VOYAGE_FILE) as thefile:
+            reader = csv.reader(thefile.readlines())
+
+        with open(self.VOYAGE_FILE, "w", encoding="Latin-1",newline="") as csvfile:
+            writer = csv.writer(csvfile)
+            for line in reader:
+                if line[2] == date:
+                    line[change_index] = new
+                    writer.writerow(line)
+                    break
+                else: 
+                    writer.writerow(line)
+            writer.writerows(reader)
 
 
