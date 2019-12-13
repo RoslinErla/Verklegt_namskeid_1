@@ -401,18 +401,9 @@ class VoyageUI():
         self.frame.clear_all()
 
     def show_by_status_week(self):
-<<<<<<< HEAD
         start_date = input("Please enter first date YYYY/mm/dd: ")
         end_date = input("Please enter the end date YYYY/mm/dd: ")
 
-=======
-        date = input("Please enter YYYY/mm/dd: ")
-        if date.lower() == "b":
-            self.voyage_menu()
-        if date.lower() == "q":
-            return "q"
-        self.frame.clear_all()
->>>>>>> 48e2f5b5738b64d1c7cb829a98b000694051de34
         print()
 
         print(self.__ll_voyage.show_voyages_in_a_week(start_date,end_date))

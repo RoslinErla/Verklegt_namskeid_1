@@ -113,24 +113,24 @@ class VoyageIO:
                 departure_date_home = datetime.date(int(year),int(month),int(day))
 
                 if (start_date_datetime >= departure_date_out or start_date_datetime >= departure_date_home) \
-                    and (end_date_datetime <= departure_date_out or end_date_datetime <= departure_date_home) \
-                    and (line["captain/pilot"] != "N/A" and line["co-pilot"] != "N/A" and line["fsm"] != "N/A"):
+                    and (end_date_datetime <= departure_date_out or end_date_datetime <= departure_date_home): 
+                    if (line["captain/pilot"] != "N/A" and line["co-pilot"] != "N/A" and line["fsm"] != "N/A"):
                     
-                    voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
-                    line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],
-                    line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
-                    line["fsm"], line["fa1"],line["fa2"], line["flight_number"],"Fully staffed")
+                        voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
+                        line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],
+                        line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
+                        line["fsm"], line["fa1"],line["fa2"], line["flight_number"],"Fully staffed")
                     
-                    a = True
-                    self.__voyage_list.append(voyage)
+                        a = True
+                        self.__voyage_list.append(voyage)
 
-                if not a: 
-                    voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
-                    line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],
-                    line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
-                    line["fsm"], line["fa1"],line["fa2"], line["flight_number"],"Not fully staffed")
-                    a = True
-                    self.__voyage_list.append(voyage)
+                    if not a: 
+                        voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
+                        line["arrival time abroad"],line["flight number out"], line["departing to RVK"], line["departure time to RVK"],
+                        line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
+                        line["fsm"], line["fa1"],line["fa2"], line["flight_number"],"Not fully staffed")
+                        a = True
+                        self.__voyage_list.append(voyage)
 
         sorted_list = self.sort_to_display(self.__voyage_list)
         self.__voyage_list = sorted_list
