@@ -35,12 +35,18 @@ class VoyageUI():
             if action == "1":
                 leave = self.new_voyage()
             
-            if action == "2":
+            elif action == "2":
                 leave = self.change_menu()
             
-            if action == "3":
-                leave = self.display_menu()
-        
+            elif action == "3":
+                print("Enter 1 to display a specific day.")
+                print("Enter 2 to display a specific week.")
+                action = input("Enter your command")
+                if action == "b" or action == "q":
+                    break
+                elif action == "1":
+                    self.show_by_status()
+
             if action == "q" or action == "b":
                 break
                         
@@ -409,6 +415,18 @@ class VoyageUI():
         for voyage in self.__voyage_list:
             return_str += voyage.__str__() + '\n'
         return return_str
+
+    def show_by_status(self):
+        date = input("Please enter YYYY/mm/dd: ")
+        if date.lower() == "b":
+            self.voyage_menu()
+        if date.lower() == "q":
+            return "q"
+        print()
+        print(self.__ll_voyage.show_voyages_on_a_day(date))
+        action = input('Enter "b" to go back and "q" to got to the main menu: ')
+        if action == "q":
+            return "q"
 
 
 

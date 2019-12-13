@@ -32,7 +32,7 @@ class AirplaneIO:
         with open(self.VOYAGE_FILE) as the_file:
             voyage_reader = csv.DictReader(the_file)
             for line in voyage_reader:
-                if line["departure time out"].split("T")[0] == date or line["departure time to RVK"].split("T")[0]== date:
+                if line["departure time out"].split(" ")[0] == date:
                     with open(self.AIRPLANE_FILE) as other_file:
                         airplane_reader = csv.DictReader(other_file)
                         for elements in airplane_reader:

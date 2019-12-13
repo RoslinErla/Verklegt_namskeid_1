@@ -79,9 +79,6 @@ class VoyageLL():
         pass                                   
         
 
-    def validate_employee(self):
-        pass
-
     def validate_departure(self,departure):
         try:
             year,month,day,hours,minutes = departure.split("/")
@@ -115,21 +112,9 @@ class VoyageLL():
             return False
         return True
        
-    
-    #def validate_arrival_time(self): # Þarf líklega ekki að validate-a, útfært sem datetime í UI
-        #pass
 
-    # def validate_aircraft_ID(self):  Þarf líklegast að import-a frá Airplane_LL
-        # pass
+    def show_voyages_on_a_day(self, date):
+        self.__io_voyage.display_voyages_on_a_day(date)
+        return self.__io_voyage.get_voyage_list()
 
-    def validate_SSN(self, SSN):
-        """ Validates that the Social security number (SSN) is 10 letters long and consists only of digits"""
-        if SSN != "N/A":
-            if self.check_if_exists(SSN):
-                return True
-            else: 
-                return False
-        return True
-        
-        # Kalla á fallið check_if_exist
        
