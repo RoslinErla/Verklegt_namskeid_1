@@ -249,12 +249,18 @@ class EmployeeUI():
         self.employeeio.display_status(a)
         print(self.employeeio)
         print()
+        action = input('Enter "b" to go back and "q" to got to the main menu: ')
+        if action == "q":
+            return "q"
 
     def show_by_aplha(self):
         print()
         self. employeeio.load_employee_from_file("alpha")
         print(self.employeeio)
         print()
+        action = input('Enter "b" to go back and "q" to got to the main menu: ')
+        if action == "q":
+            return "q"
 
     def show_by_rank(self,rank):
         print()
@@ -262,11 +268,17 @@ class EmployeeUI():
             self.employeeio.display_pilots("alpha")
             print(self.employeeio)
             print()
+            action = input('Enter "b" to go back and "q" to got to the main menu: ')
+            if action == "q":
+                return "q"
 
         if rank == "flight attendant":
             self.employeeio.display_flight_attendants()
             print(self.employeeio)
             print()
+            action = input('Enter "b" to go back and "q" to got to the main menu: ')
+            if action == "q":
+                return "q"
 
     def show_a_single_employee(self):
         self.employeeio.load_employee_from_file("alpha")
@@ -275,9 +287,15 @@ class EmployeeUI():
         self.employeeio.display_one_employee(ssn)
         print(self.employeeio)
         print()
+        action = input('Enter "b" to go back and "q" to got to the main menu: ')
+        if action == "q":
+            return "q"
 
     def show_by_licence(self):
         print()
         self.employeeio.display_pilots("permit")
         print(self.employeeio)
         print()
+        action = input('Enter "b" to go back and "q" to got to the main menu: ')
+        if action == "q":
+            return "q"
