@@ -1,8 +1,10 @@
 from logic.Airplane_LL import AirplaneLL 
+from UI.frame import Frame
 
 class AirplaneUI:
     def __init__(self):
         self.airplanell = AirplaneLL()
+        self.frame = Frame()
     
     def airplane_menu(self):
         ''' Presents the user with every interaction for "airplane_menu". '''
@@ -22,6 +24,7 @@ class AirplaneUI:
             print()
 
             action = action.lower()
+            self.frame.clear_all()
             
 
             if action == "1":
@@ -46,6 +49,7 @@ class AirplaneUI:
                 self.airplane_menu()
             elif action == "Q":
                 return 'q'
+            self.frame.clear_all()
         
             while not self.airplanell.validate_manufacturer(action):
                 print("Input is invalid!")
@@ -55,6 +59,7 @@ class AirplaneUI:
                 elif action == "Q":
                     return 'q'
             new_plane += action + ","
+            self.frame.clear_all()
 
 
 
@@ -63,6 +68,7 @@ class AirplaneUI:
                 self.airplane_menu()
             elif action == "Q":
                 return 'q'
+            self.frame.clear_all()
 
             while not self.airplanell.validate_typeID(action):
                 print("Input is invalid!")
@@ -72,12 +78,14 @@ class AirplaneUI:
                 elif action == "Q":
                     return 'q'
             new_plane += action + ","
+            self.frame.clear_all()
 
             action = input("Enter the plane insignia: ").upper()
             if action == "B":
                 self.airplane_menu()
             elif action == "Q":
                 return 'q'
+            self.frame.clear_all()
 
             while not self.airplanell.validate_plane_insignia(action):
                 print("Input is invalid!")
@@ -87,12 +95,14 @@ class AirplaneUI:
                 elif action == "Q":
                     return 'q'
             new_plane += action + ","
+            self.frame.clear_all()
 
             action = input("Enter the model: ").upper()
             if action == "B":
                 self.airplane_menu()
             elif action == "Q":
                 return 'q'
+            self.frame.clear_all()
 
             while not self.airplanell.validate_model(action):
                 print("Input is invalid!")
@@ -103,10 +113,13 @@ class AirplaneUI:
                     return 'q'
             new_plane += action
 
+            self.frame.clear_all()
+
             self.airplanell.create_plane(new_plane)
             action = input("Do you want to create another airplane? (y)es or (n)o: " ).lower()
             if action == "n":
                 return "q"
+            self.frame.clear_all()
     
     def show_pilots_by_airplane_type(self):
         ''' Presents the user with every pilot with the selected flight license '''
@@ -117,12 +130,15 @@ class AirplaneUI:
             return
         if type_id == "q":
             return "q"
+        self.frame.clear_all()
+
         employio = self.airplanell.display_by_licence(type_id)
         print(employio)
         print()
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
+        self.frame.clear_all()
     
     def show(self):
         ''' Presents the user with every plane within the system '''
@@ -132,6 +148,8 @@ class AirplaneUI:
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
+            
+        self.frame.clear_all()
 
     def show_by_status(self):
         pass
