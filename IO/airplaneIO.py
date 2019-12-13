@@ -12,6 +12,9 @@ class AirplaneIO:
         self.__airplane = Airplane()
         self.__airplane_set = set()
 
+    def get_airplane_list(self):
+        return self.__airplane_list
+
     def make_set(self,num):
         with open(self.AIRPLANE_FILE, "r",encoding= "Latin-1") as the_file:
             reader = csv.reader(the_file)
@@ -48,7 +51,8 @@ class AirplaneIO:
                 if airplane not in unavailable_list:
                     available_list.append(airplane)
 
-        return available_list
+        self.__airplane_list = available_list
+
 
     def load_airplane_from_file(self):
         print(self.HEADER)
@@ -63,6 +67,7 @@ class AirplaneIO:
 
     def __str__(self):
         return_str = ''
+        print('listinn', self.__airplane_list)
         for airplane in self.__airplane_list:
             return_str += airplane.__str__() + '\n'
         self.__airplane_list = list()

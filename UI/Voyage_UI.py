@@ -70,13 +70,15 @@ class VoyageUI():
         
         print('Enter "b" to go back and "q" to got to the main menu.')
  
-        while action != "q":
+        while True:
             self.__voyage_list = self.__ll_voyage.load_voyage_from_file()
             print(self.__voyage_list)
             print()
             date = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
             action = date
-            if action.lower() == 'b' or action.lower() == "q":
+            if action.lower() == 'b':
+                self.voyage_menu()
+            if action.lower() == "q":
                 return "q"
 
             while not self.__ll_voyage.validate_departure(action):
@@ -92,7 +94,9 @@ class VoyageUI():
             print(a)
             action = input("Enter the destination number: ")
             print()
-            if action.lower() == 'b' or action.lower() == "q":
+            if action.lower() == 'b':
+                self.voyage_menu()
+            if action.lower() == "q":
                 return "q"
 
             while not self.__ll_destination.check_if_exists(action,0):
@@ -101,7 +105,9 @@ class VoyageUI():
                 print(a)
                 action = input("Enter the destination: ")
                 print()
-                if action.lower() == 'b' or action.lower() == "q":
+                if action.lower() == 'b':
+                    self.voyage_menu()
+                if action.lower() == "q":
                     return "q"
 
             new_voyage += action + ","
@@ -111,14 +117,18 @@ class VoyageUI():
             plane_insignia = input("Enter the plane insignia of the airplane: ")
             action = plane_insignia
             print()
-            if action.lower() == 'b' or action.lower() == "q":
+            if action.lower() == 'b':
+                self.voyage_menu()
+            if action.lower() == "q":
                 return "q"
             while not self.__ll_airplane.check_if_in_available(date,action):
                 print("Input is invalid!")
                 plane_insignia = input("Enter the plane insignia of the airplane: ")
                 action = plane_insignia
                 print()
-                if action.lower() == 'b' or action.lower() == "q":
+                if action.lower() == 'b':
+                    self.voyage_menu()
+                if action.lower() == "q":
                     return "q"
             new_voyage += action + ","
 
@@ -126,14 +136,18 @@ class VoyageUI():
             print(a)
             print()
             action =  input("Enter the captain's SSN (0000000000): ")         # User inputs the SSN for the captain
-            if action.lower() == 'b' or action.lower() == "q":
+            if action.lower() == 'b':
+                self.voyage_menu()
+            if action.lower() == "q":
                 return "q"
             while not self.__ll_employee.check_if_in_available(date,"captain",action):
                 print("Input is invalid")
                 a = self.__ll_employee.check_if_available(date,"captain")
                 print(a)
                 action = input("Enter the captain's SSN (0000000000): ")
-                if action.lower() == 'b' or action.lower() == "q":
+                if action.lower() == 'b':
+                    self.voyage_menu()
+                if action.lower() == "q":
                     return "q"
 
             new_voyage += action + ","
@@ -143,7 +157,9 @@ class VoyageUI():
             print(a)
             print()
             action = input("Enter the co-pilot's SSN (0000000000): ")      # User inputs the SSN for the co-pilot
-            if action == 'b' or action.lower() == "q":
+            if action.lower() == 'b':
+                self.voyage_menu()
+            if action.lower() == "q":
                 return "q"
             while not self.__ll_employee.check_if_in_available(date,"co-pilot",action):
                 print("Input is invalid")
@@ -151,7 +167,9 @@ class VoyageUI():
                 print(a)
                 print()
                 action = input("Enter the co-pilot's SSN (0000000000): ")
-                if action.lower() == 'b'or action.lower() == "q":
+                if action.lower() == 'b':
+                    self.voyage_menu()
+                if action.lower() == "q":
                     return "q"
 
             new_voyage += action + ","
@@ -162,7 +180,9 @@ class VoyageUI():
 
             print()
             action = input("Enter the flight service manager's SSN (0000000000): ")  # User inputs the SSN for the fsm
-            if action.lower() == 'b' or action.lower() == "q":
+            if action.lower() == 'b':
+                self.voyage_menu()
+            if action.lower() == "q":
                 return "q"
             while not self.__ll_employee.check_if_in_available(date,"flight service manager",action):
                 print("Input is invalid")
@@ -170,7 +190,9 @@ class VoyageUI():
                 print(a)
                 print()
                 action = input("Enter the flight service manager's SSN (0000000000): ")
-                if action.lower() == 'b' or action.lower() == "q":
+                if action.lower() == 'b':
+                    self.voyage_menu()
+                if action.lower() == "q":
                     return "q"
 
             new_voyage += action + ","
@@ -179,12 +201,16 @@ class VoyageUI():
             print(a)
             print()            
             action = input("Enter the first flight attendant SSN (0000000000): ")   # User inputs the SSN for the first flight attendant
-            if action.lower() == 'b' or action.lower() =="q":
+            if action.lower() == 'b':
+                self.voyage_menu()
+            if action.lower() == "q":
                 return "q"
             while not self.__ll_employee.check_if_in_available(date,"flight attendant",action):
                 print("Input is invalid")
                 action = input("Enter the first flight servant's SSN (0000000000): ")
-                if action == 'b' or action.lower() == "q":
+                if action.lower() == 'b':
+                    self.voyage_menu()
+                if action.lower() == "q":
                     return "q"
 
             new_voyage += action + ","
@@ -194,12 +220,16 @@ class VoyageUI():
             print(a)
             print()            
             action = input("Enter the first flight attendant SSN (0000000000): ")   # User inputs the SSN for the first flight attendant
-            if action.lower() == 'b' or action.lower() =="q":
+            if action.lower() == 'b':
+                self.voyage_menu()
+            if action.lower() == "q":
                 return "q"
             while not self.__ll_employee.check_if_in_available(date,"flight attendant",action):
                 print("Input is invalid")
                 action = input("Enter the first flight servant's SSN (0000000000): ")
-                if action == 'b' or action.lower() == "q":
+                if action.lower() == 'b':
+                    self.voyage_menu()
+                if action.lower() == "q":
                     return "q"
 
             new_voyage += action
@@ -296,16 +326,16 @@ class VoyageUI():
        
         while True:                                                       # ..og maður ýtir á q ferð maður bara til baka í voyage_menu...ekki main menu 
             action = input("Enter a date: ")
-            if action == 'b':
-                self.display_menu()
-            if action == 'q':
+            if action.lower() == 'b':
+                self.voyage_menu()
+            if action.lower() == "q":
                 return "q"
             while not self.__ll_destination.validate_distance(action):       # Nota distance núna því bara tölur MUNA :Breyta í DATETIME validated
                 print("Input is invalid")
                 action = input("Enter a date: ")
                 if action == 'b':
                     self.display_menu()
-                if action == 'q':
+                if action.lower() == "q":
                     return "q"
             display_voyages += action
             

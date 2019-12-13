@@ -49,10 +49,14 @@ class AirplaneLL(Airplane):
         self.__airplaneio.check_if_available(date)
         return str(self.__airplaneio)
 
+    def check_if_matches(self,date):
+        self.__airplaneio.check_if_available(date)
+        return self.__airplaneio.get_airplane_list()
+
     def check_if_in_available(self,date,plane_insignia):
-        a = self.check_if_available(date)
-        for elements in a:
-            if elements[2] == plane_insignia:
+        a = self.check_if_matches(date)
+        for airplane in a:
+            if airplane.get_plane_insignia() == plane_insignia:
                 return True
         return False
 
