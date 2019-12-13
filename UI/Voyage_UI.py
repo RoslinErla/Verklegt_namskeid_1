@@ -83,7 +83,7 @@ class VoyageUI():
 
             while not self.__ll_voyage.validate_departure(action):
                 print("Input is invalid!")
-                action = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
+                action = input("Enter the departure time fr4om Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
                 if action.lower() == 'b':
                     self.voyage_menu()
                 if action.lower() == "q":
