@@ -47,7 +47,7 @@ class AirplaneLL(Airplane):
 
     def check_if_available(self,date):
         self.__airplaneio.check_if_available(date)
-        return str(self.__airplaneio)
+        return self.__airplaneio.__str__()
 
     def check_if_in_available(self,date,plane_insignia):
         a = self.check_if_available(date)

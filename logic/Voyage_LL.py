@@ -39,17 +39,20 @@ class VoyageLL():
         return flight_number1,flight_number2
     
     def create_voyage(self, new_voyage):
-        start_of_journey , departure_time_out, arriving_abroad, departure_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2= new_voyage.split(",")
+        start_of_journey , departure_time_out, arriving_abroad, aircraft_ID, captain, co_pilot, fsm, fa1, fa2= new_voyage.split(",")
 
         year,month,day,hour,minutes = departure_time_out.split("/")
         date = "{}-{}-{}".format(year,month,day)
+        departure_time_out_datetime = datetime.datetime(int(year,month,day,hour,minutes))
 
         flight_time = self.__io_voyage.get_flight_time(arriving_abroad)
         hours, minutes = flight_time.split(".")
-        flight_time = datetime.time(int(hours),int(minutes))
-        arrival_time_abroad = departure_time_out + flight_time
+
+        arrival_time_abroad = departure_time_out_datetime + datetime.timedelta(hours = int(hours), minutes = int(minutes))
         departing_to_RVK = "KEF"
-        arrival_time_home = 0
+        departure_time_home = arrival_time_abroad + datetime.timedelta(hours = 1)
+        arrival_time_home = departure_time_home + datetime.timedelta(hours= int(hours), minutes = int(minutes))
+
         flight_number1,flight_number2 = self.make_flight_number(date,arriving_abroad)
 
         captain = self.__io_voyage.transform_ssn_into_user_name(captain)

@@ -48,7 +48,8 @@ class AirplaneIO:
                 if airplane not in unavailable_list:
                     available_list.append(airplane)
 
-        return available_list
+        self.__airplane_list = available_list
+
 
     def load_airplane_from_file(self):
         print(self.HEADER)
@@ -63,6 +64,7 @@ class AirplaneIO:
 
     def __str__(self):
         return_str = ''
+        print('listinn', self.__airplane_list)
         for airplane in self.__airplane_list:
             return_str += airplane.__str__() + '\n'
         self.__airplane_list = list()
