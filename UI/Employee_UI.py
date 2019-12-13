@@ -1,10 +1,12 @@
 from logic.Employee_LL import EmployeeLL
 import datetime
+from UI.frame import Frame
 
 class EmployeeUI():
     
     def __init__(self):
         self.employeell = EmployeeLL()
+        self.frame = Frame()
     def employee_menu(self):
         action = ""
         leave = ''
@@ -26,6 +28,7 @@ class EmployeeUI():
             print()
 
             action = action.lower()
+            self.frame.clear_all()
 
             if action == "1":
                 leave = self.call_on_validate_and_create()
@@ -50,6 +53,9 @@ class EmployeeUI():
         print('Enter "b" to go back and "q" to got to the main menu.')
         action = ""
         new_employee = ""
+
+        self.frame.clear_all()
+
         while action.lower() != 'q':
             action = input("Enter the ssn: ")
             if action == 'b':
@@ -63,6 +69,8 @@ class EmployeeUI():
                     break
                 elif action == 'q':
                     return 'q'
+            
+            self.frame.clear_all()
 
             new_employee += action + ","
 
@@ -72,6 +80,8 @@ class EmployeeUI():
                     break
             elif action == 'q':
                 return 'q'
+            
+            self.frame.clear_all()
 
             while not self.employeell.validate_name(action):
                 print("Input is invalid!")
@@ -81,6 +91,8 @@ class EmployeeUI():
                 if action == 'q':
                     return 'q'
 
+            self.frame.clear_all()
+
             new_employee += action + ","
 
             action = input("Enter the address: ")
@@ -88,6 +100,8 @@ class EmployeeUI():
                     break
             elif action == 'q':
                 return 'q'
+
+            self.frame.clear_all()
 
             while not self.employeell.validate_address(action):
                 print("input is invalid!")
@@ -99,12 +113,15 @@ class EmployeeUI():
     
             new_employee += action + ","
 
+            self.frame.clear_all()
+
             action = input("Enter the phone number: ")
 
             if action == 'b':
                     break
             elif action == 'q':
                 return 'q'
+            self.frame.clear_all()
 
             while not self.employeell.validate_phone_number(action):
                 print("Input is invalid!")
@@ -113,6 +130,7 @@ class EmployeeUI():
                     break
                 elif action == 'q':
                     return 'q'
+                self.frame.clear_all()
 
             new_employee += action + ","
 
@@ -121,6 +139,7 @@ class EmployeeUI():
                     break
             elif action == 'q':
                 return 'q'
+            self.frame.clear_all()
 
             while not self.employeell.validate_user_name(action):
                 print("Input is invalid!")
@@ -130,6 +149,7 @@ class EmployeeUI():
                 if action == 'q':
                     return 'q'
             new_employee += action + ","
+            self.frame.clear_all()
 
             action = input("Enter the rank (flight attendant, flight service manager, co-pilot or captain): ")
             
@@ -137,6 +157,7 @@ class EmployeeUI():
                     break
             elif action == 'q':
                 return 'q'
+            self.frame.clear_all()
 
             while not self.employeell.validate_rank(action):
                 print("Input is invalid!")
@@ -145,6 +166,7 @@ class EmployeeUI():
                     break
                 if action == 'q':
                     return 'q'
+            self.frame.clear_all()
                 
             new_employee += action + ","
 
@@ -154,6 +176,7 @@ class EmployeeUI():
                     break
             elif action == 'q':
                 return 'q'
+            self.frame.clear_all()
 
             while not self.employeell.validate_permit(action):
                 print("Input is invalid!")
@@ -162,6 +185,7 @@ class EmployeeUI():
                     break
                 if action == 'q':
                     return 'q'
+                self.frame.clear_all()
 
             new_employee += action
 
@@ -170,6 +194,7 @@ class EmployeeUI():
             action = input("Do you want to create a new employee? (y)es or (n)o: " ).lower()
             if action == "n":
                 return "q"
+            self.frame.clear_all()
 
 
     def call_on_validate_and_change(self):
@@ -190,6 +215,7 @@ class EmployeeUI():
             print("Enter 'b' to go back to the employee menu")
 
             action = input("Please enter your command: ")
+            self.frame.clear_all()
 
             if action == "b":
                 break
@@ -211,6 +237,7 @@ class EmployeeUI():
                         break
                     elif action == 'q':
                         return 'q'
+                    self.frame.clear_all()
 
             elif action == "2":
                 change = "address"
@@ -227,6 +254,8 @@ class EmployeeUI():
                     elif action == 'q':
                         return 'q'
 
+                    self.frame.clear_all()
+
             elif action == "3":
                 change = "phone_number"
                 action = input("please enter the new entry for {}: ".format(change))
@@ -234,6 +263,7 @@ class EmployeeUI():
                     break
                 elif action == 'q':
                     return 'q'
+                self.frame.clear_all()
                 while not self.employeell.validate_phone_number(action):
                     print("input is invalid")
                     action = input("please enter the new entry for {}: ".format(change))
@@ -242,6 +272,8 @@ class EmployeeUI():
                     elif action == 'q':
                         return 'q'
 
+                    self.frame.clear_all()
+
             elif action == "4":
                 change = "user_name"
                 action = input("please enter the new entry for {}: ".format(change))
@@ -249,6 +281,9 @@ class EmployeeUI():
                     break
                 elif action == 'q':
                     return 'q'
+
+                self.frame.clear_all()
+
                 while not self.employeell.validate_user_name(action):
                     print("input is invalid")
                     action = input("please enter the new entry for {}: ".format(change))
@@ -256,12 +291,17 @@ class EmployeeUI():
                         break
                     elif action == 'q':
                         return 'q'
+                    
+                    self.frame.clear_all()
 
             self.employeell.change_employee(ssn, change, action)
 
             action = input("Do you want to change another employee? (y)es or (n)o: " ).lower()
             if action == "n":
                 return "q"
+
+            self.frame.clear_all()
+
     
     def show_by_status(self):
         a = input("Please enter YYYY/mm/dd: ")
@@ -276,6 +316,8 @@ class EmployeeUI():
         if action == "q":
             return "q"
 
+        self.frame.clear_all()
+
     def show_by_aplha(self):
         print()
         employio = self.employeell.sort_employees_by_alpha()
@@ -284,6 +326,8 @@ class EmployeeUI():
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
+
+        self.frame.clear_all()
 
     def show_by_rank(self,rank):
         print()
@@ -303,6 +347,8 @@ class EmployeeUI():
             if action == "q":
                 return "q"
 
+            self.frame.clear_all()
+
     def show_a_single_employee(self):
         employio = self.employeell.sort_employees_by_alpha()
         print(employio)
@@ -311,6 +357,9 @@ class EmployeeUI():
             self.employee_menu()
         elif ssn == 'q':
             return 'q'
+
+        self.frame.clear_all()
+
         while not self.employeell.check_for_ssn(ssn):
             print("Invalid input!")
             ssn = input("Enter the ssn: ")
@@ -318,12 +367,16 @@ class EmployeeUI():
                 self.employee_menu()
             if ssn == 'q':
                 return 'q'
+            self.frame.clear_all()
+
         employio = self.employeell.show_single_employee(ssn)
         print(employio)
         print()
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
+        
+        self.frame.clear_all()
 
     def show_by_licence(self):
         print()
@@ -333,3 +386,8 @@ class EmployeeUI():
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
+<<<<<<< HEAD
+            
+        self.frame.clear_all()
+=======
+>>>>>>> 165cdb920dfbd90867c676a628f84874ffa61580
