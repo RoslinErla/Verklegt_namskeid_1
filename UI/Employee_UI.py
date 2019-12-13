@@ -242,6 +242,10 @@ class EmployeeUI():
     
     def show_by_status(self):
         a = input("Please enter dd/mm/YYYY: ")
+        if a == "b":
+            self.employee_menu()
+        if a == "q":
+            return "q"
         print()
         b = self.employeell.show_by_status(a)
         print(b)
