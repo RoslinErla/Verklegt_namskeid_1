@@ -26,8 +26,7 @@ class VoyageUI():
         while leave != "q":
             print("The following actions are possible: ")
             print("\tEnter 1 to create a voyage within the system.")
-            print("\tEnter 2 to change staff on voyages already within the system.")
-            print("\tEnter 3 to display voyages within the system.")
+            print("\tEnter 2 to display voyages within the system.")
             print("Enter b or q to got to the main menu.")
            
             action = input("Please enter your command: ").lower()
@@ -35,6 +34,7 @@ class VoyageUI():
             if action == "1":
                 leave = self.new_voyage()
             
+<<<<<<< HEAD
             elif action == "2":
                 leave = self.change_menu()
             
@@ -47,27 +47,13 @@ class VoyageUI():
                 elif action == "1":
                     self.show_by_status()
 
+=======
+            if action == "2":
+                leave = self.display_menu()
+        
+>>>>>>> 5ca839fc876b02ad16a93c0596543c5fe5f0eb29
             if action == "q" or action == "b":
                 break
-                        
-        
-    def change_menu(self):
-        """After the user has chosen the "change" option, he has two new options"""
-        action = ""
-        while leave != "q":
-            action = input("Please enter your commmand: ").lower()
-        
-            if action == "1":
-                action = self.change_voyage_state()
-        
-            if action == "2":
-                action = self.__ui_destination.change_contact()
-        
-            if action == 'b':
-                self.voyage_menu() 
-        
-            if action == 'q':
-                return "q"
 
     def new_voyage(self):
         """The user has chosen to create a new voyage"""
@@ -89,7 +75,7 @@ class VoyageUI():
 
             while not self.__ll_voyage.validate_departure(action):
                 print("Input is invalid!")
-                action = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
+                action = input("Enter the departure time fr4om Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
                 if action.lower() == 'b':
                     self.voyage_menu()
                 if action.lower() == "q":
@@ -271,58 +257,6 @@ class VoyageUI():
                 self.voyage_menu() 
         
             if action == 'q':
-                return "q"
-                  
-
-                          
-    def change_voyage_state(self):                                      
-        """The user has chosen to change the status of the voyage"""     
-        print('Enter "b" to go back and "q" to got to the main menu.')
-        action = ""
-        voyage_state = ""
-        while True: 
-            print()
-            self.__io_destination.load_destination_from_file()
-            print(self.__io_destination)
-            print()
-            des = input("Enter destination: ")             # vantar validate
-            print()
-            if des == 'b':
-                self.change_menu()
-            if des == 'q':
-                return "q"
-            while not self.__ll_destination.validate_destination_name(action):
-                print("Input is invalid!")
-                self.__io_destination.load_destination_from_file()
-                print(self.__io_destination)
-                action = input("Enter the destination: ")
-                print()
-                if action == 'b':
-                    self.display_menu()
-                if action == 'q':
-                    return "q"
-            voyage_state += action
-            
-            #date_time = input("Enter date and time: ")
-            #if date_time == 'b':
-                #self.change_menu()
-            #if date_time == 'q':
-                #return "q"
-            change = input("Please enter what you wish to change: ")
-            if change == "q":
-                return "q"
-            if change == "b":
-                self.change_menu()
-            new = input("Please enter the new entry for {}".format(change))
-            if new == "q":
-                return "q"
-            if new == "b":
-                self.change_menu()
-            print()
-            self.__ll_destination.change_destination(des, change, new)       #(des, change, new)  
-
-            action = input("Do you want to change another voyage status? (y)es or (n)o: " ).lower()
-            if action == "n":
                 return "q"                          
 
     def daily_list(self):

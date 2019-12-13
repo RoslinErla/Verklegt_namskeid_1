@@ -85,10 +85,13 @@ class VoyageLL():
             departure = datetime.datetime(int(year),int(month),int(day),int(hours),int(minutes))
             now = datetime.datetime.now()
             if now < departure:
-                return True
+                if validate_departure_availability(self):
+                    return True
         except ValueError:
             return False
         
+    def validate_departure_availability(self):
+        pass
 
     # Here comes validations form the former Flight_LL class
 
