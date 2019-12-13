@@ -224,7 +224,6 @@ class DestinationUI:
         action = ""
         contact = ""
         print('Enter "b" to go back and "q" to got to the main menu.')    # q virkar bara eins og b
-        delete_line(100)
         while True:
             print()
             carl = self.__ll_destination.load_destination()
