@@ -28,7 +28,7 @@ class DestinationUI:
             elif action == "2":
                 leave =  self.change_contact()
             elif action == "3":
-                leave == self.display_destination()
+                leave = self.display_destination()
             elif action == "b" or action == "q":
                 break
             
@@ -257,6 +257,7 @@ class DestinationUI:
         print()
         self.__io_destination.load_destination_from_file()
         print(self.__io_destination)
-        input("Press 'q' to go back: ")
-        print()
+        action = input('Enter "b" to go back and "q" to got to the main menu: ')
+        if action == "q":
+            return "q"
             
