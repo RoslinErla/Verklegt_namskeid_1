@@ -280,6 +280,10 @@ class EmployeeUI():
         employio = self.employeell.sort_employees_by_alpha()
         print(employio)
         ssn = input("enter the ssn of the employee you want to see: ")
+        if ssn == 'b':
+            break
+        elif ssn == 'q':
+            return 'q'
         while not self.employeell.check_for_ssn(ssn):
             print("Invalid input!")
             action = input("Enter the ssn: ")
