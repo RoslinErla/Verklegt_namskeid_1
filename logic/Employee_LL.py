@@ -24,6 +24,9 @@ class EmployeeLL():
         else: 
             return True
 
+    def display_pilots_by_licence(self,plane_insignia):
+        return self.__employee.display_by_licence(plane_insignia)
+
     def validate_name(self,name):
         """Checks if name is valid and Returns True if it is valid"""
         name = name.split()
@@ -63,6 +66,16 @@ class EmployeeLL():
                 return False
 
         return True
+
+    def check_if_available(self,date,rank):
+        return self.__employee.check_if_available_and_has_licence(date,rank)
+
+    def check_if_in_available(self,date,rank,ssn):
+        a = self.check_if_available(date,rank)
+        for elements in a:
+            if elements[0] == ssn:
+                return True
+        return False
 
     def validate_user_name(self, user):
         """Checks if the user name is valid. Returns True if it is valid"""

@@ -13,9 +13,9 @@ class DestinationLL(Destination):
         destination_set = self.__destination.get_set(num)
         for elements in destination_set:
             if check == elements:
-                return False
+                return True
         else: 
-            return True
+            return False
 
     def validate_destination_num(self, destination_num):
         if len(destination_num) <=2:
@@ -92,7 +92,10 @@ class DestinationLL(Destination):
         """ Validates that the flight number is 6 letters long"""     # Mögulega að setja inn þá virkni að fyrstu 2 stafirnir þurfi að vera NA
         if len(flight_number) == 6:
             return True
-        
+
+    def load_destination_from_file(self):
+        return self.__destination.load_destination_from_file()
+
 
     def create_destination(self,new_destination):
         destination_num, destination_name, destination_id, country, airport, flight_time, distance, emergency_contact, emergency_phone = new_destination.split(",")

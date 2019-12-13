@@ -18,13 +18,9 @@ class VoyageUI():
     def __init__(self):
         self.__ll_voyage = VoyageLL()
         self.__ll_destination = DestinationLL()
-        self.__io_destination = DestinationIO()
         self.__ui_destination = DestinationUI()
-        self.__io_voyage = VoyageIO()
         self.__ll_employee = EmployeeLL()
-        self.__io_employee = EmployeeIO()
         self.__ll_airplane = AirplaneLL()
-        self.__io_airplane = AirplaneIO()
 
     def voyage_menu(self): 
         """ The user can choose between the create, change and display options in the system"""
@@ -82,7 +78,8 @@ class VoyageUI():
             self.__io_voyage.load_voyage_from_file()
             print(self.__io_voyage)
             print()
-            action = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
+            date = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
+            action = date
             if action.lower() == 'b' or action.lower() == "q":
                 return "q"
 
@@ -95,8 +92,8 @@ class VoyageUI():
             new_voyage += action + ","
             
             
-            self.__io_destination.load_destination_from_file()
-            print(self.__io_destination)
+            a = self.__ll_destination.load_destination_from_file()
+            print(a)
             action = input("Enter the destination number: ")
             print()
             if action.lower() == 'b' or action.lower() == "q":
@@ -113,32 +110,29 @@ class VoyageUI():
 
             new_voyage += action + ","
 
-            self.__io_airplane.load_airplane_from_file()
-            print(self.__io_airplane)
-            action = input("Enter the plane insignia of the airplane: ")
+            available_list = self.__ll_airplane.check_if_available(date)
+            print(available_list)
+            plane_insignia = input("Enter the plane insignia of the airplane: ")
+            action = plane_insignia
             print()
             if action.lower() == 'b' or action.lower() == "q":
                 return "q"
-            while not self.__ll_airplane.check_if_exists(2):
+            while not self.__ll_airplane.check_if_in_available(date,action):
                 print("Input is invalid!")
-                action = input("Enter the plane insignia of the airplane: ")
+                plane_insignia = input("Enter the plane insignia of the airplane: ")
+                action = plane_insignia
                 print()
-                if action == 'b':
-                    self.create_menu()
-                if action == 'q':
+                if action.lower() == 'b' or action.lower() == "q":
                     return "q"
             new_voyage += action + ","
 
-
-            self.__io_employee.display_pilots("alpha")
-            print(self.__io_employee)
+            a = self.__ll_employee.check_if_available(date,"captain")
+            print(a)
             print()
             action =  input("Enter the captain's SSN (0000000000): ")         # User inputs the SSN for the captain
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
+            if action.lower() == 'b' or action.lower() == "q":
                 return "q"
-            while not self.__ll_voyage.validate_SSN(action):
+            while not self.__ll_employee.check_if_in_available(date,"captain",action):
                 print("Input is invalid")
                 self.__io_employee.display_pilots("alpha")
                 print(self.__io_employee)
@@ -169,6 +163,7 @@ class VoyageUI():
                     self.create_menu()
                 if action == 'q':
                     return "q"
+
             new_voyage += action + ","
             
 
@@ -394,6 +389,7 @@ class VoyageUI():
                                    #  þarf að breyta strengnum í hlut, t.a.m. með dateutil.parser,
 
         # VANTAR Birta lista vinnuferða þar sem sést hvaða ferðum er lokið, lent ytra og eða felld niður
+
         
 
 

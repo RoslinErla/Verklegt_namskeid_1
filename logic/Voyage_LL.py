@@ -95,7 +95,7 @@ class VoyageLL():
     def validate_SSN(self, SSN):
         """ Validates that the Social security number (SSN) is 10 letters long and consists only of digits"""
         if SSN != "N/A":
-            if self.check_if_exist(SSN):
+            if self.check_if_exists(SSN):
                 return True
             else: 
                 return False
