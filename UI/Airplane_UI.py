@@ -1,7 +1,5 @@
 from logic.Airplane_LL import AirplaneLL 
 
-
-
 class AirplaneUI:
     def __init__(self):
         self.airplanell = AirplaneLL()
@@ -17,6 +15,7 @@ class AirplaneUI:
             print('\t1. enter "1" to create a new plane within the system.')
             print('\t2. enter "2" to display pilots with a specific licence')
             print('\t3. enter "3" to display planes within the system.')
+            print('\t4. enter "4" to display planes by their status.')
             print('Enter "b" to go back and "q" to got to the main menu.')
 
             action = input("Please enter your command: ")
@@ -31,6 +30,8 @@ class AirplaneUI:
                 leave = self.show_pilots_by_airplane_type()
             if action == "3":
                 leave = self.show()
+            if action == "4":
+                leave = self.show_by_status()
             if action == "b" or action == "q":
                 break
 
@@ -131,4 +132,7 @@ class AirplaneUI:
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
+
+    def show_by_status(self):
+        pass
 
