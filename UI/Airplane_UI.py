@@ -119,35 +119,10 @@ class AirplaneUI:
             return "q"
         self.employeeio.display_by_licence(type_id)
         print(self.employeeio)
-
-
-
-    # def call_on_validate_and_change(self):
-    #     while True:
-    #         self.airplaneio.load_airplane_from_file()
-    #         print(self.airplaneio)
-    #         print()
-    #         planeinsignia = input("Please enter the Plane Insignia of the employee who's information you want to edit: ")
-    #         if planeinsignia == "q":
-    #             return "q"
-    #         if planeinsignia == "b":
-    #             break
-    #         change = input("Please enter what you wish to change: ")
-    #         if change == "q":
-    #             return "q"
-    #         if change == "b":
-    #             break
-    #         new = input("Please enter the new entry for {}".format(change))
-    #         if new == "q":
-    #             return "q"
-    #         if new == "b":
-    #             break
-    #         print()
-    #         self.airplanell.change_plane(planeinsignia, change, new)
-    #         action = input("Do you want to change another airplane? (y)es or (n)o: " ).lower()
-    #         if action == "n":
-    #             action = "q"
-        
+        print()
+        action = input('Enter "b" to go back and "q" to got to the main menu: ')
+        if action == "q":
+            return "q"
     
     def show(self):
         ''' Presents the user with every plane within the system '''
@@ -155,14 +130,7 @@ class AirplaneUI:
         self.airplaneio.load_airplane_from_file()
         print(self.airplaneio)
         print()
+        action = input('Enter "b" to go back and "q" to got to the main menu: ')
+        if action == "q":
+            return "q"
 
-    # def print_status(self,a_list):
-    #     return "{:12} | {:15} | {:15} | {:6}".format(self.__manufacturer, self.__type_ID, self.__plane_insignia, self.__model)
-        
-
-    # def status(self):
-    #     a.print_status()
-
-
-    # flight_number = [NA,X,X,X]
-    # joined = flight_number.join()

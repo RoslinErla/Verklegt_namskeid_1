@@ -24,9 +24,11 @@ class VoyageLL():
     def make_flight_number(self,date,destination_number):
         flight_system = ["NA","XX","X"]
         flight_system[1] = destination_number
-        pass
+        flight_number1 = flight_system
+        flight_number1[-1] = len(flight_list)*2
+        flight_number2 = flight_system
+        flight_number2 = len(flight_list) + 1
     
-
     def create_voyage(self, new_voyage):
         start_of_journey , departure_time_out, arriving_abroad, departure_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2= new_voyage.split(",")
         flight_time = self.__io_voyage.get_flight_time(arriving_abroad)
