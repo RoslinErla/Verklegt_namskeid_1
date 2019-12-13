@@ -37,7 +37,6 @@ class EmployeeIO:
         self.make_user_name_set()
         return self.__user_name_set
 
-
     def load_employee_from_file(self,sort_type):
         print(self.__header)
 
