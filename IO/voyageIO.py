@@ -68,27 +68,36 @@ class VoyageIO:
 
         return user_name
 
-    def make_flight_list(self,destination_id,date):
+    def get_destination_id(self,destination_num):
+        with open(self.DESTINATION_FILE) as the_file:
+            reader = csv.DictReader(the_file)
+            for line in reader:
+                if line["destination number"] == destination_num:
+                    return line["destination id"]
+
+    def make_flight_list(self,destination_num,date):
+
+        destination_id = self.get_destination_id(destination_num)
         flight_list = list()
         with open(self.VOYAGE_FILE) as csvfile:
             reader = csv.DictReader(csvfile)
             for line in reader:
-                if line ["departure_time_out"] == date and line["arriving abroad"] == destination_id:
+                if line ["departure_time_out"].split("T")[0] == date and line["arriving abroad"] == destination_id:
                     voyage = Voyage(line["start of journey"],line["departure time out"],line["arriving abroad"],
                     line["arrival time abroad"], line["departing to RVK"], line["departure time to RVK"],
                     line["arrival time at RVK"], line["plane_insignia"], line["captain/pilot"], line["co-pilot"], 
                     line["fsm"], line["fa1"],line["fa2"], line["flight_number"])
                     flight_list.append(voyage)
 
-        return fligh_list
+        return flight_list
 
 
-    def Add_voyage_to_file(self, start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number):
+    def Add_voyage_to_file(self, start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, flight_number1, departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, captain, co_pilot, fsm, fa1, fa2, flight_number2):
         """opens the voyage file and appends the new voyage to it"""
         with open(self.VOYAGE_FILE, "a", encoding="Latin-1", newline = "") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, 
+            writer.writerow([start_of_journey, departure_time_out, arriving_abroad, arrival_time_abroad, flight_number1, 
             departing_to_RVK, departure_time_home, arrival_time_home, aircraft_ID, 
-            captain, co_pilot, fsm, fa1, fa2, flight_number])
+            captain, co_pilot, fsm, fa1, fa2, flight_number2])
 
 
