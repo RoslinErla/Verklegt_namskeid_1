@@ -8,6 +8,7 @@ from datetime import datetime
 import datetime
 from datetime import date
 import string
+from UI.frame import Frame
 
 class VoyageUI():
 
@@ -18,6 +19,7 @@ class VoyageUI():
         self.__ll_employee = EmployeeLL()
         self.__ll_airplane = AirplaneLL()
         self.__voyage_list = list()
+        self.frame = Frame()
 
     def voyage_menu(self): 
         """ The user can choose between the create, change and display options in the system"""
@@ -30,6 +32,8 @@ class VoyageUI():
             print("Enter b or q to got to the main menu.")
            
             action = input("Please enter your command: ").lower()
+
+            self.frame.clear_all()
 
             if action == "1":
                 leave = self.new_voyage()
@@ -47,6 +51,7 @@ class VoyageUI():
 
             if action == "q" or action == "b":
                 break
+            self.frame.clear_all()
 
     def new_voyage(self):
         """The user has chosen to create a new voyage"""
@@ -65,6 +70,7 @@ class VoyageUI():
                 self.voyage_menu()
             if action.lower() == "q":
                 return "q"
+            self.frame.clear_all()
 
             while not self.__ll_voyage.validate_departure(action):
                 print("Input is invalid!")
@@ -75,6 +81,7 @@ class VoyageUI():
                     return "q"
 
             new_voyage += action + ","
+            self.frame.clear_all()
             
             
             a = self.__ll_destination.load_destination_from_file()
@@ -85,6 +92,7 @@ class VoyageUI():
                 self.voyage_menu()
             if action.lower() == "q":
                 return "q"
+            self.frame.clear_all()
 
             while not self.__ll_destination.check_if_exists(action,0):
                 print("Input is invalid!")
@@ -98,6 +106,7 @@ class VoyageUI():
                     return "q"
 
             new_voyage += action + ","
+            self.frame.clear_all()
 
             available_list = self.__ll_airplane.check_if_available(date)
             print(available_list)
@@ -108,6 +117,9 @@ class VoyageUI():
                 self.voyage_menu()
             if action.lower() == "q":
                 return "q"
+
+            self.frame.clear_all()
+
             while not self.__ll_airplane.check_if_in_available(date,action):
                 print("Input is invalid!")
                 plane_insignia = input("Enter the plane insignia of the airplane: ")
@@ -119,6 +131,8 @@ class VoyageUI():
                     return "q"
             new_voyage += action + ","
 
+            self.frame.clear_all()
+
             a = self.__ll_employee.check_if_available(date,"captain")
             print(a)
             print()
@@ -127,6 +141,9 @@ class VoyageUI():
                 self.voyage_menu()
             if action.lower() == "q":
                 return "q"
+
+            self.frame.clear_all()
+
             while not self.__ll_employee.check_if_in_available(date,"captain",action):
                 print("Input is invalid")
                 a = self.__ll_employee.check_if_available(date,"captain")
@@ -139,6 +156,7 @@ class VoyageUI():
 
             new_voyage += action + ","
 
+            self.frame.clear_all()
 
             a = self.__ll_employee.check_if_available(date,"co-pilot")
             print(a)
@@ -148,6 +166,8 @@ class VoyageUI():
                 self.voyage_menu()
             if action.lower() == "q":
                 return "q"
+            self.frame.clear_all()
+
             while not self.__ll_employee.check_if_in_available(date,"co-pilot",action):
                 print("Input is invalid")
                 a = self.__ll_employee.check_if_available(date,"co-pilot")
@@ -160,6 +180,8 @@ class VoyageUI():
                     return "q"
 
             new_voyage += action + ","
+
+            self.frame.clear_all()
             
 
             a = self.__ll_employee.check_if_available(date,"flight service manager")
@@ -171,6 +193,9 @@ class VoyageUI():
                 self.voyage_menu()
             if action.lower() == "q":
                 return "q"
+
+            self.frame.clear_all()
+
             while not self.__ll_employee.check_if_in_available(date,"flight service manager",action):
                 print("Input is invalid")
                 a = self.__ll_employee.check_if_available(date,"flight service manager")
@@ -181,8 +206,10 @@ class VoyageUI():
                     self.voyage_menu()
                 if action.lower() == "q":
                     return "q"
+                
 
             new_voyage += action + ","
+            self.frame.clear_all()
 
             a = self.__ll_employee.check_if_available(date,"flight attendant")
             print(a)
@@ -192,6 +219,9 @@ class VoyageUI():
                 self.voyage_menu()
             if action.lower() == "q":
                 return "q"
+            
+            self.frame.clear_all()
+
             while not self.__ll_employee.check_if_in_available(date,"flight attendant",action):
                 print("Input is invalid")
                 action = input("Enter the first flight servant's SSN (0000000000): ")
@@ -201,6 +231,7 @@ class VoyageUI():
                     return "q"
 
             new_voyage += action + ","
+            self.frame.clear_all()
             
             
             a = self.__ll_employee.check_if_available(date,"flight attendant")
@@ -211,6 +242,8 @@ class VoyageUI():
                 self.voyage_menu()
             if action.lower() == "q":
                 return "q"
+            self.frame.clear_all()
+
             while not self.__ll_employee.check_if_in_available(date,"flight attendant",action):
                 print("Input is invalid")
                 action = input("Enter the first flight servant's SSN (0000000000): ")
@@ -218,6 +251,7 @@ class VoyageUI():
                     self.voyage_menu()
                 if action.lower() == "q":
                     return "q"
+                self.frame.clear_all()
 
             new_voyage += action
             self.__ll_voyage.create_voyage(new_voyage)   
@@ -225,6 +259,7 @@ class VoyageUI():
             action = input("Do you want to create another voyage? (y/n): ").lower()
             if action == "n":  # virkar ekki!
                 return "q"
+            self.frame.clear_all()
             
     def display_menu(self):
         """After the user has chosen the "display" option, he has three new options"""
@@ -236,6 +271,8 @@ class VoyageUI():
             print("\tEnter 3 to see the state of the voyages for today")
             print('Enter "b" to go back and "q" to got to the main menu.')
             action = input("Please enter your commmand: ").lower()
+
+            self.frame.clear_all()
         
             if action == "1":
                 action = self.daily_list()
@@ -258,6 +295,7 @@ class VoyageUI():
         display_voyages = ""
 
         print('Enter "b" to go back and "q" to got to the main menu.')
+        self.frame.clear_all()
        
         while True:                                                       # ..og maður ýtir á q ferð maður bara til baka í voyage_menu...ekki main menu 
             action = input("Enter a date: ")
@@ -265,6 +303,7 @@ class VoyageUI():
                 self.voyage_menu()
             if action.lower() == "q":
                 return "q"
+            self.frame.clear_all()
             while not self.__ll_destination.validate_distance(action):       # Nota distance núna því bara tölur MUNA :Breyta í DATETIME validated
                 print("Input is invalid")
                 action = input("Enter a date: ")
@@ -273,6 +312,7 @@ class VoyageUI():
                 if action.lower() == "q":
                     return "q"
             display_voyages += action
+            self.frame.clear_all()
             
         
         # Birta listannn ! 
@@ -324,6 +364,7 @@ class VoyageUI():
             self.display_menu()
         if action == 'q':
             return "q"
+        self.frame.clear_all()
         while not self.__ll_destination.validate_distance(action):       # Nota distance núna því bara tölur MUNA :Breyta í DATETIME validated
             print("Input is invalid")
             action = input("Enter a date: ")
@@ -332,6 +373,7 @@ class VoyageUI():
             if action == 'q':                        
                 return "q"
         display_state += action                   # a) lokið, b) lent ytra, c) í loftinu eða d) ekki hafin
+        self.frame.clear_all()
                                    #  þarf að breyta strengnum í hlut, t.a.m. með dateutil.parser,
 
         # VANTAR Birta lista vinnuferða þar sem sést hvaða ferðum er lokið, lent ytra og eða felld niður
@@ -342,6 +384,7 @@ class VoyageUI():
         for voyage in self.__voyage_list:
             return_str += voyage.__str__() + '\n'
         return return_str
+        self.frame.clear_all()
 
     def show_by_status_day(self):
         date = input("Please enter YYYY/mm/dd: ")
@@ -349,22 +392,34 @@ class VoyageUI():
             self.voyage_menu()
         if date.lower() == "q":
             return "q"
+        self.frame.clear_all()
         print()
         print(self.__ll_voyage.show_voyages_on_a_day(date))
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
+        self.frame.clear_all()
 
     def show_by_status_week(self):
+<<<<<<< HEAD
         start_date = input("Please enter first date YYYY/mm/dd: ")
         end_date = input("Please enter the end date YYYY/mm/dd: ")
 
+=======
+        date = input("Please enter YYYY/mm/dd: ")
+        if date.lower() == "b":
+            self.voyage_menu()
+        if date.lower() == "q":
+            return "q"
+        self.frame.clear_all()
+>>>>>>> 48e2f5b5738b64d1c7cb829a98b000694051de34
         print()
 
         print(self.__ll_voyage.show_voyages_in_a_week(start_date,end_date))
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
         if action == "q":
             return "q"
+        self.frame.clear_all()
 
 
 
