@@ -28,6 +28,4 @@ _  /|  / / /_/ /_  /|  /    / /_/ /_  / _  /
     def clearing(self):
         os.system("cls" if os.name == "nt" else "clear")
         print("{}\n\n\n".format(self.logo)
-    
-    #def __str__(self):
-        #return "{}\n\n\n".format(self.logo)
+
