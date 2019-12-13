@@ -32,17 +32,17 @@ class EmployeeUI():
             elif action == "2":
                 leave =  self.call_on_validate_and_change()
             elif action == "3":
-                self.show_by_status()
+                leave = self.show_by_status()
             elif action == "4":
-                self.show_by_aplha()
+                leave = self.show_by_aplha()
             elif action == "5":
-                self.show_by_rank("flight attendant")
+                leave = self.show_by_rank("flight attendant")
             elif action == "6":
-                self.show_by_rank("pilot")
+                leave = self.show_by_rank("pilot")
             elif action =="7":
-                self.show_by_licence()
+                leave = self.show_by_licence()
             elif action == "8":
-                self.show_a_single_employee()
+                leave = self.show_a_single_employee()
             elif action == "b" or action == "q":
                 break
 
@@ -280,14 +280,18 @@ class EmployeeUI():
         employio = self.employeell.sort_employees_by_alpha()
         print(employio)
         ssn = input("enter the ssn of the employee you want to see: ")
-        while not self.employeell.validate_ssn(ssn):
+        if ssn == 'b':
+            break
+        elif ssn == 'q':
+            return 'q'
+        while not self.employeell.check_for_ssn(ssn):
             print("Invalid input!")
             action = input("Enter the ssn: ")
             if action == 'b':
                 break
             if action == 'q':
                 return 'q'
-
+        employio = self.employeell.show_single_employee(ssn)
         print(employio)
         print()
         action = input('Enter "b" to go back and "q" to got to the main menu: ')
@@ -296,7 +300,7 @@ class EmployeeUI():
 
     def show_by_licence(self):
         print()
-        employio = self.employeell.display_pilots()
+        employio = self.employeell.display_pilots("permit")
         print(employio)
         print()
         action = input('Enter "b" to go back and "q" to got to the main menu: ')

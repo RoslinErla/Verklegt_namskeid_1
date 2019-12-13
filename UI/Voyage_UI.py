@@ -52,7 +52,6 @@ class VoyageUI():
         """After the user has chosen the "change" option, he has two new options"""
         action = ""
         while leave != "q":
-            
             action = input("Please enter your commmand: ").lower()
         
             if action == "1":
@@ -75,8 +74,8 @@ class VoyageUI():
         print('Enter "b" to go back and "q" to got to the main menu.')
  
         while action != "q":
-            self.__io_voyage.load_voyage_from_file()
-            print(self.__io_voyage)
+            a = self.__ll_voyage.load_voyage_from_file()
+            print(a)
             print()
             date = input("Enter the departure time from Iceland (year(YYYY)/month(0-12)/day(0-31)/hour(0-23)/minutes(0-59): ")
             action = date
@@ -134,93 +133,78 @@ class VoyageUI():
                 return "q"
             while not self.__ll_employee.check_if_in_available(date,"captain",action):
                 print("Input is invalid")
-                self.__io_employee.display_pilots("alpha")
-                print(self.__io_employee)
-                print()
+                a = self.__ll_employee.check_if_available(date,"captain")
+                print(a)
                 action = input("Enter the captain's SSN (0000000000): ")
-                if action == 'b':
-                    self.create_menu()
-                if action == 'q':
+                if action.lower() == 'b' or action.lower() == "q":
                     return "q"
+
             new_voyage += action + ","
 
 
-            self.__io_employee.display_pilots("alpha")
-            print(self.__io_employee)
+            a = self.__ll_employee.check_if_available(date,"co-pilot")
+            print(a)
             print()
             action = input("Enter the co-pilot's SSN (0000000000): ")      # User inputs the SSN for the co-pilot
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
+            if action == 'b' or action.lower() == "q":
                 return "q"
-            while not self.__ll_voyage.validate_SSN(action):
+            while not self.__ll_employee.check_if_in_available(date,"co-pilot",action):
                 print("Input is invalid")
-                self.__io_employee.display_pilots("alpha")
-                print(self.__io_employee)
+                a = self.__ll_employee.check_if_available(date,"co-pilot")
+                print(a)
                 print()
                 action = input("Enter the co-pilot's SSN (0000000000): ")
-                if action == 'b':
-                    self.create_menu()
-                if action == 'q':
+                if action.lower() == 'b'or action.lower() == "q":
                     return "q"
 
             new_voyage += action + ","
             
 
-            self.__io_employee.display_flight_attendants()
-            print(self.__io_employee)
+            a = self.__ll_employee.check_if_available(date,"flight service manager")
+            print(a)
+
             print()
             action = input("Enter the flight service manager's SSN (0000000000): ")  # User inputs the SSN for the fsm
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
+            if action.lower() == 'b' or action.lower() == "q":
                 return "q"
-            while not self.__ll_voyage.validate_SSN(action):
+            while not self.__ll_employee.check_if_in_available(date,"flight service manager",action):
                 print("Input is invalid")
-                self.__io_employee().display_flight_attendants()
-                print(self.__io_employee)
+                a = self.__ll_employee.check_if_available(date,"flight service manager")
+                print(a)
                 print()
                 action = input("Enter the flight service manager's SSN (0000000000): ")
-                if action == 'b':
-                    self.create_menu()
-                if action == 'q':
+                if action.lower() == 'b' or action.lower() == "q":
                     return "q"
-            new_voyage += action + ","
-            
 
-            self.__io_employee.display_flight_attendants()
-            print(self.__io_employee)
+            new_voyage += action + ","
+
+            a = self.__ll_employee.check_if_available(date,"flight attendant")
+            print(a)
             print()            
             action = input("Enter the first flight attendant SSN (0000000000): ")   # User inputs the SSN for the first flight attendant
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
+            if action.lower() == 'b' or action.lower() =="q":
                 return "q"
-            while not self.__ll_voyage.validate_SSN(action):
+            while not self.__ll_employee.check_if_in_available(date,"flight attendant",action):
                 print("Input is invalid")
                 action = input("Enter the first flight servant's SSN (0000000000): ")
-                if action == 'b':
-                    self.create_menu()
-                if action == 'q':
+                if action == 'b' or action.lower() == "q":
                     return "q"
+
             new_voyage += action + ","
             
             
-            self.__io_employee.display_flight_attendants()
-            print(self.__io_employee)
-            print()
-            action = input("Enter the second flight servant's SSN (0000000000): ")       # User inputs the SSN for the second flight attendant
-            if action == 'b':
-                self.create_menu()
-            if action == 'q':
+            a = self.__ll_employee.check_if_available(date,"flight attendant")
+            print(a)
+            print()            
+            action = input("Enter the first flight attendant SSN (0000000000): ")   # User inputs the SSN for the first flight attendant
+            if action.lower() == 'b' or action.lower() =="q":
                 return "q"
-            while not self.__ll_voyage.validate_SSN(action):
+            while not self.__ll_employee.check_if_in_available(date,"flight attendant",action):
                 print("Input is invalid")
-                action = input("Enter the second flight servant's SSN (0000000000): ")
-                if action == 'b':
-                    self.create_menu()
-                if action == 'q':
+                action = input("Enter the first flight servant's SSN (0000000000): ")
+                if action == 'b' or action.lower() == "q":
                     return "q"
+
             new_voyage += action
             self.__ll_voyage.create_voyage(new_voyage)   
 
